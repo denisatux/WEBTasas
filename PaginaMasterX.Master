@@ -1,0 +1,40 @@
+<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="PaginaMasterX.Master.vb" Inherits="WEBTasas.PaginaMasterX" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Menu Principal</title>
+</head>
+<body bgcolor="#ffffff" background="IMG/fondoconteblanco.png">
+    <form id="form1" runat="server">
+    <div>
+        <table style="width: 100%">
+            <tr>
+                <td style="height: 95px; background-color: #ff6600; width: 100%;">
+            <asp:Label ID="LbDias" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="White"
+                        Text="Label" Width="100%"></asp:Label></td>
+                    <td style="height: 100%; background-color: #ff6600; text-align: right; width:auto;">
+                    
+                    <img src="IMG/LOGOpeque2.JPG" /></td>
+            </tr>
+            <tr>
+            <td style="width: 100%; height: 100%" colspan="2">
+                    </td>
+            </tr>
+            </table>
+            
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+            </asp:ContentPlaceHolder>
+            <table style="width: 100%; position: static;">
+            <tr>
+            <td style="height: 50px; background-color: #ff6600">
+            </td>                
+            </tr>
+            </table>
+            
+       
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5EAFD635-0C2C-4F7F-BDF3-1E6060F51715}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>WEBTasas</RootNamespace>
+    <AssemblyName>WEBTasas</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>WEBTasas.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>WEBTasas.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RoderoLib, Version=1.0.1777.2921, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WebProspectos\bin\RoderoLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="232db951-DGxo.aspx" />
+    <Content Include="232db951-DGxa.aspx" />
+    <Content Include="23EdbC95T-stat.aspx" />
+    <Content Include="232db951-Suba.aspx" />
+    <Content Include="2cf0d94b-dcd6.aspx" />
+    <Content Include="232db951-oiva.aspx" />
+    <Content Include="552db804-scod.aspx" />
+    <Content Include="552db804-70f8.aspx" />
+    <Content Include="951sb999-7xx8.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="232db951-DGxo.aspx.designer.vb">
+      <DependentUpon>232db951-DGxo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="232db951-DGxo.aspx.vb">
+      <DependentUpon>232db951-DGxo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="232db951-DGxa.aspx.designer.vb">
+      <DependentUpon>232db951-DGxa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="232db951-DGxa.aspx.vb">
+      <DependentUpon>232db951-DGxa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="23EdbC95T-stat.aspx.designer.vb">
+      <DependentUpon>23EdbC95T-stat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="23EdbC95T-stat.aspx.vb">
+      <DependentUpon>23EdbC95T-stat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="232db951-Suba.aspx.designer.vb">
+      <DependentUpon>232db951-Suba.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="232db951-Suba.aspx.vb">
+      <DependentUpon>232db951-Suba.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="2cf0d94b-dcd6.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>2cf0d94b-dcd6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="2cf0d94b-dcd6.aspx.designer.vb">
+      <DependentUpon>2cf0d94b-dcd6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="232db951-oiva.aspx.designer.vb">
+      <DependentUpon>232db951-oiva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="232db951-oiva.aspx.vb">
+      <DependentUpon>232db951-oiva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="552db804-scod.aspx.designer.vb">
+      <DependentUpon>552db804-scod.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="552db804-scod.aspx.vb">
+      <DependentUpon>552db804-scod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="552db804-70f8.aspx.designer.vb">
+      <DependentUpon>552db804-70f8.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="552db804-70f8.aspx.vb">
+      <DependentUpon>552db804-70f8.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="951sb999-7xx8.aspx.designer.vb">
+      <DependentUpon>951sb999-7xx8.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="951sb999-7xx8.aspx.vb">
+      <DependentUpon>951sb999-7xx8.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Factor100DS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Factor100DS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Globales.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PaginaMasterX.Master.designer.vb">
+      <DependentUpon>PaginaMasterX.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaMasterX.Master.vb">
+      <DependentUpon>PaginaMasterX.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProDS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Cotizador.aspx.designer.vb">
+      <DependentUpon>Cotizador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cotizador.aspx.vb">
+      <DependentUpon>Cotizador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProDS.vb">
+      <DependentUpon>ProDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SeguridadDS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SeguridadDS.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Factor100DS.xsc">
+      <DependentUpon>Factor100DS.xsd</DependentUpon>
+    </None>
+    <None Include="Factor100DS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Factor100DS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Factor100DS.xss">
+      <DependentUpon>Factor100DS.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\PublishProfiles\WebTasas.pubxml" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="IMG\check1.JPG" />
+    <Content Include="IMG\fondoconteblanco.png" />
+    <Content Include="IMG\LOGO FINAGIL.JPG" />
+    <Content Include="IMG\LOGOpeque.JPG" />
+    <Content Include="IMG\LOGOpeque2.JPG" />
+    <Content Include="IMG\sep.JPG" />
+    <Content Include="PaginaMasterX.Master" />
+    <Content Include="Cotizador.aspx" />
+    <None Include="ProDS.xsc">
+      <DependentUpon>ProDS.xsd</DependentUpon>
+    </None>
+    <None Include="ProDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProDS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="ProDS.xss">
+      <DependentUpon>ProDS.xsd</DependentUpon>
+    </None>
+    <Content Include="SeguridadDS.xsc">
+      <DependentUpon>SeguridadDS.xsd</DependentUpon>
+    </Content>
+    <None Include="SeguridadDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SeguridadDS.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="SeguridadDS.xss">
+      <DependentUpon>SeguridadDS.xsd</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2390</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
