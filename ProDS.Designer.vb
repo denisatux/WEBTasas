@@ -11738,13 +11738,14 @@ Namespace ProDSTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.Descr, Vw_Anexos.TipoCredito, Vw_Anex"& _ 
-                "os.MontoFin, MC_cambio_condiciones.id_hojaCambios, MC_cambio_condiciones.FirmaSu"& _ 
-                "bPromo, MC_cambio_condiciones.FirmaDireccion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            MC_cambio_condicio"& _ 
-                "nes INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos ON MC_cambio_condiciones.Anex"& _ 
-                "o = Vw_Anexos.Anexo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (MC_cambio_condiciones.FirmaSubPromo = @User) "& _ 
-                "OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (MC_cambio_condiciones.FirmaDireccion = @User)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORD"& _ 
-                "ER BY Vw_Anexos.AnexoCon"
+            Me._commandCollection(0).CommandText = "SELECT        Vw_AnexosResumen.AnexoCon, Vw_AnexosResumen.Descr, Vw_AnexosResumen"& _ 
+                ".TipoCredito, Vw_AnexosResumen.MontoFinanciado AS MontoFin, MC_cambio_condicione"& _ 
+                "s.id_hojaCambios, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         MC_cambio_condiciones.FirmaSubPromo"& _ 
+                ", MC_cambio_condiciones.FirmaDireccion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            MC_cambio_condiciones IN"& _ 
+                "NER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_AnexosResumen ON MC_cambio_condiciones.Ane"& _ 
+                "xo = Vw_AnexosResumen.Anexo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (MC_cambio_condiciones.FirmaSubPromo ="& _ 
+                " @User) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (MC_cambio_condiciones.FirmaDireccion = @Us"& _ 
+                "er)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Vw_AnexosResumen.AnexoCon"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@User", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "FirmaSubPromo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
