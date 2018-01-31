@@ -79,6 +79,7 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="10279124EA2D4A47A4CC.aspx" />
     <Content Include="5159dx1-HCaut.aspx" />
     <Content Include="232db951-DGxo.aspx" />
     <Content Include="232db951-DGxa.aspx" />
@@ -93,6 +94,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="10279124EA2D4A47A4CC.aspx.designer.vb">
+      <DependentUpon>10279124EA2D4A47A4CC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="10279124EA2D4A47A4CC.aspx.vb">
+      <DependentUpon>10279124EA2D4A47A4CC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="5159dx1-HCaut.aspx.designer.vb">
       <DependentUpon>5159dx1-HCaut.aspx</DependentUpon>
     </Compile>
