@@ -355,8 +355,8 @@ WHERE        (Id_Bitacora = @ID)</CommandText>
               <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, Vw_Anexos.Descr, Vw_Anexos.Nombre_Sucursal, mFINAGIL.Importe, CONVERT(datetime, mFINAGIL.FechaAlta, 112) AS FechaAlta, Vw_Anexos.Cultivo, 
-                         mFINAGIL.Ministracion, Vw_Anexos.TipoCredito, mFINAGIL.Usuario AS Solicito, Vw_Anexos.Anexo, mFINAGIL.Documento, mFINAGIL.Vobo, mFINAGIL.MesaControl, mFINAGIL.Autoriza
+                    <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, Vw_Anexos.Descr, Vw_Anexos.Nombre_Sucursal, mFINAGIL.Importe, CONVERT(datetime, mFINAGIL.FechaAlta, 112) AS FechaAlta, Vw_Anexos.Cultivo, mFINAGIL.Ministracion, 
+                         Vw_Anexos.TipoCredito, mFINAGIL.Usuario AS Solicito, Vw_Anexos.Anexo, mFINAGIL.Documento, mFINAGIL.Vobo, mFINAGIL.MesaControl, mFINAGIL.Autoriza, mFINAGIL.Notas, mFINAGIL.NotasCredito
 FROM            mFINAGIL INNER JOIN
                          Vw_Anexos ON mFINAGIL.Anexo = Vw_Anexos.Anexo AND mFINAGIL.Ciclo = Vw_Anexos.Ciclo
 WHERE        (mFINAGIL.Vobo = @User) AND (mFINAGIL.VoboAut = 0) AND (Vw_Anexos.TipoCredito &lt;&gt; 'ANTICIPO AVÍO') AND (mFINAGIL.Procesado = 0)</CommandText>
@@ -383,6 +383,8 @@ WHERE        (mFINAGIL.Vobo = @User) AND (mFINAGIL.VoboAut = 0) AND (Vw_Anexos.T
               <Mapping SourceColumn="Vobo" DataSetColumn="Vobo" />
               <Mapping SourceColumn="MesaControl" DataSetColumn="MesaControl" />
               <Mapping SourceColumn="Autoriza" DataSetColumn="Autoriza" />
+              <Mapping SourceColumn="Notas" DataSetColumn="Notas" />
+              <Mapping SourceColumn="NotasCredito" DataSetColumn="NotasCredito" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DarVobo" Modifier="Public" Name="DarVobo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DarVobo">
@@ -456,7 +458,7 @@ WHERE        (Anexo = @Anexo) AND (Tipar = N'A')</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, Vw_Anexos.Descr, Vw_Anexos.Nombre_Sucursal, mFINAGIL.Importe, CONVERT(datetime, mFINAGIL.FechaAlta, 112) AS FechaAlta, Vw_Anexos.Cultivo, mFINAGIL.Ministracion, 
-                         Vw_Anexos.TipoCredito, mFINAGIL.Usuario AS Solicito, Vw_Anexos.Anexo, mFINAGIL.Documento, mFINAGIL.Vobo, mFINAGIL.MesaControl, mFINAGIL.Autoriza
+                         Vw_Anexos.TipoCredito, mFINAGIL.Usuario AS Solicito, Vw_Anexos.Anexo, mFINAGIL.Documento, mFINAGIL.Vobo, mFINAGIL.MesaControl, mFINAGIL.Autoriza, mFINAGIL.Notas, mFINAGIL.NotasCredito
 FROM            mFINAGIL INNER JOIN
                          Vw_Anexos ON mFINAGIL.Anexo = Vw_Anexos.Anexo AND mFINAGIL.Ciclo = Vw_Anexos.Ciclo
 WHERE        (Vw_Anexos.TipoCredito = 'ANTICIPO AVÍO') AND (mFINAGIL.Procesado = 0) AND (mFINAGIL.Autoriza = @User) AND (mFINAGIL.AutorizaAut = 0)</CommandText>
@@ -470,7 +472,7 @@ WHERE        (Vw_Anexos.TipoCredito = 'ANTICIPO AVÍO') AND (mFINAGIL.Procesado 
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, Vw_Anexos.Descr, Vw_Anexos.Nombre_Sucursal, mFINAGIL.Importe, CONVERT(datetime, mFINAGIL.FechaAlta, 112) AS FechaAlta, Vw_Anexos.Cultivo, mFINAGIL.Ministracion, 
-                         Vw_Anexos.TipoCredito, mFINAGIL.Usuario AS Solicito, Vw_Anexos.Anexo, mFINAGIL.Documento, mFINAGIL.Vobo, mFINAGIL.MesaControl, mFINAGIL.Credito AS Autoriza
+                         Vw_Anexos.TipoCredito, mFINAGIL.Usuario AS Solicito, Vw_Anexos.Anexo, mFINAGIL.Documento, mFINAGIL.Vobo, mFINAGIL.MesaControl, mFINAGIL.Credito AS Autoriza, mFINAGIL.Notas, mFINAGIL.CreditoAut
 FROM            mFINAGIL INNER JOIN
                          Vw_Anexos ON mFINAGIL.Anexo = Vw_Anexos.Anexo AND mFINAGIL.Ciclo = Vw_Anexos.Ciclo
 WHERE        (Vw_Anexos.TipoCredito &lt;&gt; 'ANTICIPO AVÍO') AND (mFINAGIL.Procesado = 0) AND (mFINAGIL.Credito = @User) AND (mFINAGIL.CreditoAut = 0)</CommandText>
@@ -483,8 +485,8 @@ WHERE        (Vw_Anexos.TipoCredito &lt;&gt; 'ANTICIPO AVÍO') AND (mFINAGIL.Pro
               <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMinistracion" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByMinistracion" GeneratorSourceName="FillByMinistracion" GetMethodModifier="Public" GetMethodName="GetDataByMinistracion" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByMinistracion" UserSourceName="FillByMinistracion">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, Vw_Anexos.Descr, Vw_Anexos.Nombre_Sucursal, mFINAGIL.Importe, CONVERT(datetime, mFINAGIL.FechaAlta, 112) AS FechaAlta, Vw_Anexos.Cultivo, 
-                         mFINAGIL.Ministracion, Vw_Anexos.TipoCredito, mFINAGIL.Usuario AS Solicito, Vw_Anexos.Anexo, mFINAGIL.Documento, mFINAGIL.Vobo, mFINAGIL.MesaControl, mFINAGIL.Autoriza
+                    <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, Vw_Anexos.Descr, Vw_Anexos.Nombre_Sucursal, mFINAGIL.Importe, CONVERT(datetime, mFINAGIL.FechaAlta, 112) AS FechaAlta, Vw_Anexos.Cultivo, mFINAGIL.Ministracion, 
+                         Vw_Anexos.TipoCredito, mFINAGIL.Usuario AS Solicito, Vw_Anexos.Anexo, mFINAGIL.Documento, mFINAGIL.Vobo, mFINAGIL.MesaControl, mFINAGIL.Autoriza, mFINAGIL.Notas, mFINAGIL.NotasCredito
 FROM            mFINAGIL INNER JOIN
                          Vw_Anexos ON mFINAGIL.Anexo = Vw_Anexos.Anexo AND mFINAGIL.Ciclo = Vw_Anexos.Ciclo
 WHERE        (Vw_Anexos.Anexo = @Anexo) AND (mFINAGIL.Ministracion = @Ministracion)</CommandText>
@@ -499,7 +501,7 @@ WHERE        (Vw_Anexos.Anexo = @Anexo) AND (mFINAGIL.Ministracion = @Ministraci
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, Vw_Anexos.Descr, Vw_Anexos.Nombre_Sucursal, mFINAGIL.Importe, CONVERT(datetime, mFINAGIL.FechaAlta, 112) AS FechaAlta, Vw_Anexos.Cultivo, mFINAGIL.Ministracion, 
-                         Vw_Anexos.TipoCredito, mFINAGIL.Usuario AS Solicito, Vw_Anexos.Anexo, mFINAGIL.Documento, mFINAGIL.Vobo, mFINAGIL.MesaControl, mFINAGIL.Autoriza
+                         Vw_Anexos.TipoCredito, mFINAGIL.Usuario AS Solicito, Vw_Anexos.Anexo, mFINAGIL.Documento, mFINAGIL.Vobo, mFINAGIL.MesaControl, mFINAGIL.Autoriza, mFINAGIL.Notas, mFINAGIL.NotasCredito
 FROM            mFINAGIL INNER JOIN
                          Vw_Anexos ON mFINAGIL.Anexo = Vw_Anexos.Anexo AND mFINAGIL.Ciclo = Vw_Anexos.Ciclo
 WHERE        (mFINAGIL.Vobo = @User) AND (mFINAGIL.VoboAut = 0) AND (mFINAGIL.Procesado = 0) AND (Vw_Anexos.TipoCredito = 'ANTICIPO AVÍO')</CommandText>
@@ -989,7 +991,7 @@ ORDER BY DiasRetraso</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="BitacoraMC" msprop:Generator_TableClassName="BitacoraMCDataTable" msprop:Generator_TableVarName="tableBitacoraMC" msprop:Generator_TablePropName="BitacoraMC" msprop:Generator_RowDeletingName="BitacoraMCRowDeleting" msprop:Generator_RowChangingName="BitacoraMCRowChanging" msprop:Generator_RowEvHandlerName="BitacoraMCRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraMCRowDeleted" msprop:Generator_UserTableName="BitacoraMC" msprop:Generator_RowChangedName="BitacoraMCRowChanged" msprop:Generator_RowEvArgName="BitacoraMCRowChangeEvent" msprop:Generator_RowClassName="BitacoraMCRow">
+        <xs:element name="BitacoraMC" msprop:Generator_TableClassName="BitacoraMCDataTable" msprop:Generator_TableVarName="tableBitacoraMC" msprop:Generator_RowChangedName="BitacoraMCRowChanged" msprop:Generator_TablePropName="BitacoraMC" msprop:Generator_RowDeletingName="BitacoraMCRowDeleting" msprop:Generator_RowChangingName="BitacoraMCRowChanging" msprop:Generator_RowEvHandlerName="BitacoraMCRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraMCRowDeleted" msprop:Generator_RowClassName="BitacoraMCRow" msprop:Generator_UserTableName="BitacoraMC" msprop:Generator_RowEvArgName="BitacoraMCRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_Bitacora" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId_Bitacora" msprop:Generator_ColumnPropNameInRow="Id_Bitacora" msprop:Generator_ColumnPropNameInTable="Id_BitacoraColumn" msprop:Generator_UserColumnName="Id_Bitacora" type="xs:decimal" />
@@ -1134,7 +1136,7 @@ ORDER BY DiasRetraso</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AvioVobo" msprop:Generator_TableClassName="AvioVoboDataTable" msprop:Generator_TableVarName="tableAvioVobo" msprop:Generator_RowChangedName="AvioVoboRowChanged" msprop:Generator_TablePropName="AvioVobo" msprop:Generator_RowDeletingName="AvioVoboRowDeleting" msprop:Generator_RowChangingName="AvioVoboRowChanging" msprop:Generator_RowEvHandlerName="AvioVoboRowChangeEventHandler" msprop:Generator_RowDeletedName="AvioVoboRowDeleted" msprop:Generator_RowClassName="AvioVoboRow" msprop:Generator_UserTableName="AvioVobo" msprop:Generator_RowEvArgName="AvioVoboRowChangeEvent">
+        <xs:element name="AvioVobo" msprop:Generator_TableClassName="AvioVoboDataTable" msprop:Generator_TableVarName="tableAvioVobo" msprop:Generator_TablePropName="AvioVobo" msprop:Generator_RowDeletingName="AvioVoboRowDeleting" msprop:Generator_RowChangingName="AvioVoboRowChanging" msprop:Generator_RowEvHandlerName="AvioVoboRowChangeEventHandler" msprop:Generator_RowDeletedName="AvioVoboRowDeleted" msprop:Generator_UserTableName="AvioVobo" msprop:Generator_RowChangedName="AvioVoboRowChanged" msprop:Generator_RowEvArgName="AvioVoboRowChangeEvent" msprop:Generator_RowClassName="AvioVoboRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -1224,10 +1226,24 @@ ORDER BY DiasRetraso</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Notas" msprop:Generator_ColumnVarNameInTable="columnNotas" msprop:Generator_ColumnPropNameInRow="Notas" msprop:Generator_ColumnPropNameInTable="NotasColumn" msprop:Generator_UserColumnName="Notas" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NotasCredito" msprop:Generator_ColumnVarNameInTable="columnNotasCredito" msprop:Generator_ColumnPropNameInRow="NotasCredito" msprop:Generator_ColumnPropNameInTable="NotasCreditoColumn" msprop:Generator_UserColumnName="NotasCredito" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StatusMinistraciones" msprop:Generator_TableClassName="StatusMinistracionesDataTable" msprop:Generator_TableVarName="tableStatusMinistraciones" msprop:Generator_TablePropName="StatusMinistraciones" msprop:Generator_RowDeletingName="StatusMinistracionesRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesRowDeleted" msprop:Generator_UserTableName="StatusMinistraciones" msprop:Generator_RowChangedName="StatusMinistracionesRowChanged" msprop:Generator_RowEvArgName="StatusMinistracionesRowChangeEvent" msprop:Generator_RowClassName="StatusMinistracionesRow">
+        <xs:element name="StatusMinistraciones" msprop:Generator_TableClassName="StatusMinistracionesDataTable" msprop:Generator_TableVarName="tableStatusMinistraciones" msprop:Generator_RowChangedName="StatusMinistracionesRowChanged" msprop:Generator_TablePropName="StatusMinistraciones" msprop:Generator_RowDeletingName="StatusMinistracionesRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesRowDeleted" msprop:Generator_RowClassName="StatusMinistracionesRow" msprop:Generator_UserTableName="StatusMinistraciones" msprop:Generator_RowEvArgName="StatusMinistracionesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombre_Sucursal" msprop:Generator_ColumnVarNameInTable="columnNombre_Sucursal" msprop:Generator_ColumnPropNameInRow="Nombre_Sucursal" msprop:Generator_ColumnPropNameInTable="Nombre_SucursalColumn" msprop:Generator_UserColumnName="Nombre_Sucursal">
@@ -1256,7 +1272,7 @@ ORDER BY DiasRetraso</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CorreosFases" msprop:Generator_TableClassName="CorreosFasesDataTable" msprop:Generator_TableVarName="tableCorreosFases" msprop:Generator_TablePropName="CorreosFases" msprop:Generator_RowDeletingName="CorreosFasesRowDeleting" msprop:Generator_RowChangingName="CorreosFasesRowChanging" msprop:Generator_RowEvHandlerName="CorreosFasesRowChangeEventHandler" msprop:Generator_RowDeletedName="CorreosFasesRowDeleted" msprop:Generator_UserTableName="CorreosFases" msprop:Generator_RowChangedName="CorreosFasesRowChanged" msprop:Generator_RowEvArgName="CorreosFasesRowChangeEvent" msprop:Generator_RowClassName="CorreosFasesRow">
+        <xs:element name="CorreosFases" msprop:Generator_TableClassName="CorreosFasesDataTable" msprop:Generator_TableVarName="tableCorreosFases" msprop:Generator_RowChangedName="CorreosFasesRowChanged" msprop:Generator_TablePropName="CorreosFases" msprop:Generator_RowDeletingName="CorreosFasesRowDeleting" msprop:Generator_RowChangingName="CorreosFasesRowChanging" msprop:Generator_RowEvHandlerName="CorreosFasesRowChangeEventHandler" msprop:Generator_RowDeletedName="CorreosFasesRowDeleted" msprop:Generator_RowClassName="CorreosFasesRow" msprop:Generator_UserTableName="CorreosFases" msprop:Generator_RowEvArgName="CorreosFasesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_correo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_correo" msprop:Generator_ColumnPropNameInRow="id_correo" msprop:Generator_ColumnPropNameInTable="id_correoColumn" msprop:Generator_UserColumnName="id_correo" type="xs:decimal" />
@@ -1284,7 +1300,7 @@ ORDER BY DiasRetraso</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StatusMinistracionesDET" msprop:Generator_TableClassName="StatusMinistracionesDETDataTable" msprop:Generator_TableVarName="tableStatusMinistracionesDET" msprop:Generator_TablePropName="StatusMinistracionesDET" msprop:Generator_RowDeletingName="StatusMinistracionesDETRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesDETRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesDETRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesDETRowDeleted" msprop:Generator_UserTableName="StatusMinistracionesDET" msprop:Generator_RowChangedName="StatusMinistracionesDETRowChanged" msprop:Generator_RowEvArgName="StatusMinistracionesDETRowChangeEvent" msprop:Generator_RowClassName="StatusMinistracionesDETRow">
+        <xs:element name="StatusMinistracionesDET" msprop:Generator_TableClassName="StatusMinistracionesDETDataTable" msprop:Generator_TableVarName="tableStatusMinistracionesDET" msprop:Generator_RowChangedName="StatusMinistracionesDETRowChanged" msprop:Generator_TablePropName="StatusMinistracionesDET" msprop:Generator_RowDeletingName="StatusMinistracionesDETRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesDETRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesDETRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesDETRowDeleted" msprop:Generator_RowClassName="StatusMinistracionesDETRow" msprop:Generator_UserTableName="StatusMinistracionesDET" msprop:Generator_RowEvArgName="StatusMinistracionesDETRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombre_Sucursal" msprop:Generator_ColumnVarNameInTable="columnNombre_Sucursal" msprop:Generator_ColumnPropNameInRow="Nombre_Sucursal" msprop:Generator_ColumnPropNameInTable="Nombre_SucursalColumn" msprop:Generator_UserColumnName="Nombre_Sucursal" minOccurs="0">
@@ -1349,7 +1365,7 @@ ORDER BY DiasRetraso</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HojaCambios" msprop:Generator_TableClassName="HojaCambiosDataTable" msprop:Generator_TableVarName="tableHojaCambios" msprop:Generator_TablePropName="HojaCambios" msprop:Generator_RowDeletingName="HojaCambiosRowDeleting" msprop:Generator_RowChangingName="HojaCambiosRowChanging" msprop:Generator_RowEvHandlerName="HojaCambiosRowChangeEventHandler" msprop:Generator_RowDeletedName="HojaCambiosRowDeleted" msprop:Generator_UserTableName="HojaCambios" msprop:Generator_RowChangedName="HojaCambiosRowChanged" msprop:Generator_RowEvArgName="HojaCambiosRowChangeEvent" msprop:Generator_RowClassName="HojaCambiosRow">
+        <xs:element name="HojaCambios" msprop:Generator_TableClassName="HojaCambiosDataTable" msprop:Generator_TableVarName="tableHojaCambios" msprop:Generator_RowChangedName="HojaCambiosRowChanged" msprop:Generator_TablePropName="HojaCambios" msprop:Generator_RowDeletingName="HojaCambiosRowDeleting" msprop:Generator_RowChangingName="HojaCambiosRowChanging" msprop:Generator_RowEvHandlerName="HojaCambiosRowChangeEventHandler" msprop:Generator_RowDeletedName="HojaCambiosRowDeleted" msprop:Generator_RowClassName="HojaCambiosRow" msprop:Generator_UserTableName="HojaCambios" msprop:Generator_RowEvArgName="HojaCambiosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -1392,7 +1408,7 @@ ORDER BY DiasRetraso</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MC_cambio_condiciones" msprop:Generator_TableClassName="MC_cambio_condicionesDataTable" msprop:Generator_TableVarName="tableMC_cambio_condiciones" msprop:Generator_TablePropName="MC_cambio_condiciones" msprop:Generator_RowDeletingName="MC_cambio_condicionesRowDeleting" msprop:Generator_RowChangingName="MC_cambio_condicionesRowChanging" msprop:Generator_RowEvHandlerName="MC_cambio_condicionesRowChangeEventHandler" msprop:Generator_RowDeletedName="MC_cambio_condicionesRowDeleted" msprop:Generator_UserTableName="MC_cambio_condiciones" msprop:Generator_RowChangedName="MC_cambio_condicionesRowChanged" msprop:Generator_RowEvArgName="MC_cambio_condicionesRowChangeEvent" msprop:Generator_RowClassName="MC_cambio_condicionesRow">
+        <xs:element name="MC_cambio_condiciones" msprop:Generator_TableClassName="MC_cambio_condicionesDataTable" msprop:Generator_TableVarName="tableMC_cambio_condiciones" msprop:Generator_RowChangedName="MC_cambio_condicionesRowChanged" msprop:Generator_TablePropName="MC_cambio_condiciones" msprop:Generator_RowDeletingName="MC_cambio_condicionesRowDeleting" msprop:Generator_RowChangingName="MC_cambio_condicionesRowChanging" msprop:Generator_RowEvHandlerName="MC_cambio_condicionesRowChangeEventHandler" msprop:Generator_RowDeletedName="MC_cambio_condicionesRowDeleted" msprop:Generator_RowClassName="MC_cambio_condicionesRow" msprop:Generator_UserTableName="MC_cambio_condiciones" msprop:Generator_RowEvArgName="MC_cambio_condicionesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Anexo" msprop:Generator_ColumnVarNameInTable="columnAnexo" msprop:Generator_ColumnPropNameInRow="Anexo" msprop:Generator_ColumnPropNameInTable="AnexoColumn" msprop:Generator_UserColumnName="Anexo">
@@ -1512,7 +1528,7 @@ ORDER BY DiasRetraso</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CRED_Seguimientos" msprop:Generator_TableClassName="CRED_SeguimientosDataTable" msprop:Generator_TableVarName="tableCRED_Seguimientos" msprop:Generator_TablePropName="CRED_Seguimientos" msprop:Generator_RowDeletingName="CRED_SeguimientosRowDeleting" msprop:Generator_RowChangingName="CRED_SeguimientosRowChanging" msprop:Generator_RowEvHandlerName="CRED_SeguimientosRowChangeEventHandler" msprop:Generator_RowDeletedName="CRED_SeguimientosRowDeleted" msprop:Generator_UserTableName="CRED_Seguimientos" msprop:Generator_RowChangedName="CRED_SeguimientosRowChanged" msprop:Generator_RowEvArgName="CRED_SeguimientosRowChangeEvent" msprop:Generator_RowClassName="CRED_SeguimientosRow">
+        <xs:element name="CRED_Seguimientos" msprop:Generator_TableClassName="CRED_SeguimientosDataTable" msprop:Generator_TableVarName="tableCRED_Seguimientos" msprop:Generator_RowChangedName="CRED_SeguimientosRowChanged" msprop:Generator_TablePropName="CRED_Seguimientos" msprop:Generator_RowDeletingName="CRED_SeguimientosRowDeleting" msprop:Generator_RowChangingName="CRED_SeguimientosRowChanging" msprop:Generator_RowEvHandlerName="CRED_SeguimientosRowChangeEventHandler" msprop:Generator_RowDeletedName="CRED_SeguimientosRowDeleted" msprop:Generator_RowClassName="CRED_SeguimientosRow" msprop:Generator_UserTableName="CRED_Seguimientos" msprop:Generator_RowEvArgName="CRED_SeguimientosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Responsable" msprop:Generator_ColumnVarNameInTable="columnResponsable" msprop:Generator_ColumnPropNameInRow="Responsable" msprop:Generator_ColumnPropNameInTable="ResponsableColumn" msprop:Generator_UserColumnName="Responsable" minOccurs="0">

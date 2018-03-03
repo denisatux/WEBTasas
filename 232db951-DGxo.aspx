@@ -70,6 +70,7 @@
                 <asp:BoundField DataField="FechaAlta" DataFormatString="{0:d}" HeaderText="FechaAlta" HtmlEncode="False" ReadOnly="True" SortExpression="FechaAlta" />
                 <asp:BoundField DataField="Ministracion" HeaderText="Ministracion" SortExpression="Ministracion" Visible="False" />
                 <asp:BoundField DataField="Anexo" HeaderText="Anexo" SortExpression="Anexo" Visible="False" />
+                <asp:BoundField DataField="Notas" HeaderText="Notas MC" ReadOnly="True" SortExpression="Notas" />
             </Fields>
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <EditRowStyle BackColor="#2461BF" />
