@@ -68,7 +68,7 @@ WHERE        (LimiteInferior &lt;= @Meses) AND (LimiteSuperior &gt;= @Meses) AND
   <xs:element name="CotizaDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CotizaDS" msprop:Generator_UserDSName="CotizaDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TasasAplicables" msprop:Generator_TableClassName="TasasAplicablesDataTable" msprop:Generator_TableVarName="tableTasasAplicables" msprop:Generator_TablePropName="TasasAplicables" msprop:Generator_RowDeletingName="TasasAplicablesRowDeleting" msprop:Generator_RowChangingName="TasasAplicablesRowChanging" msprop:Generator_RowEvHandlerName="TasasAplicablesRowChangeEventHandler" msprop:Generator_RowDeletedName="TasasAplicablesRowDeleted" msprop:Generator_UserTableName="TasasAplicables" msprop:Generator_RowChangedName="TasasAplicablesRowChanged" msprop:Generator_RowEvArgName="TasasAplicablesRowChangeEvent" msprop:Generator_RowClassName="TasasAplicablesRow">
+        <xs:element name="TasasAplicables" msprop:Generator_TableClassName="TasasAplicablesDataTable" msprop:Generator_TableVarName="tableTasasAplicables" msprop:Generator_RowChangedName="TasasAplicablesRowChanged" msprop:Generator_TablePropName="TasasAplicables" msprop:Generator_RowDeletingName="TasasAplicablesRowDeleting" msprop:Generator_RowChangingName="TasasAplicablesRowChanging" msprop:Generator_RowEvHandlerName="TasasAplicablesRowChangeEventHandler" msprop:Generator_RowDeletedName="TasasAplicablesRowDeleted" msprop:Generator_RowClassName="TasasAplicablesRow" msprop:Generator_UserTableName="TasasAplicables" msprop:Generator_RowEvArgName="TasasAplicablesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Límite_x0020_Inferior" msprop:Generator_ColumnVarNameInTable="columnLímite_Inferior" msprop:Generator_ColumnPropNameInRow="Límite_Inferior" msprop:Generator_ColumnPropNameInTable="Límite_InferiorColumn" msprop:Generator_UserColumnName="Límite Inferior" type="xs:unsignedByte" />
@@ -84,7 +84,31 @@ WHERE        (LimiteInferior &lt;= @Meses) AND (LimiteSuperior &gt;= @Meses) AND
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Reporte" msprop:Generator_TableClassName="ReporteDataTable" msprop:Generator_TableVarName="tableReporte" msprop:Generator_TablePropName="Reporte" msprop:Generator_RowDeletingName="ReporteRowDeleting" msprop:Generator_RowChangingName="ReporteRowChanging" msprop:Generator_RowEvHandlerName="ReporteRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteRowDeleted" msprop:Generator_UserTableName="Reporte" msprop:Generator_RowChangedName="ReporteRowChanged" msprop:Generator_RowEvArgName="ReporteRowChangeEvent" msprop:Generator_RowClassName="ReporteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NoPago" msprop:Generator_ColumnVarNameInTable="columnNoPago" msprop:Generator_ColumnPropNameInRow="NoPago" msprop:Generator_ColumnPropNameInTable="NoPagoColumn" msprop:Generator_UserColumnName="NoPago" type="xs:short" />
+              <xs:element name="FecCon" msdata:Caption="FecVen" msprop:Generator_ColumnVarNameInTable="columnFecCon" msprop:Generator_ColumnPropNameInRow="FecCon" msprop:Generator_ColumnPropNameInTable="FecConColumn" msprop:Generator_UserColumnName="FecCon" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FecVen" msprop:Generator_ColumnVarNameInTable="columnFecVen" msprop:Generator_ColumnPropNameInRow="FecVen" msprop:Generator_ColumnPropNameInTable="FecVenColumn" msprop:Generator_UserColumnName="FecVen" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Dias" msprop:Generator_ColumnVarNameInTable="columnDias" msprop:Generator_ColumnPropNameInRow="Dias" msprop:Generator_ColumnPropNameInTable="DiasColumn" msprop:Generator_UserColumnName="Dias" type="xs:short" minOccurs="0" />
+              <xs:element name="Saldo" msprop:Generator_ColumnVarNameInTable="columnSaldo" msprop:Generator_ColumnPropNameInRow="Saldo" msprop:Generator_ColumnPropNameInTable="SaldoColumn" msprop:Generator_UserColumnName="Saldo" type="xs:double" minOccurs="0" />
+              <xs:element name="Extra" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnExtra" msprop:Generator_ColumnPropNameInRow="Extra" msprop:Generator_ColumnPropNameInTable="ExtraColumn" msprop:Generator_UserColumnName="Extra" type="xs:double" minOccurs="0" />
+              <xs:element name="Capital" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnCapital" msprop:Generator_ColumnPropNameInRow="Capital" msprop:Generator_ColumnPropNameInTable="CapitalColumn" msprop:Generator_UserColumnName="Capital" type="xs:double" minOccurs="0" />
+              <xs:element name="Interes" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnInteres" msprop:Generator_ColumnPropNameInRow="Interes" msprop:Generator_ColumnPropNameInTable="InteresColumn" msprop:Generator_UserColumnName="Interes" type="xs:double" minOccurs="0" />
+              <xs:element name="Pago" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnPago" msprop:Generator_ColumnPropNameInRow="Pago" msprop:Generator_ColumnPropNameInTable="PagoColumn" msprop:Generator_UserColumnName="Pago" type="xs:double" minOccurs="0" />
+              <xs:element name="Iva" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnIva" msprop:Generator_ColumnPropNameInRow="Iva" msprop:Generator_ColumnPropNameInTable="IvaColumn" msprop:Generator_UserColumnName="Iva" type="xs:double" minOccurs="0" />
+              <xs:element name="Seguro" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnSeguro" msprop:Generator_ColumnPropNameInRow="Seguro" msprop:Generator_ColumnPropNameInTable="SeguroColumn" msprop:Generator_UserColumnName="Seguro" type="xs:double" minOccurs="0" />
+              <xs:element name="PagoT" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnPagoT" msprop:Generator_ColumnPropNameInRow="PagoT" msprop:Generator_ColumnPropNameInTable="PagoTColumn" msprop:Generator_UserColumnName="PagoT" type="xs:double" minOccurs="0" />
+              <xs:element name="Tasa" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnTasa" msprop:Generator_ColumnPropNameInRow="Tasa" msprop:Generator_ColumnPropNameInTable="TasaColumn" msprop:Generator_UserColumnName="Tasa" type="xs:string" minOccurs="0" />
+              <xs:element name="Seg" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnSeg" msprop:Generator_ColumnPropNameInRow="Seg" msprop:Generator_ColumnPropNameInTable="SegColumn" msprop:Generator_UserColumnName="Seg" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Reporte" />
+      <xs:field xpath="mstns:NoPago" />
+    </xs:unique>
   </xs:element>
 </xs:schema>

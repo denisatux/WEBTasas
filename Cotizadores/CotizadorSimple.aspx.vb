@@ -1,3 +1,5 @@
+Imports CrystalDecisions.CrystalReports.Engine
+Imports CrystalDecisions.Shared
 Partial Public Class WebFormSimple
     Inherits System.Web.UI.Page
     Dim ta As New CotizaDSTableAdapters.TasasAplicablesTableAdapter
@@ -7,7 +9,6 @@ Partial Public Class WebFormSimple
     Dim TasaVidaAnual As Double = TasaVidaMes * 12
     Dim TasaAnual As Double = 0
     Dim Bandera As Boolean = False
-    Dim Cat As String
     Dim ContRecur As Double = 0
     Dim FinDeMes As Boolean = False
 
@@ -30,7 +31,9 @@ Partial Public Class WebFormSimple
     End Sub
 
     Protected Sub BotonEnviar1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonEnviar1.Click
-        If IsNumeric(TxtComision.Text) = False Then
+        BotonImp.Visible = False
+        GridAmortizaciones.Visible = False
+        If IsNumeric(TxtMonto.Text) = False Then
             LbError.Text = "Monto finanaciado no válido."
             LbError.Visible = True
             Exit Sub
@@ -54,6 +57,7 @@ Partial Public Class WebFormSimple
     End Sub
 
     Sub CalculaTabla()
+        Dim TasaIvaX As Decimal = TasaIva
         Dim TAmortizaciones As New ProDS.TablaAmortizacionDataTable
         Dim NoPagos As Integer = 0
         Dim NoPagosAnual As Integer = 0
@@ -68,6 +72,10 @@ Partial Public Class WebFormSimple
 
         If CmbTipoPers.SelectedValue = "M" Then
             SegVidaX = 0
+        End If
+
+        If CmbTipoPers.SelectedValue <> "F" Then
+            TasaIvaX = 0
         End If
 
         TasaAnual = CDbl(TxtTasa.Text) / 100
@@ -149,9 +157,9 @@ Partial Public Class WebFormSimple
 
 
 
-            rr.Iva_Interes = (Interes * TasaIva).ToString("N2")
+            rr.Iva_Interes = (Interes * TasaIvaX).ToString("N2")
             rr.Seguro_de_Vida = (((Capital + Interes) / 1000) * SegVidaX * Dias).ToString("N2")
-            rr.Pago_Total = ((((Capital + Interes) / 1000) * SegVidaX * Dias) + (Interes * TasaIva) + PagoX).ToString("N2")
+            rr.Pago_Total = ((((Capital + Interes) / 1000) * SegVidaX * Dias) + (Interes * TasaIvaX) + PagoX).ToString("N2")
 
             Capital = Capital.ToString("N2") - (PagoX.ToString("N2") - Interes.ToString("N2"))
 
@@ -207,11 +215,11 @@ Partial Public Class WebFormSimple
         GridAmortizaciones.DataSource = TAmortizaciones
         GridAmortizaciones.DataBind()
 
-        BotonImp.Visible = False
         If GridAmortizaciones.Rows.Count > 0 Then
             BotonImp.Visible = True
+            GridAmortizaciones.Visible = True
             Dim TIR As Double = IRR(PagoS, 0.01)
-            Cat = Math.Round((((1 + (TIR)) ^ NoPagosAnual) - 1), 3).ToString("p1")
+            Session.Item("CAT") = Math.Round((((1 + (TIR)) ^ NoPagosAnual) - 1), 3).ToString("p1")
             'LbAjuste.Text = "CAT: " & Cat & "  Ajuste: " & Diferencia.ToString
         End If
 
@@ -259,4 +267,55 @@ Partial Public Class WebFormSimple
         TxtTasa.Text = ta.TasaAplicacble(CmbPlazo.SelectedValue, ta.SacaPeriodoMAX, "CS")
     End Sub
 
+    Protected Sub BotonImp_Click(sender As Object, e As EventArgs) Handles BotonImp.Click
+        Dim rep As New CrystalDecisions.CrystalReports.Engine.ReportDocument
+        Dim DS As New CotizaDS
+        Dim R As CotizaDS.ReporteRow
+        For Each rr As GridViewRow In GridAmortizaciones.Rows
+            R = DS.Tables("Reporte").NewRow
+            R.NoPago = rr.Cells.Item(0).Text
+            R.FecCon = Now.Date
+            R.FecVen = rr.Cells.Item(1).Text
+            R.Dias = rr.Cells.Item(2).Text
+            R.Saldo = rr.Cells.Item(3).Text
+            R.Extra = 0
+            R.Capital = rr.Cells.Item(4).Text
+            R.Interes = rr.Cells.Item(5).Text
+            R.Pago = rr.Cells.Item(6).Text
+            R.Iva = rr.Cells.Item(7).Text
+            R.Seguro = rr.Cells.Item(8).Text
+            R.PagoT = rr.Cells.Item(9).Text
+            R.Tasa = TxtTasa.Text
+            R.Seg = TasaVidaMes
+            DS.Tables("Reporte").Rows.Add(R)
+        Next
+        Dim newrptRepSalCli As New ReportDocument()
+        newrptRepSalCli.Load(Server.MapPath("~/Cotizadores/CotizacionCS.rpt"))
+        newrptRepSalCli.SetDataSource(DS)
+        If CmbTipoPers.SelectedValue = "M" Then
+            newrptRepSalCli.SetParameterValue("TipoPersona", "PERSONA MORAL")
+        Else
+            newrptRepSalCli.SetParameterValue("TipoPersona", "PERSONA FISICA CON ACTIVIDAD EMPRESARIAL")
+        End If
+
+        newrptRepSalCli.SetParameterValue("CAT", Session.Item("CAT"))
+        Dim Comision As Decimal = CDec(TxtMonto.Text) * CDec(TxtComision.Text) / 100
+        newrptRepSalCli.SetParameterValue("Comision", Comision)
+        newrptRepSalCli.SetParameterValue("IvaComision", Comision * 0.16)
+
+        Dim cad As String = "~\tmp\" & Date.Now.ToString("yyyyMMddmmss") & ".pdf"
+        newrptRepSalCli.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath(cad))
+
+        Response.Write("<script>")
+        cad = cad.Replace("\", "/")
+        cad = cad.Replace("~", "..")
+        Response.Write("window.open('" & cad & "','_blank')")
+        Response.Write("</script>")
+        'Response.Write("")
+
+        'CrystalReportViewer1.ReportSource = newrptRepSalCli
+        'CrystalReportViewer1.Visible = True
+        'GridAmortizaciones.Visible = False
+        'BtPrint.Enabled = False
+    End Sub
 End Class

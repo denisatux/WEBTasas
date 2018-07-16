@@ -5,6 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title>Menu Principal</title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 108px;
+        }
+    </style>
 </head>
 <body bgcolor="#ffffff" background="IMG/fondoconteblanco.png">
     <form id="form1" runat="server">
@@ -16,7 +21,7 @@
                         Text="Label" Width="100%"></asp:Label></td>
                     <td style="height: 100%; background-color: #ff6600; text-align: right; width:auto;">
                     
-                    <img src="IMG/LOGOpeque2.JPG" /></td>
+                    <img src="../IMG/logo-sin-fondo_web.png" class="auto-style1" /></td>
             </tr>
             <tr>
             <td style="width: 100%; height: 100%" colspan="2">

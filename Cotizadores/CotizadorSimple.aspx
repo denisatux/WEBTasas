@@ -1,9 +1,9 @@
-<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/PaginaMasterX.Master" CodeBehind="CotizadorSimple.aspx.vb" Inherits="WEBTasas.WebFormSimple" 
+<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Cotizadores/PaginaMasterX.Master" CodeBehind="CotizadorSimple.aspx.vb" Inherits="WEBTasas.WebFormSimple" 
     title="Cotizador" %>
 
 <%@ Register Assembly="RoderoLib" Namespace="RoderoLib" TagPrefix="cc1" %>
     
-    <%@ MasterType virtualpath="~/PaginaMasterX.Master" %>
+    <%@ MasterType virtualpath="~/Cotizadores/PaginaMasterX.Master" %>
     
  <script runat="server">
 
@@ -59,6 +59,8 @@
         <tr>
             
             <td align=center colspan=8>
+                <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Arial" ForeColor="Red"
+                    Text="Error en el monto financiado." Visible="False"></asp:Label>
                 <br />
                 <cc1:BotonEnviar ID="BotonEnviar1" runat="server" BackColor="#FF6600" Font-Bold="True"
                     ForeColor="White" Text="Calcular Crédito" TextoEnviando="Calculando..." Width="136px" /><br />
@@ -68,12 +70,10 @@
         </tr>
         <tr>
             <td align=center colspan=8>
-                <br />
-                <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Arial" ForeColor="Red"
-                    Text="Error en el monto financiado." Visible="False"></asp:Label>
-                <br />
                 <cc1:BotonEnviar ID="BotonImp" runat="server" BackColor="#FF6600" Font-Bold="True"
-                    ForeColor="White" Text="Imprimir" TextoEnviando="Imprimiendo..." Width="136px" Visible="False" /><asp:GridView ID="GridAmortizaciones" runat="server" CellPadding="4" Font-Names="Arial"
+                    ForeColor="White" Text="Imprimir" TextoEnviando="Imprimiendo..." Width="136px" Visible="False" />
+                <br />
+                <asp:GridView ID="GridAmortizaciones" runat="server" CellPadding="4" Font-Names="Arial"
                     ForeColor="#333333" GridLines="None" PageSize="50" Width="80%" ShowFooter="True" EnableModelValidation="True">
                     <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
                     <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />

@@ -44,6 +44,8 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="RoderoLib, Version=1.0.1777.2921, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\WebProspectos\bin\RoderoLib.dll</HintPath>
@@ -94,6 +96,7 @@
     <Content Include="951sb999-7xx8.aspx" />
     <Content Include="Cotizadores\CotizadorSimple.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="IMG\logo-sin-fondo_web.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -221,10 +224,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="PaginaMasterX.Master.designer.vb">
+    <Compile Include="Cotizadores\PaginaMasterX.Master.designer.vb">
       <DependentUpon>PaginaMasterX.Master</DependentUpon>
     </Compile>
-    <Compile Include="PaginaMasterX.Master.vb">
+    <Compile Include="Cotizadores\PaginaMasterX.Master.vb">
       <DependentUpon>PaginaMasterX.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -261,6 +264,8 @@
     <Content Include="Cotizadores\CotizaDS.xsc">
       <DependentUpon>CotizaDS.xsd</DependentUpon>
     </Content>
+    <Content Include="Cotizadores\CotizacionCS.rpt" />
+    <Content Include="Cotizadores\CotizacionLIQ.rpt" />
     <None Include="Cotizadores\CotizaDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -297,7 +302,7 @@
     <Content Include="IMG\LOGOpeque.JPG" />
     <Content Include="IMG\LOGOpeque2.JPG" />
     <Content Include="IMG\sep.JPG" />
-    <Content Include="PaginaMasterX.Master" />
+    <Content Include="Cotizadores\PaginaMasterX.Master" />
     <Content Include="Cotizadores\Cotizador.aspx" />
     <None Include="ProDS.xsc">
       <DependentUpon>ProDS.xsd</DependentUpon>
@@ -322,7 +327,9 @@
       <DependentUpon>SeguridadDS.xsd</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="tmp\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

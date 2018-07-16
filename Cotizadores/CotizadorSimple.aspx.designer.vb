@@ -95,15 +95,6 @@ Partial Public Class WebFormSimple
     Protected WithEvents TxtComision As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control BotonEnviar1.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents BotonEnviar1 As Global.RoderoLib.BotonEnviar
-    
-    '''<summary>
     '''Control LbError.
     '''</summary>
     '''<remarks>
@@ -111,6 +102,15 @@ Partial Public Class WebFormSimple
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents LbError As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control BotonEnviar1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents BotonEnviar1 As Global.RoderoLib.BotonEnviar
     
     '''<summary>
     '''Control BotonImp.
