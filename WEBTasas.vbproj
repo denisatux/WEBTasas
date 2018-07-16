@@ -92,6 +92,7 @@
     <Content Include="552db804-scod.aspx" />
     <Content Include="552db804-70f8.aspx" />
     <Content Include="951sb999-7xx8.aspx" />
+    <Content Include="CotizadorSimple.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -178,6 +179,13 @@
     </Compile>
     <Compile Include="951sb999-7xx8.aspx.vb">
       <DependentUpon>951sb999-7xx8.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CotizadorSimple.aspx.designer.vb">
+      <DependentUpon>CotizadorSimple.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CotizadorSimple.aspx.vb">
+      <DependentUpon>CotizadorSimple.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.vb">
