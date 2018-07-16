@@ -94,6 +94,7 @@
     <Content Include="552db804-scod.aspx" />
     <Content Include="552db804-70f8.aspx" />
     <Content Include="951sb999-7xx8.aspx" />
+    <Content Include="Cotizadores\CotizadorLiq.aspx" />
     <Content Include="Cotizadores\CotizadorSimple.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="IMG\logo-sin-fondo_web.png" />
@@ -184,6 +185,13 @@
       <DependentUpon>951sb999-7xx8.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Cotizadores\CotizadorLiq.aspx.designer.vb">
+      <DependentUpon>CotizadorLiq.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cotizadores\CotizadorLiq.aspx.vb">
+      <DependentUpon>CotizadorLiq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Cotizadores\CotizadorSimple.aspx.designer.vb">
       <DependentUpon>CotizadorSimple.aspx</DependentUpon>
     </Compile>
@@ -265,7 +273,8 @@
       <DependentUpon>CotizaDS.xsd</DependentUpon>
     </Content>
     <Content Include="Cotizadores\CotizacionCS.rpt" />
-    <Content Include="Cotizadores\CotizacionLIQ.rpt" />
+    <Content Include="Cotizadores\CotizacionLIQ2.rpt" />
+    <Content Include="Cotizadores\CotizacionLQ.rpt" />
     <None Include="Cotizadores\CotizaDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>

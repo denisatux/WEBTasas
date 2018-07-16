@@ -1,4 +1,4 @@
-<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Cotizadores/PaginaMasterX.Master" CodeBehind="CotizadorSimple.aspx.vb" Inherits="WEBTasas.WebFormSimple" 
+<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Cotizadores/PaginaMasterX.Master" CodeBehind="CotizadorLiq.aspx.vb" Inherits="WEBTasas.WebFormLiq" 
     title="Cotizador" %>
 
 <%@ Register Assembly="RoderoLib" Namespace="RoderoLib" TagPrefix="cc1" %>
@@ -20,14 +20,15 @@
             <td align=center  style="width: 7.14%">
                 <span style="font-family: Arial; font-weight: bold; color: #FF6600">Tipo Persona</span><br />
                 <asp:DropDownList ID="CmbTipoPers" runat="server" Width="156px">
+                    <asp:ListItem Value="F">Fisica</asp:ListItem>
                     <asp:ListItem Value="E">Fisica con Act. Empr.</asp:ListItem>
-                    <asp:ListItem Value="M">Persona Moral</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td align=center  style="width: 14.28%">
                 <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Arial" ForeColor="#FF6600"
                     Text="Plazo"></asp:Label><br />
                 <asp:DropDownList ID="CmbPlazo" runat="server" Width="98px" AutoPostBack="True">
+                    <asp:ListItem Value="6">6 Meses</asp:ListItem>
                     <asp:ListItem Selected="True" Value="12">12 Meses</asp:ListItem>
                     <asp:ListItem Value="24">24 Meses</asp:ListItem>
                     <asp:ListItem Value="36">36 Meses</asp:ListItem>
@@ -37,13 +38,13 @@
                             Text="Monto Finananciado"></asp:Label>
                         <br />
                         <asp:TextBox ID="TxtMonto" runat="server"
-                                Font-Bold="True" MaxLength="10" Width="100px" style="margin-left: 0px">1,000,000.00</asp:TextBox></td>
+                                Font-Bold="True" MaxLength="10" Width="100px" style="margin-left: 0px">0</asp:TextBox></td>
             <td style="width: 14.28%" align=center>
                 <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Arial" ForeColor="#FF6600"
                     Text="Tasa anual %"></asp:Label>
                 <br />
                 <asp:TextBox ID="TxtTasa" runat="server" Enabled="False" Font-Bold="True" MaxLength="10"
-                    ReadOnly="True" Width="38px">16.0</asp:TextBox></td>
+                    ReadOnly="True" Width="46px">25.00</asp:TextBox></td>
                     <td style="width: 14.28%" align=center>
                         <asp:Label ID="Label9" runat="server" Font-Bold="True" Font-Names="Arial" ForeColor="#FF6600"
                             Text="% Comisión"></asp:Label>
