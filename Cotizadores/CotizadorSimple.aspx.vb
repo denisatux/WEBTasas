@@ -1,6 +1,6 @@
 Partial Public Class WebFormSimple
     Inherits System.Web.UI.Page
-    Dim ta As New ProDSTableAdapters.TasasAplicablesTableAdapter
+    Dim ta As New CotizaDSTableAdapters.TasasAplicablesTableAdapter
     Const TasaIva As Double = 0.16
     Dim TasaVidaMes As Double = 1
     Dim TasaVidaDia As Double = TasaVidaMes / 30.4

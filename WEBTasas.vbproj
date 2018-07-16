@@ -92,7 +92,7 @@
     <Content Include="552db804-scod.aspx" />
     <Content Include="552db804-70f8.aspx" />
     <Content Include="951sb999-7xx8.aspx" />
-    <Content Include="CotizadorSimple.aspx" />
+    <Content Include="Cotizadores\CotizadorSimple.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -181,12 +181,17 @@
       <DependentUpon>951sb999-7xx8.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CotizadorSimple.aspx.designer.vb">
+    <Compile Include="Cotizadores\CotizadorSimple.aspx.designer.vb">
       <DependentUpon>CotizadorSimple.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CotizadorSimple.aspx.vb">
+    <Compile Include="Cotizadores\CotizadorSimple.aspx.vb">
       <DependentUpon>CotizadorSimple.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cotizadores\CotizaDS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CotizaDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -228,10 +233,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Cotizador.aspx.designer.vb">
+    <Compile Include="Cotizadores\Cotizador.aspx.designer.vb">
       <DependentUpon>Cotizador.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cotizador.aspx.vb">
+    <Compile Include="Cotizadores\Cotizador.aspx.vb">
       <DependentUpon>Cotizador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -253,6 +258,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Cotizadores\CotizaDS.xsc">
+      <DependentUpon>CotizaDS.xsd</DependentUpon>
+    </Content>
+    <None Include="Cotizadores\CotizaDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CotizaDS.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Cotizadores\CotizaDS.xss">
+      <DependentUpon>CotizaDS.xsd</DependentUpon>
+    </Content>
     <None Include="Factor100DS.xsc">
       <DependentUpon>Factor100DS.xsd</DependentUpon>
     </None>
@@ -282,7 +298,7 @@
     <Content Include="IMG\LOGOpeque2.JPG" />
     <Content Include="IMG\sep.JPG" />
     <Content Include="PaginaMasterX.Master" />
-    <Content Include="Cotizador.aspx" />
+    <Content Include="Cotizadores\Cotizador.aspx" />
     <None Include="ProDS.xsc">
       <DependentUpon>ProDS.xsd</DependentUpon>
     </None>
@@ -306,6 +322,7 @@
       <DependentUpon>SeguridadDS.xsd</DependentUpon>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
