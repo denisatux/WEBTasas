@@ -2125,11 +2125,11 @@ Partial Public Class CotizaDS
         
         Private columnCapital As Global.System.Data.DataColumn
         
-        Private columnIvaCapital As Global.System.Data.DataColumn
-        
         Private columnInteres As Global.System.Data.DataColumn
         
-        Private columnPago As Global.System.Data.DataColumn
+        Private columnRenta As Global.System.Data.DataColumn
+        
+        Private columnIvaCapital As Global.System.Data.DataColumn
         
         Private columnIva_Interes As Global.System.Data.DataColumn
         
@@ -2214,14 +2214,6 @@ Partial Public Class CotizaDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property IvaCapitalColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIvaCapital
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public ReadOnly Property InteresColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnInteres
@@ -2230,9 +2222,17 @@ Partial Public Class CotizaDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property PagoColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property RentaColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnPago
+                Return Me.columnRenta
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property IvaCapitalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIvaCapital
             End Get
         End Property
         
@@ -2297,9 +2297,9 @@ Partial Public Class CotizaDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddTablaAmortizacionAFRow(ByVal No_Pago As Short, ByVal Fecha_Vencimiento As Date, ByVal Dias As Integer, ByVal Saldo_Insoluto As Decimal, ByVal Capital As Decimal, ByVal IvaCapital As String, ByVal Interes As Decimal, ByVal Pago As Decimal, ByVal Iva_Interes As Decimal, ByVal Seguro_de_Vida As Decimal, ByVal Pago_Total As Decimal) As TablaAmortizacionAFRow
+        Public Overloads Function AddTablaAmortizacionAFRow(ByVal No_Pago As Short, ByVal Fecha_Vencimiento As Date, ByVal Dias As Integer, ByVal Saldo_Insoluto As Decimal, ByVal Capital As Decimal, ByVal Interes As Decimal, ByVal Renta As Decimal, ByVal IvaCapital As Decimal, ByVal Iva_Interes As Decimal, ByVal Seguro_de_Vida As Decimal, ByVal Pago_Total As Decimal) As TablaAmortizacionAFRow
             Dim rowTablaAmortizacionAFRow As TablaAmortizacionAFRow = CType(Me.NewRow,TablaAmortizacionAFRow)
-            Dim columnValuesArray() As Object = New Object() {No_Pago, Fecha_Vencimiento, Dias, Saldo_Insoluto, Capital, IvaCapital, Interes, Pago, Iva_Interes, Seguro_de_Vida, Pago_Total}
+            Dim columnValuesArray() As Object = New Object() {No_Pago, Fecha_Vencimiento, Dias, Saldo_Insoluto, Capital, Interes, Renta, IvaCapital, Iva_Interes, Seguro_de_Vida, Pago_Total}
             rowTablaAmortizacionAFRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowTablaAmortizacionAFRow)
             Return rowTablaAmortizacionAFRow
@@ -2339,9 +2339,9 @@ Partial Public Class CotizaDS
             Me.columnDias = MyBase.Columns("Dias")
             Me.columnSaldo_Insoluto = MyBase.Columns("Saldo Insoluto")
             Me.columnCapital = MyBase.Columns("Capital")
-            Me.columnIvaCapital = MyBase.Columns("IvaCapital")
             Me.columnInteres = MyBase.Columns("Interes")
-            Me.columnPago = MyBase.Columns("Pago")
+            Me.columnRenta = MyBase.Columns("Renta")
+            Me.columnIvaCapital = MyBase.Columns("IvaCapital")
             Me.columnIva_Interes = MyBase.Columns("Iva Interes")
             Me.columnSeguro_de_Vida = MyBase.Columns("Seguro de Vida")
             Me.columnPago_Total = MyBase.Columns("Pago Total")
@@ -2360,12 +2360,12 @@ Partial Public Class CotizaDS
             MyBase.Columns.Add(Me.columnSaldo_Insoluto)
             Me.columnCapital = New Global.System.Data.DataColumn("Capital", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCapital)
-            Me.columnIvaCapital = New Global.System.Data.DataColumn("IvaCapital", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIvaCapital)
             Me.columnInteres = New Global.System.Data.DataColumn("Interes", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnInteres)
-            Me.columnPago = New Global.System.Data.DataColumn("Pago", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPago)
+            Me.columnRenta = New Global.System.Data.DataColumn("Renta", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRenta)
+            Me.columnIvaCapital = New Global.System.Data.DataColumn("IvaCapital", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIvaCapital)
             Me.columnIva_Interes = New Global.System.Data.DataColumn("Iva Interes", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIva_Interes)
             Me.columnSeguro_de_Vida = New Global.System.Data.DataColumn("Seguro de Vida", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
@@ -3867,21 +3867,6 @@ Partial Public Class CotizaDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property IvaCapital() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableTablaAmortizacionAF.IvaCapitalColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IvaCapital' de la tabla 'TablaAmortizacionAF' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableTablaAmortizacionAF.IvaCapitalColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property Interes() As Decimal
             Get
                 Try 
@@ -3897,16 +3882,31 @@ Partial Public Class CotizaDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Pago() As Decimal
+        Public Property Renta() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableTablaAmortizacionAF.PagoColumn),Decimal)
+                    Return CType(Me(Me.tableTablaAmortizacionAF.RentaColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Pago' de la tabla 'TablaAmortizacionAF' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Renta' de la tabla 'TablaAmortizacionAF' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableTablaAmortizacionAF.PagoColumn) = value
+                Me(Me.tableTablaAmortizacionAF.RentaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property IvaCapital() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableTablaAmortizacionAF.IvaCapitalColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IvaCapital' de la tabla 'TablaAmortizacionAF' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTablaAmortizacionAF.IvaCapitalColumn) = value
             End Set
         End Property
         
@@ -3995,18 +3995,6 @@ Partial Public Class CotizaDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsIvaCapitalNull() As Boolean
-            Return Me.IsNull(Me.tableTablaAmortizacionAF.IvaCapitalColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetIvaCapitalNull()
-            Me(Me.tableTablaAmortizacionAF.IvaCapitalColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsInteresNull() As Boolean
             Return Me.IsNull(Me.tableTablaAmortizacionAF.InteresColumn)
         End Function
@@ -4019,14 +4007,26 @@ Partial Public Class CotizaDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsPagoNull() As Boolean
-            Return Me.IsNull(Me.tableTablaAmortizacionAF.PagoColumn)
+        Public Function IsRentaNull() As Boolean
+            Return Me.IsNull(Me.tableTablaAmortizacionAF.RentaColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetPagoNull()
-            Me(Me.tableTablaAmortizacionAF.PagoColumn) = Global.System.Convert.DBNull
+        Public Sub SetRentaNull()
+            Me(Me.tableTablaAmortizacionAF.RentaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsIvaCapitalNull() As Boolean
+            Return Me.IsNull(Me.tableTablaAmortizacionAF.IvaCapitalColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetIvaCapitalNull()
+            Me(Me.tableTablaAmortizacionAF.IvaCapitalColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

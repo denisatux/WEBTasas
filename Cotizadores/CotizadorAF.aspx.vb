@@ -117,10 +117,7 @@ Partial Public Class WebFormAF
                     FinDeMes = False
                 End If
             End If
-            If Cont = 2 Then
-                Aux = CDbl(TAmortizaciones.Rows(0).Item("Interes"))
-                Capital = (CDbl(CapitalORG) - (PagoY - Aux)).ToString("N2")
-            End If
+
             Dias = DateDiff(DateInterval.Day, FechaAnt, FechaAux)
             Interes = (Capital * (TasaAnual / 360) * Dias).ToString("N2")
             rr = TAmortizaciones.NewRow
@@ -131,41 +128,20 @@ Partial Public Class WebFormAF
                 DiasX = DateDiff(DateInterval.Day, FechaAnt, FechaAnt.AddMonths(CmbPlazo.SelectedValue))
                 PagoX = Pmt((TasaAnual / 360) * Dias, NoPagos, Capital * -1, 0, DueDate.EndOfPeriod)
                 PagoY = Pmt((TasaAnual / 360) * Dias, NoPagos, Capital * -1, 0, DueDate.EndOfPeriod)
-            Else
-
-                If Cont = -2 Then 'CORRIGE PRIMERA AMORTIZACION POR DIFERENCIA 
-                    rrr = TAmortizaciones.Rows(0)
-                    Aux = (PagoX - CDbl(rrr.Iva_Interes)).ToString("N2")
-                    Capital = CDbl(CapitalORG) - Aux
-                    PagoX = Pmt((TasaAnual / 360) * Dias, NoPagos - (Cont - 1), Capital * -1, 0, DueDate.EndOfPeriod).ToString("N2")
-                    Interes = (Capital * (TasaAnual / 360) * Dias).ToString("N2")
-                    TAmortizaciones.Rows(0).Item("Capital") = PagoX.ToString("N2") - rrr.Interes ' CAPITAL
-                    If IvaCap > 0 Then
-                        TAmortizaciones.Rows(0).Item("IvaCapital") = CDec(TAmortizaciones.Rows(0).Item("Capital")) * TasaIva
-                        TAmortizaciones.Rows(0).Item("Pago") = PagoX.ToString("N2") + CDec(TAmortizaciones.Rows(0).Item("IvaCapital"))
-                    Else
-                        TAmortizaciones.Rows(0).Item("IvaCapital") = 0
-                        TAmortizaciones.Rows(0).Item("Pago") = PagoX.ToString("N2")
-                    End If
-
-                    Capital += Aux - (rrr.Capital)
-                    TAmortizaciones.Rows(0).Item("Pago Total") = (CDec(rrr.Iva_Interes) + CDec(rrr.Pago) + CDec(rrr.Seguro_de_Vida)).ToString("n2")
-                End If
             End If
 
             rr.Saldo_Insoluto = Capital.ToString("N2")
             rr.Interes = Interes.ToString("N2") ' INTERES
             If NoPagos = Cont Then
                 rr.Capital = Capital.ToString("N2") ' CAPITAL
-                rr.Pago = (Capital + Interes).ToString("N2")
+                rr.Renta = (Capital + Interes).ToString("N2")
                 PagoX = (Capital + Interes)
             Else
                 rr.Capital = (PagoX - Interes).ToString("N2") ' CAPITAL
-                rr.Pago = PagoX.ToString("N2")
+                rr.Renta = PagoX.ToString("N2")
             End If
             If IvaCap > 0 Then
                 rr.IvaCapital = rr.Capital * TasaIva
-                rr.Pago += rr.IvaCapital
             Else
                 rr.IvaCapital = 0
             End If
@@ -226,7 +202,7 @@ Partial Public Class WebFormAF
             Capital = CDbl(rr.Capital)
             CapitaT += Capital
             IvaCapitaT += CDbl(rr.IvaCapital)
-            PagoT = PagoT + CDbl(rr.Pago)
+            PagoT = PagoT + CDbl(rr.Renta)
             DiasT = DiasT + CDbl(rr.Dias)
             InteresT = InteresT + CDbl(rr.Interes)
             IvaT = IvaT + CDbl(rr.Iva_Interes)
@@ -258,6 +234,9 @@ Partial Public Class WebFormAF
             e.Row.Cells(9).Text = CDec(e.Row.Cells(9).Text).ToString("n2")
             e.Row.Cells(10).Text = CDec(e.Row.Cells(10).Text).ToString("n2")
 
+            e.Row.Cells(0).HorizontalAlign = HorizontalAlign.Center
+            e.Row.Cells(1).HorizontalAlign = HorizontalAlign.Center
+            e.Row.Cells(2).HorizontalAlign = HorizontalAlign.Center
             e.Row.Cells(3).HorizontalAlign = HorizontalAlign.Right
             e.Row.Cells(4).HorizontalAlign = HorizontalAlign.Right
             e.Row.Cells(5).HorizontalAlign = HorizontalAlign.Right
@@ -278,6 +257,9 @@ Partial Public Class WebFormAF
             e.Row.Cells(9).Text = SegT.ToString("n2")
             e.Row.Cells(10).Text = TotalT.ToString("n2")
 
+            e.Row.Cells(0).HorizontalAlign = HorizontalAlign.Center
+            e.Row.Cells(1).HorizontalAlign = HorizontalAlign.Center
+            e.Row.Cells(2).HorizontalAlign = HorizontalAlign.Center
             e.Row.Cells(4).HorizontalAlign = HorizontalAlign.Right
             e.Row.Cells(5).HorizontalAlign = HorizontalAlign.Right
             e.Row.Cells(6).HorizontalAlign = HorizontalAlign.Right
@@ -304,19 +286,19 @@ Partial Public Class WebFormAF
             R.FecVen = rr.Cells.Item(1).Text
             R.Dias = rr.Cells.Item(2).Text
             R.Saldo = rr.Cells.Item(3).Text
-            R.Extra = 0
             R.Capital = rr.Cells.Item(4).Text
             R.Interes = rr.Cells.Item(5).Text
             R.Pago = rr.Cells.Item(6).Text
-            R.Iva = rr.Cells.Item(7).Text
-            R.Seguro = rr.Cells.Item(8).Text
-            R.PagoT = rr.Cells.Item(9).Text
+            R.Extra = rr.Cells.Item(7).Text
+            R.Iva = rr.Cells.Item(8).Text
+            R.Seguro = rr.Cells.Item(9).Text
+            R.PagoT = rr.Cells.Item(10).Text
             R.Tasa = TxtTasa.Text
             R.Seg = TasaVidaMes
             DS.Tables("Reporte").Rows.Add(R)
         Next
         Dim newrptRepSalCli As New ReportDocument()
-        newrptRepSalCli.Load(Server.MapPath("~/Cotizadores/CotizacionCS.rpt"))
+        newrptRepSalCli.Load(Server.MapPath("~/Cotizadores/CotizacionAF.rpt"))
         newrptRepSalCli.SetDataSource(DS)
         If CmbTipoPers.SelectedValue = "M" Then
             newrptRepSalCli.SetParameterValue("TipoPersona", "PERSONA MORAL")
@@ -327,6 +309,7 @@ Partial Public Class WebFormAF
         newrptRepSalCli.SetParameterValue("CAT", Session.Item("CAT"))
         Dim Comision As Decimal = CDec(TxtFact.Text) * CDec(TxtComision.Text) / 100
         newrptRepSalCli.SetParameterValue("Comision", Comision)
+        newrptRepSalCli.SetParameterValue("Opcion", CDec(TxtFact.Text) * CDec(TxtOpcion.Text) / 100)
         newrptRepSalCli.SetParameterValue("IvaComision", Comision * 0.16)
 
         Dim cad As String = "~\tmp\" & Date.Now.ToString("yyyyMMddmmss") & ".pdf"

@@ -282,6 +282,7 @@
     </Content>
     <Content Include="Cotizadores\CotizacionCS.rpt" />
     <Content Include="Cotizadores\CotizacionLQ.rpt" />
+    <Content Include="Cotizadores\CotizacionAF.rpt" />
     <None Include="Cotizadores\CotizaDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>

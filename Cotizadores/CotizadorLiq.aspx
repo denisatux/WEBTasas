@@ -20,8 +20,7 @@
             <td align=center  style="width: 7.14%">
                 <span style="font-family: Arial; font-weight: bold; color: #FF6600">Tipo Persona</span><br />
                 <asp:DropDownList ID="CmbTipoPers" runat="server" Width="156px">
-                    <asp:ListItem Value="F">Fisica</asp:ListItem>
-                    <asp:ListItem Value="E">Fisica con Act. Empr.</asp:ListItem>
+                    <asp:ListItem Value="F">Fisica</asp:ListItem>                    
                 </asp:DropDownList>
             </td>
             <td align=center  style="width: 14.28%">

@@ -109,10 +109,7 @@ Partial Public Class WebFormLiq
                     FinDeMes = False
                 End If
             End If
-            If Cont = 2 Then
-                Aux = CDbl(TAmortizaciones.Rows(0).Item("Interes"))
-                Capital = (CDbl(TxtMonto.Text) - (PagoY - Aux)).ToString("N2")
-            End If
+
             Dias = DateDiff(DateInterval.Day, FechaAnt, FechaAux)
             Interes = (Capital * (TasaAnual / 360) * Dias).ToString("N2")
             rr = TAmortizaciones.NewRow
@@ -123,19 +120,6 @@ Partial Public Class WebFormLiq
                 DiasX = DateDiff(DateInterval.Day, FechaAnt, FechaAnt.AddMonths(CmbPlazo.SelectedValue))
                 PagoX = Pmt((TasaAnual / 360) * Dias, NoPagos, Capital * -1, 0, DueDate.EndOfPeriod)
                 PagoY = Pmt((TasaAnual / 360) * Dias, NoPagos, Capital * -1, 0, DueDate.EndOfPeriod)
-            Else
-
-                If Cont = -2 Then 'CORRIGE PRIMERA AMORTIZACION POR DIFERENCIA 
-                    rrr = TAmortizaciones.Rows(0)
-                    Aux = (PagoX - CDbl(rrr.Iva_Interes)).ToString("N2")
-                    Capital = CDbl(TxtMonto.Text) - Aux
-                    PagoX = Pmt((TasaAnual / 360) * Dias, NoPagos - (Cont - 1), Capital * -1, 0, DueDate.EndOfPeriod).ToString("N2")
-                    Interes = (Capital * (TasaAnual / 360) * Dias).ToString("N2")
-                    TAmortizaciones.Rows(0).Item("Capital") = PagoX.ToString("N2") - rrr.Interes ' CAPITAL
-                    TAmortizaciones.Rows(0).Item("Pago") = PagoX.ToString("N2")
-                    Capital += Aux - (rrr.Capital)
-                    TAmortizaciones.Rows(0).Item("Pago Total") = (CDec(rrr.Iva_Interes) + CDec(rrr.Pago) + CDec(rrr.Seguro_de_Vida)).ToString("n2")
-                End If
             End If
 
             rr.Saldo_Insoluto = Capital.ToString("N2")
@@ -236,6 +220,9 @@ Partial Public Class WebFormLiq
             e.Row.Cells(8).Text = CDec(e.Row.Cells(8).Text).ToString("n2")
             e.Row.Cells(9).Text = CDec(e.Row.Cells(9).Text).ToString("n2")
 
+            e.Row.Cells(0).HorizontalAlign = HorizontalAlign.Center
+            e.Row.Cells(1).HorizontalAlign = HorizontalAlign.Center
+            e.Row.Cells(2).HorizontalAlign = HorizontalAlign.Center
             e.Row.Cells(3).HorizontalAlign = HorizontalAlign.Right
             e.Row.Cells(4).HorizontalAlign = HorizontalAlign.Right
             e.Row.Cells(5).HorizontalAlign = HorizontalAlign.Right
@@ -253,6 +240,9 @@ Partial Public Class WebFormLiq
             e.Row.Cells(8).Text = SegT.ToString("n2")
             e.Row.Cells(9).Text = TotalT.ToString("n2")
 
+            e.Row.Cells(0).HorizontalAlign = HorizontalAlign.Center
+            e.Row.Cells(1).HorizontalAlign = HorizontalAlign.Center
+            e.Row.Cells(2).HorizontalAlign = HorizontalAlign.Center
             e.Row.Cells(4).HorizontalAlign = HorizontalAlign.Right
             e.Row.Cells(5).HorizontalAlign = HorizontalAlign.Right
             e.Row.Cells(6).HorizontalAlign = HorizontalAlign.Right
