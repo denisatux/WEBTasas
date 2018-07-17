@@ -36,8 +36,11 @@ Partial Public Class HC_Form1
         Dim Firma As String = Encriptar(Date.Now.ToString("yyyyMMddhhmm") & "-" & Request("User"))
         If Request("User").ToLower = "gbello" Then
             ta.FirmaDG(Firma, Date.Now, Request("ID"))
+            If ta.PromotorHC(Request("ID")) = "033" Then 'Rosalba MAyorga depende de DG
+                ta.FirmaSubPromo(Firma, Request("ID"))
+            End If
         Else
-            ta.FirmaSubPromo(Firma, Request("ID"))
+                ta.FirmaSubPromo(Firma, Request("ID"))
         End If
         Response.Redirect("~\5159dx1-HCaut.aspx?User=" & Request("User") & "&Anexo=0&ID=0")
     End Sub
