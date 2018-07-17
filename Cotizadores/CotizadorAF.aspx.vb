@@ -1,6 +1,6 @@
 Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
-Partial Public Class WebFormLiq
+Partial Public Class WebFormAF
     Inherits System.Web.UI.Page
     Dim ta As New CotizaDSTableAdapters.TasasAplicablesTableAdapter
     Const TasaIva As Double = 0.16
@@ -13,6 +13,7 @@ Partial Public Class WebFormLiq
     Dim FinDeMes As Boolean = False
 
     Dim CapitaT As Double = 0
+    Dim IvaCapitaT As Double = 0
     Dim PagoT As Double = 0
     Dim InteresT As Double = 0
     Dim IvaT As Double = 0
@@ -23,31 +24,31 @@ Partial Public Class WebFormLiq
     Dim PagoS() As Double
 
     Private Sub Page_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
-        TxtTasa.Text = 25.0 'ta.TasaAplicacble(1, ta.SacaPeriodoMAX, "CS")
+        TxtTasa.Text = ta.TasaAplicacble(1, ta.SacaPeriodoMAX, "AFsinIVA")
     End Sub
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Me.Master.Titulo = "Cotizador Liquidez Inmediata"
+        Me.Master.Titulo = "Cotizador Arrendamiento Financiero"
     End Sub
 
     Protected Sub BotonEnviar1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonEnviar1.Click
         BotonImp.Visible = False
         GridAmortizaciones.Visible = False
-        If IsNumeric(TxtMonto.Text) = False Then
-            LbError.Text = "Monto finanaciado no válido."
+        If IsNumeric(TxtFact.Text) = False Then
+            LbError.Text = "Valor de las facturas no válido."
             LbError.Visible = True
             Exit Sub
         Else
-            If CDec(TxtMonto.Text) <= 0 Then
+            If CDec(TxtFact.Text) <= 0 Then
                 LbError.Text = "el Monto no puede ser Negativo."
                 LbError.Visible = True
                 Exit Sub
-            ElseIf CDec(TxtMonto.Text) < 3000 Then
-                LbError.Text = "el Monto minimo es de 3,000 de pesos."
+            ElseIf CDec(TxtFact.Text) < 1000000 Then
+                LbError.Text = "el Monto minimo es de 1,000,000 de pesos."
                 LbError.Visible = True
                 Exit Sub
-            ElseIf CDec(TxtMonto.Text) > 300000 Then
-                LbError.Text = "el Monto maximo es de 300,000 de pesos."
+            ElseIf CDec(TxtFact.Text) > 10000000 Then
+                LbError.Text = "el Monto maximo es de 10,000,000 de pesos."
                 LbError.Visible = True
                 Exit Sub
             End If
@@ -58,24 +59,31 @@ Partial Public Class WebFormLiq
 
     Sub CalculaTabla()
         Dim TasaIvaX As Decimal = TasaIva
-        Dim TAmortizaciones As New CotizaDS.TablaAmortizacionDataTable
+        Dim TAmortizaciones As New CotizaDS.TablaAmortizacionAFDataTable
         Dim NoPagos As Integer = 0
         Dim NoPagosAnual As Integer = 0
-        Dim Capital As Double = CDbl(TxtMonto.Text).ToString("N2")
-        Dim CapitalSEG As Double = CDbl(TxtMonto.Text).ToString("N2")
+        Dim Capital As Double = CDbl(TxtFact.Text).ToString("N2")
+        Dim IvaCap As Decimal = 0
+        Dim CapitalORG As Decimal = CDbl(TxtFact.Text).ToString("N2")
+        Dim CapitalSEG As Double = CDbl(TxtFact.Text).ToString("N2")
         Dim MesSeguro As String = ""
         Dim FechaAux As Date = Date.Now.AddMonths(1)
         Dim FechaFin As Date = Date.Now.AddMonths(1)
         Dim SegVidaX As Double = TasaVidaDia
         Dim ErrorEnero As Date = Date.Now.AddMonths(1)
         Dim Meses As Integer = CmbPlazo.SelectedValue
+        Dim Opcion As Decimal = 0
+
+        If ckIVA.Checked = True Then
+            IvaCap = Math.Round(Capital - (Capital / (1 + TasaIva)), 2)
+            Capital -= IvaCap
+            CapitalORG = Capital
+        End If
+
+        Opcion = Capital * CDec(TxtOpcion.Text) / 100
 
         If CmbTipoPers.SelectedValue = "M" Then
             SegVidaX = 0
-        End If
-
-        If CmbTipoPers.SelectedValue <> "F" Then
-            TasaIvaX = 0
         End If
 
         TasaAnual = CDbl(TxtTasa.Text) / 100
@@ -94,8 +102,8 @@ Partial Public Class WebFormLiq
         Dim PagoY As Double = 0
         Dim Extra As Double = 0
         Dim Aux As Double = 0
-        Dim rr As CotizaDS.TablaAmortizacionRow
-        Dim rrr As CotizaDS.TablaAmortizacionRow
+        Dim rr As CotizaDS.TablaAmortizacionAFRow
+        Dim rrr As CotizaDS.TablaAmortizacionAFRow
 
         TAmortizaciones.Rows.Clear()
         MesSeguro = FechaAux.ToString("yyyyMM")
@@ -111,7 +119,7 @@ Partial Public Class WebFormLiq
             End If
             If Cont = 2 Then
                 Aux = CDbl(TAmortizaciones.Rows(0).Item("Interes"))
-                Capital = (CDbl(TxtMonto.Text) - (PagoY - Aux)).ToString("N2")
+                Capital = (CDbl(CapitalORG) - (PagoY - Aux)).ToString("N2")
             End If
             Dias = DateDiff(DateInterval.Day, FechaAnt, FechaAux)
             Interes = (Capital * (TasaAnual / 360) * Dias).ToString("N2")
@@ -128,11 +136,18 @@ Partial Public Class WebFormLiq
                 If Cont = 2 Then 'CORRIGE PRIMERA AMORTIZACION POR DIFERENCIA 
                     rrr = TAmortizaciones.Rows(0)
                     Aux = (PagoX - CDbl(rrr.Iva_Interes)).ToString("N2")
-                    Capital = CDbl(TxtMonto.Text) - Aux
+                    Capital = CDbl(CapitalORG) - Aux
                     PagoX = Pmt((TasaAnual / 360) * Dias, NoPagos - (Cont - 1), Capital * -1, 0, DueDate.EndOfPeriod).ToString("N2")
                     Interes = (Capital * (TasaAnual / 360) * Dias).ToString("N2")
                     TAmortizaciones.Rows(0).Item("Capital") = PagoX.ToString("N2") - rrr.Interes ' CAPITAL
-                    TAmortizaciones.Rows(0).Item("Pago") = PagoX.ToString("N2")
+                    If IvaCap > 0 Then
+                        TAmortizaciones.Rows(0).Item("IvaCapital") = CDec(TAmortizaciones.Rows(0).Item("Capital")) * TasaIva
+                        TAmortizaciones.Rows(0).Item("Pago") = PagoX.ToString("N2") + CDec(TAmortizaciones.Rows(0).Item("IvaCapital"))
+                    Else
+                        TAmortizaciones.Rows(0).Item("IvaCapital") = 0
+                        TAmortizaciones.Rows(0).Item("Pago") = PagoX.ToString("N2")
+                    End If
+
                     Capital += Aux - (rrr.Capital)
                     TAmortizaciones.Rows(0).Item("Pago Total") = (CDec(rrr.Iva_Interes) + CDec(rrr.Pago) + CDec(rrr.Seguro_de_Vida)).ToString("n2")
                 End If
@@ -148,7 +163,12 @@ Partial Public Class WebFormLiq
                 rr.Capital = (PagoX - Interes).ToString("N2") ' CAPITAL
                 rr.Pago = PagoX.ToString("N2")
             End If
-
+            If IvaCap > 0 Then
+                rr.IvaCapital = rr.Capital * TasaIva
+                rr.Pago += rr.IvaCapital
+            Else
+                rr.IvaCapital = 0
+            End If
 
             If MesSeguro <> FechaAux.ToString("yyyyMM") Then
                 CapitalSEG = Capital
@@ -159,7 +179,7 @@ Partial Public Class WebFormLiq
 
             rr.Iva_Interes = (Interes * TasaIvaX).ToString("N2")
             rr.Seguro_de_Vida = (((Capital + Interes) / 1000) * SegVidaX * Dias).ToString("N2")
-            rr.Pago_Total = ((((Capital + Interes) / 1000) * SegVidaX * Dias) + (Interes * TasaIvaX) + PagoX).ToString("N2")
+            rr.Pago_Total = ((((Capital + Interes) / 1000) * SegVidaX * Dias) + (Interes * TasaIvaX) + PagoX + rr.IvaCapital).ToString("N2")
 
             Capital = Capital.ToString("N2") - (PagoX.ToString("N2") - Interes.ToString("N2"))
 
@@ -185,7 +205,7 @@ Partial Public Class WebFormLiq
                     Exit Sub
                 End If
             End If
-            TAmortizaciones.AddTablaAmortizacionRow(rr)
+            TAmortizaciones.AddTablaAmortizacionAFRow(rr)
         End While
 
 
@@ -199,12 +219,13 @@ Partial Public Class WebFormLiq
         DiasT = 0
         ReDim PagoS(NoPagos)
         Cont = 0
-        PagoS(0) = CDbl(TxtMonto.Text) * -1
+        PagoS(0) = CapitalORG * -1
         For Each rr In TAmortizaciones.Rows
             Cont += 1
             PagoS(Cont) = CDbl(rr.Pago_Total) - CDbl(rr.Iva_Interes)
             Capital = CDbl(rr.Capital)
             CapitaT += Capital
+            IvaCapitaT += CDbl(rr.IvaCapital)
             PagoT = PagoT + CDbl(rr.Pago)
             DiasT = DiasT + CDbl(rr.Dias)
             InteresT = InteresT + CDbl(rr.Interes)
@@ -235,6 +256,7 @@ Partial Public Class WebFormLiq
             e.Row.Cells(7).Text = CDec(e.Row.Cells(7).Text).ToString("n2")
             e.Row.Cells(8).Text = CDec(e.Row.Cells(8).Text).ToString("n2")
             e.Row.Cells(9).Text = CDec(e.Row.Cells(9).Text).ToString("n2")
+            e.Row.Cells(10).Text = CDec(e.Row.Cells(10).Text).ToString("n2")
 
             e.Row.Cells(3).HorizontalAlign = HorizontalAlign.Right
             e.Row.Cells(4).HorizontalAlign = HorizontalAlign.Right
@@ -243,15 +265,18 @@ Partial Public Class WebFormLiq
             e.Row.Cells(7).HorizontalAlign = HorizontalAlign.Right
             e.Row.Cells(8).HorizontalAlign = HorizontalAlign.Right
             e.Row.Cells(9).HorizontalAlign = HorizontalAlign.Right
-
+            e.Row.Cells(10).HorizontalAlign = HorizontalAlign.Right
+        ElseIf e.Row.RowType = DataControlRowType.Header Then
+            e.Row.Cells(0).Text = "No Renta"
         ElseIf e.Row.RowType = DataControlRowType.Footer Then
             e.Row.Cells(2).Text = DiasT
             e.Row.Cells(4).Text = CapitaT.ToString("n2")
-            e.Row.Cells(5).Text = InteresT.ToString("n2")
-            e.Row.Cells(6).Text = PagoT.ToString("n2")
-            e.Row.Cells(7).Text = IvaT.ToString("n2")
-            e.Row.Cells(8).Text = SegT.ToString("n2")
-            e.Row.Cells(9).Text = TotalT.ToString("n2")
+            e.Row.Cells(5).Text = IvaCapitaT.ToString("n2")
+            e.Row.Cells(6).Text = InteresT.ToString("n2")
+            e.Row.Cells(7).Text = PagoT.ToString("n2")
+            e.Row.Cells(8).Text = IvaT.ToString("n2")
+            e.Row.Cells(9).Text = SegT.ToString("n2")
+            e.Row.Cells(10).Text = TotalT.ToString("n2")
 
             e.Row.Cells(4).HorizontalAlign = HorizontalAlign.Right
             e.Row.Cells(5).HorizontalAlign = HorizontalAlign.Right
@@ -259,6 +284,7 @@ Partial Public Class WebFormLiq
             e.Row.Cells(7).HorizontalAlign = HorizontalAlign.Right
             e.Row.Cells(8).HorizontalAlign = HorizontalAlign.Right
             e.Row.Cells(9).HorizontalAlign = HorizontalAlign.Right
+            e.Row.Cells(10).HorizontalAlign = HorizontalAlign.Right
         End If
 
     End Sub
@@ -290,7 +316,7 @@ Partial Public Class WebFormLiq
             DS.Tables("Reporte").Rows.Add(R)
         Next
         Dim newrptRepSalCli As New ReportDocument()
-        newrptRepSalCli.Load(Server.MapPath("~/Cotizadores/CotizacionLQ.rpt"))
+        newrptRepSalCli.Load(Server.MapPath("~/Cotizadores/CotizacionCS.rpt"))
         newrptRepSalCli.SetDataSource(DS)
         If CmbTipoPers.SelectedValue = "M" Then
             newrptRepSalCli.SetParameterValue("TipoPersona", "PERSONA MORAL")
@@ -299,7 +325,7 @@ Partial Public Class WebFormLiq
         End If
 
         newrptRepSalCli.SetParameterValue("CAT", Session.Item("CAT"))
-        Dim Comision As Decimal = CDec(TxtMonto.Text) * CDec(TxtComision.Text) / 100
+        Dim Comision As Decimal = CDec(TxtFact.Text) * CDec(TxtComision.Text) / 100
         newrptRepSalCli.SetParameterValue("Comision", Comision)
         newrptRepSalCli.SetParameterValue("IvaComision", Comision * 0.16)
 
@@ -317,5 +343,13 @@ Partial Public Class WebFormLiq
         'CrystalReportViewer1.Visible = True
         'GridAmortizaciones.Visible = False
         'BtPrint.Enabled = False
+    End Sub
+
+    Protected Sub ckIVA_CheckedChanged(sender As Object, e As EventArgs) Handles ckIVA.CheckedChanged
+        If ckIVA.Checked = True Then
+            TxtTasa.Text = ta.TasaAplicacble(1, ta.SacaPeriodoMAX, "AFconIVA")
+        Else
+            TxtTasa.Text = ta.TasaAplicacble(1, ta.SacaPeriodoMAX, "AFsinIVA")
+        End If
     End Sub
 End Class

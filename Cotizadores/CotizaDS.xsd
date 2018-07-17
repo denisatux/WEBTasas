@@ -104,11 +104,77 @@ WHERE        (LimiteInferior &lt;= @Meses) AND (LimiteSuperior &gt;= @Meses) AND
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ReporteAF" msprop:Generator_TableClassName="ReporteAFDataTable" msprop:Generator_TableVarName="tableReporteAF" msprop:Generator_RowChangedName="ReporteAFRowChanged" msprop:Generator_TablePropName="ReporteAF" msprop:Generator_RowDeletingName="ReporteAFRowDeleting" msprop:Generator_RowChangingName="ReporteAFRowChanging" msprop:Generator_RowEvHandlerName="ReporteAFRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteAFRowDeleted" msprop:Generator_RowClassName="ReporteAFRow" msprop:Generator_UserTableName="ReporteAF" msprop:Generator_RowEvArgName="ReporteAFRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NoPago" msprop:Generator_ColumnVarNameInTable="columnNoPago" msprop:Generator_ColumnPropNameInRow="NoPago" msprop:Generator_ColumnPropNameInTable="NoPagoColumn" msprop:Generator_UserColumnName="NoPago" type="xs:short" />
+              <xs:element name="FecCon" msdata:Caption="FecVen" msprop:Generator_ColumnVarNameInTable="columnFecCon" msprop:Generator_ColumnPropNameInRow="FecCon" msprop:Generator_ColumnPropNameInTable="FecConColumn" msprop:Generator_UserColumnName="FecCon" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FecVen" msprop:Generator_ColumnVarNameInTable="columnFecVen" msprop:Generator_ColumnPropNameInRow="FecVen" msprop:Generator_ColumnPropNameInTable="FecVenColumn" msprop:Generator_UserColumnName="FecVen" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Dias" msprop:Generator_ColumnVarNameInTable="columnDias" msprop:Generator_ColumnPropNameInRow="Dias" msprop:Generator_ColumnPropNameInTable="DiasColumn" msprop:Generator_UserColumnName="Dias" type="xs:short" minOccurs="0" />
+              <xs:element name="Saldo" msprop:Generator_ColumnVarNameInTable="columnSaldo" msprop:Generator_ColumnPropNameInRow="Saldo" msprop:Generator_ColumnPropNameInTable="SaldoColumn" msprop:Generator_UserColumnName="Saldo" type="xs:double" minOccurs="0" />
+              <xs:element name="Extra" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnExtra" msprop:Generator_ColumnPropNameInRow="Extra" msprop:Generator_ColumnPropNameInTable="ExtraColumn" msprop:Generator_UserColumnName="Extra" type="xs:double" minOccurs="0" />
+              <xs:element name="Capital" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnCapital" msprop:Generator_ColumnPropNameInRow="Capital" msprop:Generator_ColumnPropNameInTable="CapitalColumn" msprop:Generator_UserColumnName="Capital" type="xs:double" minOccurs="0" />
+              <xs:element name="IvaCapital" msprop:Generator_ColumnVarNameInTable="columnIvaCapital" msprop:Generator_ColumnPropNameInRow="IvaCapital" msprop:Generator_ColumnPropNameInTable="IvaCapitalColumn" msprop:Generator_UserColumnName="IvaCapital" type="xs:string" minOccurs="0" />
+              <xs:element name="Interes" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnInteres" msprop:Generator_ColumnPropNameInRow="Interes" msprop:Generator_ColumnPropNameInTable="InteresColumn" msprop:Generator_UserColumnName="Interes" type="xs:double" minOccurs="0" />
+              <xs:element name="Pago" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnPago" msprop:Generator_ColumnPropNameInRow="Pago" msprop:Generator_ColumnPropNameInTable="PagoColumn" msprop:Generator_UserColumnName="Pago" type="xs:double" minOccurs="0" />
+              <xs:element name="Iva" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnIva" msprop:Generator_ColumnPropNameInRow="Iva" msprop:Generator_ColumnPropNameInTable="IvaColumn" msprop:Generator_UserColumnName="Iva" type="xs:double" minOccurs="0" />
+              <xs:element name="Seguro" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnSeguro" msprop:Generator_ColumnPropNameInRow="Seguro" msprop:Generator_ColumnPropNameInTable="SeguroColumn" msprop:Generator_UserColumnName="Seguro" type="xs:double" minOccurs="0" />
+              <xs:element name="PagoT" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnPagoT" msprop:Generator_ColumnPropNameInRow="PagoT" msprop:Generator_ColumnPropNameInTable="PagoTColumn" msprop:Generator_UserColumnName="PagoT" type="xs:double" minOccurs="0" />
+              <xs:element name="Tasa" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnTasa" msprop:Generator_ColumnPropNameInRow="Tasa" msprop:Generator_ColumnPropNameInTable="TasaColumn" msprop:Generator_UserColumnName="Tasa" type="xs:string" minOccurs="0" />
+              <xs:element name="Seg" msdata:Caption="Saldo" msprop:Generator_ColumnVarNameInTable="columnSeg" msprop:Generator_ColumnPropNameInRow="Seg" msprop:Generator_ColumnPropNameInTable="SegColumn" msprop:Generator_UserColumnName="Seg" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TablaAmortizacion" msprop:Generator_TableClassName="TablaAmortizacionDataTable" msprop:Generator_TableVarName="tableTablaAmortizacion" msprop:Generator_TablePropName="TablaAmortizacion" msprop:Generator_RowDeletingName="TablaAmortizacionRowDeleting" msprop:Generator_RowChangingName="TablaAmortizacionRowChanging" msprop:Generator_RowEvHandlerName="TablaAmortizacionRowChangeEventHandler" msprop:Generator_RowDeletedName="TablaAmortizacionRowDeleted" msprop:Generator_UserTableName="TablaAmortizacion" msprop:Generator_RowChangedName="TablaAmortizacionRowChanged" msprop:Generator_RowEvArgName="TablaAmortizacionRowChangeEvent" msprop:Generator_RowClassName="TablaAmortizacionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="No_x0020_Pago" msprop:Generator_ColumnVarNameInTable="columnNo_Pago" msprop:Generator_ColumnPropNameInRow="No_Pago" msprop:Generator_ColumnPropNameInTable="No_PagoColumn" msprop:Generator_UserColumnName="No Pago" type="xs:short" />
+              <xs:element name="Fecha_x0020_Vencimiento" msprop:Generator_ColumnVarNameInTable="columnFecha_Vencimiento" msprop:Generator_ColumnPropNameInRow="Fecha_Vencimiento" msprop:Generator_ColumnPropNameInTable="Fecha_VencimientoColumn" msprop:Generator_UserColumnName="Fecha Vencimiento" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Dias" msprop:Generator_ColumnVarNameInTable="columnDias" msprop:Generator_ColumnPropNameInRow="Dias" msprop:Generator_ColumnPropNameInTable="DiasColumn" msprop:Generator_UserColumnName="Dias" type="xs:int" minOccurs="0" />
+              <xs:element name="Saldo_x0020_Insoluto" msprop:Generator_ColumnVarNameInTable="columnSaldo_Insoluto" msprop:Generator_ColumnPropNameInRow="Saldo_Insoluto" msprop:Generator_ColumnPropNameInTable="Saldo_InsolutoColumn" msprop:Generator_UserColumnName="Saldo Insoluto" type="xs:decimal" />
+              <xs:element name="Capital" msprop:Generator_ColumnVarNameInTable="columnCapital" msprop:Generator_ColumnPropNameInRow="Capital" msprop:Generator_ColumnPropNameInTable="CapitalColumn" msprop:Generator_UserColumnName="Capital" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Interes" msprop:Generator_ColumnVarNameInTable="columnInteres" msprop:Generator_ColumnPropNameInRow="Interes" msprop:Generator_ColumnPropNameInTable="InteresColumn" msprop:Generator_UserColumnName="Interes" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Pago" msprop:Generator_ColumnVarNameInTable="columnPago" msprop:Generator_ColumnPropNameInRow="Pago" msprop:Generator_ColumnPropNameInTable="PagoColumn" msprop:Generator_UserColumnName="Pago" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Iva_x0020_Interes" msprop:Generator_ColumnVarNameInTable="columnIva_Interes" msprop:Generator_ColumnPropNameInRow="Iva_Interes" msprop:Generator_ColumnPropNameInTable="Iva_InteresColumn" msprop:Generator_UserColumnName="Iva Interes" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Seguro_x0020_de_x0020_Vida" msprop:Generator_ColumnVarNameInTable="columnSeguro_de_Vida" msprop:Generator_ColumnPropNameInRow="Seguro_de_Vida" msprop:Generator_ColumnPropNameInTable="Seguro_de_VidaColumn" msprop:Generator_UserColumnName="Seguro de Vida" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Pago_x0020_Total" msprop:Generator_ColumnVarNameInTable="columnPago_Total" msprop:Generator_ColumnPropNameInRow="Pago_Total" msprop:Generator_ColumnPropNameInTable="Pago_TotalColumn" msprop:Generator_UserColumnName="Pago Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TablaAmortizacionAF" msprop:Generator_TableClassName="TablaAmortizacionAFDataTable" msprop:Generator_TableVarName="tableTablaAmortizacionAF" msprop:Generator_TablePropName="TablaAmortizacionAF" msprop:Generator_RowDeletingName="TablaAmortizacionAFRowDeleting" msprop:Generator_RowChangingName="TablaAmortizacionAFRowChanging" msprop:Generator_RowEvHandlerName="TablaAmortizacionAFRowChangeEventHandler" msprop:Generator_RowDeletedName="TablaAmortizacionAFRowDeleted" msprop:Generator_UserTableName="TablaAmortizacionAF" msprop:Generator_RowChangedName="TablaAmortizacionAFRowChanged" msprop:Generator_RowEvArgName="TablaAmortizacionAFRowChangeEvent" msprop:Generator_RowClassName="TablaAmortizacionAFRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="No_x0020_Pago" msprop:Generator_ColumnVarNameInTable="columnNo_Pago" msprop:Generator_ColumnPropNameInRow="No_Pago" msprop:Generator_ColumnPropNameInTable="No_PagoColumn" msprop:Generator_UserColumnName="No Pago" type="xs:short" />
+              <xs:element name="Fecha_x0020_Vencimiento" msprop:Generator_ColumnVarNameInTable="columnFecha_Vencimiento" msprop:Generator_ColumnPropNameInRow="Fecha_Vencimiento" msprop:Generator_ColumnPropNameInTable="Fecha_VencimientoColumn" msprop:Generator_UserColumnName="Fecha Vencimiento" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Dias" msprop:Generator_ColumnVarNameInTable="columnDias" msprop:Generator_ColumnPropNameInRow="Dias" msprop:Generator_ColumnPropNameInTable="DiasColumn" msprop:Generator_UserColumnName="Dias" type="xs:int" minOccurs="0" />
+              <xs:element name="Saldo_x0020_Insoluto" msprop:Generator_ColumnVarNameInTable="columnSaldo_Insoluto" msprop:Generator_ColumnPropNameInRow="Saldo_Insoluto" msprop:Generator_ColumnPropNameInTable="Saldo_InsolutoColumn" msprop:Generator_UserColumnName="Saldo Insoluto" type="xs:decimal" />
+              <xs:element name="Capital" msprop:Generator_ColumnVarNameInTable="columnCapital" msprop:Generator_ColumnPropNameInRow="Capital" msprop:Generator_ColumnPropNameInTable="CapitalColumn" msprop:Generator_UserColumnName="Capital" type="xs:decimal" minOccurs="0" />
+              <xs:element name="IvaCapital" msprop:Generator_ColumnVarNameInTable="columnIvaCapital" msprop:Generator_ColumnPropNameInRow="IvaCapital" msprop:Generator_ColumnPropNameInTable="IvaCapitalColumn" msprop:Generator_UserColumnName="IvaCapital" type="xs:string" minOccurs="0" />
+              <xs:element name="Interes" msprop:Generator_ColumnVarNameInTable="columnInteres" msprop:Generator_ColumnPropNameInRow="Interes" msprop:Generator_ColumnPropNameInTable="InteresColumn" msprop:Generator_UserColumnName="Interes" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Pago" msprop:Generator_ColumnVarNameInTable="columnPago" msprop:Generator_ColumnPropNameInRow="Pago" msprop:Generator_ColumnPropNameInTable="PagoColumn" msprop:Generator_UserColumnName="Pago" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Iva_x0020_Interes" msprop:Generator_ColumnVarNameInTable="columnIva_Interes" msprop:Generator_ColumnPropNameInRow="Iva_Interes" msprop:Generator_ColumnPropNameInTable="Iva_InteresColumn" msprop:Generator_UserColumnName="Iva Interes" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Seguro_x0020_de_x0020_Vida" msprop:Generator_ColumnVarNameInTable="columnSeguro_de_Vida" msprop:Generator_ColumnPropNameInRow="Seguro_de_Vida" msprop:Generator_ColumnPropNameInTable="Seguro_de_VidaColumn" msprop:Generator_UserColumnName="Seguro de Vida" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Pago_x0020_Total" msprop:Generator_ColumnVarNameInTable="columnPago_Total" msprop:Generator_ColumnPropNameInRow="Pago_Total" msprop:Generator_ColumnPropNameInTable="Pago_TotalColumn" msprop:Generator_UserColumnName="Pago Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Reporte" />
       <xs:field xpath="mstns:NoPago" />
+    </xs:unique>
+    <xs:unique name="ReporteAF_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ReporteAF" />
+      <xs:field xpath="mstns:NoPago" />
+    </xs:unique>
+    <xs:unique name="TablaAmortizacion_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TablaAmortizacion" />
+      <xs:field xpath="mstns:No_x0020_Pago" />
+    </xs:unique>
+    <xs:unique name="TablaAmortizacionAF_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TablaAmortizacionAF" />
+      <xs:field xpath="mstns:No_x0020_Pago" />
     </xs:unique>
   </xs:element>
 </xs:schema>

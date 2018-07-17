@@ -95,6 +95,7 @@
     <Content Include="552db804-70f8.aspx" />
     <Content Include="951sb999-7xx8.aspx" />
     <Content Include="Cotizadores\CotizadorLiq.aspx" />
+    <Content Include="Cotizadores\CotizadorAF.aspx" />
     <Content Include="Cotizadores\CotizadorSimple.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="IMG\logo-sin-fondo_web.png" />
@@ -190,6 +191,13 @@
     </Compile>
     <Compile Include="Cotizadores\CotizadorLiq.aspx.vb">
       <DependentUpon>CotizadorLiq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cotizadores\CotizadorAF.aspx.designer.vb">
+      <DependentUpon>CotizadorAF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cotizadores\CotizadorAF.aspx.vb">
+      <DependentUpon>CotizadorAF.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Cotizadores\CotizadorSimple.aspx.designer.vb">

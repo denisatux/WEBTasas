@@ -999,23 +999,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TablaAmortizacion" msprop:Generator_UserTableName="TablaAmortizacion" msprop:Generator_RowEvArgName="TablaAmortizacionRowChangeEvent" msprop:Generator_TableVarName="tableTablaAmortizacion" msprop:Generator_TablePropName="TablaAmortizacion" msprop:Generator_RowDeletingName="TablaAmortizacionRowDeleting" msprop:Generator_RowChangingName="TablaAmortizacionRowChanging" msprop:Generator_RowDeletedName="TablaAmortizacionRowDeleted" msprop:Generator_RowEvHandlerName="TablaAmortizacionRowChangeEventHandler" msprop:Generator_TableClassName="TablaAmortizacionDataTable" msprop:Generator_RowChangedName="TablaAmortizacionRowChanged" msprop:Generator_RowClassName="TablaAmortizacionRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="No_x0020_Pago" msprop:Generator_ColumnVarNameInTable="columnNo_Pago" msprop:Generator_ColumnPropNameInRow="No_Pago" msprop:Generator_ColumnPropNameInTable="No_PagoColumn" msprop:Generator_UserColumnName="No Pago" type="xs:short" />
-              <xs:element name="Fecha_x0020_Vencimiento" msprop:Generator_ColumnVarNameInTable="columnFecha_Vencimiento" msprop:Generator_ColumnPropNameInRow="Fecha_Vencimiento" msprop:Generator_ColumnPropNameInTable="Fecha_VencimientoColumn" msprop:Generator_UserColumnName="Fecha Vencimiento" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Dias" msprop:Generator_ColumnVarNameInTable="columnDias" msprop:Generator_ColumnPropNameInRow="Dias" msprop:Generator_ColumnPropNameInTable="DiasColumn" msprop:Generator_UserColumnName="Dias" type="xs:int" minOccurs="0" />
-              <xs:element name="Saldo_x0020_Insoluto" msprop:Generator_ColumnVarNameInTable="columnSaldo_Insoluto" msprop:Generator_ColumnPropNameInRow="Saldo_Insoluto" msprop:Generator_ColumnPropNameInTable="Saldo_InsolutoColumn" msprop:Generator_UserColumnName="Saldo Insoluto" type="xs:decimal" />
-              <xs:element name="Capital" msprop:Generator_ColumnVarNameInTable="columnCapital" msprop:Generator_ColumnPropNameInRow="Capital" msprop:Generator_ColumnPropNameInTable="CapitalColumn" msprop:Generator_UserColumnName="Capital" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Interes" msprop:Generator_ColumnVarNameInTable="columnInteres" msprop:Generator_ColumnPropNameInRow="Interes" msprop:Generator_ColumnPropNameInTable="InteresColumn" msprop:Generator_UserColumnName="Interes" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Pago" msprop:Generator_ColumnVarNameInTable="columnPago" msprop:Generator_ColumnPropNameInRow="Pago" msprop:Generator_ColumnPropNameInTable="PagoColumn" msprop:Generator_UserColumnName="Pago" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Iva_x0020_Interes" msprop:Generator_ColumnVarNameInTable="columnIva_Interes" msprop:Generator_ColumnPropNameInRow="Iva_Interes" msprop:Generator_ColumnPropNameInTable="Iva_InteresColumn" msprop:Generator_UserColumnName="Iva Interes" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Seguro_x0020_de_x0020_Vida" msprop:Generator_ColumnVarNameInTable="columnSeguro_de_Vida" msprop:Generator_ColumnPropNameInRow="Seguro_de_Vida" msprop:Generator_ColumnPropNameInTable="Seguro_de_VidaColumn" msprop:Generator_UserColumnName="Seguro de Vida" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Pago_x0020_Total" msprop:Generator_ColumnVarNameInTable="columnPago_Total" msprop:Generator_ColumnPropNameInRow="Pago_Total" msprop:Generator_ColumnPropNameInTable="Pago_TotalColumn" msprop:Generator_UserColumnName="Pago Total" type="xs:decimal" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="BitacoraMC" msprop:Generator_TableClassName="BitacoraMCDataTable" msprop:Generator_TableVarName="tableBitacoraMC" msprop:Generator_RowChangedName="BitacoraMCRowChanged" msprop:Generator_TablePropName="BitacoraMC" msprop:Generator_RowDeletingName="BitacoraMCRowDeleting" msprop:Generator_RowChangingName="BitacoraMCRowChanging" msprop:Generator_RowEvHandlerName="BitacoraMCRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraMCRowDeleted" msprop:Generator_RowClassName="BitacoraMCRow" msprop:Generator_UserTableName="BitacoraMC" msprop:Generator_RowEvArgName="BitacoraMCRowChangeEvent">
+        <xs:element name="BitacoraMC" msprop:Generator_TableClassName="BitacoraMCDataTable" msprop:Generator_TableVarName="tableBitacoraMC" msprop:Generator_TablePropName="BitacoraMC" msprop:Generator_RowDeletingName="BitacoraMCRowDeleting" msprop:Generator_RowChangingName="BitacoraMCRowChanging" msprop:Generator_RowEvHandlerName="BitacoraMCRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraMCRowDeleted" msprop:Generator_UserTableName="BitacoraMC" msprop:Generator_RowChangedName="BitacoraMCRowChanged" msprop:Generator_RowEvArgName="BitacoraMCRowChangeEvent" msprop:Generator_RowClassName="BitacoraMCRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_Bitacora" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId_Bitacora" msprop:Generator_ColumnPropNameInRow="Id_Bitacora" msprop:Generator_ColumnPropNameInTable="Id_BitacoraColumn" msprop:Generator_UserColumnName="Id_Bitacora" type="xs:decimal" />
@@ -1160,7 +1144,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AvioVobo" msprop:Generator_TableClassName="AvioVoboDataTable" msprop:Generator_TableVarName="tableAvioVobo" msprop:Generator_TablePropName="AvioVobo" msprop:Generator_RowDeletingName="AvioVoboRowDeleting" msprop:Generator_RowChangingName="AvioVoboRowChanging" msprop:Generator_RowEvHandlerName="AvioVoboRowChangeEventHandler" msprop:Generator_RowDeletedName="AvioVoboRowDeleted" msprop:Generator_UserTableName="AvioVobo" msprop:Generator_RowChangedName="AvioVoboRowChanged" msprop:Generator_RowEvArgName="AvioVoboRowChangeEvent" msprop:Generator_RowClassName="AvioVoboRow">
+        <xs:element name="AvioVobo" msprop:Generator_TableClassName="AvioVoboDataTable" msprop:Generator_TableVarName="tableAvioVobo" msprop:Generator_RowChangedName="AvioVoboRowChanged" msprop:Generator_TablePropName="AvioVobo" msprop:Generator_RowDeletingName="AvioVoboRowDeleting" msprop:Generator_RowChangingName="AvioVoboRowChanging" msprop:Generator_RowEvHandlerName="AvioVoboRowChangeEventHandler" msprop:Generator_RowDeletedName="AvioVoboRowDeleted" msprop:Generator_RowClassName="AvioVoboRow" msprop:Generator_UserTableName="AvioVobo" msprop:Generator_RowEvArgName="AvioVoboRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -1267,7 +1251,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StatusMinistraciones" msprop:Generator_TableClassName="StatusMinistracionesDataTable" msprop:Generator_TableVarName="tableStatusMinistraciones" msprop:Generator_RowChangedName="StatusMinistracionesRowChanged" msprop:Generator_TablePropName="StatusMinistraciones" msprop:Generator_RowDeletingName="StatusMinistracionesRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesRowDeleted" msprop:Generator_RowClassName="StatusMinistracionesRow" msprop:Generator_UserTableName="StatusMinistraciones" msprop:Generator_RowEvArgName="StatusMinistracionesRowChangeEvent">
+        <xs:element name="StatusMinistraciones" msprop:Generator_TableClassName="StatusMinistracionesDataTable" msprop:Generator_TableVarName="tableStatusMinistraciones" msprop:Generator_TablePropName="StatusMinistraciones" msprop:Generator_RowDeletingName="StatusMinistracionesRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesRowDeleted" msprop:Generator_UserTableName="StatusMinistraciones" msprop:Generator_RowChangedName="StatusMinistracionesRowChanged" msprop:Generator_RowEvArgName="StatusMinistracionesRowChangeEvent" msprop:Generator_RowClassName="StatusMinistracionesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombre_Sucursal" msprop:Generator_ColumnVarNameInTable="columnNombre_Sucursal" msprop:Generator_ColumnPropNameInRow="Nombre_Sucursal" msprop:Generator_ColumnPropNameInTable="Nombre_SucursalColumn" msprop:Generator_UserColumnName="Nombre_Sucursal">
@@ -1296,7 +1280,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CorreosFases" msprop:Generator_TableClassName="CorreosFasesDataTable" msprop:Generator_TableVarName="tableCorreosFases" msprop:Generator_RowChangedName="CorreosFasesRowChanged" msprop:Generator_TablePropName="CorreosFases" msprop:Generator_RowDeletingName="CorreosFasesRowDeleting" msprop:Generator_RowChangingName="CorreosFasesRowChanging" msprop:Generator_RowEvHandlerName="CorreosFasesRowChangeEventHandler" msprop:Generator_RowDeletedName="CorreosFasesRowDeleted" msprop:Generator_RowClassName="CorreosFasesRow" msprop:Generator_UserTableName="CorreosFases" msprop:Generator_RowEvArgName="CorreosFasesRowChangeEvent">
+        <xs:element name="CorreosFases" msprop:Generator_TableClassName="CorreosFasesDataTable" msprop:Generator_TableVarName="tableCorreosFases" msprop:Generator_TablePropName="CorreosFases" msprop:Generator_RowDeletingName="CorreosFasesRowDeleting" msprop:Generator_RowChangingName="CorreosFasesRowChanging" msprop:Generator_RowEvHandlerName="CorreosFasesRowChangeEventHandler" msprop:Generator_RowDeletedName="CorreosFasesRowDeleted" msprop:Generator_UserTableName="CorreosFases" msprop:Generator_RowChangedName="CorreosFasesRowChanged" msprop:Generator_RowEvArgName="CorreosFasesRowChangeEvent" msprop:Generator_RowClassName="CorreosFasesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_correo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_correo" msprop:Generator_ColumnPropNameInRow="id_correo" msprop:Generator_ColumnPropNameInTable="id_correoColumn" msprop:Generator_UserColumnName="id_correo" type="xs:decimal" />
@@ -1324,7 +1308,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StatusMinistracionesDET" msprop:Generator_TableClassName="StatusMinistracionesDETDataTable" msprop:Generator_TableVarName="tableStatusMinistracionesDET" msprop:Generator_RowChangedName="StatusMinistracionesDETRowChanged" msprop:Generator_TablePropName="StatusMinistracionesDET" msprop:Generator_RowDeletingName="StatusMinistracionesDETRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesDETRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesDETRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesDETRowDeleted" msprop:Generator_RowClassName="StatusMinistracionesDETRow" msprop:Generator_UserTableName="StatusMinistracionesDET" msprop:Generator_RowEvArgName="StatusMinistracionesDETRowChangeEvent">
+        <xs:element name="StatusMinistracionesDET" msprop:Generator_TableClassName="StatusMinistracionesDETDataTable" msprop:Generator_TableVarName="tableStatusMinistracionesDET" msprop:Generator_TablePropName="StatusMinistracionesDET" msprop:Generator_RowDeletingName="StatusMinistracionesDETRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesDETRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesDETRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesDETRowDeleted" msprop:Generator_UserTableName="StatusMinistracionesDET" msprop:Generator_RowChangedName="StatusMinistracionesDETRowChanged" msprop:Generator_RowEvArgName="StatusMinistracionesDETRowChangeEvent" msprop:Generator_RowClassName="StatusMinistracionesDETRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombre_Sucursal" msprop:Generator_ColumnVarNameInTable="columnNombre_Sucursal" msprop:Generator_ColumnPropNameInRow="Nombre_Sucursal" msprop:Generator_ColumnPropNameInTable="Nombre_SucursalColumn" msprop:Generator_UserColumnName="Nombre_Sucursal" minOccurs="0">
@@ -1389,7 +1373,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HojaCambios" msprop:Generator_TableClassName="HojaCambiosDataTable" msprop:Generator_TableVarName="tableHojaCambios" msprop:Generator_RowChangedName="HojaCambiosRowChanged" msprop:Generator_TablePropName="HojaCambios" msprop:Generator_RowDeletingName="HojaCambiosRowDeleting" msprop:Generator_RowChangingName="HojaCambiosRowChanging" msprop:Generator_RowEvHandlerName="HojaCambiosRowChangeEventHandler" msprop:Generator_RowDeletedName="HojaCambiosRowDeleted" msprop:Generator_RowClassName="HojaCambiosRow" msprop:Generator_UserTableName="HojaCambios" msprop:Generator_RowEvArgName="HojaCambiosRowChangeEvent">
+        <xs:element name="HojaCambios" msprop:Generator_TableClassName="HojaCambiosDataTable" msprop:Generator_TableVarName="tableHojaCambios" msprop:Generator_TablePropName="HojaCambios" msprop:Generator_RowDeletingName="HojaCambiosRowDeleting" msprop:Generator_RowChangingName="HojaCambiosRowChanging" msprop:Generator_RowEvHandlerName="HojaCambiosRowChangeEventHandler" msprop:Generator_RowDeletedName="HojaCambiosRowDeleted" msprop:Generator_UserTableName="HojaCambios" msprop:Generator_RowChangedName="HojaCambiosRowChanged" msprop:Generator_RowEvArgName="HojaCambiosRowChangeEvent" msprop:Generator_RowClassName="HojaCambiosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -1432,7 +1416,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MC_cambio_condiciones" msprop:Generator_TableClassName="MC_cambio_condicionesDataTable" msprop:Generator_TableVarName="tableMC_cambio_condiciones" msprop:Generator_RowChangedName="MC_cambio_condicionesRowChanged" msprop:Generator_TablePropName="MC_cambio_condiciones" msprop:Generator_RowDeletingName="MC_cambio_condicionesRowDeleting" msprop:Generator_RowChangingName="MC_cambio_condicionesRowChanging" msprop:Generator_RowEvHandlerName="MC_cambio_condicionesRowChangeEventHandler" msprop:Generator_RowDeletedName="MC_cambio_condicionesRowDeleted" msprop:Generator_RowClassName="MC_cambio_condicionesRow" msprop:Generator_UserTableName="MC_cambio_condiciones" msprop:Generator_RowEvArgName="MC_cambio_condicionesRowChangeEvent">
+        <xs:element name="MC_cambio_condiciones" msprop:Generator_TableClassName="MC_cambio_condicionesDataTable" msprop:Generator_TableVarName="tableMC_cambio_condiciones" msprop:Generator_TablePropName="MC_cambio_condiciones" msprop:Generator_RowDeletingName="MC_cambio_condicionesRowDeleting" msprop:Generator_RowChangingName="MC_cambio_condicionesRowChanging" msprop:Generator_RowEvHandlerName="MC_cambio_condicionesRowChangeEventHandler" msprop:Generator_RowDeletedName="MC_cambio_condicionesRowDeleted" msprop:Generator_UserTableName="MC_cambio_condiciones" msprop:Generator_RowChangedName="MC_cambio_condicionesRowChanged" msprop:Generator_RowEvArgName="MC_cambio_condicionesRowChangeEvent" msprop:Generator_RowClassName="MC_cambio_condicionesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Anexo" msprop:Generator_ColumnVarNameInTable="columnAnexo" msprop:Generator_ColumnPropNameInRow="Anexo" msprop:Generator_ColumnPropNameInTable="AnexoColumn" msprop:Generator_UserColumnName="Anexo">
@@ -1552,7 +1536,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CRED_Seguimientos" msprop:Generator_TableClassName="CRED_SeguimientosDataTable" msprop:Generator_TableVarName="tableCRED_Seguimientos" msprop:Generator_RowChangedName="CRED_SeguimientosRowChanged" msprop:Generator_TablePropName="CRED_Seguimientos" msprop:Generator_RowDeletingName="CRED_SeguimientosRowDeleting" msprop:Generator_RowChangingName="CRED_SeguimientosRowChanging" msprop:Generator_RowEvHandlerName="CRED_SeguimientosRowChangeEventHandler" msprop:Generator_RowDeletedName="CRED_SeguimientosRowDeleted" msprop:Generator_RowClassName="CRED_SeguimientosRow" msprop:Generator_UserTableName="CRED_Seguimientos" msprop:Generator_RowEvArgName="CRED_SeguimientosRowChangeEvent">
+        <xs:element name="CRED_Seguimientos" msprop:Generator_TableClassName="CRED_SeguimientosDataTable" msprop:Generator_TableVarName="tableCRED_Seguimientos" msprop:Generator_TablePropName="CRED_Seguimientos" msprop:Generator_RowDeletingName="CRED_SeguimientosRowDeleting" msprop:Generator_RowChangingName="CRED_SeguimientosRowChanging" msprop:Generator_RowEvHandlerName="CRED_SeguimientosRowChangeEventHandler" msprop:Generator_RowDeletedName="CRED_SeguimientosRowDeleted" msprop:Generator_UserTableName="CRED_Seguimientos" msprop:Generator_RowChangedName="CRED_SeguimientosRowChanged" msprop:Generator_RowEvArgName="CRED_SeguimientosRowChangeEvent" msprop:Generator_RowClassName="CRED_SeguimientosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Responsable" msprop:Generator_ColumnVarNameInTable="columnResponsable" msprop:Generator_ColumnPropNameInRow="Responsable" msprop:Generator_ColumnPropNameInTable="ResponsableColumn" msprop:Generator_UserColumnName="Responsable" minOccurs="0">
@@ -1603,7 +1587,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vw_RPT_Liquidez" msprop:Generator_TableClassName="Vw_RPT_LiquidezDataTable" msprop:Generator_TableVarName="tableVw_RPT_Liquidez" msprop:Generator_TablePropName="Vw_RPT_Liquidez" msprop:Generator_RowDeletingName="Vw_RPT_LiquidezRowDeleting" msprop:Generator_RowChangingName="Vw_RPT_LiquidezRowChanging" msprop:Generator_RowEvHandlerName="Vw_RPT_LiquidezRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_RPT_LiquidezRowDeleted" msprop:Generator_UserTableName="Vw_RPT_Liquidez" msprop:Generator_RowChangedName="Vw_RPT_LiquidezRowChanged" msprop:Generator_RowEvArgName="Vw_RPT_LiquidezRowChangeEvent" msprop:Generator_RowClassName="Vw_RPT_LiquidezRow">
+        <xs:element name="Vw_RPT_Liquidez" msprop:Generator_TableClassName="Vw_RPT_LiquidezDataTable" msprop:Generator_TableVarName="tableVw_RPT_Liquidez" msprop:Generator_RowChangedName="Vw_RPT_LiquidezRowChanged" msprop:Generator_TablePropName="Vw_RPT_Liquidez" msprop:Generator_RowDeletingName="Vw_RPT_LiquidezRowDeleting" msprop:Generator_RowChangingName="Vw_RPT_LiquidezRowChanging" msprop:Generator_RowEvHandlerName="Vw_RPT_LiquidezRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_RPT_LiquidezRowDeleted" msprop:Generator_RowClassName="Vw_RPT_LiquidezRow" msprop:Generator_UserTableName="Vw_RPT_Liquidez" msprop:Generator_RowEvArgName="Vw_RPT_LiquidezRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente">
@@ -1640,10 +1624,6 @@ ORDER BY Cliente, Contrato</CommandText>
     <xs:unique name="VWBloqueo_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:VWBloqueo" />
       <xs:field xpath="mstns:id" />
-    </xs:unique>
-    <xs:unique name="TablaAmortizacion_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:TablaAmortizacion" />
-      <xs:field xpath="mstns:No_x0020_Pago" />
     </xs:unique>
     <xs:unique name="BitacoraMC_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:BitacoraMC" />

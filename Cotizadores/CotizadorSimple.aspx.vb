@@ -58,7 +58,7 @@ Partial Public Class WebFormSimple
 
     Sub CalculaTabla()
         Dim TasaIvaX As Decimal = TasaIva
-        Dim TAmortizaciones As New ProDS.TablaAmortizacionDataTable
+        Dim TAmortizaciones As New CotizaDS.TablaAmortizacionDataTable
         Dim NoPagos As Integer = 0
         Dim NoPagosAnual As Integer = 0
         Dim Capital As Double = CDbl(TxtMonto.Text).ToString("N2")
@@ -94,8 +94,8 @@ Partial Public Class WebFormSimple
         Dim PagoY As Double = 0
         Dim Extra As Double = 0
         Dim Aux As Double = 0
-        Dim rr As ProDS.TablaAmortizacionRow
-        Dim rrr As ProDS.TablaAmortizacionRow
+        Dim rr As CotizaDS.TablaAmortizacionRow
+        Dim rrr As CotizaDS.TablaAmortizacionRow
 
         TAmortizaciones.Rows.Clear()
         MesSeguro = FechaAux.ToString("yyyyMM")
