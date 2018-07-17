@@ -133,7 +133,7 @@ Partial Public Class WebFormAF
                 PagoY = Pmt((TasaAnual / 360) * Dias, NoPagos, Capital * -1, 0, DueDate.EndOfPeriod)
             Else
 
-                If Cont = 2 Then 'CORRIGE PRIMERA AMORTIZACION POR DIFERENCIA 
+                If Cont = -2 Then 'CORRIGE PRIMERA AMORTIZACION POR DIFERENCIA 
                     rrr = TAmortizaciones.Rows(0)
                     Aux = (PagoX - CDbl(rrr.Iva_Interes)).ToString("N2")
                     Capital = CDbl(CapitalORG) - Aux
