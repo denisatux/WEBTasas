@@ -94,9 +94,6 @@
     <Content Include="552db804-scod.aspx" />
     <Content Include="552db804-70f8.aspx" />
     <Content Include="951sb999-7xx8.aspx" />
-    <Content Include="Cotizadores\CotizadorLiq.aspx" />
-    <Content Include="Cotizadores\CotizadorAF.aspx" />
-    <Content Include="Cotizadores\CotizadorSimple.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="IMG\logo-sin-fondo_web.png" />
     <Content Include="Web.config" />
@@ -186,32 +183,6 @@
       <DependentUpon>951sb999-7xx8.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cotizadores\CotizadorLiq.aspx.designer.vb">
-      <DependentUpon>CotizadorLiq.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Cotizadores\CotizadorLiq.aspx.vb">
-      <DependentUpon>CotizadorLiq.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cotizadores\CotizadorAF.aspx.designer.vb">
-      <DependentUpon>CotizadorAF.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Cotizadores\CotizadorAF.aspx.vb">
-      <DependentUpon>CotizadorAF.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cotizadores\CotizadorSimple.aspx.designer.vb">
-      <DependentUpon>CotizadorSimple.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Cotizadores\CotizadorSimple.aspx.vb">
-      <DependentUpon>CotizadorSimple.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cotizadores\CotizaDS.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CotizaDS.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
@@ -240,24 +211,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Cotizadores\PaginaMasterX.Master.designer.vb">
-      <DependentUpon>PaginaMasterX.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Cotizadores\PaginaMasterX.Master.vb">
-      <DependentUpon>PaginaMasterX.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="ProDS.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProDS.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Cotizadores\Cotizador.aspx.designer.vb">
-      <DependentUpon>Cotizador.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Cotizadores\Cotizador.aspx.vb">
-      <DependentUpon>Cotizador.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ProDS.vb">
       <DependentUpon>ProDS.xsd</DependentUpon>
@@ -277,20 +234,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Cotizadores\CotizaDS.xsc">
-      <DependentUpon>CotizaDS.xsd</DependentUpon>
-    </Content>
-    <Content Include="Cotizadores\CotizacionCS.rpt" />
-    <Content Include="Cotizadores\CotizacionLQ.rpt" />
-    <Content Include="Cotizadores\CotizacionAF.rpt" />
-    <None Include="Cotizadores\CotizaDS.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CotizaDS.Designer.vb</LastGenOutput>
-    </None>
-    <Content Include="Cotizadores\CotizaDS.xss">
-      <DependentUpon>CotizaDS.xsd</DependentUpon>
-    </Content>
     <None Include="Factor100DS.xsc">
       <DependentUpon>Factor100DS.xsd</DependentUpon>
     </None>
@@ -319,8 +262,6 @@
     <Content Include="IMG\LOGOpeque.JPG" />
     <Content Include="IMG\LOGOpeque2.JPG" />
     <Content Include="IMG\sep.JPG" />
-    <Content Include="Cotizadores\PaginaMasterX.Master" />
-    <Content Include="Cotizadores\Cotizador.aspx" />
     <None Include="ProDS.xsc">
       <DependentUpon>ProDS.xsd</DependentUpon>
     </None>
