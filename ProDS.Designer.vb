@@ -1081,6 +1081,8 @@ Partial Public Class ProDS
         
         Private columnTasa_Politica As Global.System.Data.DataColumn
         
+        Private columnPlazoEnMeses As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -1285,6 +1287,14 @@ Partial Public Class ProDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property PlazoEnMesesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPlazoEnMeses
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1341,9 +1351,10 @@ Partial Public Class ProDS
                     ByVal AutorizadoDG As Boolean,  _
                     ByVal FirmaSubPromo As String,  _
                     ByVal Tasa_Solicitada As String,  _
-                    ByVal Tasa_Politica As String) As VWBloqueoRow
+                    ByVal Tasa_Politica As String,  _
+                    ByVal PlazoEnMeses As Integer) As VWBloqueoRow
             Dim rowVWBloqueoRow As VWBloqueoRow = CType(Me.NewRow,VWBloqueoRow)
-            Dim columnValuesArray() As Object = New Object() {AnexoCon, Cliente, ComentarioPromo, TipoCredito, MontoFinanciado, FondoReserva, Plazo, Tipo_Tasa, PorcentajeComision, RecidualOP, Penalizacion, RentasenDeposito, DespoitoenGarantia, Nothing, Diferencia, ComentarioRiesgos, AutorizadoRI, AutorizadoDG, FirmaSubPromo, Tasa_Solicitada, Tasa_Politica}
+            Dim columnValuesArray() As Object = New Object() {AnexoCon, Cliente, ComentarioPromo, TipoCredito, MontoFinanciado, FondoReserva, Plazo, Tipo_Tasa, PorcentajeComision, RecidualOP, Penalizacion, RentasenDeposito, DespoitoenGarantia, Nothing, Diferencia, ComentarioRiesgos, AutorizadoRI, AutorizadoDG, FirmaSubPromo, Tasa_Solicitada, Tasa_Politica, PlazoEnMeses}
             rowVWBloqueoRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVWBloqueoRow)
             Return rowVWBloqueoRow
@@ -1399,6 +1410,7 @@ Partial Public Class ProDS
             Me.columnFirmaSubPromo = MyBase.Columns("FirmaSubPromo")
             Me.columnTasa_Solicitada = MyBase.Columns("Tasa_Solicitada")
             Me.columnTasa_Politica = MyBase.Columns("Tasa_Politica")
+            Me.columnPlazoEnMeses = MyBase.Columns("PlazoEnMeses")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1446,6 +1458,8 @@ Partial Public Class ProDS
             MyBase.Columns.Add(Me.columnTasa_Solicitada)
             Me.columnTasa_Politica = New Global.System.Data.DataColumn("Tasa_Politica", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTasa_Politica)
+            Me.columnPlazoEnMeses = New Global.System.Data.DataColumn("PlazoEnMeses", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPlazoEnMeses)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
             Me.columnAnexoCon.MaxLength = 11
             Me.columnCliente.AllowDBNull = false
@@ -1472,6 +1486,7 @@ Partial Public Class ProDS
             Me.columnTasa_Solicitada.MaxLength = 37
             Me.columnTasa_Politica.ReadOnly = true
             Me.columnTasa_Politica.MaxLength = 37
+            Me.columnPlazoEnMeses.ReadOnly = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6198,6 +6213,21 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property PlazoEnMeses() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableVWBloqueo.PlazoEnMesesColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'PlazoEnMeses' de la tabla 'VWBloqueo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVWBloqueo.PlazoEnMesesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsAnexoConNull() As Boolean
             Return Me.IsNull(Me.tableVWBloqueo.AnexoConColumn)
         End Function
@@ -6350,6 +6380,18 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetTasa_PoliticaNull()
             Me(Me.tableVWBloqueo.Tasa_PoliticaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsPlazoEnMesesNull() As Boolean
+            Return Me.IsNull(Me.tableVWBloqueo.PlazoEnMesesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetPlazoEnMesesNull()
+            Me(Me.tableVWBloqueo.PlazoEnMesesColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -9878,7 +9920,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEBTasas.My.MySettings.Default.ProductionConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10448,6 +10490,7 @@ Namespace ProDSTableAdapters
             tableMapping.ColumnMappings.Add("FirmaSubPromo", "FirmaSubPromo")
             tableMapping.ColumnMappings.Add("Tasa_Solicitada", "Tasa_Solicitada")
             tableMapping.ColumnMappings.Add("Tasa_Politica", "Tasa_Politica")
+            tableMapping.ColumnMappings.Add("PlazoEnMeses", "PlazoEnMeses")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -10455,7 +10498,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEBTasas.My.MySettings.Default.ProductionConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10471,59 +10514,63 @@ Namespace ProDSTableAdapters
                 "RT(varchar, TasaSol) ELSE 'TIIE + ' + CONVERT(varchar, TasaSol) END AS Tasa_Soli"& _ 
                 "citada, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos.TipoCredito, Vw_Anexos.MontoFinanci"& _ 
                 "ado, Vw_Anexos.FondoReserva, Anexos.Plazo, CASE WHEN aNEXOS.Tipta = '7' THEN 'FI"& _ 
-                "JA' ELSE 'VARIABLE' END AS Tipo_Tasa, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Anexos.Porco AS"& _ 
-                " PorcentajeComision, Anexos.Porop AS RecidualOP, Anexos.Taspen AS Penalizacion, "& _ 
+                "JA' ELSE 'VARIABLE' END AS Tipo_Tasa, Anexos.Porco AS PorcentajeComision, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                     Anexos.Porop AS RecidualOP, Anexos.Taspen AS Penalizacion, "& _ 
                 "Anexos.RD AS RentasenDeposito, Anexos.DG AS DespoitoenGarantia, GEN_Bloqueo_Tasa"& _ 
                 "s.id, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         GEN_Bloqueo_Tasas.TasaPol - GEN_Bloqueo_Tasas.T"& _ 
                 "asaSol AS Diferencia, GEN_Bloqueo_Tasas.ComentarioRiesgos, GEN_Bloqueo_Tasas.Aut"& _ 
                 "orizadoRI, GEN_Bloqueo_Tasas.AutorizadoDG, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         GEN_Bloque"& _ 
-                "o_Tasas.FirmaSubPromo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            GEN_Bloqueo_Tasas INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
-                "              Vw_Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING("& _ 
-                "Vw_Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Anexos ON SUBSTRING("& _ 
-                "GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Anexos.Anexo, 2, 9)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (GE"& _ 
-                "N_Bloqueo_Tasas.id = @ID)"
+                "o_Tasas.FirmaSubPromo, Vw_AnexoPlazoMeses.Plazo AS PlazoEnMeses"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM           "& _ 
+                " GEN_Bloqueo_Tasas INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos ON SUBSTRING(G"& _ 
+                "EN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Vw_Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
+                "                      Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBST"& _ 
+                "RING(Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_AnexoPlazoMeses"& _ 
+                " ON Anexos.Anexo = Vw_AnexoPlazoMeses.Anexo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (GEN_Bloqueo_Tasas.id "& _ 
+                "= @ID)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT     Vw_Anexos.AnexoCon, Vw_Anexos.Descr AS Cliente, { fn UCASE(GEN_Bloqueo"& _ 
-                "_Tasas.ComentarioPromo) } AS ComentarioPromo, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      GEN_Bloque"& _ 
-                "o_Tasas.TasaPol AS Tasa_Politica, CASE WHEN aNEXOS.Tipta = '7' THEN CONVERT(varc"& _ 
-                "har, TasaSol) ELSE 'TIIE + ' + CONVERT(varchar,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       TasaSol)"& _ 
-                " END AS Tasa_Solicitada, Vw_Anexos.TipoCredito, Vw_Anexos.MontoFinanciado, Vw_An"& _ 
-                "exos.FondoReserva, Anexos.Plazo, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      CASE WHEN aNEXOS.Tipta "& _ 
-                "= '7' THEN 'FIJA' ELSE 'VARIABLE' END AS Tipo_Tasa, Anexos.Porco AS PorcentajeCo"& _ 
-                "mision, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Anexos.Porop AS RecidualOP, Anexos.Taspen AS Pen"& _ 
-                "alizacion, Anexos.RD AS RentasenDeposito, Anexos.DG AS DespoitoenGarantia, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
-                "                   GEN_Bloqueo_Tasas.id, GEN_Bloqueo_Tasas.TasaPol - GEN_Bloqueo"& _ 
-                "_Tasas.TasaSol AS Diferencia, GEN_Bloqueo_Tasas.ComentarioRiesgos, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
-                "           GEN_Bloqueo_Tasas.AutorizadoRI, GEN_Bloqueo_Tasas.AutorizadoDG, GEN_B"& _ 
-                "loqueo_Tasas.FirmaSubPromo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         GEN_Bloqueo_Tasas INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
-                "             Vw_Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(V"& _ 
-                "w_Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Anexos ON SUBSTRING(GEN_"& _ 
-                "Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Anexos.Anexo, 2, 9)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (GEN_Bloqu"& _ 
-                "eo_Tasas.id = @ID)"
+            Me._commandCollection(1).CommandText = "SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.Descr AS Cliente, { fn UCASE(GEN_Bloq"& _ 
+                "ueo_Tasas.ComentarioPromo) } AS ComentarioPromo, GEN_Bloqueo_Tasas.TasaPol AS Ta"& _ 
+                "sa_Politica, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CASE WHEN aNEXOS.Tipta = '7' THEN CONVER"& _ 
+                "T(varchar, TasaSol) ELSE 'TIIE + ' + CONVERT(varchar, TasaSol) END AS Tasa_Solic"& _ 
+                "itada, Vw_Anexos.TipoCredito, Vw_Anexos.MontoFinanciado, Vw_Anexos.FondoReserva,"& _ 
+                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Anexos.Plazo, CASE WHEN aNEXOS.Tipta = '7' THEN 'FIJ"& _ 
+                "A' ELSE 'VARIABLE' END AS Tipo_Tasa, Anexos.Porco AS PorcentajeComision, Anexos."& _ 
+                "Porop AS RecidualOP, Anexos.Taspen AS Penalizacion, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         A"& _ 
+                "nexos.RD AS RentasenDeposito, Anexos.DG AS DespoitoenGarantia, GEN_Bloqueo_Tasas"& _ 
+                ".id, GEN_Bloqueo_Tasas.TasaPol - GEN_Bloqueo_Tasas.TasaSol AS Diferencia, GEN_Bl"& _ 
+                "oqueo_Tasas.ComentarioRiesgos, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         GEN_Bloqueo_Tasas.Auto"& _ 
+                "rizadoRI, GEN_Bloqueo_Tasas.AutorizadoDG, GEN_Bloqueo_Tasas.FirmaSubPromo, Vw_An"& _ 
+                "exoPlazoMeses.Plazo AS PlazoEnMeses"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            GEN_Bloqueo_Tasas INNER JOI"& _ 
+                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9"& _ 
+                ") = SUBSTRING(Vw_Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Anexos"& _ 
+                " ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Anexos.Anexo, 2, 9) INN"& _ 
+                "ER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_AnexoPlazoMeses ON Anexos.Anexo = Vw_AnexoP"& _ 
+                "lazoMeses.Anexo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (GEN_Bloqueo_Tasas.id = @ID)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT     Vw_Anexos.AnexoCon, Vw_Anexos.Descr AS Cliente, { fn UCASE(GEN_Bloqueo"& _ 
-                "_Tasas.ComentarioPromo) } AS ComentarioPromo, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      GEN_Bloque"& _ 
-                "o_Tasas.TasaPol AS Tasa_Politica, CASE WHEN aNEXOS.Tipta = '7' THEN CONVERT(varc"& _ 
-                "har, TasaSol) ELSE 'TIIE + ' + CONVERT(varchar,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       TasaSol)"& _ 
-                " END AS Tasa_Solicitada, Vw_Anexos.TipoCredito, Vw_Anexos.MontoFinanciado, Vw_An"& _ 
-                "exos.FondoReserva, Anexos.Plazo, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      CASE WHEN aNEXOS.Tipta "& _ 
-                "= '7' THEN 'FIJA' ELSE 'VARIABLE' END AS Tipo_Tasa, Anexos.Porco AS PorcentajeCo"& _ 
-                "mision, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Anexos.Porop AS RecidualOP, Anexos.Taspen AS Pen"& _ 
-                "alizacion, Anexos.RD AS RentasenDeposito, Anexos.DG AS DespoitoenGarantia, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
-                "                   GEN_Bloqueo_Tasas.id, GEN_Bloqueo_Tasas.TasaPol - GEN_Bloqueo"& _ 
-                "_Tasas.TasaSol AS Diferencia, GEN_Bloqueo_Tasas.ComentarioRiesgos, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
-                "           GEN_Bloqueo_Tasas.AutorizadoDG, GEN_Bloqueo_Tasas.AutorizadoRI, GEN_B"& _ 
-                "loqueo_Tasas.FirmaSubPromo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         GEN_Bloqueo_Tasas INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
-                "             Vw_Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(V"& _ 
-                "w_Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Anexos ON SUBSTRING(GEN_"& _ 
-                "Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Anexos.Anexo, 2, 9)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (GEN_Bloqu"& _ 
-                "eo_Tasas.id = @ID)"
+            Me._commandCollection(2).CommandText = "SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.Descr AS Cliente, { fn UCASE(GEN_Bloq"& _ 
+                "ueo_Tasas.ComentarioPromo) } AS ComentarioPromo, GEN_Bloqueo_Tasas.TasaPol AS Ta"& _ 
+                "sa_Politica, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CASE WHEN aNEXOS.Tipta = '7' THEN CONVER"& _ 
+                "T(varchar, TasaSol) ELSE 'TIIE + ' + CONVERT(varchar, TasaSol) END AS Tasa_Solic"& _ 
+                "itada, Vw_Anexos.TipoCredito, Vw_Anexos.MontoFinanciado, Vw_Anexos.FondoReserva,"& _ 
+                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Anexos.Plazo, CASE WHEN aNEXOS.Tipta = '7' THEN 'FIJ"& _ 
+                "A' ELSE 'VARIABLE' END AS Tipo_Tasa, Anexos.Porco AS PorcentajeComision, Anexos."& _ 
+                "Porop AS RecidualOP, Anexos.Taspen AS Penalizacion, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         A"& _ 
+                "nexos.RD AS RentasenDeposito, Anexos.DG AS DespoitoenGarantia, GEN_Bloqueo_Tasas"& _ 
+                ".id, GEN_Bloqueo_Tasas.TasaPol - GEN_Bloqueo_Tasas.TasaSol AS Diferencia, GEN_Bl"& _ 
+                "oqueo_Tasas.ComentarioRiesgos, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         GEN_Bloqueo_Tasas.Auto"& _ 
+                "rizadoDG, GEN_Bloqueo_Tasas.AutorizadoRI, GEN_Bloqueo_Tasas.FirmaSubPromo, Vw_An"& _ 
+                "exoPlazoMeses.Plazo AS PlazoEnMeses"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            GEN_Bloqueo_Tasas INNER JOI"& _ 
+                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9"& _ 
+                ") = SUBSTRING(Vw_Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Anexos"& _ 
+                " ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Anexos.Anexo, 2, 9) INN"& _ 
+                "ER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_AnexoPlazoMeses ON Anexos.Anexo = Vw_AnexoP"& _ 
+                "lazoMeses.Anexo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (GEN_Bloqueo_Tasas.id = @ID)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -10748,7 +10795,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEBTasas.My.MySettings.Default.ProductionConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11088,7 +11135,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEBTasas.My.MySettings.Default.ProductionConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11678,7 +11725,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEBTasas.My.MySettings.Default.ProductionConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11847,7 +11894,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEBTasas.My.MySettings.Default.ProductionConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12132,7 +12179,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEBTasas.My.MySettings.Default.ProductionConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12284,7 +12331,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEBTasas.My.MySettings.Default.ProductionConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12591,7 +12638,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEBTasas.My.MySettings.Default.ProductionConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13229,7 +13276,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEBTasas.My.MySettings.Default.ProductionConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13377,7 +13424,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEBTasas.My.MySettings.Default.ProductionConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

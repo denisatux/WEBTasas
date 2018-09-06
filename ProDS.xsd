@@ -4,12 +4,12 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="ProductionConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ProductionConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.ProductionConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ProductionConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ProductionConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WEBTasas.My.MySettings.GlobalReference.Default.ProductionConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GEN_Bloqueo_TasasTableAdapter" GeneratorDataComponentClassName="GEN_Bloqueo_TasasTableAdapter" Name="GEN_Bloqueo_Tasas" UserDataComponentName="GEN_Bloqueo_TasasTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="Production.dbo.GEN_Bloqueo_Tasas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="Production.dbo.GEN_Bloqueo_Tasas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [GEN_Bloqueo_Tasas] WHERE (([id] = @Original_id))</CommandText>
@@ -76,7 +76,7 @@ FROM         GEN_Bloqueo_Tasas</CommandText>
               <Mapping SourceColumn="Enviado" DataSetColumn="Enviado" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Autoriza" Modifier="Public" Name="Autoriza" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="Autoriza">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Autoriza" Modifier="Public" Name="Autoriza" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="Autoriza">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE    GEN_Bloqueo_Tasas
@@ -96,7 +96,7 @@ WHERE     (id = @Original_id)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AutorizaDG" Modifier="Public" Name="AutorizaDG" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="AutorizaDG">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AutorizaDG" Modifier="Public" Name="AutorizaDG" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="AutorizaDG">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE    GEN_Bloqueo_Tasas
@@ -111,7 +111,7 @@ WHERE     (id = @Original_id)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AutorizaSUB" Modifier="Public" Name="AutorizaSUB" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="AutorizaSUB">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AutorizaSUB" Modifier="Public" Name="AutorizaSUB" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="AutorizaSUB">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE    GEN_Bloqueo_Tasas
@@ -124,7 +124,7 @@ WHERE     (id = @Original_id)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="RechazarSolicitud" Modifier="Public" Name="RechazarSolicitud" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="RechazarSolicitud">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="RechazarSolicitud" Modifier="Public" Name="RechazarSolicitud" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="RechazarSolicitud">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       GEN_Bloqueo_Tasas
@@ -146,18 +146,19 @@ WHERE        (id = @Original_id)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VWBloqueoTableAdapter" GeneratorDataComponentClassName="VWBloqueoTableAdapter" Name="VWBloqueo" UserDataComponentName="VWBloqueoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.Descr AS Cliente, { fn UCASE(GEN_Bloqueo_Tasas.ComentarioPromo) } AS ComentarioPromo, CASE WHEN aNEXOS.Tipta = '7' THEN CONVERT(varchar, Tasapol) 
                          ELSE 'TIIE + ' + CONVERT(varchar, Tasapol) END AS Tasa_Politica, CASE WHEN aNEXOS.Tipta = '7' THEN CONVERT(varchar, TasaSol) ELSE 'TIIE + ' + CONVERT(varchar, TasaSol) END AS Tasa_Solicitada, 
-                         Vw_Anexos.TipoCredito, Vw_Anexos.MontoFinanciado, Vw_Anexos.FondoReserva, Anexos.Plazo, CASE WHEN aNEXOS.Tipta = '7' THEN 'FIJA' ELSE 'VARIABLE' END AS Tipo_Tasa, 
-                         Anexos.Porco AS PorcentajeComision, Anexos.Porop AS RecidualOP, Anexos.Taspen AS Penalizacion, Anexos.RD AS RentasenDeposito, Anexos.DG AS DespoitoenGarantia, GEN_Bloqueo_Tasas.id, 
+                         Vw_Anexos.TipoCredito, Vw_Anexos.MontoFinanciado, Vw_Anexos.FondoReserva, Anexos.Plazo, CASE WHEN aNEXOS.Tipta = '7' THEN 'FIJA' ELSE 'VARIABLE' END AS Tipo_Tasa, Anexos.Porco AS PorcentajeComision, 
+                         Anexos.Porop AS RecidualOP, Anexos.Taspen AS Penalizacion, Anexos.RD AS RentasenDeposito, Anexos.DG AS DespoitoenGarantia, GEN_Bloqueo_Tasas.id, 
                          GEN_Bloqueo_Tasas.TasaPol - GEN_Bloqueo_Tasas.TasaSol AS Diferencia, GEN_Bloqueo_Tasas.ComentarioRiesgos, GEN_Bloqueo_Tasas.AutorizadoRI, GEN_Bloqueo_Tasas.AutorizadoDG, 
-                         GEN_Bloqueo_Tasas.FirmaSubPromo
+                         GEN_Bloqueo_Tasas.FirmaSubPromo, Vw_AnexoPlazoMeses.Plazo AS PlazoEnMeses
 FROM            GEN_Bloqueo_Tasas INNER JOIN
                          Vw_Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Vw_Anexos.Anexo, 2, 9) INNER JOIN
-                         Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Anexos.Anexo, 2, 9)
+                         Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Anexos.Anexo, 2, 9) INNER JOIN
+                         Vw_AnexoPlazoMeses ON Anexos.Anexo = Vw_AnexoPlazoMeses.Anexo
 WHERE        (GEN_Bloqueo_Tasas.id = @ID)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="id" DataSourceName="Production.dbo.GEN_Bloqueo_Tasas" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -188,42 +189,41 @@ WHERE        (GEN_Bloqueo_Tasas.id = @ID)</CommandText>
               <Mapping SourceColumn="FirmaSubPromo" DataSetColumn="FirmaSubPromo" />
               <Mapping SourceColumn="Tasa_Solicitada" DataSetColumn="Tasa_Solicitada" />
               <Mapping SourceColumn="Tasa_Politica" DataSetColumn="Tasa_Politica" />
+              <Mapping SourceColumn="PlazoEnMeses" DataSetColumn="PlazoEnMeses" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT     Vw_Anexos.AnexoCon, Vw_Anexos.Descr AS Cliente, { fn UCASE(GEN_Bloqueo_Tasas.ComentarioPromo) } AS ComentarioPromo, 
-                      GEN_Bloqueo_Tasas.TasaPol AS Tasa_Politica, CASE WHEN aNEXOS.Tipta = '7' THEN CONVERT(varchar, TasaSol) ELSE 'TIIE + ' + CONVERT(varchar,
-                       TasaSol) END AS Tasa_Solicitada, Vw_Anexos.TipoCredito, Vw_Anexos.MontoFinanciado, Vw_Anexos.FondoReserva, Anexos.Plazo, 
-                      CASE WHEN aNEXOS.Tipta = '7' THEN 'FIJA' ELSE 'VARIABLE' END AS Tipo_Tasa, Anexos.Porco AS PorcentajeComision, 
-                      Anexos.Porop AS RecidualOP, Anexos.Taspen AS Penalizacion, Anexos.RD AS RentasenDeposito, Anexos.DG AS DespoitoenGarantia, 
-                      GEN_Bloqueo_Tasas.id, GEN_Bloqueo_Tasas.TasaPol - GEN_Bloqueo_Tasas.TasaSol AS Diferencia, GEN_Bloqueo_Tasas.ComentarioRiesgos, 
-                      GEN_Bloqueo_Tasas.AutorizadoRI, GEN_Bloqueo_Tasas.AutorizadoDG, GEN_Bloqueo_Tasas.FirmaSubPromo
-FROM         GEN_Bloqueo_Tasas INNER JOIN
-                      Vw_Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Vw_Anexos.Anexo, 2, 9) INNER JOIN
-                      Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Anexos.Anexo, 2, 9)
-WHERE     (GEN_Bloqueo_Tasas.id = @ID)</CommandText>
+                    <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.Descr AS Cliente, { fn UCASE(GEN_Bloqueo_Tasas.ComentarioPromo) } AS ComentarioPromo, GEN_Bloqueo_Tasas.TasaPol AS Tasa_Politica, 
+                         CASE WHEN aNEXOS.Tipta = '7' THEN CONVERT(varchar, TasaSol) ELSE 'TIIE + ' + CONVERT(varchar, TasaSol) END AS Tasa_Solicitada, Vw_Anexos.TipoCredito, Vw_Anexos.MontoFinanciado, Vw_Anexos.FondoReserva, 
+                         Anexos.Plazo, CASE WHEN aNEXOS.Tipta = '7' THEN 'FIJA' ELSE 'VARIABLE' END AS Tipo_Tasa, Anexos.Porco AS PorcentajeComision, Anexos.Porop AS RecidualOP, Anexos.Taspen AS Penalizacion, 
+                         Anexos.RD AS RentasenDeposito, Anexos.DG AS DespoitoenGarantia, GEN_Bloqueo_Tasas.id, GEN_Bloqueo_Tasas.TasaPol - GEN_Bloqueo_Tasas.TasaSol AS Diferencia, GEN_Bloqueo_Tasas.ComentarioRiesgos, 
+                         GEN_Bloqueo_Tasas.AutorizadoRI, GEN_Bloqueo_Tasas.AutorizadoDG, GEN_Bloqueo_Tasas.FirmaSubPromo, Vw_AnexoPlazoMeses.Plazo AS PlazoEnMeses
+FROM            GEN_Bloqueo_Tasas INNER JOIN
+                         Vw_Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Vw_Anexos.Anexo, 2, 9) INNER JOIN
+                         Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Anexos.Anexo, 2, 9) INNER JOIN
+                         Vw_AnexoPlazoMeses ON Anexos.Anexo = Vw_AnexoPlazoMeses.Anexo
+WHERE        (GEN_Bloqueo_Tasas.id = @ID)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="id" DataSourceName="Production.dbo.GEN_Bloqueo_Tasas" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDG" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByDG" GeneratorSourceName="FillByDG" GetMethodModifier="Public" GetMethodName="GetDataByDG" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByDG" UserSourceName="FillByDG">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDG" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByDG" GeneratorSourceName="FillByDG" GetMethodModifier="Public" GetMethodName="GetDataByDG" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByDG" UserSourceName="FillByDG">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT     Vw_Anexos.AnexoCon, Vw_Anexos.Descr AS Cliente, { fn UCASE(GEN_Bloqueo_Tasas.ComentarioPromo) } AS ComentarioPromo, 
-                      GEN_Bloqueo_Tasas.TasaPol AS Tasa_Politica, CASE WHEN aNEXOS.Tipta = '7' THEN CONVERT(varchar, TasaSol) ELSE 'TIIE + ' + CONVERT(varchar,
-                       TasaSol) END AS Tasa_Solicitada, Vw_Anexos.TipoCredito, Vw_Anexos.MontoFinanciado, Vw_Anexos.FondoReserva, Anexos.Plazo, 
-                      CASE WHEN aNEXOS.Tipta = '7' THEN 'FIJA' ELSE 'VARIABLE' END AS Tipo_Tasa, Anexos.Porco AS PorcentajeComision, 
-                      Anexos.Porop AS RecidualOP, Anexos.Taspen AS Penalizacion, Anexos.RD AS RentasenDeposito, Anexos.DG AS DespoitoenGarantia, 
-                      GEN_Bloqueo_Tasas.id, GEN_Bloqueo_Tasas.TasaPol - GEN_Bloqueo_Tasas.TasaSol AS Diferencia, GEN_Bloqueo_Tasas.ComentarioRiesgos, 
-                      GEN_Bloqueo_Tasas.AutorizadoDG, GEN_Bloqueo_Tasas.AutorizadoRI, GEN_Bloqueo_Tasas.FirmaSubPromo
-FROM         GEN_Bloqueo_Tasas INNER JOIN
-                      Vw_Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Vw_Anexos.Anexo, 2, 9) INNER JOIN
-                      Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Anexos.Anexo, 2, 9)
-WHERE     (GEN_Bloqueo_Tasas.id = @ID)</CommandText>
+                    <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.Descr AS Cliente, { fn UCASE(GEN_Bloqueo_Tasas.ComentarioPromo) } AS ComentarioPromo, GEN_Bloqueo_Tasas.TasaPol AS Tasa_Politica, 
+                         CASE WHEN aNEXOS.Tipta = '7' THEN CONVERT(varchar, TasaSol) ELSE 'TIIE + ' + CONVERT(varchar, TasaSol) END AS Tasa_Solicitada, Vw_Anexos.TipoCredito, Vw_Anexos.MontoFinanciado, Vw_Anexos.FondoReserva, 
+                         Anexos.Plazo, CASE WHEN aNEXOS.Tipta = '7' THEN 'FIJA' ELSE 'VARIABLE' END AS Tipo_Tasa, Anexos.Porco AS PorcentajeComision, Anexos.Porop AS RecidualOP, Anexos.Taspen AS Penalizacion, 
+                         Anexos.RD AS RentasenDeposito, Anexos.DG AS DespoitoenGarantia, GEN_Bloqueo_Tasas.id, GEN_Bloqueo_Tasas.TasaPol - GEN_Bloqueo_Tasas.TasaSol AS Diferencia, GEN_Bloqueo_Tasas.ComentarioRiesgos, 
+                         GEN_Bloqueo_Tasas.AutorizadoDG, GEN_Bloqueo_Tasas.AutorizadoRI, GEN_Bloqueo_Tasas.FirmaSubPromo, Vw_AnexoPlazoMeses.Plazo AS PlazoEnMeses
+FROM            GEN_Bloqueo_Tasas INNER JOIN
+                         Vw_Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Vw_Anexos.Anexo, 2, 9) INNER JOIN
+                         Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Anexos.Anexo, 2, 9) INNER JOIN
+                         Vw_AnexoPlazoMeses ON Anexos.Anexo = Vw_AnexoPlazoMeses.Anexo
+WHERE        (GEN_Bloqueo_Tasas.id = @ID)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="id" DataSourceName="Production.dbo.GEN_Bloqueo_Tasas" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -234,7 +234,7 @@ WHERE     (GEN_Bloqueo_Tasas.id = @ID)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BitacoraMCTableAdapter" GeneratorDataComponentClassName="BitacoraMCTableAdapter" Name="BitacoraMC" UserDataComponentName="BitacoraMCTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MC_Bitacora.Id_Bitacora, MC_Bitacora.Anexo, MC_Bitacora.Ciclo, MC_Bitacora.Pagare, MC_Bitacora.PagareORG, MC_Bitacora.PagareTXT, MC_Bitacora.Contrato, MC_Bitacora.ContratoORG, MC_Bitacora.ContratoTXT, 
@@ -292,7 +292,7 @@ WHERE        (MC_Bitacora.Id_Bitacora = @ID)</CommandText>
               <Mapping SourceColumn="Nombre_Sucursal" DataSetColumn="Nombre_Sucursal" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByVoboAuto" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByVoboAuto" GeneratorSourceName="FillByVoboAuto" GetMethodModifier="Public" GetMethodName="GetDataByVoboAuto" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByVoboAuto" UserSourceName="FillByVoboAuto">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByVoboAuto" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByVoboAuto" GeneratorSourceName="FillByVoboAuto" GetMethodModifier="Public" GetMethodName="GetDataByVoboAuto" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByVoboAuto" UserSourceName="FillByVoboAuto">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MC_Bitacora.Id_Bitacora, MC_Bitacora.Anexo, MC_Bitacora.Ciclo, MC_Bitacora.Pagare, MC_Bitacora.PagareORG, MC_Bitacora.PagareTXT, MC_Bitacora.Contrato, MC_Bitacora.ContratoORG, 
@@ -312,7 +312,7 @@ WHERE        (MC_Bitacora.Solicito = @Solicito) AND (MC_Bitacora.vobo = @Vobo) A
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateAAutoriza" Modifier="Public" Name="UpdateAAutoriza" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateAAutoriza">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateAAutoriza" Modifier="Public" Name="UpdateAAutoriza" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateAAutoriza">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       MC_Bitacora
@@ -324,7 +324,7 @@ WHERE        (Id_Bitacora = @ID)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateAutoriza" Modifier="Public" Name="UpdateAutoriza" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateAutoriza">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateAutoriza" Modifier="Public" Name="UpdateAutoriza" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateAutoriza">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       MC_Bitacora
@@ -336,7 +336,7 @@ WHERE        (Id_Bitacora = @ID)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateVobo" Modifier="Public" Name="UpdateVobo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateVobo">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateVobo" Modifier="Public" Name="UpdateVobo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateVobo">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       MC_Bitacora
@@ -352,7 +352,7 @@ WHERE        (Id_Bitacora = @ID)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AvioVoboTableAdapter" GeneratorDataComponentClassName="AvioVoboTableAdapter" Name="AvioVobo" UserDataComponentName="AvioVoboTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, Vw_Anexos.Descr, Vw_Anexos.Nombre_Sucursal, mFINAGIL.Importe, CONVERT(datetime, mFINAGIL.FechaAlta, 112) AS FechaAlta, Vw_Anexos.Cultivo, mFINAGIL.Ministracion, 
@@ -387,7 +387,7 @@ WHERE        (mFINAGIL.Vobo = @User) AND (mFINAGIL.VoboAut = 0) AND (Vw_Anexos.T
               <Mapping SourceColumn="NotasCredito" DataSetColumn="NotasCredito" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DarVobo" Modifier="Public" Name="DarVobo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DarVobo">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DarVobo" Modifier="Public" Name="DarVobo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DarVobo">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       mFINAGIL
@@ -402,7 +402,7 @@ WHERE        (Anexo = @Anexo) AND (Ministracion = @Ministracion)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DarVoboDG" Modifier="Public" Name="DarVoboDG" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DarVoboDG">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DarVoboDG" Modifier="Public" Name="DarVoboDG" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DarVoboDG">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       mFINAGIL
@@ -415,7 +415,7 @@ WHERE        (Anexo = @Anexo) AND (Ministracion = @Ministracion)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DarVoboDG_CRED" Modifier="Public" Name="DarVoboDG_CRED" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="DarVoboDG_CRED">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DarVoboDG_CRED" Modifier="Public" Name="DarVoboDG_CRED" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="DarVoboDG_CRED">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       mFINAGIL
@@ -428,7 +428,7 @@ WHERE        (Anexo = @Anexo) AND (Ministracion = @Ministracion)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DarVoboSUB" Modifier="Public" Name="DarVoboSUB" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="DarVoboSUB">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DarVoboSUB" Modifier="Public" Name="DarVoboSUB" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="DarVoboSUB">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       mFINAGIL
@@ -442,7 +442,7 @@ WHERE        (Anexo = @Anexo) AND (Ministracion = @Ministracion)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="EsAnticipo" Modifier="Public" Name="EsAnticipo" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="EsAnticipo">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="EsAnticipo" Modifier="Public" Name="EsAnticipo" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="EsAnticipo">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(Tipar) AS Tipar
@@ -454,7 +454,7 @@ WHERE        (Anexo = @Anexo) AND (Tipar = N'A')</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDG" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByDG" GeneratorSourceName="FillByDG" GetMethodModifier="Public" GetMethodName="GetDataByDG" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByDG" UserSourceName="FillByDG">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDG" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByDG" GeneratorSourceName="FillByDG" GetMethodModifier="Public" GetMethodName="GetDataByDG" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByDG" UserSourceName="FillByDG">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, Vw_Anexos.Descr, Vw_Anexos.Nombre_Sucursal, mFINAGIL.Importe, CONVERT(datetime, mFINAGIL.FechaAlta, 112) AS FechaAlta, Vw_Anexos.Cultivo, mFINAGIL.Ministracion, 
@@ -468,7 +468,7 @@ WHERE        (Vw_Anexos.TipoCredito = 'ANTICIPO AVÍO') AND (mFINAGIL.Procesado 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDG_CRED" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByDG_CRED" GeneratorSourceName="FillByDG_CRED" GetMethodModifier="Public" GetMethodName="GetDataByDG_CRED" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByDG_CRED" UserSourceName="FillByDG_CRED">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDG_CRED" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByDG_CRED" GeneratorSourceName="FillByDG_CRED" GetMethodModifier="Public" GetMethodName="GetDataByDG_CRED" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByDG_CRED" UserSourceName="FillByDG_CRED">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, Vw_Anexos.Descr, Vw_Anexos.Nombre_Sucursal, mFINAGIL.Importe, CONVERT(datetime, mFINAGIL.FechaAlta, 112) AS FechaAlta, Vw_Anexos.Cultivo, mFINAGIL.Ministracion, 
@@ -482,7 +482,7 @@ WHERE        (Vw_Anexos.TipoCredito &lt;&gt; 'ANTICIPO AVÍO') AND (mFINAGIL.Pro
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMinistracion" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByMinistracion" GeneratorSourceName="FillByMinistracion" GetMethodModifier="Public" GetMethodName="GetDataByMinistracion" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByMinistracion" UserSourceName="FillByMinistracion">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMinistracion" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByMinistracion" GeneratorSourceName="FillByMinistracion" GetMethodModifier="Public" GetMethodName="GetDataByMinistracion" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByMinistracion" UserSourceName="FillByMinistracion">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, Vw_Anexos.Descr, Vw_Anexos.Nombre_Sucursal, mFINAGIL.Importe, CONVERT(datetime, mFINAGIL.FechaAlta, 112) AS FechaAlta, Vw_Anexos.Cultivo, mFINAGIL.Ministracion, 
@@ -497,7 +497,7 @@ WHERE        (Vw_Anexos.Anexo = @Anexo) AND (mFINAGIL.Ministracion = @Ministraci
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySUB" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySUB" GeneratorSourceName="FillBySUB" GetMethodModifier="Public" GetMethodName="GetDataBySUB" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySUB" UserSourceName="FillBySUB">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySUB" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySUB" GeneratorSourceName="FillBySUB" GetMethodModifier="Public" GetMethodName="GetDataBySUB" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySUB" UserSourceName="FillBySUB">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, Vw_Anexos.Descr, Vw_Anexos.Nombre_Sucursal, mFINAGIL.Importe, CONVERT(datetime, mFINAGIL.FechaAlta, 112) AS FechaAlta, Vw_Anexos.Cultivo, mFINAGIL.Ministracion, 
@@ -511,7 +511,7 @@ WHERE        (mFINAGIL.Vobo = @User) AND (mFINAGIL.VoboAut = 0) AND (mFINAGIL.Pr
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="PasaEstrategias" Modifier="Public" Name="PasaEstrategias" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="PasaEstrategias">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="PasaEstrategias" Modifier="Public" Name="PasaEstrategias" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="PasaEstrategias">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       mFINAGIL
@@ -528,7 +528,7 @@ WHERE        (Anexo = @Anexo) AND (Ministracion = @Ministracion)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StatusMinistracionesTableAdapter" GeneratorDataComponentClassName="StatusMinistracionesTableAdapter" Name="StatusMinistraciones" UserDataComponentName="StatusMinistracionesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="Production.dbo.Vw_AVI_StatusMinistraciones" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="Production.dbo.Vw_AVI_StatusMinistraciones" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Nombre_Sucursal, Vobo, Pendientes, Status, Total
@@ -549,7 +549,7 @@ FROM            Vw_AVI_StatusMinistraciones</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CorreosFasesTableAdapter" GeneratorDataComponentClassName="CorreosFasesTableAdapter" Name="CorreosFases" UserDataComponentName="CorreosFasesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="Production.dbo.GEN_CorreosFases" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="Production.dbo.GEN_CorreosFases" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [GEN_CorreosFases] WHERE (([id_correo] = @Original_id_correo))</CommandText>
@@ -601,7 +601,7 @@ WHERE        (Fase = @Fase)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StatusMinistracionesDETTableAdapter" GeneratorDataComponentClassName="StatusMinistracionesDETTableAdapter" Name="StatusMinistracionesDET" UserDataComponentName="StatusMinistracionesDETTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="Production.dbo.Vw_AVI_StatusMinistraciones1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="Production.dbo.Vw_AVI_StatusMinistraciones1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Nombre_Sucursal, Vobo, Anexo, Ministracion, Importe, Status, Documento, RTRIM(Descr) AS descr, CONVERT(datetime, FechaAlta, 112) AS FechaSolicitud, Ciclo, Producto AS TipoCredito
@@ -629,7 +629,7 @@ ORDER BY Nombre_Sucursal, Vobo</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="HojaCambiosTableAdapter" GeneratorDataComponentClassName="HojaCambiosTableAdapter" Name="HojaCambios" UserDataComponentName="HojaCambiosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_User" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData_User" GeneratorSourceName="Fill_User" GetMethodModifier="Public" GetMethodName="GetData_User" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData_User" UserSourceName="Fill_User">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_User" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData_User" GeneratorSourceName="Fill_User" GetMethodModifier="Public" GetMethodName="GetData_User" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData_User" UserSourceName="Fill_User">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Vw_AnexosResumen.AnexoCon, Vw_AnexosResumen.Descr, Vw_AnexosResumen.TipoCredito, Vw_AnexosResumen.MontoFinanciado AS MontoFin, MC_cambio_condiciones.id_hojaCambios, 
@@ -656,7 +656,7 @@ ORDER BY Vw_AnexosResumen.AnexoCon</CommandText>
               <Mapping SourceColumn="FirmaDireccion" DataSetColumn="FirmaDireccion" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySUB" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySub" GeneratorSourceName="FillBySUB" GetMethodModifier="Public" GetMethodName="GetDataBySub" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySub" UserSourceName="FillBySUB">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySUB" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySub" GeneratorSourceName="FillBySUB" GetMethodModifier="Public" GetMethodName="GetDataBySub" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySub" UserSourceName="FillBySUB">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.Descr, Vw_Anexos.TipoCredito, Vw_Anexos.MontoFin, MC_cambio_condiciones.id_hojaCambios, MC_cambio_condiciones.FirmaSubPromo, MC_cambio_condiciones.FirmaDireccion
@@ -674,7 +674,7 @@ ORDER BY Vw_Anexos.AnexoCon</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MC_cambio_condicionesTableAdapter" GeneratorDataComponentClassName="MC_cambio_condicionesTableAdapter" Name="MC_cambio_condiciones" UserDataComponentName="MC_cambio_condicionesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="Production.dbo.MC_cambio_condiciones" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="Production.dbo.MC_cambio_condiciones" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [MC_cambio_condiciones] WHERE (([id_hojaCambios] = @Original_id_hojaCambios))</CommandText>
@@ -784,7 +784,7 @@ WHERE        (id_hojaCambios = @Id)</CommandText>
               <Mapping SourceColumn="id_hojaCambios" DataSetColumn="id_hojaCambios" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="FirmaDG" Modifier="Public" Name="FirmaDG" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FirmaDG">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="FirmaDG" Modifier="Public" Name="FirmaDG" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FirmaDG">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       MC_cambio_condiciones
@@ -798,7 +798,7 @@ WHERE        (id_hojaCambios = @Original_id_hojaCambios)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="FirmaSubPromo" Modifier="Public" Name="FirmaSubPromo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FirmaSubPromo">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="FirmaSubPromo" Modifier="Public" Name="FirmaSubPromo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FirmaSubPromo">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       MC_cambio_condiciones
@@ -811,7 +811,7 @@ WHERE        (id_hojaCambios = @Original_id_hojaCambios)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="PromotorHC" Modifier="Public" Name="PromotorHC" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="PromotorHC">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="PromotorHC" Modifier="Public" Name="PromotorHC" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="PromotorHC">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MAX(Clientes.Promo) AS Promo
@@ -829,7 +829,7 @@ WHERE        (MC_cambio_condiciones.id_hojaCambios = @ID_hc)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CRED_SeguimientosTableAdapter" GeneratorDataComponentClassName="CRED_SeguimientosTableAdapter" Name="CRED_Seguimientos" UserDataComponentName="CRED_SeguimientosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="Production.dbo.Vw_CRED_Seguimientos" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="Production.dbo.Vw_CRED_Seguimientos" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Responsable, Anexo, Cliente, Compromiso, Fecha_Alta, Fecha_Compromiso, Analista, Estatus, DiasRetraso
@@ -855,7 +855,7 @@ ORDER BY DiasRetraso</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Vw_RPT_LiquidezTableAdapter" GeneratorDataComponentClassName="Vw_RPT_LiquidezTableAdapter" Name="Vw_RPT_Liquidez" UserDataComponentName="Vw_RPT_LiquidezTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="Production.dbo.Vw_RPT_Liquidez" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="Production.dbo.Vw_RPT_Liquidez" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Descr AS Cliente, Anexo AS Contrato, Total AS AdeudoTotal, CNEmpresa
@@ -1010,10 +1010,11 @@ ORDER BY Cliente, Contrato</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="PlazoEnMeses" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPlazoEnMeses" msprop:Generator_ColumnPropNameInRow="PlazoEnMeses" msprop:Generator_ColumnPropNameInTable="PlazoEnMesesColumn" msprop:Generator_UserColumnName="PlazoEnMeses" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="BitacoraMC" msprop:Generator_TableClassName="BitacoraMCDataTable" msprop:Generator_TableVarName="tableBitacoraMC" msprop:Generator_RowChangedName="BitacoraMCRowChanged" msprop:Generator_TablePropName="BitacoraMC" msprop:Generator_RowDeletingName="BitacoraMCRowDeleting" msprop:Generator_RowChangingName="BitacoraMCRowChanging" msprop:Generator_RowEvHandlerName="BitacoraMCRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraMCRowDeleted" msprop:Generator_RowClassName="BitacoraMCRow" msprop:Generator_UserTableName="BitacoraMC" msprop:Generator_RowEvArgName="BitacoraMCRowChangeEvent">
+        <xs:element name="BitacoraMC" msprop:Generator_TableClassName="BitacoraMCDataTable" msprop:Generator_TableVarName="tableBitacoraMC" msprop:Generator_TablePropName="BitacoraMC" msprop:Generator_RowDeletingName="BitacoraMCRowDeleting" msprop:Generator_RowChangingName="BitacoraMCRowChanging" msprop:Generator_RowEvHandlerName="BitacoraMCRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraMCRowDeleted" msprop:Generator_UserTableName="BitacoraMC" msprop:Generator_RowChangedName="BitacoraMCRowChanged" msprop:Generator_RowEvArgName="BitacoraMCRowChangeEvent" msprop:Generator_RowClassName="BitacoraMCRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_Bitacora" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId_Bitacora" msprop:Generator_ColumnPropNameInRow="Id_Bitacora" msprop:Generator_ColumnPropNameInTable="Id_BitacoraColumn" msprop:Generator_UserColumnName="Id_Bitacora" type="xs:decimal" />
@@ -1158,7 +1159,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AvioVobo" msprop:Generator_TableClassName="AvioVoboDataTable" msprop:Generator_TableVarName="tableAvioVobo" msprop:Generator_TablePropName="AvioVobo" msprop:Generator_RowDeletingName="AvioVoboRowDeleting" msprop:Generator_RowChangingName="AvioVoboRowChanging" msprop:Generator_RowEvHandlerName="AvioVoboRowChangeEventHandler" msprop:Generator_RowDeletedName="AvioVoboRowDeleted" msprop:Generator_UserTableName="AvioVobo" msprop:Generator_RowChangedName="AvioVoboRowChanged" msprop:Generator_RowEvArgName="AvioVoboRowChangeEvent" msprop:Generator_RowClassName="AvioVoboRow">
+        <xs:element name="AvioVobo" msprop:Generator_TableClassName="AvioVoboDataTable" msprop:Generator_TableVarName="tableAvioVobo" msprop:Generator_RowChangedName="AvioVoboRowChanged" msprop:Generator_TablePropName="AvioVobo" msprop:Generator_RowDeletingName="AvioVoboRowDeleting" msprop:Generator_RowChangingName="AvioVoboRowChanging" msprop:Generator_RowEvHandlerName="AvioVoboRowChangeEventHandler" msprop:Generator_RowDeletedName="AvioVoboRowDeleted" msprop:Generator_RowClassName="AvioVoboRow" msprop:Generator_UserTableName="AvioVobo" msprop:Generator_RowEvArgName="AvioVoboRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -1265,7 +1266,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StatusMinistraciones" msprop:Generator_TableClassName="StatusMinistracionesDataTable" msprop:Generator_TableVarName="tableStatusMinistraciones" msprop:Generator_RowChangedName="StatusMinistracionesRowChanged" msprop:Generator_TablePropName="StatusMinistraciones" msprop:Generator_RowDeletingName="StatusMinistracionesRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesRowDeleted" msprop:Generator_RowClassName="StatusMinistracionesRow" msprop:Generator_UserTableName="StatusMinistraciones" msprop:Generator_RowEvArgName="StatusMinistracionesRowChangeEvent">
+        <xs:element name="StatusMinistraciones" msprop:Generator_TableClassName="StatusMinistracionesDataTable" msprop:Generator_TableVarName="tableStatusMinistraciones" msprop:Generator_TablePropName="StatusMinistraciones" msprop:Generator_RowDeletingName="StatusMinistracionesRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesRowDeleted" msprop:Generator_UserTableName="StatusMinistraciones" msprop:Generator_RowChangedName="StatusMinistracionesRowChanged" msprop:Generator_RowEvArgName="StatusMinistracionesRowChangeEvent" msprop:Generator_RowClassName="StatusMinistracionesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombre_Sucursal" msprop:Generator_ColumnVarNameInTable="columnNombre_Sucursal" msprop:Generator_ColumnPropNameInRow="Nombre_Sucursal" msprop:Generator_ColumnPropNameInTable="Nombre_SucursalColumn" msprop:Generator_UserColumnName="Nombre_Sucursal">
@@ -1294,7 +1295,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CorreosFases" msprop:Generator_TableClassName="CorreosFasesDataTable" msprop:Generator_TableVarName="tableCorreosFases" msprop:Generator_RowChangedName="CorreosFasesRowChanged" msprop:Generator_TablePropName="CorreosFases" msprop:Generator_RowDeletingName="CorreosFasesRowDeleting" msprop:Generator_RowChangingName="CorreosFasesRowChanging" msprop:Generator_RowEvHandlerName="CorreosFasesRowChangeEventHandler" msprop:Generator_RowDeletedName="CorreosFasesRowDeleted" msprop:Generator_RowClassName="CorreosFasesRow" msprop:Generator_UserTableName="CorreosFases" msprop:Generator_RowEvArgName="CorreosFasesRowChangeEvent">
+        <xs:element name="CorreosFases" msprop:Generator_TableClassName="CorreosFasesDataTable" msprop:Generator_TableVarName="tableCorreosFases" msprop:Generator_TablePropName="CorreosFases" msprop:Generator_RowDeletingName="CorreosFasesRowDeleting" msprop:Generator_RowChangingName="CorreosFasesRowChanging" msprop:Generator_RowEvHandlerName="CorreosFasesRowChangeEventHandler" msprop:Generator_RowDeletedName="CorreosFasesRowDeleted" msprop:Generator_UserTableName="CorreosFases" msprop:Generator_RowChangedName="CorreosFasesRowChanged" msprop:Generator_RowEvArgName="CorreosFasesRowChangeEvent" msprop:Generator_RowClassName="CorreosFasesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_correo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_correo" msprop:Generator_ColumnPropNameInRow="id_correo" msprop:Generator_ColumnPropNameInTable="id_correoColumn" msprop:Generator_UserColumnName="id_correo" type="xs:decimal" />
@@ -1322,7 +1323,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StatusMinistracionesDET" msprop:Generator_TableClassName="StatusMinistracionesDETDataTable" msprop:Generator_TableVarName="tableStatusMinistracionesDET" msprop:Generator_RowChangedName="StatusMinistracionesDETRowChanged" msprop:Generator_TablePropName="StatusMinistracionesDET" msprop:Generator_RowDeletingName="StatusMinistracionesDETRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesDETRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesDETRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesDETRowDeleted" msprop:Generator_RowClassName="StatusMinistracionesDETRow" msprop:Generator_UserTableName="StatusMinistracionesDET" msprop:Generator_RowEvArgName="StatusMinistracionesDETRowChangeEvent">
+        <xs:element name="StatusMinistracionesDET" msprop:Generator_TableClassName="StatusMinistracionesDETDataTable" msprop:Generator_TableVarName="tableStatusMinistracionesDET" msprop:Generator_TablePropName="StatusMinistracionesDET" msprop:Generator_RowDeletingName="StatusMinistracionesDETRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesDETRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesDETRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesDETRowDeleted" msprop:Generator_UserTableName="StatusMinistracionesDET" msprop:Generator_RowChangedName="StatusMinistracionesDETRowChanged" msprop:Generator_RowEvArgName="StatusMinistracionesDETRowChangeEvent" msprop:Generator_RowClassName="StatusMinistracionesDETRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombre_Sucursal" msprop:Generator_ColumnVarNameInTable="columnNombre_Sucursal" msprop:Generator_ColumnPropNameInRow="Nombre_Sucursal" msprop:Generator_ColumnPropNameInTable="Nombre_SucursalColumn" msprop:Generator_UserColumnName="Nombre_Sucursal" minOccurs="0">
@@ -1387,7 +1388,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HojaCambios" msprop:Generator_TableClassName="HojaCambiosDataTable" msprop:Generator_TableVarName="tableHojaCambios" msprop:Generator_RowChangedName="HojaCambiosRowChanged" msprop:Generator_TablePropName="HojaCambios" msprop:Generator_RowDeletingName="HojaCambiosRowDeleting" msprop:Generator_RowChangingName="HojaCambiosRowChanging" msprop:Generator_RowEvHandlerName="HojaCambiosRowChangeEventHandler" msprop:Generator_RowDeletedName="HojaCambiosRowDeleted" msprop:Generator_RowClassName="HojaCambiosRow" msprop:Generator_UserTableName="HojaCambios" msprop:Generator_RowEvArgName="HojaCambiosRowChangeEvent">
+        <xs:element name="HojaCambios" msprop:Generator_TableClassName="HojaCambiosDataTable" msprop:Generator_TableVarName="tableHojaCambios" msprop:Generator_TablePropName="HojaCambios" msprop:Generator_RowDeletingName="HojaCambiosRowDeleting" msprop:Generator_RowChangingName="HojaCambiosRowChanging" msprop:Generator_RowEvHandlerName="HojaCambiosRowChangeEventHandler" msprop:Generator_RowDeletedName="HojaCambiosRowDeleted" msprop:Generator_UserTableName="HojaCambios" msprop:Generator_RowChangedName="HojaCambiosRowChanged" msprop:Generator_RowEvArgName="HojaCambiosRowChangeEvent" msprop:Generator_RowClassName="HojaCambiosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -1430,7 +1431,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MC_cambio_condiciones" msprop:Generator_TableClassName="MC_cambio_condicionesDataTable" msprop:Generator_TableVarName="tableMC_cambio_condiciones" msprop:Generator_RowChangedName="MC_cambio_condicionesRowChanged" msprop:Generator_TablePropName="MC_cambio_condiciones" msprop:Generator_RowDeletingName="MC_cambio_condicionesRowDeleting" msprop:Generator_RowChangingName="MC_cambio_condicionesRowChanging" msprop:Generator_RowEvHandlerName="MC_cambio_condicionesRowChangeEventHandler" msprop:Generator_RowDeletedName="MC_cambio_condicionesRowDeleted" msprop:Generator_RowClassName="MC_cambio_condicionesRow" msprop:Generator_UserTableName="MC_cambio_condiciones" msprop:Generator_RowEvArgName="MC_cambio_condicionesRowChangeEvent">
+        <xs:element name="MC_cambio_condiciones" msprop:Generator_TableClassName="MC_cambio_condicionesDataTable" msprop:Generator_TableVarName="tableMC_cambio_condiciones" msprop:Generator_TablePropName="MC_cambio_condiciones" msprop:Generator_RowDeletingName="MC_cambio_condicionesRowDeleting" msprop:Generator_RowChangingName="MC_cambio_condicionesRowChanging" msprop:Generator_RowEvHandlerName="MC_cambio_condicionesRowChangeEventHandler" msprop:Generator_RowDeletedName="MC_cambio_condicionesRowDeleted" msprop:Generator_UserTableName="MC_cambio_condiciones" msprop:Generator_RowChangedName="MC_cambio_condicionesRowChanged" msprop:Generator_RowEvArgName="MC_cambio_condicionesRowChangeEvent" msprop:Generator_RowClassName="MC_cambio_condicionesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Anexo" msprop:Generator_ColumnVarNameInTable="columnAnexo" msprop:Generator_ColumnPropNameInRow="Anexo" msprop:Generator_ColumnPropNameInTable="AnexoColumn" msprop:Generator_UserColumnName="Anexo">
@@ -1550,7 +1551,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CRED_Seguimientos" msprop:Generator_TableClassName="CRED_SeguimientosDataTable" msprop:Generator_TableVarName="tableCRED_Seguimientos" msprop:Generator_RowChangedName="CRED_SeguimientosRowChanged" msprop:Generator_TablePropName="CRED_Seguimientos" msprop:Generator_RowDeletingName="CRED_SeguimientosRowDeleting" msprop:Generator_RowChangingName="CRED_SeguimientosRowChanging" msprop:Generator_RowEvHandlerName="CRED_SeguimientosRowChangeEventHandler" msprop:Generator_RowDeletedName="CRED_SeguimientosRowDeleted" msprop:Generator_RowClassName="CRED_SeguimientosRow" msprop:Generator_UserTableName="CRED_Seguimientos" msprop:Generator_RowEvArgName="CRED_SeguimientosRowChangeEvent">
+        <xs:element name="CRED_Seguimientos" msprop:Generator_TableClassName="CRED_SeguimientosDataTable" msprop:Generator_TableVarName="tableCRED_Seguimientos" msprop:Generator_TablePropName="CRED_Seguimientos" msprop:Generator_RowDeletingName="CRED_SeguimientosRowDeleting" msprop:Generator_RowChangingName="CRED_SeguimientosRowChanging" msprop:Generator_RowEvHandlerName="CRED_SeguimientosRowChangeEventHandler" msprop:Generator_RowDeletedName="CRED_SeguimientosRowDeleted" msprop:Generator_UserTableName="CRED_Seguimientos" msprop:Generator_RowChangedName="CRED_SeguimientosRowChanged" msprop:Generator_RowEvArgName="CRED_SeguimientosRowChangeEvent" msprop:Generator_RowClassName="CRED_SeguimientosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Responsable" msprop:Generator_ColumnVarNameInTable="columnResponsable" msprop:Generator_ColumnPropNameInRow="Responsable" msprop:Generator_ColumnPropNameInTable="ResponsableColumn" msprop:Generator_UserColumnName="Responsable" minOccurs="0">
@@ -1601,7 +1602,7 @@ ORDER BY Cliente, Contrato</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vw_RPT_Liquidez" msprop:Generator_TableClassName="Vw_RPT_LiquidezDataTable" msprop:Generator_TableVarName="tableVw_RPT_Liquidez" msprop:Generator_TablePropName="Vw_RPT_Liquidez" msprop:Generator_RowDeletingName="Vw_RPT_LiquidezRowDeleting" msprop:Generator_RowChangingName="Vw_RPT_LiquidezRowChanging" msprop:Generator_RowEvHandlerName="Vw_RPT_LiquidezRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_RPT_LiquidezRowDeleted" msprop:Generator_UserTableName="Vw_RPT_Liquidez" msprop:Generator_RowChangedName="Vw_RPT_LiquidezRowChanged" msprop:Generator_RowEvArgName="Vw_RPT_LiquidezRowChangeEvent" msprop:Generator_RowClassName="Vw_RPT_LiquidezRow">
+        <xs:element name="Vw_RPT_Liquidez" msprop:Generator_TableClassName="Vw_RPT_LiquidezDataTable" msprop:Generator_TableVarName="tableVw_RPT_Liquidez" msprop:Generator_RowChangedName="Vw_RPT_LiquidezRowChanged" msprop:Generator_TablePropName="Vw_RPT_Liquidez" msprop:Generator_RowDeletingName="Vw_RPT_LiquidezRowDeleting" msprop:Generator_RowChangingName="Vw_RPT_LiquidezRowChanging" msprop:Generator_RowEvHandlerName="Vw_RPT_LiquidezRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_RPT_LiquidezRowDeleted" msprop:Generator_RowClassName="Vw_RPT_LiquidezRow" msprop:Generator_UserTableName="Vw_RPT_Liquidez" msprop:Generator_RowEvArgName="Vw_RPT_LiquidezRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente">

@@ -23,7 +23,7 @@
     <td align=center>
         <br />
         <br />
-        <asp:DetailsView AutoGenerateRows="False" CellPadding="4" DataKeyNames="id,Diferencia" DataSourceID="vwDatos_DS" Font-Names="Verdana" Font-Size="Smaller" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" ID="DetailsView1" runat="server" Width="80%" >
+        <asp:DetailsView AutoGenerateRows="False" CellPadding="4" DataKeyNames="id,Diferencia" DataSourceID="vwDatos_DS" Font-Names="Verdana" Font-Size="Smaller" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" ID="DetailsView1" runat="server" Width="80%" EnableModelValidation="True" >
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
             <RowStyle BackColor="#FFE0C0" />
@@ -42,7 +42,8 @@
                     HtmlEncode="False" SortExpression="MontoFinanciado" />
                 <asp:BoundField DataField="FondoReserva" DataFormatString="{0:c}" HeaderText="Fondo de Reserva"
                     HtmlEncode="False" SortExpression="FondoReserva" />
-                <asp:BoundField DataField="Plazo" HeaderText="Plazo" SortExpression="Plazo" />
+                <asp:BoundField DataField="Plazo" HeaderText="No. Pagos" SortExpression="Plazo" />
+                <asp:BoundField DataField="PlazoEnMeses" HeaderText="PlazoEnMeses" ReadOnly="True" SortExpression="PlazoEnMeses" />
                 <asp:BoundField DataField="Tipo_Tasa" HeaderText="Tipo de Tasa" ReadOnly="True" SortExpression="Tipo_Tasa" />
                 <asp:BoundField DataField="PorcentajeComision" HeaderText="% Comisi&#243;n" SortExpression="PorcentajeComision" />
                 <asp:BoundField DataField="RecidualOP" HeaderText="V.R. u O.C." SortExpression="RecidualOP" />

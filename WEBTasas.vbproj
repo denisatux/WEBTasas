@@ -195,6 +195,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Factor100DS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Factor100DS.vb">
+      <DependentUpon>Factor100DS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Globales.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
