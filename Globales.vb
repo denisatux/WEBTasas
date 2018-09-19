@@ -39,24 +39,25 @@ Module Globales
             If r.Escritura = True Then Mensaje += "&nbsp&nbsp&nbsp&nbsp Escritura<br>"
             Mensaje += "Justificación: " & r.Justificacion & "<br>"
 
+            If r.PldB = True Then
+                Dim Fase As New ProDSTableAdapters.CorreosFasesTableAdapter
+                Dim FaseT As New ProDS.CorreosFasesDataTable
+                Dim f As ProDS.CorreosFasesRow
 
-            Dim Fase As New ProDSTableAdapters.CorreosFasesTableAdapter
-            Dim FaseT As New ProDS.CorreosFasesDataTable
-            Dim f As ProDS.CorreosFasesRow
-
-            Fase.Fill(FaseT, "MESA_CONTROL")
-            For Each f In FaseT.Rows
-                EnviacORREO(f.Correo, Mensaje, "Solicitud de Documentos Autorizada(" & r.Descr.Trim & ")", "BitacoraMC@lamoderna.com.mx")
-            Next
-            Fase.Fill(FaseT, "PLD")
-            For Each f In FaseT.Rows
-                EnviacORREO(f.Correo, Mensaje, "Solicitud de Documentos Autorizada(" & r.Descr.Trim & ")", "BitacoraMC@lamoderna.com.mx")
-            Next
-            Fase.Fill(FaseT, "GV_" & r.Nombre_Sucursal.Trim)
-            For Each f In FaseT.Rows
-                EnviacORREO(f.Correo, Mensaje, "Solicitud de Documentos Autorizada(" & r.Descr.Trim & ")", "BitacoraMC@lamoderna.com.mx")
-            Next
-            EnviacORREO(r.Solicito.Trim & "@finagil.com.mx", Mensaje, "Solicitud de Documentos Autorizada(" & r.Descr.Trim & ")", "BitacoraMC@lamoderna.com.mx")
+                Fase.Fill(FaseT, "MESA_CONTROL")
+                For Each f In FaseT.Rows
+                    EnviacORREO(f.Correo, Mensaje, "Solicitud de Documentos Autorizada(" & r.Descr.Trim & ")", "BitacoraMC@lamoderna.com.mx")
+                Next
+                Fase.Fill(FaseT, "PLD")
+                For Each f In FaseT.Rows
+                    EnviacORREO(f.Correo, Mensaje, "Solicitud de Documentos Autorizada(" & r.Descr.Trim & ")", "BitacoraMC@lamoderna.com.mx")
+                Next
+                Fase.Fill(FaseT, "GV_" & r.Nombre_Sucursal.Trim)
+                For Each f In FaseT.Rows
+                    EnviacORREO(f.Correo, Mensaje, "Solicitud de Documentos Autorizada(" & r.Descr.Trim & ")", "BitacoraMC@lamoderna.com.mx")
+                Next
+                EnviacORREO(r.Solicito.Trim & "@finagil.com.mx", Mensaje, "Solicitud de Documentos Autorizada(" & r.Descr.Trim & ")", "BitacoraMC@lamoderna.com.mx")
+            End If
         Next
 
     End Sub
