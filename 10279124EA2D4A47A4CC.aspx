@@ -15,7 +15,7 @@
     <tr>
     <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
         <br />
-        Estatus de Pendientes de CREDITO</td>
+        Estatus de Seguimientos</td>
     </tr>
         <tr>
     <td align=center>
@@ -35,6 +35,7 @@
                 <asp:BoundField DataField="DiasRetraso" HeaderText="Dias de Retraso" ReadOnly="True" SortExpression="DiasRetraso">
                 <ItemStyle HorizontalAlign="Center" />
                 </asp:BoundField>
+                <asp:BoundField DataField="Tipo" HeaderText="Tipo" ReadOnly="True" SortExpression="Tipo" />
             </Columns>
             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />

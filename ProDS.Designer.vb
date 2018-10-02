@@ -4163,6 +4163,8 @@ Partial Public Class ProDS
         
         Private columnDiasRetraso As Global.System.Data.DataColumn
         
+        Private columnTipo As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -4271,6 +4273,14 @@ Partial Public Class ProDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property TipoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTipo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4307,9 +4317,9 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddCRED_SeguimientosRow(ByVal Responsable As String, ByVal Anexo As String, ByVal Cliente As String, ByVal Compromiso As String, ByVal Fecha_Alta As Date, ByVal Fecha_Compromiso As Date, ByVal Analista As String, ByVal Estatus As String, ByVal DiasRetraso As Integer) As CRED_SeguimientosRow
+        Public Overloads Function AddCRED_SeguimientosRow(ByVal Responsable As String, ByVal Anexo As String, ByVal Cliente As String, ByVal Compromiso As String, ByVal Fecha_Alta As Date, ByVal Fecha_Compromiso As Date, ByVal Analista As String, ByVal Estatus As String, ByVal DiasRetraso As Integer, ByVal Tipo As String) As CRED_SeguimientosRow
             Dim rowCRED_SeguimientosRow As CRED_SeguimientosRow = CType(Me.NewRow,CRED_SeguimientosRow)
-            Dim columnValuesArray() As Object = New Object() {Responsable, Anexo, Cliente, Compromiso, Fecha_Alta, Fecha_Compromiso, Analista, Estatus, DiasRetraso}
+            Dim columnValuesArray() As Object = New Object() {Responsable, Anexo, Cliente, Compromiso, Fecha_Alta, Fecha_Compromiso, Analista, Estatus, DiasRetraso, Tipo}
             rowCRED_SeguimientosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCRED_SeguimientosRow)
             Return rowCRED_SeguimientosRow
@@ -4347,6 +4357,7 @@ Partial Public Class ProDS
             Me.columnAnalista = MyBase.Columns("Analista")
             Me.columnEstatus = MyBase.Columns("Estatus")
             Me.columnDiasRetraso = MyBase.Columns("DiasRetraso")
+            Me.columnTipo = MyBase.Columns("Tipo")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4370,6 +4381,8 @@ Partial Public Class ProDS
             MyBase.Columns.Add(Me.columnEstatus)
             Me.columnDiasRetraso = New Global.System.Data.DataColumn("DiasRetraso", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDiasRetraso)
+            Me.columnTipo = New Global.System.Data.DataColumn("Tipo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTipo)
             Me.columnResponsable.MaxLength = 20
             Me.columnAnexo.ReadOnly = true
             Me.columnAnexo.MaxLength = 10
@@ -4379,6 +4392,7 @@ Partial Public Class ProDS
             Me.columnAnalista.MaxLength = 20
             Me.columnEstatus.MaxLength = 20
             Me.columnDiasRetraso.ReadOnly = true
+            Me.columnTipo.MaxLength = 20
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8224,6 +8238,21 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Tipo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCRED_Seguimientos.TipoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tipo' de la tabla 'CRED_Seguimientos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCRED_Seguimientos.TipoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsResponsableNull() As Boolean
             Return Me.IsNull(Me.tableCRED_Seguimientos.ResponsableColumn)
         End Function
@@ -8316,6 +8345,18 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetDiasRetrasoNull()
             Me(Me.tableCRED_Seguimientos.DiasRetrasoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsTipoNull() As Boolean
+            Return Me.IsNull(Me.tableCRED_Seguimientos.TipoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetTipoNull()
+            Me(Me.tableCRED_Seguimientos.TipoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -12992,6 +13033,7 @@ Namespace ProDSTableAdapters
             tableMapping.ColumnMappings.Add("Analista", "Analista")
             tableMapping.ColumnMappings.Add("Estatus", "Estatus")
             tableMapping.ColumnMappings.Add("DiasRetraso", "DiasRetraso")
+            tableMapping.ColumnMappings.Add("Tipo", "Tipo")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -13009,8 +13051,8 @@ Namespace ProDSTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        Responsable, Anexo, Cliente, Compromiso, Fecha_Alta, Fecha_Compromi"& _ 
-                "so, Analista, Estatus, DiasRetraso"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CRED_Seguimientos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER "& _ 
-                "BY DiasRetraso"
+                "so, Analista, Estatus, DiasRetraso, Tipo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CRED_Seguimientos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "ORDER BY DiasRetraso"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
