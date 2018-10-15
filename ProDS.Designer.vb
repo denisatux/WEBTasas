@@ -10995,10 +10995,11 @@ Namespace ProDSTableAdapters
                 "otas, mFINAGIL.NotasCredito"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            mFINAGIL INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
                 "           Vw_Anexos ON mFINAGIL.Anexo = Vw_Anexos.Anexo AND mFINAGIL.Ciclo = Vw"& _ 
                 "_Anexos.Ciclo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Vw_Anexos.Anexo = @Anexo) AND (mFINAGIL.Ministracio"& _ 
-                "n = @Ministracion)"
+                "n = @Ministracion) AND (Vw_Anexos.CicloPagare = @CicloPagare)"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Anexo", Global.System.Data.SqlDbType.NChar, 9, Global.System.Data.ParameterDirection.Input, 0, 0, "Anexo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Ministracion", Global.System.Data.SqlDbType.TinyInt, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "Ministracion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CicloPagare", Global.System.Data.SqlDbType.NVarChar, 14, Global.System.Data.ParameterDirection.Input, 0, 0, "CicloPagare", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(9) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(9).Connection = Me.Connection
             Me._commandCollection(9).CommandText = "SELECT        Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, Vw_Anexos.Descr, Vw_Anex"& _ 
@@ -11127,7 +11128,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByMinistracion(ByVal dataTable As ProDS.AvioVoboDataTable, ByVal Anexo As String, ByVal Ministracion As Byte) As Integer
+        Public Overloads Overridable Function FillByMinistracion(ByVal dataTable As ProDS.AvioVoboDataTable, ByVal Anexo As String, ByVal Ministracion As Byte, ByVal CicloPagare As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(8)
             If (Anexo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Anexo")
@@ -11135,6 +11136,11 @@ Namespace ProDSTableAdapters
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(Anexo,String)
             End If
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(Ministracion,Byte)
+            If (CicloPagare Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(CicloPagare,String)
+            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -11146,7 +11152,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByMinistracion(ByVal Anexo As String, ByVal Ministracion As Byte) As ProDS.AvioVoboDataTable
+        Public Overloads Overridable Function GetDataByMinistracion(ByVal Anexo As String, ByVal Ministracion As Byte, ByVal CicloPagare As String) As ProDS.AvioVoboDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(8)
             If (Anexo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Anexo")
@@ -11154,6 +11160,11 @@ Namespace ProDSTableAdapters
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(Anexo,String)
             End If
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(Ministracion,Byte)
+            If (CicloPagare Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(CicloPagare,String)
+            End If
             Dim dataTable As ProDS.AvioVoboDataTable = New ProDS.AvioVoboDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
