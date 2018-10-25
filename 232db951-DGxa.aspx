@@ -25,7 +25,7 @@
             <Columns>
                 <asp:TemplateField HeaderText="Anexo">
                     <ItemTemplate>
-                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Autoriza", "232db951-DGxa.aspx?User={0:F0}") & Eval("Anexo", "&Anexo={0:F0}") & Eval("Ministracion", "&ID={0:F0}") %>' Text='<%# Eval("AnexoCon") %>'></asp:HyperLink>
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Autoriza", "232db951-DGxa.aspx?User={0:F0}") & Eval("Anexo", "&Anexo={0:F0}") & Eval("Ministracion", "&ID={0:F0}") & Eval("CicloPagare", "&CicloPagare={0:F0}") %>' Text='<%# Eval("AnexoCon") %>'></asp:HyperLink>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="AnexoCon" HeaderText="Anexo" SortExpression="AnexoCon" />
@@ -80,6 +80,7 @@
             <SelectParameters>
                 <asp:QueryStringParameter Name="Anexo" QueryStringField="Anexo" Type="String" />
                 <asp:QueryStringParameter Name="Ministracion" QueryStringField="ID" Type="Byte" />
+                <asp:QueryStringParameter DefaultValue="0" Name="CicloPagare" QueryStringField="CicloPagare" Type="String" />
             </SelectParameters>
         </asp:ObjectDataSource>
     
