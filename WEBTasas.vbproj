@@ -94,6 +94,7 @@
     <Content Include="552db804-scod.aspx" />
     <Content Include="552db804-70f8.aspx" />
     <Content Include="951sb999-7xx8.aspx" />
+    <Content Include="ConsultaEFOS.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="IMG\logo-sin-fondo_web.png" />
     <Content Include="Web.config" />
@@ -183,6 +184,13 @@
       <DependentUpon>951sb999-7xx8.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="ConsultaEFOS.aspx.designer.vb">
+      <DependentUpon>ConsultaEFOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaEFOS.aspx.vb">
+      <DependentUpon>ConsultaEFOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
@@ -221,6 +229,11 @@
     </Compile>
     <Compile Include="ProDS.vb">
       <DependentUpon>ProDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProduccionDS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProduccionDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="SeguridadDS.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -278,6 +291,18 @@
     </None>
     <Content Include="SeguridadDS.xsc">
       <DependentUpon>SeguridadDS.xsd</DependentUpon>
+    </Content>
+    <Content Include="rptConsultaSAT.rpt" />
+    <Content Include="ProduccionDS.xsc">
+      <DependentUpon>ProduccionDS.xsd</DependentUpon>
+    </Content>
+    <None Include="ProduccionDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProduccionDS.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ProduccionDS.xss">
+      <DependentUpon>ProduccionDS.xsd</DependentUpon>
     </Content>
     <None Include="SeguridadDS.xsd">
       <SubType>Designer</SubType>
