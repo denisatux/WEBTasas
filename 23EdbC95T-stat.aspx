@@ -69,6 +69,7 @@
                     <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
                     <asp:BoundField DataField="TipoCredito" HeaderText="Tipo Crédito" ReadOnly="True" SortExpression="TipoCredito" />
+                    <asp:BoundField DataField="Notas" HeaderText="Notas MC" ReadOnly="True" SortExpression="Notas" />
                 </Columns>
                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
