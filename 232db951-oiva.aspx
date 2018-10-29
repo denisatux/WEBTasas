@@ -87,6 +87,15 @@
         </asp:ObjectDataSource>
     
         <asp:Panel ID="Panel1" runat="server" Height="100%" Width="100%">
+            <table align="center" width="100%">
+                <tr>
+                    <td width="25%"></td>
+                    <td width="50%" align="justify">
+                        <asp:CheckBox ID="CheckAviso" runat="server" AutoPostBack="True" Visible="False" />
+                    </td>
+                    <td width="25%"></td>
+                </tr>
+            </table>
             <br />
             <cc1:BotonEnviar ID="BotonEnviar1" runat="server" Font-Bold="True" Text="V.o.b.o."
                 TextoEnviando="V.o.b.o..." Width="122px" Font-Size="Smaller" />
