@@ -98,7 +98,7 @@
             </table>
             <br />
             <cc1:BotonEnviar ID="BotonEnviar1" runat="server" Font-Bold="True" Text="V.o.b.o."
-                TextoEnviando="V.o.b.o..." Width="122px" Font-Size="Smaller" />
+                TextoEnviando="V.o.b.o..." Width="122px" Font-Size="Smaller" Enabled="False" />
             <br />
             <br />
             <cc1:BotonEnviar ID="BotonEnviar2" runat="server" Font-Bold="True" Font-Size="Smaller" Text="Pasa (Estrategias)" TextoEnviando="Pasa (Estrategias)" Width="122px" />

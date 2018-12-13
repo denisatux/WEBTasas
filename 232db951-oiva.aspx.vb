@@ -36,12 +36,13 @@ Partial Public Class JefeSucursalForm
                     End If
                     'Dim noEfec As Integer = ta.NoEfectivo(R.Anexo, R.CicloPagare)
                     'Dim taUsuarios As New SeguridadDSTableAdapters.UsuariosFinagilTableAdapter
-                    'CheckAviso.Text = "Bajo protesta de decir verdad, " & taUsuarios.ScalarNombre(Request("User")) & " manifiesto que en ésta fecha he llevado a cabo la " &
-                    '"revisión y validación del contenido del Reporte de Supervisión de fecha no mayor a diez días de esta minitracion, que se efectúo sobre la" &
-                    '" superficie a sembrar del Acreditado " & R.Descr & ", y hago constar que en ésta sucursal de " & R.Nombre_Sucursal & " contamos físicamente" &
-                    '" con el Reporte de Supervisión de referencia en original, el cual se encuentra digitalizado en la carpeta compartida asignada y del que se desprende " &
-                    '" que puede ser autorizada la disposición de efectivo No. " & noEfec & " de la línea de crédito del contrato número " & R.AnexoCon & " que se" &
-                    '" solicita por este medio."
+                    'CheckAviso.Text = "Bajo protesta de decir verdad, " & taUsuarios.ScalarNombre(Request("User")) & " manifiesto que en esta fecha he llevado a cabo la " &
+                    '"revisión y validación del contenido de la Cédula de Verificación Técnica (CVT) y/o del Reporte de Supervisión** la (el) cual es 100% favorable, de fecha no mayor a diez días de esta minitracion," &
+                    '" misma(o) que se efectúo sobre la superficie a sembrar del Acreditado " & R.Descr & ", y hago constar que en ésta sucursal de " & R.Nombre_Sucursal & " contamos físicamente" &
+                    '" con la Cédula de Verificación Técnica y/o el Reporte de Supervisión de referencia en original, la(el) cual se encuentra digitalizada(o) en la carpeta compartida asignada y de la que se desprende que puede ser autorizada la" &
+                    '" disposición No. " & noEfec & " de la línea de crédito del contrato número " & R.AnexoCon & " que se solicita por este medio." &
+                    '"<br><br>** El área  técnica de esta  sucursal, utiliza para los  avíos de granos y oleaginosas  la Cédula de Verificación Técnica (CVT) y para los casos de hortalizas y frutas se utilizan indistintamente el formato de CVT  y/o el formato de Reporte de Supervisión."
+
                 End If
             Else
                 Panel1.Visible = False
