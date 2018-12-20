@@ -71,6 +71,9 @@ Partial Public Class DGSucursalLQForm
 
         reporte.SetDataSource(DS)
         reporte.SetParameterValue("var_antiguedad", Antiguedad)
+        reporte.SetParameterValue("Autorizo", "C.P. GABRIEL BELLO HERNANDEZ")
+        reporte.SetParameterValue("AreaAutorizo", "DIRECCION GENERAL")
+        reporte.SetParameterValue("Firma", Encriptar("GBELLO" & Date.Now.ToString))
         Try
             reporte.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Archivo)
         Catch ex As Exception
