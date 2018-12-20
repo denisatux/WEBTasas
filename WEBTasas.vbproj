@@ -199,6 +199,11 @@
       <DependentUpon>ConsultaEFOS.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="CreditoDS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreditoDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
@@ -258,6 +263,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CreditoDS.xsc">
+      <DependentUpon>CreditoDS.xsd</DependentUpon>
+    </Content>
+    <None Include="CreditoDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CreditoDS.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="CreditoDS.xss">
+      <DependentUpon>CreditoDS.xsd</DependentUpon>
+    </Content>
     <None Include="Factor100DS.xsc">
       <DependentUpon>Factor100DS.xsd</DependentUpon>
     </None>
@@ -312,6 +328,7 @@
     <Content Include="ProduccionDS.xss">
       <DependentUpon>ProduccionDS.xsd</DependentUpon>
     </Content>
+    <Content Include="rptAltaLiquidezAutorizacion.rpt" />
     <None Include="SeguridadDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>

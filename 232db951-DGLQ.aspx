@@ -56,12 +56,14 @@
             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
             <Fields>
                 <asp:BoundField DataField="Id_Solicitud" HeaderText="Solicitud" SortExpression="Id_Solicitud" DataFormatString="{0}" HtmlEncode="False" InsertVisible="False" ReadOnly="True" />
+                <asp:BoundField DataField="Cli" HeaderText="No. Cliente" SortExpression="Cli" />
                 <asp:BoundField DataField="Cliente" HeaderText="Cliente" SortExpression="Cliente" />
                 <asp:BoundField DataField="Fecha" HeaderText="Fecha" SortExpression="Fecha" DataFormatString="{0:d}" HtmlEncode="False" />
                 <asp:BoundField DataField="MontoFinanciado" HeaderText="MontoFinanciado" SortExpression="MontoFinanciado" DataFormatString="{0:n2}" />
                 <asp:BoundField DataField="Periodicidad" HeaderText="Periodicidad" SortExpression="Periodicidad" />
                 <asp:BoundField DataField="Plazo" HeaderText="Plazo" SortExpression="Plazo" />
                 <asp:BoundField DataField="NotaParaDG" HeaderText="NotaParaDG" SortExpression="NotaParaDG" />
+                <asp:BoundField DataField="FechaIngreso" DataFormatString="{0:d}" HeaderText="Fecha Ingreso" HtmlEncode="False" ReadOnly="True" SortExpression="FechaIngreso" />
             </Fields>
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <EditRowStyle BackColor="#2461BF" />
