@@ -7530,14 +7530,14 @@ Namespace CreditoDSTableAdapters
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "INSERT INTO DetSol"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Solicitud, Disposicion, Cliente, Im"& _ 
-                "peq)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@Solicitud,@Disposicion,@Cliente,@Impeq); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Solicitu"& _ 
-                "d, Disposicion, Cliente, Impeq, Plazo, Ivaeq, Porieq, Amorin, IvaAmorin, Tippe, "& _ 
-                "Tipta, Tasas, Difer, Tipar, Forca, RtasD, ImpRD, IvaRD, Porco, Comis, Porop, Fec"& _ 
-                "hacon, Fvenc, Fondeo, DepNafin, Critas, Tipeq, Gastos, IvaGastos, Mensu, Prenda,"& _ 
-                " Validado, RD, ImpRtasdep, ImpDG, IvaDG, Derechos, DG, ccfega, vcfega, AceptaDom"& _ 
-                "i, PagaEmp, CNom, TipoFrecuencia, ValorFrecuencia, Amortizaciones, CNEmpresa, CN"& _ 
-                "Planta, FondoReserva, BeneficioTasa, TasaIvaCapital, Automovil, id_detsol, taspe"& _ 
-                "n FROM DetSol WHERE (id_detsol = SCOPE_IDENTITY())"
+                "peq, Plazo)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@Solicitud,@Disposicion,@Cliente,@Impeq, 12);  "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SEL"& _ 
+                "ECT Solicitud, Disposicion, Cliente, Impeq, Plazo, Ivaeq, Porieq, Amorin, IvaAmo"& _ 
+                "rin, Tippe, Tipta, Tasas, Difer, Tipar, Forca, RtasD, ImpRD, IvaRD, Porco, Comis"& _ 
+                ", Porop, Fechacon, Fvenc, Fondeo, DepNafin, Critas, Tipeq, Gastos, IvaGastos, Me"& _ 
+                "nsu, Prenda, Validado, RD, ImpRtasdep, ImpDG, IvaDG, Derechos, DG, ccfega, vcfeg"& _ 
+                "a, AceptaDomi, PagaEmp, CNom, TipoFrecuencia, ValorFrecuencia, Amortizaciones, C"& _ 
+                "NEmpresa, CNPlanta, FondoReserva, BeneficioTasa, TasaIvaCapital, Automovil, id_d"& _ 
+                "etsol, taspen FROM DetSol WHERE (id_detsol = SCOPE_IDENTITY())"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Solicitud", Global.System.Data.SqlDbType.NChar, 6, Global.System.Data.ParameterDirection.Input, 0, 0, "Solicitud", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Disposicion", Global.System.Data.SqlDbType.NChar, 3, Global.System.Data.ParameterDirection.Input, 0, 0, "Disposicion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
