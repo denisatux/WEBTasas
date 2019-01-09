@@ -62,7 +62,7 @@ Module Globales
 
     End Sub
 
-    Public Sub EnviacORREO(ByVal Para As String, ByVal Mensaje As String, ByVal Asunto As String, de As String)
+    Public Sub EnviacORREO(ByVal Para As String, ByVal Mensaje As String, ByVal Asunto As String, de As String, Optional Archivo As String = "")
 
         Dim Mensage As New MailMessage(Trim(de), Trim(Para), Trim(Asunto), Mensaje)
         Dim Cliente As New SmtpClient("smtp01.cmoderna.com", 26)
@@ -125,4 +125,10 @@ Module Globales
         End If
 
     End Function
+
+    Public Sub MandaCorreo(De As String, Para As String, Asunto As String, Mensaje As String, Optional Archivo As String = "")
+        Dim taCorreos As New ProDSTableAdapters.GEN_Correos_SistemaFinagilTableAdapter
+        taCorreos.Insert(De, Para, Asunto, Mensaje, False, Date.Now, Archivo)
+        taCorreos.Dispose()
+    End Sub
 End Module

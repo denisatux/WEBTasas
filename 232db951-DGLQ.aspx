@@ -64,6 +64,7 @@
                 <asp:BoundField DataField="Plazo" HeaderText="Plazo" SortExpression="Plazo" />
                 <asp:BoundField DataField="NotaParaDG" HeaderText="NotaParaDG" SortExpression="NotaParaDG" />
                 <asp:BoundField DataField="FechaIngreso" DataFormatString="{0:d}" HeaderText="Fecha Ingreso" HtmlEncode="False" ReadOnly="True" SortExpression="FechaIngreso" />
+                <asp:BoundField DataField="UsuarioCredito" HeaderText="Analista" SortExpression="UsuarioCredito" />
             </Fields>
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <EditRowStyle BackColor="#2461BF" />

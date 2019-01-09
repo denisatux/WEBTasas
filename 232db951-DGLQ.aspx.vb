@@ -37,33 +37,37 @@ Partial Public Class DGSucursalLQForm
         Dim Cliente As String = DetailsView1.Rows(1).Cells(1).Text
         Dim Monto As Decimal = CDec(DetailsView1.Rows(4).Cells(1).Text)
         Dim Nombre As String = DetailsView1.Rows(2).Cells(1).Text.Trim
+        Dim Analista As String = DetailsView1.Rows(9).Cells(1).Text.Trim
         Dim ta As New ProDSTableAdapters.SolLiqTableAdapter
         ta.UpdateEstatus("APROBADO", "gbello", Request("ID"))
         Globales.AltaLineaCreditoLIQUIDEZ(Cliente, Monto, "Autorizado por DG")
-        GeneraCorreoAUT(Monto, Cliente, Nombre)
+        GeneraCorreoAUT(Monto, Cliente, Nombre, Analista)
         Response.Redirect("~\232db951-DGLQ.aspx?User=" & Request("User") & "&ID=0")
     End Sub
 
-    Sub GeneraCorreoAUT(Monto As Decimal, Cliente As String, nombre As String)
+    Sub GeneraCorreoAUT(Monto As Decimal, Cliente As String, nombre As String, Analista As String)
+        Dim ta As New SeguridadDSTableAdapters.UsuariosFinagilTableAdapter
         Dim TaQUERY As New CreditoDSTableAdapters.LlavesTableAdapter
         Dim Asunto As String = ""
         Dim Fecha As Date = DetailsView1.Rows(8).Cells(1).Text.Trim
         Dim Antiguedad As Integer = DateDiff(DateInterval.Year, Fecha, Date.Now.Date)
-        GeneraDocAutorizacion(Request("ID"), Antiguedad)
+        Dim File As String = GeneraDocAutorizacion(Request("ID"), Antiguedad)
         Asunto = "Solicitud de Liquidez Inmediata Autorizada: " & nombre
         Dim Mensaje As String = ""
 
         Mensaje += "Cliente: " & nombre & "<br>"
         Mensaje += "Monto Financiado: " & Monto.ToString("n2") & "<br>"
 
-        EnviacORREO("ecacerest@finagil.com.mx", Mensaje, Asunto, "gbello@Fiangil.com.mx")
-        EnviacORREO(TaQUERY.SacaCorreoPromo(Cliente), Mensaje, Asunto, "gbello@Fiangil.com.mx")
+        MandaCorreo("gbello@Fiangil.com.mx", "ecacerest@finagil.com.mx", Asunto, Mensaje, File)
+        MandaCorreo("gbello@Fiangil.com.mx", ta.ScalarCorreo(Analista), Asunto, Mensaje, File)
+        MandaCorreo("gbello@Fiangil.com.mx", Cliente, Asunto, Mensaje, File)
 
     End Sub
 
     Function GeneraDocAutorizacion(ID_Sol2 As Integer, Antiguedad As String) As String
         Dim DS As New ProDS
-        Dim Archivo As String = "\WEBTASAS\tmp\" & Date.Now.ToString("yyyyMMddmmss") & ".pdf"
+        Dim Archivo As String = "\\server-raid\TmpFinagil" & "Autoriza" & ID_Sol2 & ".Pdf"
+        Dim Archivo2 As String = "Autoriza" & ID_Sol2 & ".Pdf"
         Dim reporte As New ReportDocument()
         reporte.Load(Server.MapPath("~/rptAltaLiquidezAutorizacion.rpt"))
         Dim ta As New ProDSTableAdapters.AutorizacionRPTTableAdapter
@@ -79,7 +83,7 @@ Partial Public Class DGSucursalLQForm
         Catch ex As Exception
             Response.Write(ex.Message)
         End Try
-        Return Archivo
+        Return Archivo2
     End Function
 
 End Class
