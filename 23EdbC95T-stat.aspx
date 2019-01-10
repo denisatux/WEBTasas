@@ -7,6 +7,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title>Solicitud de Ministraciones</title>
+    <style type="text/css">
+        .auto-style1 {
+            font-family: Verdana;
+            font-weight: bold;
+            color: #FF6600;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -50,7 +57,7 @@
         <br />
     
         <asp:Panel ID="Panel1" runat="server" Height="100%" Width="100%">
-            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="ObjectDataSource2" EnableModelValidation="True" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
+            <span class="auto-style1">Avío y Cuenta Corriente</span><asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="ObjectDataSource2" EnableModelValidation="True" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="Nombre_Sucursal" HeaderText="Sucursal" SortExpression="Nombre_Sucursal" />
@@ -82,6 +89,39 @@
         <br />
         <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
             Text="No hay nada Pendiente"></asp:Label>
+        <br />
+    </td>
+    </tr>
+        <tr>
+    <td align=center>
+        <br />
+        <asp:Label ID="LbError0" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+            Text="Creditos Tradicionales"></asp:Label>
+            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="ObjectDataSource3" EnableModelValidation="True" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
+                <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                    <asp:BoundField DataField="Sucursal" HeaderText="Sucursal" SortExpression="Sucursal" />
+                    <asp:BoundField DataField="Clientes" HeaderText="Clientes" SortExpression="Clientes" />
+                    <asp:BoundField DataField="Contrato" HeaderText="Contrato" SortExpression="Contrato" />
+                    <asp:BoundField DataField="Tipo Credito" HeaderText="Tipo Credito" SortExpression="Tipo Credito" />
+                    <asp:TemplateField HeaderText="Monto Fianaciado" SortExpression="Monto Fianaciado">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("[Monto Fianaciado]") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("[Monto Fianaciado]", "{0:n2}") %>'></asp:Label>
+                        </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Right" />
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="Estatus" HeaderText="Estatus" SortExpression="Estatus" ReadOnly="True" />
+                </Columns>
+                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                <RowStyle BackColor="#FFE0C0" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+            </asp:GridView>
+            <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="WEBTasas.ProDSTableAdapters.EstatusTRATableAdapter"></asp:ObjectDataSource>
         <br />
     </td>
     </tr>

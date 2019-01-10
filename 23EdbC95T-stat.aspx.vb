@@ -19,6 +19,7 @@ Partial Public Class ASPX_Estatus
         End If
     End Sub
 
+    Protected Sub GridView2_SelectedIndexChanged(sender As Object, e As EventArgs)
 
-
+    End Sub
 End Class

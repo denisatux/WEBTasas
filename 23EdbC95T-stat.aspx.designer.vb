@@ -75,4 +75,31 @@ Partial Public Class ASPX_Estatus
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents LbError As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control LbError0.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LbError0 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control GridView3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents GridView3 As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control ObjectDataSource3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents ObjectDataSource3 As Global.System.Web.UI.WebControls.ObjectDataSource
 End Class
