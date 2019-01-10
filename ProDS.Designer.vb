@@ -7583,6 +7583,10 @@ Partial Public Class ProDS
         
         Private columnEstatus As Global.System.Data.DataColumn
         
+        Private columnPromotor As Global.System.Data.DataColumn
+        
+        Private columnFecha_Contrato As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -7667,6 +7671,22 @@ Partial Public Class ProDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property PromotorColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPromotor
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Fecha_ContratoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFecha_Contrato
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -7703,9 +7723,9 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddEstatusTRARow(ByVal Sucursal As String, ByVal Clientes As String, ByVal Contrato As String, ByVal Tipo_Credito As String, ByVal Monto_Fianaciado As Decimal, ByVal Estatus As String) As EstatusTRARow
+        Public Overloads Function AddEstatusTRARow(ByVal Sucursal As String, ByVal Clientes As String, ByVal Contrato As String, ByVal Tipo_Credito As String, ByVal Monto_Fianaciado As Decimal, ByVal Estatus As String, ByVal Promotor As String, ByVal Fecha_Contrato As String) As EstatusTRARow
             Dim rowEstatusTRARow As EstatusTRARow = CType(Me.NewRow,EstatusTRARow)
-            Dim columnValuesArray() As Object = New Object() {Sucursal, Clientes, Contrato, Tipo_Credito, Monto_Fianaciado, Estatus}
+            Dim columnValuesArray() As Object = New Object() {Sucursal, Clientes, Contrato, Tipo_Credito, Monto_Fianaciado, Estatus, Promotor, Fecha_Contrato}
             rowEstatusTRARow.ItemArray = columnValuesArray
             Me.Rows.Add(rowEstatusTRARow)
             Return rowEstatusTRARow
@@ -7740,6 +7760,8 @@ Partial Public Class ProDS
             Me.columnTipo_Credito = MyBase.Columns("Tipo Credito")
             Me.columnMonto_Fianaciado = MyBase.Columns("Monto Fianaciado")
             Me.columnEstatus = MyBase.Columns("Estatus")
+            Me.columnPromotor = MyBase.Columns("Promotor")
+            Me.columnFecha_Contrato = MyBase.Columns("Fecha Contrato")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7757,6 +7779,10 @@ Partial Public Class ProDS
             MyBase.Columns.Add(Me.columnMonto_Fianaciado)
             Me.columnEstatus = New Global.System.Data.DataColumn("Estatus", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnEstatus)
+            Me.columnPromotor = New Global.System.Data.DataColumn("Promotor", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPromotor)
+            Me.columnFecha_Contrato = New Global.System.Data.DataColumn("Fecha Contrato", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFecha_Contrato)
             Me.columnSucursal.MaxLength = 12
             Me.columnClientes.AllowDBNull = false
             Me.columnClientes.MaxLength = 120
@@ -7764,6 +7790,9 @@ Partial Public Class ProDS
             Me.columnTipo_Credito.MaxLength = 50
             Me.columnEstatus.ReadOnly = true
             Me.columnEstatus.MaxLength = 20
+            Me.columnPromotor.ReadOnly = true
+            Me.columnPromotor.MaxLength = 40
+            Me.columnFecha_Contrato.MaxLength = 10
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13075,6 +13104,36 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Promotor() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEstatusTRA.PromotorColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Promotor' de la tabla 'EstatusTRA' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEstatusTRA.PromotorColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Fecha_Contrato() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEstatusTRA.Fecha_ContratoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Fecha Contrato' de la tabla 'EstatusTRA' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEstatusTRA.Fecha_ContratoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsSucursalNull() As Boolean
             Return Me.IsNull(Me.tableEstatusTRA.SucursalColumn)
         End Function
@@ -13131,6 +13190,30 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetEstatusNull()
             Me(Me.tableEstatusTRA.EstatusColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsPromotorNull() As Boolean
+            Return Me.IsNull(Me.tableEstatusTRA.PromotorColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetPromotorNull()
+            Me(Me.tableEstatusTRA.PromotorColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsFecha_ContratoNull() As Boolean
+            Return Me.IsNull(Me.tableEstatusTRA.Fecha_ContratoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetFecha_ContratoNull()
+            Me(Me.tableEstatusTRA.Fecha_ContratoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -18490,6 +18573,8 @@ Namespace ProDSTableAdapters
             tableMapping.ColumnMappings.Add("Tipo Credito", "Tipo Credito")
             tableMapping.ColumnMappings.Add("Monto Fianaciado", "Monto Fianaciado")
             tableMapping.ColumnMappings.Add("Estatus", "Estatus")
+            tableMapping.ColumnMappings.Add("Promotor", "Promotor")
+            tableMapping.ColumnMappings.Add("Fecha Contrato", "Fecha Contrato")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -18507,7 +18592,7 @@ Namespace ProDSTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        Sucursal, Clientes, Contrato, [Tipo Credito], [Monto Fianaciado], E"& _ 
-                "status"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_WEBTASAS_EstatusTRA"
+                "status, Promotor, [Fecha Contrato]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_WEBTASAS_EstatusTRA"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

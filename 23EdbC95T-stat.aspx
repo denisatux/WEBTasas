@@ -114,6 +114,8 @@
                         <ItemStyle HorizontalAlign="Right" />
                     </asp:TemplateField>
                     <asp:BoundField DataField="Estatus" HeaderText="Estatus" SortExpression="Estatus" ReadOnly="True" />
+                    <asp:BoundField DataField="Fecha Contrato" HeaderText="Fecha Contrato" SortExpression="Fecha Contrato" />
+                    <asp:BoundField DataField="Promotor" HeaderText="Promotor" SortExpression="Promotor" />
                 </Columns>
                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
