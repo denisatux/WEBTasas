@@ -62,7 +62,7 @@
                 <asp:BoundField DataField="MontoFinanciado" HeaderText="MontoFinanciado" SortExpression="MontoFinanciado" DataFormatString="{0:n2}" />
                 <asp:BoundField DataField="Periodicidad" HeaderText="Periodicidad" SortExpression="Periodicidad" />
                 <asp:BoundField DataField="Plazo" HeaderText="Plazo" SortExpression="Plazo" />
-                <asp:BoundField DataField="NotaParaDG" HeaderText="NotaParaDG" SortExpression="NotaParaDG" />
+                <asp:BoundField DataField="NotaParaDG" HeaderText="Nota" SortExpression="NotaParaDG" />
                 <asp:BoundField DataField="FechaIngreso" DataFormatString="{0:d}" HeaderText="Fecha Ingreso" HtmlEncode="False" ReadOnly="True" SortExpression="FechaIngreso" />
                 <asp:BoundField DataField="UsuarioCredito" HeaderText="Analista" SortExpression="UsuarioCredito" />
             </Fields>

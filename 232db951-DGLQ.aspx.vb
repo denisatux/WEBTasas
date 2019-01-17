@@ -39,8 +39,8 @@ Partial Public Class DGSucursalLQForm
         Dim Nombre As String = DetailsView1.Rows(2).Cells(1).Text.Trim
         Dim Analista As String = DetailsView1.Rows(9).Cells(1).Text.Trim
         Dim ta As New ProDSTableAdapters.SolLiqTableAdapter
-        ta.UpdateEstatus("APROBADO", "gbello", Request("ID"))
-        Globales.AltaLineaCreditoLIQUIDEZ(Cliente, Monto, "Autorizado por DG")
+        ta.UpdateEstatus("APROBADO", Request("User"), Request("ID"))
+        Globales.AltaLineaCreditoLIQUIDEZ(Cliente, Monto, "Autorizado por " & Request("User"))
         GeneraCorreoAUT(Monto, Cliente, Nombre, Analista)
         Response.Redirect("~\232db951-DGLQ.aspx?User=" & Request("User") & "&ID=0")
     End Sub
@@ -51,20 +51,21 @@ Partial Public Class DGSucursalLQForm
         Dim Asunto As String = ""
         Dim Fecha As Date = DetailsView1.Rows(8).Cells(1).Text.Trim
         Dim Antiguedad As Integer = DateDiff(DateInterval.Year, Fecha, Date.Now.Date)
-        Dim File As String = GeneraDocAutorizacion(Request("ID"), Antiguedad)
+        Dim File As String = GeneraDocAutorizacion(Request("ID"), Antiguedad, Analista)
         Asunto = "Solicitud de Liquidez Inmediata Autorizada: " & nombre
         Dim Mensaje As String = ""
 
         Mensaje += "Cliente: " & nombre & "<br>"
         Mensaje += "Monto Financiado: " & Monto.ToString("n2") & "<br>"
 
-        MandaCorreo("gbello@Fiangil.com.mx", "ecacerest@finagil.com.mx", Asunto, Mensaje, File)
-        MandaCorreo("gbello@Fiangil.com.mx", ta.ScalarCorreo(Analista), Asunto, Mensaje, File)
-        MandaCorreo("gbello@Fiangil.com.mx", Cliente, Asunto, Mensaje, File)
+        MandaCorreo(Request("User") & "@Fiangil.com.mx", "ecacerest@finagil.com.mx", Asunto, Mensaje, File)
+        MandaCorreo(Request("User") & "@Fiangil.com.mx", ta.ScalarCorreo(Analista), Asunto, Mensaje, File)
+        MandaCorreo(Request("User") & "@Fiangil.com.mx", Cliente, Asunto, Mensaje, File)
 
     End Sub
 
-    Function GeneraDocAutorizacion(ID_Sol2 As Integer, Antiguedad As String) As String
+    Function GeneraDocAutorizacion(ID_Sol2 As Integer, Antiguedad As String, Analista As String) As String
+        Dim ta1 As New SeguridadDSTableAdapters.UsuariosFinagilTableAdapter
         Dim DS As New ProDS
         Dim Archivo As String = "\\server-raid\TmpFinagil" & "Autoriza" & ID_Sol2 & ".Pdf"
         Dim Archivo2 As String = "Autoriza" & ID_Sol2 & ".Pdf"
@@ -75,9 +76,16 @@ Partial Public Class DGSucursalLQForm
 
         reporte.SetDataSource(DS)
         reporte.SetParameterValue("var_antiguedad", Antiguedad)
-        reporte.SetParameterValue("Autorizo", "C.P. GABRIEL BELLO HERNANDEZ")
-        reporte.SetParameterValue("AreaAutorizo", "DIRECCION GENERAL")
-        reporte.SetParameterValue("Firma", Encriptar("GBELLO" & Date.Now.ToString))
+        If Request("User") = "gbello" Then
+            reporte.SetParameterValue("Autorizo", "C.P. GABRIEL BELLO HERNANDEZ")
+            reporte.SetParameterValue("AreaAutorizo", "DIRECCION GENERAL")
+        Else
+            reporte.SetParameterValue("Autorizo", "VERONICA GOMEZ GARCIA")
+            reporte.SetParameterValue("AreaAutorizo", "SUB DIRECCION DE CREDITO")
+        End If
+        reporte.SetParameterValue("Analista", UCase(Trim(ta1.ScalarNombre(Analista))))
+        reporte.SetParameterValue("FirmaAnalista", Encriptar(Analista & Date.Now.ToString))
+        reporte.SetParameterValue("Firma", Encriptar(Request("User") & Date.Now.ToString))
         Try
             reporte.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Archivo)
         Catch ex As Exception
@@ -85,5 +93,6 @@ Partial Public Class DGSucursalLQForm
         End Try
         Return Archivo2
     End Function
+
 
 End Class
