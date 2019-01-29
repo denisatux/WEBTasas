@@ -14,8 +14,9 @@
     <table width=100%>
     <tr>
     <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
+        <asp:Label ID="Label1" runat="server" Text="Estatus de Seguimientos"></asp:Label>
         <br />
-        Estatus de Seguimientos</td>
+        </td>
     </tr>
         <tr>
     <td align=center>
@@ -44,6 +45,10 @@
             <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
         </asp:GridView>
         <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="WEBTasas.ProDSTableAdapters.CRED_SeguimientosTableAdapter">
+            <SelectParameters>
+                <asp:SessionParameter Name="Depto" SessionField="Depto" Type="String" />
+                <asp:SessionParameter Name="Aux" SessionField="Aux" Type="String" />
+            </SelectParameters>
         </asp:ObjectDataSource>
         <br />
     

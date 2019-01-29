@@ -4,7 +4,7 @@ Partial Public Class CRED_SEGUI
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Dim ta As New ProDSTableAdapters.CRED_SeguimientosTableAdapter
         Dim t As New ProDS.CRED_SeguimientosDataTable
-        ta.Fill(t)
+        ta.Fill(t, Session("Depto"), Session("Aux"))
         If t.Rows.Count > 0 Then
             If Request("ID") = 0 Then
                 Panel1.Visible = True
@@ -35,5 +35,23 @@ Partial Public Class CRED_SEGUI
                     cell.ForeColor = Drawing.Color.Black
             End Select
         End If
+    End Sub
+
+    Private Sub CRED_SEGUI_PreInit(sender As Object, e As EventArgs) Handles Me.PreInit
+        Select Case Request("Depto").ToUpper
+            Case "CRED"
+                Session("Depto") = "CREDITO"
+                Session("Aux") = "ZZZZ"
+            Case "JUR"
+                Session("Depto") = "JURIDICO"
+                Session("Aux") = "ZZZZ"
+            Case "MC"
+                Session("Depto") = "MESA DE CONTROL"
+                Session("Aux") = "ZZZZ"
+            Case Else
+                Session("Depto") = "TODO"
+                Session("Aux") = "a"
+        End Select
+        Label1.Text += " " & Session("Depto")
     End Sub
 End Class
