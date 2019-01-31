@@ -86,7 +86,9 @@ Partial Public Class DGSucursalLQForm
         reporte.SetParameterValue("Analista", UCase(Trim(ta1.ScalarNombre(Analista))))
         reporte.SetParameterValue("FirmaAnalista", Encriptar(Analista & Date.Now.ToString))
         reporte.SetParameterValue("Firma", Encriptar(Request("User") & Date.Now.ToString))
-        reporte.SetParameterValue("FirmaPromo", Encriptar(TaQUERY.SacaCorreoPromo(Cliente) & Date.Now.ToString))
+        Dim Aux As String = TaQUERY.SacaCorreoPromo(Cliente)
+        Dim Promo() As String = Aux.Split("@")
+        reporte.SetParameterValue("FirmaPromo", Encriptar(Promo(0) & Date.Now.ToString))
 
         Try
             reporte.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Archivo)
