@@ -3,6 +3,7 @@ Imports CrystalDecisions.Shared
 Partial Public Class DGSucursalLQForm
     Inherits System.Web.UI.Page
     Dim Tipo As String
+    Dim TaQUERY As New CreditoDSTableAdapters.LlavesTableAdapter
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If IsNothing(Request("User")) Then
             Panel1.Visible = False
@@ -47,11 +48,10 @@ Partial Public Class DGSucursalLQForm
 
     Sub GeneraCorreoAUT(Monto As Decimal, Cliente As String, nombre As String, Analista As String)
         Dim ta As New SeguridadDSTableAdapters.UsuariosFinagilTableAdapter
-        Dim TaQUERY As New CreditoDSTableAdapters.LlavesTableAdapter
         Dim Asunto As String = ""
         Dim Fecha As Date = DetailsView1.Rows(8).Cells(1).Text.Trim
         Dim Antiguedad As Integer = DateDiff(DateInterval.Year, Fecha, Date.Now.Date)
-        Dim File As String = GeneraDocAutorizacion(Request("ID"), Antiguedad, Analista)
+        Dim File As String = GeneraDocAutorizacion(Request("ID"), Antiguedad, Analista, Cliente)
         Asunto = "Solicitud de Liquidez Inmediata Autorizada: " & nombre
         Dim Mensaje As String = ""
 
@@ -64,7 +64,7 @@ Partial Public Class DGSucursalLQForm
 
     End Sub
 
-    Function GeneraDocAutorizacion(ID_Sol2 As Integer, Antiguedad As String, Analista As String) As String
+    Function GeneraDocAutorizacion(ID_Sol2 As Integer, Antiguedad As String, Analista As String, Cliente As String) As String
         Dim ta1 As New SeguridadDSTableAdapters.UsuariosFinagilTableAdapter
         Dim DS As New ProDS
         Dim Archivo As String = "D:\TmpFinagil\" & "Autoriza" & ID_Sol2 & ".Pdf"
@@ -86,6 +86,8 @@ Partial Public Class DGSucursalLQForm
         reporte.SetParameterValue("Analista", UCase(Trim(ta1.ScalarNombre(Analista))))
         reporte.SetParameterValue("FirmaAnalista", Encriptar(Analista & Date.Now.ToString))
         reporte.SetParameterValue("Firma", Encriptar(Request("User") & Date.Now.ToString))
+        reporte.SetParameterValue("FirmaPromo", Encriptar(TaQUERY.SacaCorreoPromo(Cliente) & Date.Now.ToString))
+
         Try
             reporte.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Archivo)
         Catch ex As Exception
