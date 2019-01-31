@@ -15,7 +15,7 @@
     <tr>
     <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
         <br />
-        AAutoirización Liquedez Inmediata</td>
+        Autoirización Liquedez Inmediata</td>
     </tr>
         <tr>
     <td align=center>

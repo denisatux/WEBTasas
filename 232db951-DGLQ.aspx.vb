@@ -60,14 +60,14 @@ Partial Public Class DGSucursalLQForm
 
         MandaCorreo(Request("User") & "@Fiangil.com.mx", "ecacerest@finagil.com.mx", Asunto, Mensaje, File)
         MandaCorreo(Request("User") & "@Fiangil.com.mx", ta.ScalarCorreo(Analista), Asunto, Mensaje, File)
-        MandaCorreo(Request("User") & "@Fiangil.com.mx", Cliente, Asunto, Mensaje, File)
+        MandaCorreo(Request("User") & "@Fiangil.com.mx", TaQUERY.SacaCorreoPromo(Cliente), Asunto, Mensaje, File)
 
     End Sub
 
     Function GeneraDocAutorizacion(ID_Sol2 As Integer, Antiguedad As String, Analista As String) As String
         Dim ta1 As New SeguridadDSTableAdapters.UsuariosFinagilTableAdapter
         Dim DS As New ProDS
-        Dim Archivo As String = "\\server-raid\TmpFinagil" & "Autoriza" & ID_Sol2 & ".Pdf"
+        Dim Archivo As String = "D:\TmpFinagil\" & "Autoriza" & ID_Sol2 & ".Pdf"
         Dim Archivo2 As String = "Autoriza" & ID_Sol2 & ".Pdf"
         Dim reporte As New ReportDocument()
         reporte.Load(Server.MapPath("~/rptAltaLiquidezAutorizacion.rpt"))
