@@ -1,5 +1,6 @@
 Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
+Imports System.IO
 Partial Public Class DGSucursalLQForm
     Inherits System.Web.UI.Page
     Dim Tipo As String
@@ -91,6 +92,7 @@ Partial Public Class DGSucursalLQForm
         reporte.SetParameterValue("FirmaPromo", Encriptar(Promo(0) & Date.Now.ToString))
 
         Try
+            File.Delete(Archivo)
             reporte.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Archivo)
         Catch ex As Exception
             Response.Write(ex.Message)

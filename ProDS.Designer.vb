@@ -5877,6 +5877,14 @@ Partial Public Class ProDS
         
         Private columnUsuarioCredito As Global.System.Data.DataColumn
         
+        Private columncondiciones As Global.System.Data.DataColumn
+        
+        Private columnobservaciones As Global.System.Data.DataColumn
+        
+        Private columntasa As Global.System.Data.DataColumn
+        
+        Private columnbc As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -6001,6 +6009,38 @@ Partial Public Class ProDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property condicionesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncondiciones
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property observacionesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnobservaciones
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property tasaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntasa
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property bcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnbc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -6037,9 +6077,9 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddSolLiqDetRow(ByVal Cliente As String, ByVal Fecha As Date, ByVal MontoFinanciado As Decimal, ByVal Periodicidad As String, ByVal Plazo As Integer, ByVal NotaParaDG As String, ByVal Estatus As String, ByVal Cli As String, ByVal FechaIngreso As Date, ByVal UsuarioCredito As String) As SolLiqDetRow
+        Public Overloads Function AddSolLiqDetRow(ByVal Cliente As String, ByVal Fecha As Date, ByVal MontoFinanciado As Decimal, ByVal Periodicidad As String, ByVal Plazo As Integer, ByVal NotaParaDG As String, ByVal Estatus As String, ByVal Cli As String, ByVal FechaIngreso As Date, ByVal UsuarioCredito As String, ByVal condiciones As String, ByVal observaciones As String, ByVal tasa As String, ByVal bc As String) As SolLiqDetRow
             Dim rowSolLiqDetRow As SolLiqDetRow = CType(Me.NewRow,SolLiqDetRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Cliente, Fecha, MontoFinanciado, Periodicidad, Plazo, NotaParaDG, Estatus, Cli, FechaIngreso, UsuarioCredito}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Cliente, Fecha, MontoFinanciado, Periodicidad, Plazo, NotaParaDG, Estatus, Cli, FechaIngreso, UsuarioCredito, condiciones, observaciones, tasa, bc}
             rowSolLiqDetRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowSolLiqDetRow)
             Return rowSolLiqDetRow
@@ -6085,6 +6125,10 @@ Partial Public Class ProDS
             Me.columnCli = MyBase.Columns("Cli")
             Me.columnFechaIngreso = MyBase.Columns("FechaIngreso")
             Me.columnUsuarioCredito = MyBase.Columns("UsuarioCredito")
+            Me.columncondiciones = MyBase.Columns("condiciones")
+            Me.columnobservaciones = MyBase.Columns("observaciones")
+            Me.columntasa = MyBase.Columns("tasa")
+            Me.columnbc = MyBase.Columns("bc")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6112,6 +6156,14 @@ Partial Public Class ProDS
             MyBase.Columns.Add(Me.columnFechaIngreso)
             Me.columnUsuarioCredito = New Global.System.Data.DataColumn("UsuarioCredito", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnUsuarioCredito)
+            Me.columncondiciones = New Global.System.Data.DataColumn("condiciones", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncondiciones)
+            Me.columnobservaciones = New Global.System.Data.DataColumn("observaciones", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnobservaciones)
+            Me.columntasa = New Global.System.Data.DataColumn("tasa", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntasa)
+            Me.columnbc = New Global.System.Data.DataColumn("bc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnbc)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId_Solicitud}, true))
             Me.columnId_Solicitud.AutoIncrement = true
             Me.columnId_Solicitud.AutoIncrementSeed = -1
@@ -6127,6 +6179,10 @@ Partial Public Class ProDS
             Me.columnCli.AllowDBNull = false
             Me.columnCli.MaxLength = 5
             Me.columnUsuarioCredito.MaxLength = 20
+            Me.columncondiciones.MaxLength = 800
+            Me.columnobservaciones.MaxLength = 800
+            Me.columntasa.MaxLength = 10
+            Me.columnbc.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11951,6 +12007,66 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property condiciones() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSolLiqDet.condicionesColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'condiciones' de la tabla 'SolLiqDet' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSolLiqDet.condicionesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property observaciones() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSolLiqDet.observacionesColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'observaciones' de la tabla 'SolLiqDet' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSolLiqDet.observacionesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property tasa() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSolLiqDet.tasaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'tasa' de la tabla 'SolLiqDet' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSolLiqDet.tasaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property bc() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSolLiqDet.bcColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'bc' de la tabla 'SolLiqDet' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSolLiqDet.bcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsFechaNull() As Boolean
             Return Me.IsNull(Me.tableSolLiqDet.FechaColumn)
         End Function
@@ -12043,6 +12159,54 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetUsuarioCreditoNull()
             Me(Me.tableSolLiqDet.UsuarioCreditoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IscondicionesNull() As Boolean
+            Return Me.IsNull(Me.tableSolLiqDet.condicionesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetcondicionesNull()
+            Me(Me.tableSolLiqDet.condicionesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsobservacionesNull() As Boolean
+            Return Me.IsNull(Me.tableSolLiqDet.observacionesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetobservacionesNull()
+            Me(Me.tableSolLiqDet.observacionesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IstasaNull() As Boolean
+            Return Me.IsNull(Me.tableSolLiqDet.tasaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SettasaNull()
+            Me(Me.tableSolLiqDet.tasaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsbcNull() As Boolean
+            Return Me.IsNull(Me.tableSolLiqDet.bcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetbcNull()
+            Me(Me.tableSolLiqDet.bcColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -17702,6 +17866,10 @@ Namespace ProDSTableAdapters
             tableMapping.ColumnMappings.Add("Cli", "Cli")
             tableMapping.ColumnMappings.Add("FechaIngreso", "FechaIngreso")
             tableMapping.ColumnMappings.Add("UsuarioCredito", "UsuarioCredito")
+            tableMapping.ColumnMappings.Add("condiciones", "condiciones")
+            tableMapping.ColumnMappings.Add("observaciones", "observaciones")
+            tableMapping.ColumnMappings.Add("tasa", "tasa")
+            tableMapping.ColumnMappings.Add("bc", "bc")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -17722,11 +17890,16 @@ Namespace ProDSTableAdapters
                 "olicitudesLIQ.Fecha, PROM_SolicitudesLIQ.MontoFinanciado, PROM_SolicitudesLIQ.Pe"& _ 
                 "riodicidad, PROM_SolicitudesLIQ.Plazo, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PROM_Solicitud"& _ 
                 "esLIQ.NotaParaDG, PROM_SolicitudesLIQ.Estatus, Clientes.Cliente AS Cli, PROM_Sol"& _ 
-                "icitudesLIQ.FechaIngreso, PROM_SolicitudesLIQ.UsuarioCredito"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Cl"& _ 
-                "ientes INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PROM_SolicitudesLIQ ON Clientes.Clie"& _ 
-                "nte = PROM_SolicitudesLIQ.Cliente LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PROM"& _ 
-                "_SolicitudesLIQ_Importes ON PROM_SolicitudesLIQ.Id_Solicitud = PROM_SolicitudesL"& _ 
-                "IQ_Importes.Id_Solicitud"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (PROM_SolicitudesLIQ.Id_Solicitud = @id)"
+                "icitudesLIQ.FechaIngreso, PROM_SolicitudesLIQ.UsuarioCredito, PROM_SolicitudesLI"& _ 
+                "Q_Autorizacion.condiciones, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PROM_SolicitudesLIQ_Autor"& _ 
+                "izacion.observaciones, PROM_SolicitudesLIQ_Autorizacion.tasa, PROM_SolicitudesLI"& _ 
+                "Q_Autorizacion.bc"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Clientes INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                " PROM_SolicitudesLIQ ON Clientes.Cliente = PROM_SolicitudesLIQ.Cliente INNER JOI"& _ 
+                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PROM_SolicitudesLIQ_Autorizacion ON PROM_Solicitudes"& _ 
+                "LIQ.Id_Solicitud = PROM_SolicitudesLIQ_Autorizacion.Id_Solicitud LEFT OUTER JOIN"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PROM_SolicitudesLIQ_Importes ON PROM_SolicitudesLIQ.I"& _ 
+                "d_Solicitud = PROM_SolicitudesLIQ_Importes.Id_Solicitud"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (PROM_Soli"& _ 
+                "citudesLIQ.Id_Solicitud = @id)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "Id_Solicitud", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
