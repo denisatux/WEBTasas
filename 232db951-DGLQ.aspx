@@ -56,7 +56,8 @@
             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
             <Fields>
                 <asp:BoundField DataField="Id_Solicitud" HeaderText="Solicitud" SortExpression="Id_Solicitud" DataFormatString="{0}" HtmlEncode="False" InsertVisible="False" ReadOnly="True" />
-                <asp:BoundField DataField="Cliente" HeaderText="Cliente" SortExpression="Cliente" />
+                <asp:BoundField DataField="Cli" HeaderText="Cliente" SortExpression="Cli" />
+                <asp:BoundField DataField="Cliente" HeaderText="Nombre" SortExpression="Cliente" />
                 <asp:BoundField DataField="MontoFinanciado" HeaderText="MontoFinanciado" SortExpression="MontoFinanciado" DataFormatString="{0:n2}" />
                 <asp:BoundField DataField="Plazo" HeaderText="Plazo" SortExpression="Plazo" />
                 <asp:BoundField DataField="NotaParaDG" HeaderText="Nota" SortExpression="NotaParaDG" />
@@ -65,6 +66,8 @@
                 <asp:BoundField DataField="tasa" HeaderText="Tasa" SortExpression="tasa" />
                 <asp:BoundField DataField="bc" HeaderText="Buro de Crédito" SortExpression="bc" />
                 <asp:HyperLinkField DataNavigateUrlFields="Id_Solicitud" DataNavigateUrlFormatString="~\TmpFinagil\Autoriza{0}.pdf" DataTextField="Id_Solicitud" DataTextFormatString="Autorización {0}" HeaderText="Autorización" />
+                <asp:BoundField DataField="UsuarioCredito" HeaderText="Analista" SortExpression="UsuarioCredito" />
+                <asp:BoundField DataField="FechaIngreso" DataFormatString="{0:d}" HeaderText="Fecha Ingreso" HtmlEncode="False" SortExpression="FechaIngreso" />
             </Fields>
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <EditRowStyle BackColor="#2461BF" />

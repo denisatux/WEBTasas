@@ -37,9 +37,9 @@ Partial Public Class DGSucursalLQForm
 
     Protected Sub BotonEnviar1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonEnviar1.Click
         Dim Cliente As String = DetailsView1.Rows(1).Cells(1).Text
-        Dim Monto As Decimal = CDec(DetailsView1.Rows(4).Cells(1).Text)
+        Dim Monto As Decimal = CDec(DetailsView1.Rows(3).Cells(1).Text)
         Dim Nombre As String = DetailsView1.Rows(2).Cells(1).Text.Trim
-        Dim Analista As String = DetailsView1.Rows(9).Cells(1).Text.Trim
+        Dim Analista As String = DetailsView1.Rows(11).Cells(1).Text.Trim
         Dim ta As New ProDSTableAdapters.SolLiqTableAdapter
         ta.UpdateEstatus("APROBADO", Request("User"), Request("ID"))
         Globales.AltaLineaCreditoLIQUIDEZ(Cliente, Monto, "Autorizado por " & Request("User"))
@@ -50,7 +50,7 @@ Partial Public Class DGSucursalLQForm
     Sub GeneraCorreoAUT(Monto As Decimal, Cliente As String, nombre As String, Analista As String)
         Dim ta As New SeguridadDSTableAdapters.UsuariosFinagilTableAdapter
         Dim Asunto As String = ""
-        Dim Fecha As Date = DetailsView1.Rows(8).Cells(1).Text.Trim
+        Dim Fecha As Date = DetailsView1.Rows(12).Cells(1).Text.Trim
         Dim Antiguedad As Integer = DateDiff(DateInterval.Year, Fecha, Date.Now.Date)
         Dim File As String = GeneraDocAutorizacion(Request("ID"), Antiguedad, Analista, Cliente)
         Asunto = "Solicitud de Liquidez Inmediata Autorizada: " & nombre
