@@ -77,6 +77,7 @@ Module Globales
 
     Public Sub AltaLineaCreditoLIQUIDEZ(Cliente As String, Monto As Decimal, Notas As String)
         Try
+            Dim BITACORA As New ProDSTableAdapters.GEN_BitacoraFinagilTableAdapter
             Dim FOLIOS As New CreditoDSTableAdapters.LlavesTableAdapter
             Dim SolStr As String = ""
             Dim Dispo As String
@@ -98,7 +99,8 @@ Module Globales
                 Dispo = taDetSol.NoDispo(Cliente) + 1
                 Dispo = Stuff(Dispo, "I", "0", 3)
             End If
-            taDetSol.InsertDispo(SolStr, Dispo, Cliente, Monto)
+            'taDetSol.InsertDispo(SolStr, Dispo, Cliente, Monto)
+            BITACORA.Insert("Gbello", "WebTasas", Date.Now, "LineaCredito", System.Environment.MachineName, Monto.ToString)
         Catch ex As Exception
             EnviacORREO("ecacerest@finagil.com.mx", ex.Message, "Error Alta Linea", "ecacerest@finagil.com.mx")
         End Try
@@ -130,5 +132,43 @@ Module Globales
         Dim taCorreos As New ProDSTableAdapters.GEN_Correos_SistemaFinagilTableAdapter
         taCorreos.Insert(De, Para, Asunto, Mensaje, False, Date.Now, Archivo)
         taCorreos.Dispose()
+    End Sub
+
+    Public Sub MandaCorreoFase(De As String, Fase As String, Asunto As String, Mensaje As String, Optional ByVal Archivo As String = "")
+        Dim taCorreos As New ProDSTableAdapters.GEN_Correos_SistemaFinagilTableAdapter
+        Dim users As New ProDSTableAdapters.CorreosFasesTableAdapter
+        Dim tu As New ProDS.CorreosFasesDataTable
+        Dim r As ProDS.CorreosFasesRow
+
+        users.Fill(tu, Fase)
+        For Each r In tu.Rows
+            taCorreos.Insert(De, r.Correo, Asunto, Mensaje, False, Date.Now, Archivo)
+        Next
+        taCorreos.Dispose()
+    End Sub
+
+    Public Sub MandaCorreoPROMO(Cliente As String, Asunto As String, Mensaje As String, Jefe As Boolean, CopiaRemitente As Boolean, UsuarioGlobalCorreo As String, Optional Archivo As String = "", Optional MsgPara As Boolean = False)
+        Dim users As New SeguridadDSTableAdapters.UsuariosFinagilTableAdapter
+        Dim taCorreos As New ProDSTableAdapters.GEN_Correos_SistemaFinagilTableAdapter
+        Dim promo As New ProDSTableAdapters.CorreoPROMOTableAdapter
+        Dim tu As New ProDS.CorreoPROMODataTable
+        Dim r As ProDS.CorreoPROMORow
+        promo.Fill(tu, Cliente)
+        If tu.Rows.Count > 0 Then
+            r = tu.Rows(0)
+            taCorreos.Insert(UsuarioGlobalCorreo, r.Correo, Asunto, Mensaje, False, Date.Now, Archivo)
+
+            If CopiaRemitente = True Then
+                taCorreos.Insert(UsuarioGlobalCorreo, UsuarioGlobalCorreo, Asunto, Mensaje, False, Date.Now, Archivo)
+            End If
+            If Jefe = True Then
+                MandaCorreoFase(UsuarioGlobalCorreo, "SUB_" & r.Nombre_Sucursal.Trim, Asunto, Mensaje, Archivo)
+            End If
+        Else
+            MandaCorreo("ecacerest@finagil.com.mx", "ecacerest@finagil.com.mx", "Sin promotor-" & Asunto, Mensaje)
+        End If
+
+        taCorreos.Dispose()
+        promo.Dispose()
     End Sub
 End Module
