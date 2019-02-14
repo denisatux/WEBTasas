@@ -46,7 +46,7 @@ Partial Public Class DGLineaForm
         rline.Statu = "5"
         rline.Linau = rsol.Importe
         rline.Fevig = Date.Now.AddMonths(1).ToString("yyyyMMdd")
-        rsol.Autoriza1 = ""
+        rsol.Autoriza1 = "Gbello"
         rsol.Autorizacion1 = True
 
         DS.CRED_SolicitudLineaDG.GetChanges()
