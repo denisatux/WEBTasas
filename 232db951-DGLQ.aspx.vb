@@ -42,7 +42,7 @@ Partial Public Class DGSucursalLQForm
         Dim Analista As String = DetailsView1.Rows(11).Cells(1).Text.Trim
         Dim ta As New ProDSTableAdapters.SolLiqTableAdapter
         ta.UpdateEstatus("APROBADO", Request("User"), Request("ID"))
-        Globales.AltaLineaCreditoLIQUIDEZ(Cliente, Monto, "Autorizado por " & Request("User"))
+        Globales.AltaLineaCreditoLIQUIDEZ(Cliente, Monto, "Autorizado por " & Request("User"), Request("User"))
         GeneraCorreoAUT(Monto, Cliente, Nombre, Analista)
         Response.Redirect("~\232db951-DGLQ.aspx?User=" & Request("User") & "&ID=0")
     End Sub

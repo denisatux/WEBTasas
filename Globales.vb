@@ -75,7 +75,7 @@ Module Globales
 
     End Sub
 
-    Public Sub AltaLineaCreditoLIQUIDEZ(Cliente As String, Monto As Decimal, Notas As String)
+    Public Sub AltaLineaCreditoLIQUIDEZ(Cliente As String, Monto As Decimal, Notas As String, User As String)
         Try
             Dim BITACORA As New ProDSTableAdapters.GEN_BitacoraFinagilTableAdapter
             Dim FOLIOS As New CreditoDSTableAdapters.LlavesTableAdapter
@@ -85,7 +85,7 @@ Module Globales
             Dim taDetSol As New CreditoDSTableAdapters.DetSolTableAdapter
             Dim TaLinea As New CreditoDSTableAdapters.CRED_LineasCreditoTableAdapter
             Dim TLinea As New CreditoDS.CRED_LineasCreditoDataTable
-            TaLinea.Insert(Cliente, "", 0, Monto, "LIQUIDEZ", 2, Date.Now, Date.Now, Date.Now.AddDays(30), Notas, "Gbello")
+            TaLinea.Insert(Cliente, "", 0, Monto, "LIQUIDEZ", 2, Date.Now, Date.Now, Date.Now.AddDays(30), Notas, User)
             If taDetSol.NoSolicitudes(Cliente) = 0 Then
                 Dispo = "001"
                 SolStr = FOLIOS.FolioSolCre
@@ -100,7 +100,7 @@ Module Globales
                 Dispo = Stuff(Dispo, "I", "0", 3)
             End If
             'taDetSol.InsertDispo(SolStr, Dispo, Cliente, Monto)
-            BITACORA.Insert("Gbello", "WebTasas", Date.Now, "LineaCredito", System.Environment.MachineName, Monto.ToString)
+            BITACORA.Insert(User, "WebTasas", Date.Now, "LineaCredito", System.Environment.MachineName, Monto.ToString)
         Catch ex As Exception
             EnviacORREO("ecacerest@finagil.com.mx", ex.Message, "Error Alta Linea", "ecacerest@finagil.com.mx")
         End Try
