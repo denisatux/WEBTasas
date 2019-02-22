@@ -91,15 +91,16 @@ Module Globales
                 SolStr = FOLIOS.FolioSolCre
                 SolStr = Stuff(SolStr, "I", "0", 6)
                 TaCredit.Insert(SolStr, Date.Now.ToString("yyyyMMdd"), 5, Date.Now.ToString("yyyyMMdd"), "", "A", Monto, Date.Now.ToString("yyyyMMdd"), "",
-                                Date.Now.AddDays(30).ToString("yyyyMMdd"), Monto, "", "")
+                                Date.Now.AddDays(30).ToString("yyyyMMdd"), Monto, "LIQUIDEZ", "")
                 FOLIOS.ConsumeSolCre()
+                taDetSol.InsertDispo(SolStr, Dispo, Cliente, Monto)
             Else
                 SolStr = taDetSol.SacaSolCreStr(Cliente)
-                TaCredit.UpdateLinea(5, Date.Now.ToString("yyyyMMdd"), "A", Monto, Date.Now.ToString("yyyyMMdd"), Date.Now.AddDays(30).ToString("yyyyMMdd"), SolStr, 0)
+                TaCredit.UpdateLinea(5, Date.Now.ToString("yyyyMMdd"), "A", Monto, Date.Now.ToString("yyyyMMdd"), Date.Now.AddDays(30).ToString("yyyyMMdd"), "LIQUIDEZ", SolStr, 0)
                 Dispo = taDetSol.NoDispo(Cliente) + 1
                 Dispo = Stuff(Dispo, "I", "0", 3)
             End If
-            'taDetSol.InsertDispo(SolStr, Dispo, Cliente, Monto)
+
             BITACORA.Insert(User, "WebTasas", Date.Now, "LineaCredito", System.Environment.MachineName, Monto.ToString)
         Catch ex As Exception
             EnviacORREO("ecacerest@finagil.com.mx", ex.Message, "Error Alta Linea", "ecacerest@finagil.com.mx")
