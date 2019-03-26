@@ -65,7 +65,9 @@
                 <asp:BoundField DataField="observaciones" HeaderText="Observaciones" SortExpression="observaciones" />
                 <asp:BoundField DataField="tasa" HeaderText="Tasa" SortExpression="tasa" />
                 <asp:BoundField DataField="bc" HeaderText="Buro de Crédito" SortExpression="bc" />
-                <asp:HyperLinkField DataNavigateUrlFields="Id_Solicitud" DataNavigateUrlFormatString="~\TmpFinagil\Autoriza{0}.pdf" DataTextField="Id_Solicitud" DataTextFormatString="Autorización {0}" HeaderText="Autorización" />
+                <asp:HyperLinkField DataNavigateUrlFields="Id_Solicitud" DataNavigateUrlFormatString="~\TmpFinagil\Autoriza{0}.pdf" DataTextField="Id_Solicitud" DataTextFormatString="Autorización {0}" HeaderText="Autorización" Target="_blank" />
+                <asp:HyperLinkField DataNavigateUrlFields="Id_Solicitud" DataNavigateUrlFormatString="~\TmpFinagil\Solicitud{0}.pdf" DataTextField="Id_Solicitud" DataTextFormatString="Solicitud {0}" HeaderText="Solicitud" Target="_parent" />
+                <asp:HyperLinkField DataNavigateUrlFields="Documento" DataNavigateUrlFormatString="~\Buro\{0}" DataTextField="Documento" DataTextFormatString="Buro: {0}" HeaderText="Buro de Crédito" Target="_blank" />
                 <asp:BoundField DataField="UsuarioCredito" HeaderText="Analista" SortExpression="UsuarioCredito" />
                 <asp:BoundField DataField="FechaIngreso" DataFormatString="{0:d}" HeaderText="Fecha Ingreso" HtmlEncode="False" SortExpression="FechaIngreso" />
             </Fields>

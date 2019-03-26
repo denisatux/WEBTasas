@@ -5345,6 +5345,8 @@ Partial Public Class ProDS
         
         Private columnbc As Global.System.Data.DataColumn
         
+        Private columnDocumento As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -5501,6 +5503,14 @@ Partial Public Class ProDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property DocumentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDocumento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -5537,9 +5547,9 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddSolLiqDetRow(ByVal Cliente As String, ByVal Fecha As Date, ByVal MontoFinanciado As Decimal, ByVal Periodicidad As String, ByVal Plazo As Integer, ByVal NotaParaDG As String, ByVal Estatus As String, ByVal Cli As String, ByVal FechaIngreso As Date, ByVal UsuarioCredito As String, ByVal condiciones As String, ByVal observaciones As String, ByVal tasa As String, ByVal bc As String) As SolLiqDetRow
+        Public Overloads Function AddSolLiqDetRow(ByVal Cliente As String, ByVal Fecha As Date, ByVal MontoFinanciado As Decimal, ByVal Periodicidad As String, ByVal Plazo As Integer, ByVal NotaParaDG As String, ByVal Estatus As String, ByVal Cli As String, ByVal FechaIngreso As Date, ByVal UsuarioCredito As String, ByVal condiciones As String, ByVal observaciones As String, ByVal tasa As String, ByVal bc As String, ByVal Documento As String) As SolLiqDetRow
             Dim rowSolLiqDetRow As SolLiqDetRow = CType(Me.NewRow,SolLiqDetRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Cliente, Fecha, MontoFinanciado, Periodicidad, Plazo, NotaParaDG, Estatus, Cli, FechaIngreso, UsuarioCredito, condiciones, observaciones, tasa, bc}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Cliente, Fecha, MontoFinanciado, Periodicidad, Plazo, NotaParaDG, Estatus, Cli, FechaIngreso, UsuarioCredito, condiciones, observaciones, tasa, bc, Documento}
             rowSolLiqDetRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowSolLiqDetRow)
             Return rowSolLiqDetRow
@@ -5589,6 +5599,7 @@ Partial Public Class ProDS
             Me.columnobservaciones = MyBase.Columns("observaciones")
             Me.columntasa = MyBase.Columns("tasa")
             Me.columnbc = MyBase.Columns("bc")
+            Me.columnDocumento = MyBase.Columns("Documento")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5624,6 +5635,8 @@ Partial Public Class ProDS
             MyBase.Columns.Add(Me.columntasa)
             Me.columnbc = New Global.System.Data.DataColumn("bc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnbc)
+            Me.columnDocumento = New Global.System.Data.DataColumn("Documento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDocumento)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId_Solicitud}, true))
             Me.columnId_Solicitud.AutoIncrement = true
             Me.columnId_Solicitud.AutoIncrementSeed = -1
@@ -5643,6 +5656,8 @@ Partial Public Class ProDS
             Me.columnobservaciones.MaxLength = 800
             Me.columntasa.MaxLength = 10
             Me.columnbc.MaxLength = 50
+            Me.columnDocumento.ReadOnly = true
+            Me.columnDocumento.MaxLength = 130
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12196,6 +12211,21 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Documento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSolLiqDet.DocumentoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Documento' de la tabla 'SolLiqDet' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSolLiqDet.DocumentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsFechaNull() As Boolean
             Return Me.IsNull(Me.tableSolLiqDet.FechaColumn)
         End Function
@@ -12336,6 +12366,18 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetbcNull()
             Me(Me.tableSolLiqDet.bcColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsDocumentoNull() As Boolean
+            Return Me.IsNull(Me.tableSolLiqDet.DocumentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetDocumentoNull()
+            Me(Me.tableSolLiqDet.DocumentoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -18321,6 +18363,7 @@ Namespace ProDSTableAdapters
             tableMapping.ColumnMappings.Add("observaciones", "observaciones")
             tableMapping.ColumnMappings.Add("tasa", "tasa")
             tableMapping.ColumnMappings.Add("bc", "bc")
+            tableMapping.ColumnMappings.Add("Documento", "Documento")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -18344,13 +18387,18 @@ Namespace ProDSTableAdapters
                 "icitudesLIQ.FechaIngreso, PROM_SolicitudesLIQ.UsuarioCredito, PROM_SolicitudesLI"& _ 
                 "Q_Autorizacion.condiciones, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PROM_SolicitudesLIQ_Autor"& _ 
                 "izacion.observaciones, PROM_SolicitudesLIQ_Autorizacion.tasa, PROM_SolicitudesLI"& _ 
-                "Q_Autorizacion.bc"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Clientes INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
-                " PROM_SolicitudesLIQ ON Clientes.Cliente = PROM_SolicitudesLIQ.Cliente INNER JOI"& _ 
-                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PROM_SolicitudesLIQ_Autorizacion ON PROM_Solicitudes"& _ 
-                "LIQ.Id_Solicitud = PROM_SolicitudesLIQ_Autorizacion.Id_Solicitud LEFT OUTER JOIN"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PROM_SolicitudesLIQ_Importes ON PROM_SolicitudesLIQ.I"& _ 
-                "d_Solicitud = PROM_SolicitudesLIQ_Importes.Id_Solicitud"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (PROM_Soli"& _ 
-                "citudesLIQ.Id_Solicitud = @id)"
+                "Q_Autorizacion.bc, CONVERT(varchar, GEN_Atachments.id_Atachment) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "            + GEN_Atachments.Documento AS Documento"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            GEN_Atachme"& _ 
+                "nts INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_GEN_AtachBuroLIQ_Unico ON GEN_Atachm"& _ 
+                "ents.id_Atachment = Vw_GEN_AtachBuroLIQ_Unico.id_Atachment RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
+                "                      Clientes INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PROM_Solicit"& _ 
+                "udesLIQ ON Clientes.Cliente = PROM_SolicitudesLIQ.Cliente INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
+                "               PROM_SolicitudesLIQ_Autorizacion ON PROM_SolicitudesLIQ.Id_Solici"& _ 
+                "tud = PROM_SolicitudesLIQ_Autorizacion.Id_Solicitud ON Vw_GEN_AtachBuroLIQ_Unico"& _ 
+                ".id_Externo = PROM_SolicitudesLIQ.Id_Solicitud LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         PROM_SolicitudesLIQ_Importes ON PROM_SolicitudesLIQ.Id_Solicitud = PROM"& _ 
+                "_SolicitudesLIQ_Importes.Id_Solicitud"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (PROM_SolicitudesLIQ.Id_Soli"& _ 
+                "citud = @id)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "Id_Solicitud", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
