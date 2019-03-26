@@ -83,9 +83,19 @@
         </asp:ObjectDataSource>
     
         <asp:Panel ID="Panel1" runat="server" Height="100%" Width="100%">
+            <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Arial" Text="Comentarios"></asp:Label>
             <br />
-            <cc1:BotonEnviar ID="BotonEnviar1" runat="server" Font-Bold="True" Text="V.o.b.o."
-                TextoEnviando="V.o.b.o..." Width="122px" Font-Size="Smaller" /><br />
+            <asp:TextBox ID="TextComentario" runat="server" Height="66px" TextMode="MultiLine" Width="317px"></asp:TextBox>
+            <br />
+            <br />
+            <cc1:BotonEnviar ID="BotonEnviar2" runat="server" Font-Bold="True" Font-Size="Smaller" Text="Rechazar" TextoEnviando="Rechazando..." Width="122px" />
+            <br />
+            <br />
+            <cc1:BotonEnviar ID="BotonEnviar3" runat="server" Font-Bold="True" Font-Size="Smaller" Text="Regresar" TextoEnviando="Regresando..." Width="122px" />
+            <br />
+            <br />
+            <cc1:BotonEnviar ID="BotonEnviar1" runat="server" Font-Bold="True" Text="Autorizar"
+                TextoEnviando="Autorizando..." Width="122px" Font-Size="Smaller" /><br />
             <br />
         </asp:Panel>
         <br />
