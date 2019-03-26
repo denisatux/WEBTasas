@@ -16,7 +16,7 @@ Partial Public Class DGSucursalLQForm
             ta.Fill(t, Request("User"))
             If t.Rows.Count > 0 Then
                 If Request("ID") = 0 Then
-                    Panel1.Visible = True
+                    Panel1.Visible = False
                     LbError.Visible = False
                     BotonEnviar1.Visible = False
                     BotonEnviar1.Text = "Autorizar"
