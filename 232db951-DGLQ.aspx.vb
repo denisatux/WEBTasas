@@ -19,14 +19,14 @@ Partial Public Class DGSucursalLQForm
                     Panel1.Visible = False
                     LbError.Visible = False
                     BotonEnviar1.Visible = False
-                    BotonEnviar1.Text = "Autorizar"
-                    BotonEnviar1.TextoEnviando = "Autorizar..."
+                    BotonEnviar2.Visible = False
+                    BotonEnviar3.Visible = False
                 Else
                     Panel1.Visible = True
                     LbError.Visible = False
-                    BotonEnviar1.Text = "Autorizar"
-                    BotonEnviar1.TextoEnviando = "Autorizar..."
                     BotonEnviar1.Visible = True
+                    BotonEnviar2.Visible = True
+                    BotonEnviar3.Visible = True
                 End If
             Else
                 Panel1.Visible = False
