@@ -10,6 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <br/>
             <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Arial" ForeColor="#FF6600" Text="Label"></asp:Label>
         </div>
     </form>
