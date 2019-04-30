@@ -12,7 +12,7 @@ Partial Public Class FRM_IVAaut
             Dim t As New ProDS.AutorizaIVADataTable
             ta.Fill(t)
             If t.Rows.Count > 0 Then
-                If Request("Anexo") = "X" Or Request("Anexo") = "x" Then
+                If Request("Anexo").Length <> 9 Then
                     Panel1.Visible = False
                     LbError.Visible = False
                 Else
