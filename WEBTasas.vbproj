@@ -84,6 +84,7 @@
   <ItemGroup>
     <Content Include="10279124EA2D4A47A4CC.aspx" />
     <Content Include="232db951-DGLQ.aspx" />
+    <Content Include="5159dx1-IVAaut.aspx" />
     <Content Include="951db299-SLCDG.aspx" />
     <Content Include="99EdbC95T-Liq.aspx" />
     <Content Include="5159dx1-HCaut.aspx" />
@@ -115,6 +116,13 @@
     </Compile>
     <Compile Include="232db951-DGLQ.aspx.vb">
       <DependentUpon>232db951-DGLQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="5159dx1-IVAaut.aspx.designer.vb">
+      <DependentUpon>5159dx1-IVAaut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="5159dx1-IVAaut.aspx.vb">
+      <DependentUpon>5159dx1-IVAaut.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="951db299-SLCDG.aspx.designer.vb">

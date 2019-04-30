@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=server-raid;Initial Catalog=SeguridadNva;Persist Security Info=True;U"& _ 
-            "ser ID=User_PRO;Password=User_PRO2015")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=server-raid2;Initial Catalog=SeguridadNva;Persist Security Info=True;"& _ 
+            "User ID=User_PRO;Password=User_PRO2015")>  _
         Public ReadOnly Property SeguridadNvaConnectionString() As String
             Get
                 Return CType(Me("SeguridadNvaConnectionString"),String)
@@ -68,8 +68,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=server-raid;Initial Catalog=Factor100;Persist Security Info=True;User"& _ 
-            " ID=User_PRO;Password=User_PRO2015")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=server-raid2;Initial Catalog=Factor100;Persist Security Info=True;Use"& _ 
+            "r ID=User_PRO;Password=User_PRO2015")>  _
         Public ReadOnly Property Factor100ConnectionString() As String
             Get
                 Return CType(Me("Factor100ConnectionString"),String)
@@ -79,8 +79,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=server-raid;Initial Catalog=Production;Persist Security Info=True;Use"& _ 
-            "r ID=User_PRO;Password=User_PRO2015")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=server-raid2;Initial Catalog=Production;Persist Security Info=True;Us"& _ 
+            "er ID=User_PRO;Password=User_PRO2015")>  _
         Public ReadOnly Property ProductionConnectionString() As String
             Get
                 Return CType(Me("ProductionConnectionString"),String)
