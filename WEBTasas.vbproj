@@ -24,6 +24,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <Use64BitIISExpress />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,12 +49,14 @@
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="RoderoLib, Version=1.0.1777.2921, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\WebProspectos\bin\RoderoLib.dll</HintPath>
+      <HintPath>bin\RoderoLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />

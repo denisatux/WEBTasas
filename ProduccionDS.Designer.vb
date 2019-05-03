@@ -1732,7 +1732,7 @@ Namespace DataSet1TableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        supuesto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CRED_Lista_Art69"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (rfc = @RF"& _ 
+            Me._commandCollection(1).CommandText = "SELECT nombre, rfc, supuesto, tipo_persona FROM CRED_Lista_Art69 WHERE (rfc = @RF"& _ 
                 "C)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RFC", Global.System.Data.SqlDbType.VarChar, 13, Global.System.Data.ParameterDirection.Input, 0, 0, "rfc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
