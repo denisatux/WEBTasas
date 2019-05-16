@@ -67,6 +67,7 @@ Module Globales
         Dim Mensage As New MailMessage(Trim(de), Trim(Para), Trim(Asunto), Mensaje)
         Dim Cliente As New SmtpClient("smtp01.cmoderna.com", 26)
         Try
+            Cliente.Credentials = New System.Net.NetworkCredential("ecacerest", "c4c3r1t0s", "cmoderna")
             Mensage.IsBodyHtml = True
             Cliente.Send(Mensage)
         Catch ex As Exception
