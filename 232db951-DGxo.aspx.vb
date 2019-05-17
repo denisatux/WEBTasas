@@ -33,7 +33,7 @@ Partial Public Class DGSucursalForm1
 
     Protected Sub BotonEnviar1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonEnviar1.Click
         Dim ta As New ProDSTableAdapters.AvioVoboTableAdapter
-        ta.DarVoboDG_CRED(Request("Anexo"), Request("ID"))
+        ta.DarVoboDG_CRED("#" & Request("User"), Request("Anexo"), Request("ID"))
         Response.Redirect("~\232db951-DGxo.aspx?User=" & Request("User") & "&Anexo=0&ID=0")
     End Sub
 
