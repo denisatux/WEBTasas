@@ -65,9 +65,10 @@ Module Globales
     Public Sub EnviacORREO(ByVal Para As String, ByVal Mensaje As String, ByVal Asunto As String, de As String, Optional Archivo As String = "")
 
         Dim Mensage As New MailMessage(Trim(de), Trim(Para), Trim(Asunto), Mensaje)
-        Dim Cliente As New SmtpClient("smtp01.cmoderna.com", 26)
+        Dim Cliente As New SmtpClient(My.Settings.SMTP, My.Settings.SMTP_port)
         Try
-            Cliente.Credentials = New System.Net.NetworkCredential("ecacerest", "c4c3r1t0s", "cmoderna")
+            Dim Credenciales As String() = My.Settings.SMTP_creden.Split(",")
+            Cliente.Credentials = New System.Net.NetworkCredential(Credenciales(0), Credenciales(1), Credenciales(2))
             Mensage.IsBodyHtml = True
             Cliente.Send(Mensage)
         Catch ex As Exception

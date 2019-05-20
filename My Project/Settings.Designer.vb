@@ -86,6 +86,33 @@ Namespace My
                 Return CType(Me("ProductionConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("192.168.110.1")>  _
+        Public ReadOnly Property SMTP() As String
+            Get
+                Return CType(Me("SMTP"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("26")>  _
+        Public ReadOnly Property SMTP_port() As String
+            Get
+                Return CType(Me("SMTP_port"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ecacerest,c4c3r1t0s,cmoderna")>  _
+        Public ReadOnly Property SMTP_creden() As String
+            Get
+                Return CType(Me("SMTP_creden"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 
