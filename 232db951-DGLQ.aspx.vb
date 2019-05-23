@@ -52,7 +52,7 @@ Partial Public Class DGSucursalLQForm
         Dim Asunto As String = ""
         Dim Fecha As Date = DetailsView1.Rows(14).Cells(1).Text.Trim
         Dim Antiguedad As Integer = DateDiff(DateInterval.Year, Fecha, Date.Now.Date)
-        Dim File As String = GeneraDocAutorizacion(Request("ID"), Antiguedad, Analista, Cliente)
+        Dim File As String = "Autoriza" & CInt(Request("ID")) & ".Pdf"
         Asunto = "Solicitud de Liquidez Inmediata Autorizada: " & nombre
         Dim Mensaje As String = ""
 
@@ -64,42 +64,6 @@ Partial Public Class DGSucursalLQForm
         MandaCorreo(Request("User") & "@Fiangil.com.mx", TaQUERY.SacaCorreoPromo(Cliente), Asunto, Mensaje, File)
 
     End Sub
-
-    Function GeneraDocAutorizacion(ID_Sol2 As Integer, Antiguedad As String, Analista As String, Cliente As String) As String
-        'Dim ta1 As New SeguridadDSTableAdapters.UsuariosFinagilTableAdapter
-        'Dim DS As New ProDS
-        'Dim Archivo As String = "d:\TmpFinagil\" & "Autoriza" & ID_Sol2 & ".Pdf"
-        Dim Archivo2 As String = "Autoriza" & ID_Sol2 & ".Pdf"
-        'Try
-        '    Dim reporte As New ReportDocument()
-        '    reporte.Load(Server.MapPath("~/rptAltaLiquidezAutorizacion.rpt"))
-        '    Dim ta As New ProDSTableAdapters.AutorizacionRPTTableAdapter
-        '    ta.Fill(DS.AutorizacionRPT, ID_Sol2)
-
-        '    reporte.SetDataSource(DS)
-        '    reporte.SetParameterValue("var_antiguedad", Antiguedad)
-        '    If Request("User") = "gbello" Then
-        '        reporte.SetParameterValue("Autorizo", "C.P. GABRIEL BELLO HERNANDEZ")
-        '        reporte.SetParameterValue("AreaAutorizo", "DIRECCION GENERAL")
-        '    Else
-        '        reporte.SetParameterValue("Autorizo", "VERONICA GOMEZ GARCIA")
-        '        reporte.SetParameterValue("AreaAutorizo", "SUB DIRECCION DE CREDITO")
-        '    End If
-        '    reporte.SetParameterValue("Analista", UCase(Trim(ta1.ScalarNombre(Analista))))
-        '    reporte.SetParameterValue("FirmaAnalista", Encriptar(Analista & Date.Now.ToString))
-        '    reporte.SetParameterValue("Firma", Encriptar(Request("User") & Date.Now.ToString))
-        '    Dim Aux As String = TaQUERY.SacaCorreoPromo(Cliente)
-        '    Dim Promo() As String = Aux.Split("@")
-        '    reporte.SetParameterValue("FirmaPromo", Encriptar(Promo(0) & Date.Now.ToString))
-
-
-        '    File.Delete(Archivo)
-        '    reporte.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Archivo)
-        'Catch ex As Exception
-        '    Response.Write(ex.Message)
-        'End Try
-        Return Archivo2
-    End Function
 
     Protected Sub BotonEnviar2_Click(sender As Object, e As EventArgs) Handles BotonEnviar2.Click
         Dim Cliente As String = DetailsView1.Rows(1).Cells(1).Text

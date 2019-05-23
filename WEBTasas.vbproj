@@ -356,7 +356,6 @@
     <Content Include="ProduccionDS.xss">
       <DependentUpon>ProduccionDS.xsd</DependentUpon>
     </Content>
-    <Content Include="rptAltaLiquidezAutorizacion.rpt" />
     <None Include="SeguridadDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
