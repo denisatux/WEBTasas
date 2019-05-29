@@ -10,6 +10,7 @@
             Mensaje += "<br>Mensaje: " & Request.Form.Item("message").ToUpper
 
             MandaCorreoFase("WebFinagil@finagil.com.mx", "sistemas", Request.Form.Item("subject"), Mensaje)
+            MandaCorreoFase("WebFinagil@finagil.com.mx", "DG", Request.Form.Item("subject"), Mensaje)
             Label1.Text = ("Gracias " & Request.Form.Item("name").ToUpper & " tu mensaje ha sido enviado. En breve te responderemos.")
         Else
 
