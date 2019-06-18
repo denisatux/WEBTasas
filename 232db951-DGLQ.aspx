@@ -91,7 +91,7 @@
             <cc1:BotonEnviar ID="BotonEnviar2" runat="server" Font-Bold="True" Font-Size="Smaller" Text="Rechazar" TextoEnviando="Rechazando..." Width="122px" />
             <br />
             <br />
-            <cc1:BotonEnviar ID="BotonEnviar3" runat="server" Font-Bold="True" Font-Size="Smaller" Text="Regresar" TextoEnviando="Regresando..." Width="122px" />
+            <cc1:BotonEnviar ID="BotonEnviar3" runat="server" Font-Bold="True" Font-Size="Smaller" Text="Enviar Comentario" TextoEnviando="Regresando..." Width="122px" />
             <br />
             <br />
             <cc1:BotonEnviar ID="BotonEnviar1" runat="server" Font-Bold="True" Text="Autorizar"

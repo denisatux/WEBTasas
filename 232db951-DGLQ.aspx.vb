@@ -53,9 +53,10 @@ Partial Public Class DGSucursalLQForm
         Dim Fecha As Date = DetailsView1.Rows(14).Cells(1).Text.Trim
         Dim Antiguedad As Integer = DateDiff(DateInterval.Year, Fecha, Date.Now.Date)
         Dim File As String = "Autoriza" & CInt(Request("ID")) & ".Pdf"
-        Asunto = "Solicitud de Liquidez Inmediata Autorizada: " & nombre
+        Asunto = "Solicitud de Liquidez Inmediata Autorizada(" & Request("ID") & "): " & nombre
         Dim Mensaje As String = ""
 
+        Mensaje += "Solicitud: " & Request("ID") & "<br>"
         Mensaje += "Cliente: " & nombre & "<br>"
         Mensaje += "Monto Financiado: " & Monto.ToString("n2") & "<br>"
 
@@ -79,9 +80,10 @@ Partial Public Class DGSucursalLQForm
     Sub GeneraCorreoRECHAZO(Monto As Decimal, Cliente As String, nombre As String, Analista As String)
         Dim ta As New SeguridadDSTableAdapters.UsuariosFinagilTableAdapter
         Dim Asunto As String = ""
-        Asunto = "Solicitud de Liquidez Inmediata Rechazada: " & nombre
+        Asunto = "Solicitud de Liquidez Inmediata Rechazada(" & Request("ID") & "): " & nombre
         Dim Mensaje As String = ""
 
+        Mensaje += "Solicitud: " & Request("ID") & "<br>"
         Mensaje += "Cliente: " & nombre & "<br>"
         Mensaje += "Monto Financiado: " & Monto.ToString("n2") & "<br>"
         Mensaje += "Comentarios DG: " & TextComentario.Text & "<br>"
@@ -92,12 +94,13 @@ Partial Public Class DGSucursalLQForm
 
     End Sub
 
-    Sub GeneraCorreoREGRESO(Monto As Decimal, Cliente As String, nombre As String, Analista As String)
+    Sub GeneraCorreoCOMENTARIO(Monto As Decimal, Cliente As String, nombre As String, Analista As String)
         Dim ta As New SeguridadDSTableAdapters.UsuariosFinagilTableAdapter
         Dim Asunto As String = ""
-        Asunto = "Solicitud de Liquidez Inmediata de regreso por DG: " & nombre
+        Asunto = "Solicitud de Liquidez Inmediata COMENTARIO DG(" & Request("ID") & "): " & nombre
         Dim Mensaje As String = ""
 
+        Mensaje += "Solicitud: " & Request("ID") & "<br>"
         Mensaje += "Cliente: " & nombre & "<br>"
         Mensaje += "Monto Financiado: " & Monto.ToString("n2") & "<br>"
         Mensaje += "Comentarios DG: " & TextComentario.Text & "<br>"
@@ -114,8 +117,7 @@ Partial Public Class DGSucursalLQForm
         Dim Nombre As String = DetailsView1.Rows(2).Cells(1).Text.Trim
         Dim Analista As String = DetailsView1.Rows(11).Cells(1).Text.Trim
         Dim ta As New ProDSTableAdapters.SolLiqTableAdapter
-        ta.UpdateEstatus("PENDIENTE", Request("User"), False, Request("ID"))
-        GeneraCorreoREGRESO(Monto, Cliente, Nombre, Analista)
+        GeneraCorreoCOMENTARIO(Monto, Cliente, Nombre, Analista)
         Response.Redirect("~\232db951-DGLQ.aspx?User=" & Request("User") & "&ID=0")
     End Sub
 End Class
