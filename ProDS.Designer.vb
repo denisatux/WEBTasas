@@ -19819,11 +19819,12 @@ Namespace ProDSTableAdapters
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "UPDATE       PROM_SolicitudesLIQ"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                Estatus = @Estatus, NotaPara"& _ 
                 "DG = @Usuario + '-' + SUBSTRING(RTRIM(NotaParaDG), 1, 180), Procesado = @Procesa"& _ 
-                "do"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Id_Solicitud = @id)"
+                "do, FechaAutorizacion = @FechaAut"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Id_Solicitud = @id)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estatus", Global.System.Data.SqlDbType.VarChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Usuario", Global.System.Data.SqlDbType.VarChar, 200, Global.System.Data.ParameterDirection.Input, 0, 0, "NotaParaDG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Usuario", Global.System.Data.SqlDbType.VarChar, 500, Global.System.Data.ParameterDirection.Input, 0, 0, "NotaParaDG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Procesado", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "Procesado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FechaAut", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaAutorizacion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "Id_Solicitud", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
@@ -19865,7 +19866,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function UpdateEstatus(ByVal Estatus As String, ByVal Usuario As String, ByVal Procesado As Global.System.Nullable(Of Boolean), ByVal id As Decimal) As Integer
+        Public Overloads Overridable Function UpdateEstatus(ByVal Estatus As String, ByVal Usuario As String, ByVal Procesado As Global.System.Nullable(Of Boolean), ByVal FechaAut As String, ByVal id As Decimal) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
             If (Estatus Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
@@ -19882,7 +19883,12 @@ Namespace ProDSTableAdapters
             Else
                 command.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            command.Parameters(3).Value = CType(id,Decimal)
+            If (FechaAut Is Nothing) Then
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(3).Value = CType(FechaAut,String)
+            End If
+            command.Parameters(4).Value = CType(id,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
