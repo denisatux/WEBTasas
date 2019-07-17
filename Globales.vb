@@ -63,18 +63,9 @@ Module Globales
     End Sub
 
     Public Sub EnviacORREO(ByVal Para As String, ByVal Mensaje As String, ByVal Asunto As String, de As String, Optional Archivo As String = "")
-
-        Dim Mensage As New MailMessage(Trim(de), Trim(Para), Trim(Asunto), Mensaje)
-        Dim Cliente As New SmtpClient(My.Settings.SMTP, My.Settings.SMTP_port)
-        Try
-            Dim Credenciales As String() = My.Settings.SMTP_creden.Split(",")
-            Cliente.Credentials = New System.Net.NetworkCredential(Credenciales(0), Credenciales(1), Credenciales(2))
-            Mensage.IsBodyHtml = True
-            Cliente.Send(Mensage)
-        Catch ex As Exception
-
-        End Try
-
+        Dim taCorreos As New ProDSTableAdapters.GEN_Correos_SistemaFinagilTableAdapter
+        taCorreos.Insert(de, Para, Asunto, Mensaje, False, Date.Now, Archivo)
+        taCorreos.Dispose()
     End Sub
 
     Public Sub AltaLineaCreditoLIQUIDEZ(Cliente As String, Monto As Decimal, Notas As String, User As String)
