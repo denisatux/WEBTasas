@@ -1373,12 +1373,12 @@ WHERE        (CONT_AutorizarIVA_Interes.Anexo = @Anexo)</CommandText>
               <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="Production.dbo.Vw_CXP_Autorizaciones" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        nombreEmpresa AS Empresa, folioSolicitud AS Solicitud, nombre AS Solicita, SUM(totalPagado) AS Total, estatus AS Estatus, Autoriza1 AS Autorizante, idEmpresas AS idEmpresa, mailGenero AS MailSolicitante, 
-                         mailAutoriza2
+                    <CommandText>SELECT        nombreEmpresa AS Empresa, folioSolicitud AS Solicitud, nombre AS Solicita, SUM(totalPagado) AS Total, estatus AS Estatus, Autoriza1 AS Autorizante, idEmpresas AS idEmpresa, mailGenero AS MailSolicitante, mailAutoriza2, 
+                         MAX(fechaSolicitud) AS FechaSol
 FROM            Vw_CXP_Autorizaciones
 WHERE        (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 IS NULL OR
                          ok1 = '') AND (mailAutoriza1 = @User) OR
-                         (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 &gt; '' AND ok1 &lt;&gt; 'RECHAZADO') AND (mailAutoriza2 = @User) AND (ok2 IS NULL OR
+                         (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 &gt; '') AND (ok1 &lt;&gt; 'RECHAZADO') AND (mailAutoriza2 = @User) AND (ok2 IS NULL OR
                          ok2 = '')
 GROUP BY folioSolicitud, Autoriza1, estatus, nombreEmpresa, nombre, idEmpresas, mailGenero, mailAutoriza2</CommandText>
                     <Parameters>
@@ -1398,13 +1398,14 @@ GROUP BY folioSolicitud, Autoriza1, estatus, nombreEmpresa, nombre, idEmpresas, 
               <Mapping SourceColumn="idEmpresa" DataSetColumn="idEmpresa" />
               <Mapping SourceColumn="MailSolicitante" DataSetColumn="MailSolicitante" />
               <Mapping SourceColumn="mailAutoriza2" DataSetColumn="mailAutoriza2" />
+              <Mapping SourceColumn="FechaSol" DataSetColumn="FechaSol" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="Production.dbo.Vw_CXP_Autorizaciones" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByID" GeneratorSourceName="FillByID" GetMethodModifier="Public" GetMethodName="GetDataByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByID" UserSourceName="FillByID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        nombreEmpresa AS Empresa, folioSolicitud AS Solicitud, nombre AS Solicita, SUM(totalPagado) AS Total, estatus AS Estatus, mailAutoriza1 AS Correo, Autoriza1 AS Autorizante, idEmpresas AS idEmpresa, 
-                         mailGenero AS MailSolicitante
+                         mailGenero AS MailSolicitante, MAX(fechaSolicitud) AS FechaSol
 FROM            Vw_CXP_Autorizaciones
 GROUP BY folioSolicitud, mailAutoriza1, Autoriza1, estatus, nombreEmpresa, nombre, idEmpresas, mailGenero
 HAVING        (folioSolicitud = @Solicitud) AND (idEmpresas = @Empresa) AND (estatus = @Estatus)</CommandText>
@@ -1447,6 +1448,62 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
                 </UpdateCommand>
               </DbSource>
             </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AutorizacionesRPTTableAdapter" GeneratorDataComponentClassName="AutorizacionesRPTTableAdapter" Name="AutorizacionesRPT" UserDataComponentName="AutorizacionesRPTTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="Production.dbo.Vw_CXP_Autorizaciones" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        idEmpresas, rfcEmpresa, nombreEmpresa, rfc, razonSocial, usuario, nombre, folioSolicitud, fechaSolicitud, fechaFactura, serie, folio, uuid, subtotalPagado, totalPagado, trasladosPagados, retencionesPagadas, decripcion, 
+                         Concepto, mailGenero, mailAutoriza1, Autoriza1, mailAutoriza2, Autoriza2, ok1, ok2, estatus, sucursal, departamento, idPagos, impLocRet, impLocTra, total, moneda
+FROM            Vw_CXP_Autorizaciones
+WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (estatus = @Estatus)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Empresa" ColumnName="idEmpresas" DataSourceName="Production.dbo.Vw_CXP_Autorizaciones" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@Empresa" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="idEmpresas" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Solicitud" ColumnName="folioSolicitud" DataSourceName="Production.dbo.Vw_CXP_Autorizaciones" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@Solicitud" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="folioSolicitud" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Estatus" ColumnName="estatus" DataSourceName="Production.dbo.Vw_CXP_Autorizaciones" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Estatus" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="estatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idEmpresas" DataSetColumn="idEmpresas" />
+              <Mapping SourceColumn="rfcEmpresa" DataSetColumn="rfcEmpresa" />
+              <Mapping SourceColumn="nombreEmpresa" DataSetColumn="nombreEmpresa" />
+              <Mapping SourceColumn="rfc" DataSetColumn="rfc" />
+              <Mapping SourceColumn="razonSocial" DataSetColumn="razonSocial" />
+              <Mapping SourceColumn="usuario" DataSetColumn="usuario" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="folioSolicitud" DataSetColumn="folioSolicitud" />
+              <Mapping SourceColumn="fechaSolicitud" DataSetColumn="fechaSolicitud" />
+              <Mapping SourceColumn="fechaFactura" DataSetColumn="fechaFactura" />
+              <Mapping SourceColumn="serie" DataSetColumn="serie" />
+              <Mapping SourceColumn="folio" DataSetColumn="folio" />
+              <Mapping SourceColumn="uuid" DataSetColumn="uuid" />
+              <Mapping SourceColumn="subtotalPagado" DataSetColumn="subtotalPagado" />
+              <Mapping SourceColumn="totalPagado" DataSetColumn="totalPagado" />
+              <Mapping SourceColumn="trasladosPagados" DataSetColumn="trasladosPagados" />
+              <Mapping SourceColumn="retencionesPagadas" DataSetColumn="retencionesPagadas" />
+              <Mapping SourceColumn="decripcion" DataSetColumn="decripcion" />
+              <Mapping SourceColumn="Concepto" DataSetColumn="Concepto" />
+              <Mapping SourceColumn="mailGenero" DataSetColumn="mailGenero" />
+              <Mapping SourceColumn="mailAutoriza1" DataSetColumn="mailAutoriza1" />
+              <Mapping SourceColumn="Autoriza1" DataSetColumn="Autoriza1" />
+              <Mapping SourceColumn="mailAutoriza2" DataSetColumn="mailAutoriza2" />
+              <Mapping SourceColumn="Autoriza2" DataSetColumn="Autoriza2" />
+              <Mapping SourceColumn="ok1" DataSetColumn="ok1" />
+              <Mapping SourceColumn="ok2" DataSetColumn="ok2" />
+              <Mapping SourceColumn="estatus" DataSetColumn="estatus" />
+              <Mapping SourceColumn="sucursal" DataSetColumn="sucursal" />
+              <Mapping SourceColumn="departamento" DataSetColumn="departamento" />
+              <Mapping SourceColumn="idPagos" DataSetColumn="idPagos" />
+              <Mapping SourceColumn="impLocRet" DataSetColumn="impLocRet" />
+              <Mapping SourceColumn="impLocTra" DataSetColumn="impLocTra" />
+              <Mapping SourceColumn="total" DataSetColumn="total" />
+              <Mapping SourceColumn="moneda" DataSetColumn="moneda" />
+            </Mappings>
+            <Sources />
           </TableAdapter>
         </Tables>
         <Sources />
@@ -1585,7 +1642,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AvioVobo" msprop:Generator_TableClassName="AvioVoboDataTable" msprop:Generator_TableVarName="tableAvioVobo" msprop:Generator_TablePropName="AvioVobo" msprop:Generator_RowDeletingName="AvioVoboRowDeleting" msprop:Generator_RowChangingName="AvioVoboRowChanging" msprop:Generator_RowEvHandlerName="AvioVoboRowChangeEventHandler" msprop:Generator_RowDeletedName="AvioVoboRowDeleted" msprop:Generator_UserTableName="AvioVobo" msprop:Generator_RowChangedName="AvioVoboRowChanged" msprop:Generator_RowEvArgName="AvioVoboRowChangeEvent" msprop:Generator_RowClassName="AvioVoboRow">
+        <xs:element name="AvioVobo" msprop:Generator_TableClassName="AvioVoboDataTable" msprop:Generator_TableVarName="tableAvioVobo" msprop:Generator_RowChangedName="AvioVoboRowChanged" msprop:Generator_TablePropName="AvioVobo" msprop:Generator_RowDeletingName="AvioVoboRowDeleting" msprop:Generator_RowChangingName="AvioVoboRowChanging" msprop:Generator_RowEvHandlerName="AvioVoboRowChangeEventHandler" msprop:Generator_RowDeletedName="AvioVoboRowDeleted" msprop:Generator_RowClassName="AvioVoboRow" msprop:Generator_UserTableName="AvioVobo" msprop:Generator_RowEvArgName="AvioVoboRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -1692,7 +1749,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StatusMinistraciones" msprop:Generator_TableClassName="StatusMinistracionesDataTable" msprop:Generator_TableVarName="tableStatusMinistraciones" msprop:Generator_RowChangedName="StatusMinistracionesRowChanged" msprop:Generator_TablePropName="StatusMinistraciones" msprop:Generator_RowDeletingName="StatusMinistracionesRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesRowDeleted" msprop:Generator_RowClassName="StatusMinistracionesRow" msprop:Generator_UserTableName="StatusMinistraciones" msprop:Generator_RowEvArgName="StatusMinistracionesRowChangeEvent">
+        <xs:element name="StatusMinistraciones" msprop:Generator_TableClassName="StatusMinistracionesDataTable" msprop:Generator_TableVarName="tableStatusMinistraciones" msprop:Generator_TablePropName="StatusMinistraciones" msprop:Generator_RowDeletingName="StatusMinistracionesRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesRowDeleted" msprop:Generator_UserTableName="StatusMinistraciones" msprop:Generator_RowChangedName="StatusMinistracionesRowChanged" msprop:Generator_RowEvArgName="StatusMinistracionesRowChangeEvent" msprop:Generator_RowClassName="StatusMinistracionesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombre_Sucursal" msprop:Generator_ColumnVarNameInTable="columnNombre_Sucursal" msprop:Generator_ColumnPropNameInRow="Nombre_Sucursal" msprop:Generator_ColumnPropNameInTable="Nombre_SucursalColumn" msprop:Generator_UserColumnName="Nombre_Sucursal">
@@ -1721,7 +1778,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CorreosFases" msprop:Generator_TableClassName="CorreosFasesDataTable" msprop:Generator_TableVarName="tableCorreosFases" msprop:Generator_RowChangedName="CorreosFasesRowChanged" msprop:Generator_TablePropName="CorreosFases" msprop:Generator_RowDeletingName="CorreosFasesRowDeleting" msprop:Generator_RowChangingName="CorreosFasesRowChanging" msprop:Generator_RowEvHandlerName="CorreosFasesRowChangeEventHandler" msprop:Generator_RowDeletedName="CorreosFasesRowDeleted" msprop:Generator_RowClassName="CorreosFasesRow" msprop:Generator_UserTableName="CorreosFases" msprop:Generator_RowEvArgName="CorreosFasesRowChangeEvent">
+        <xs:element name="CorreosFases" msprop:Generator_TableClassName="CorreosFasesDataTable" msprop:Generator_TableVarName="tableCorreosFases" msprop:Generator_TablePropName="CorreosFases" msprop:Generator_RowDeletingName="CorreosFasesRowDeleting" msprop:Generator_RowChangingName="CorreosFasesRowChanging" msprop:Generator_RowEvHandlerName="CorreosFasesRowChangeEventHandler" msprop:Generator_RowDeletedName="CorreosFasesRowDeleted" msprop:Generator_UserTableName="CorreosFases" msprop:Generator_RowChangedName="CorreosFasesRowChanged" msprop:Generator_RowEvArgName="CorreosFasesRowChangeEvent" msprop:Generator_RowClassName="CorreosFasesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_correo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_correo" msprop:Generator_ColumnPropNameInRow="id_correo" msprop:Generator_ColumnPropNameInTable="id_correoColumn" msprop:Generator_UserColumnName="id_correo" type="xs:decimal" />
@@ -1749,7 +1806,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StatusMinistracionesDET" msprop:Generator_TableClassName="StatusMinistracionesDETDataTable" msprop:Generator_TableVarName="tableStatusMinistracionesDET" msprop:Generator_RowChangedName="StatusMinistracionesDETRowChanged" msprop:Generator_TablePropName="StatusMinistracionesDET" msprop:Generator_RowDeletingName="StatusMinistracionesDETRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesDETRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesDETRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesDETRowDeleted" msprop:Generator_RowClassName="StatusMinistracionesDETRow" msprop:Generator_UserTableName="StatusMinistracionesDET" msprop:Generator_RowEvArgName="StatusMinistracionesDETRowChangeEvent">
+        <xs:element name="StatusMinistracionesDET" msprop:Generator_TableClassName="StatusMinistracionesDETDataTable" msprop:Generator_TableVarName="tableStatusMinistracionesDET" msprop:Generator_TablePropName="StatusMinistracionesDET" msprop:Generator_RowDeletingName="StatusMinistracionesDETRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesDETRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesDETRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesDETRowDeleted" msprop:Generator_UserTableName="StatusMinistracionesDET" msprop:Generator_RowChangedName="StatusMinistracionesDETRowChanged" msprop:Generator_RowEvArgName="StatusMinistracionesDETRowChangeEvent" msprop:Generator_RowClassName="StatusMinistracionesDETRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombre_Sucursal" msprop:Generator_ColumnVarNameInTable="columnNombre_Sucursal" msprop:Generator_ColumnPropNameInRow="Nombre_Sucursal" msprop:Generator_ColumnPropNameInTable="Nombre_SucursalColumn" msprop:Generator_UserColumnName="Nombre_Sucursal" minOccurs="0">
@@ -1821,7 +1878,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HojaCambios" msprop:Generator_TableClassName="HojaCambiosDataTable" msprop:Generator_TableVarName="tableHojaCambios" msprop:Generator_RowChangedName="HojaCambiosRowChanged" msprop:Generator_TablePropName="HojaCambios" msprop:Generator_RowDeletingName="HojaCambiosRowDeleting" msprop:Generator_RowChangingName="HojaCambiosRowChanging" msprop:Generator_RowEvHandlerName="HojaCambiosRowChangeEventHandler" msprop:Generator_RowDeletedName="HojaCambiosRowDeleted" msprop:Generator_RowClassName="HojaCambiosRow" msprop:Generator_UserTableName="HojaCambios" msprop:Generator_RowEvArgName="HojaCambiosRowChangeEvent">
+        <xs:element name="HojaCambios" msprop:Generator_TableClassName="HojaCambiosDataTable" msprop:Generator_TableVarName="tableHojaCambios" msprop:Generator_TablePropName="HojaCambios" msprop:Generator_RowDeletingName="HojaCambiosRowDeleting" msprop:Generator_RowChangingName="HojaCambiosRowChanging" msprop:Generator_RowEvHandlerName="HojaCambiosRowChangeEventHandler" msprop:Generator_RowDeletedName="HojaCambiosRowDeleted" msprop:Generator_UserTableName="HojaCambios" msprop:Generator_RowChangedName="HojaCambiosRowChanged" msprop:Generator_RowEvArgName="HojaCambiosRowChangeEvent" msprop:Generator_RowClassName="HojaCambiosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -1864,7 +1921,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CRED_Seguimientos" msprop:Generator_TableClassName="CRED_SeguimientosDataTable" msprop:Generator_TableVarName="tableCRED_Seguimientos" msprop:Generator_RowChangedName="CRED_SeguimientosRowChanged" msprop:Generator_TablePropName="CRED_Seguimientos" msprop:Generator_RowDeletingName="CRED_SeguimientosRowDeleting" msprop:Generator_RowChangingName="CRED_SeguimientosRowChanging" msprop:Generator_RowEvHandlerName="CRED_SeguimientosRowChangeEventHandler" msprop:Generator_RowDeletedName="CRED_SeguimientosRowDeleted" msprop:Generator_RowClassName="CRED_SeguimientosRow" msprop:Generator_UserTableName="CRED_Seguimientos" msprop:Generator_RowEvArgName="CRED_SeguimientosRowChangeEvent">
+        <xs:element name="CRED_Seguimientos" msprop:Generator_TableClassName="CRED_SeguimientosDataTable" msprop:Generator_TableVarName="tableCRED_Seguimientos" msprop:Generator_TablePropName="CRED_Seguimientos" msprop:Generator_RowDeletingName="CRED_SeguimientosRowDeleting" msprop:Generator_RowChangingName="CRED_SeguimientosRowChanging" msprop:Generator_RowEvHandlerName="CRED_SeguimientosRowChangeEventHandler" msprop:Generator_RowDeletedName="CRED_SeguimientosRowDeleted" msprop:Generator_UserTableName="CRED_Seguimientos" msprop:Generator_RowChangedName="CRED_SeguimientosRowChanged" msprop:Generator_RowEvArgName="CRED_SeguimientosRowChangeEvent" msprop:Generator_RowClassName="CRED_SeguimientosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Responsable" msprop:Generator_ColumnVarNameInTable="columnResponsable" msprop:Generator_ColumnPropNameInRow="Responsable" msprop:Generator_ColumnPropNameInTable="ResponsableColumn" msprop:Generator_UserColumnName="Responsable" minOccurs="0">
@@ -1922,7 +1979,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vw_RPT_Liquidez" msprop:Generator_TableClassName="Vw_RPT_LiquidezDataTable" msprop:Generator_TableVarName="tableVw_RPT_Liquidez" msprop:Generator_TablePropName="Vw_RPT_Liquidez" msprop:Generator_RowDeletingName="Vw_RPT_LiquidezRowDeleting" msprop:Generator_RowChangingName="Vw_RPT_LiquidezRowChanging" msprop:Generator_RowEvHandlerName="Vw_RPT_LiquidezRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_RPT_LiquidezRowDeleted" msprop:Generator_UserTableName="Vw_RPT_Liquidez" msprop:Generator_RowChangedName="Vw_RPT_LiquidezRowChanged" msprop:Generator_RowEvArgName="Vw_RPT_LiquidezRowChangeEvent" msprop:Generator_RowClassName="Vw_RPT_LiquidezRow">
+        <xs:element name="Vw_RPT_Liquidez" msprop:Generator_TableClassName="Vw_RPT_LiquidezDataTable" msprop:Generator_TableVarName="tableVw_RPT_Liquidez" msprop:Generator_RowChangedName="Vw_RPT_LiquidezRowChanged" msprop:Generator_TablePropName="Vw_RPT_Liquidez" msprop:Generator_RowDeletingName="Vw_RPT_LiquidezRowDeleting" msprop:Generator_RowChangingName="Vw_RPT_LiquidezRowChanging" msprop:Generator_RowEvHandlerName="Vw_RPT_LiquidezRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_RPT_LiquidezRowDeleted" msprop:Generator_RowClassName="Vw_RPT_LiquidezRow" msprop:Generator_UserTableName="Vw_RPT_Liquidez" msprop:Generator_RowEvArgName="Vw_RPT_LiquidezRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente">
@@ -1950,7 +2007,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="BitacoraMC" msprop:Generator_TableClassName="BitacoraMCDataTable" msprop:Generator_TableVarName="tableBitacoraMC" msprop:Generator_RowChangedName="BitacoraMCRowChanged" msprop:Generator_TablePropName="BitacoraMC" msprop:Generator_RowDeletingName="BitacoraMCRowDeleting" msprop:Generator_RowChangingName="BitacoraMCRowChanging" msprop:Generator_RowEvHandlerName="BitacoraMCRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraMCRowDeleted" msprop:Generator_RowClassName="BitacoraMCRow" msprop:Generator_UserTableName="BitacoraMC" msprop:Generator_RowEvArgName="BitacoraMCRowChangeEvent">
+        <xs:element name="BitacoraMC" msprop:Generator_TableClassName="BitacoraMCDataTable" msprop:Generator_TableVarName="tableBitacoraMC" msprop:Generator_TablePropName="BitacoraMC" msprop:Generator_RowDeletingName="BitacoraMCRowDeleting" msprop:Generator_RowChangingName="BitacoraMCRowChanging" msprop:Generator_RowEvHandlerName="BitacoraMCRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraMCRowDeleted" msprop:Generator_UserTableName="BitacoraMC" msprop:Generator_RowChangedName="BitacoraMCRowChanged" msprop:Generator_RowEvArgName="BitacoraMCRowChangeEvent" msprop:Generator_RowClassName="BitacoraMCRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_Bitacora" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId_Bitacora" msprop:Generator_ColumnPropNameInRow="Id_Bitacora" msprop:Generator_ColumnPropNameInTable="Id_BitacoraColumn" msprop:Generator_UserColumnName="Id_Bitacora" type="xs:decimal" />
@@ -2103,7 +2160,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SolLiq" msprop:Generator_TableClassName="SolLiqDataTable" msprop:Generator_TableVarName="tableSolLiq" msprop:Generator_TablePropName="SolLiq" msprop:Generator_RowDeletingName="SolLiqRowDeleting" msprop:Generator_RowChangingName="SolLiqRowChanging" msprop:Generator_RowEvHandlerName="SolLiqRowChangeEventHandler" msprop:Generator_RowDeletedName="SolLiqRowDeleted" msprop:Generator_UserTableName="SolLiq" msprop:Generator_RowChangedName="SolLiqRowChanged" msprop:Generator_RowEvArgName="SolLiqRowChangeEvent" msprop:Generator_RowClassName="SolLiqRow">
+        <xs:element name="SolLiq" msprop:Generator_TableClassName="SolLiqDataTable" msprop:Generator_TableVarName="tableSolLiq" msprop:Generator_RowChangedName="SolLiqRowChanged" msprop:Generator_TablePropName="SolLiq" msprop:Generator_RowDeletingName="SolLiqRowDeleting" msprop:Generator_RowChangingName="SolLiqRowChanging" msprop:Generator_RowEvHandlerName="SolLiqRowChangeEventHandler" msprop:Generator_RowDeletedName="SolLiqRowDeleted" msprop:Generator_RowClassName="SolLiqRow" msprop:Generator_UserTableName="SolLiq" msprop:Generator_RowEvArgName="SolLiqRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_Solicitud" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId_Solicitud" msprop:Generator_ColumnPropNameInRow="Id_Solicitud" msprop:Generator_ColumnPropNameInTable="Id_SolicitudColumn" msprop:Generator_UserColumnName="Id_Solicitud" type="xs:decimal" />
@@ -2127,7 +2184,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AutorizacionRPT" msprop:Generator_TableClassName="AutorizacionRPTDataTable" msprop:Generator_TableVarName="tableAutorizacionRPT" msprop:Generator_TablePropName="AutorizacionRPT" msprop:Generator_RowDeletingName="AutorizacionRPTRowDeleting" msprop:Generator_RowChangingName="AutorizacionRPTRowChanging" msprop:Generator_RowEvHandlerName="AutorizacionRPTRowChangeEventHandler" msprop:Generator_RowDeletedName="AutorizacionRPTRowDeleted" msprop:Generator_UserTableName="AutorizacionRPT" msprop:Generator_RowChangedName="AutorizacionRPTRowChanged" msprop:Generator_RowEvArgName="AutorizacionRPTRowChangeEvent" msprop:Generator_RowClassName="AutorizacionRPTRow">
+        <xs:element name="AutorizacionRPT" msprop:Generator_TableClassName="AutorizacionRPTDataTable" msprop:Generator_TableVarName="tableAutorizacionRPT" msprop:Generator_RowChangedName="AutorizacionRPTRowChanged" msprop:Generator_TablePropName="AutorizacionRPT" msprop:Generator_RowDeletingName="AutorizacionRPTRowDeleting" msprop:Generator_RowChangingName="AutorizacionRPTRowChanging" msprop:Generator_RowEvHandlerName="AutorizacionRPTRowChangeEventHandler" msprop:Generator_RowDeletedName="AutorizacionRPTRowDeleted" msprop:Generator_RowClassName="AutorizacionRPTRow" msprop:Generator_UserTableName="AutorizacionRPT" msprop:Generator_RowEvArgName="AutorizacionRPTRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_Autorizacion" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId_Autorizacion" msprop:Generator_ColumnPropNameInRow="Id_Autorizacion" msprop:Generator_ColumnPropNameInTable="Id_AutorizacionColumn" msprop:Generator_UserColumnName="Id_Autorizacion" type="xs:decimal" />
@@ -2205,7 +2262,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="GEN_Correos_SistemaFinagil" msprop:Generator_TableClassName="GEN_Correos_SistemaFinagilDataTable" msprop:Generator_TableVarName="tableGEN_Correos_SistemaFinagil" msprop:Generator_RowChangedName="GEN_Correos_SistemaFinagilRowChanged" msprop:Generator_TablePropName="GEN_Correos_SistemaFinagil" msprop:Generator_RowDeletingName="GEN_Correos_SistemaFinagilRowDeleting" msprop:Generator_RowChangingName="GEN_Correos_SistemaFinagilRowChanging" msprop:Generator_RowEvHandlerName="GEN_Correos_SistemaFinagilRowChangeEventHandler" msprop:Generator_RowDeletedName="GEN_Correos_SistemaFinagilRowDeleted" msprop:Generator_RowClassName="GEN_Correos_SistemaFinagilRow" msprop:Generator_UserTableName="GEN_Correos_SistemaFinagil" msprop:Generator_RowEvArgName="GEN_Correos_SistemaFinagilRowChangeEvent">
+        <xs:element name="GEN_Correos_SistemaFinagil" msprop:Generator_TableClassName="GEN_Correos_SistemaFinagilDataTable" msprop:Generator_TableVarName="tableGEN_Correos_SistemaFinagil" msprop:Generator_TablePropName="GEN_Correos_SistemaFinagil" msprop:Generator_RowDeletingName="GEN_Correos_SistemaFinagilRowDeleting" msprop:Generator_RowChangingName="GEN_Correos_SistemaFinagilRowChanging" msprop:Generator_RowEvHandlerName="GEN_Correos_SistemaFinagilRowChangeEventHandler" msprop:Generator_RowDeletedName="GEN_Correos_SistemaFinagilRowDeleted" msprop:Generator_UserTableName="GEN_Correos_SistemaFinagil" msprop:Generator_RowChangedName="GEN_Correos_SistemaFinagilRowChanged" msprop:Generator_RowEvArgName="GEN_Correos_SistemaFinagilRowChangeEvent" msprop:Generator_RowClassName="GEN_Correos_SistemaFinagilRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_Correo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_Correo" msprop:Generator_ColumnPropNameInRow="id_Correo" msprop:Generator_ColumnPropNameInTable="id_CorreoColumn" msprop:Generator_UserColumnName="id_Correo" type="xs:decimal" />
@@ -2249,7 +2306,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EstatusTRA" msprop:Generator_TableClassName="EstatusTRADataTable" msprop:Generator_TableVarName="tableEstatusTRA" msprop:Generator_RowChangedName="EstatusTRARowChanged" msprop:Generator_TablePropName="EstatusTRA" msprop:Generator_RowDeletingName="EstatusTRARowDeleting" msprop:Generator_RowChangingName="EstatusTRARowChanging" msprop:Generator_RowEvHandlerName="EstatusTRARowChangeEventHandler" msprop:Generator_RowDeletedName="EstatusTRARowDeleted" msprop:Generator_RowClassName="EstatusTRARow" msprop:Generator_UserTableName="EstatusTRA" msprop:Generator_RowEvArgName="EstatusTRARowChangeEvent">
+        <xs:element name="EstatusTRA" msprop:Generator_TableClassName="EstatusTRADataTable" msprop:Generator_TableVarName="tableEstatusTRA" msprop:Generator_TablePropName="EstatusTRA" msprop:Generator_RowDeletingName="EstatusTRARowDeleting" msprop:Generator_RowChangingName="EstatusTRARowChanging" msprop:Generator_RowEvHandlerName="EstatusTRARowChangeEventHandler" msprop:Generator_RowDeletedName="EstatusTRARowDeleted" msprop:Generator_UserTableName="EstatusTRA" msprop:Generator_RowChangedName="EstatusTRARowChanged" msprop:Generator_RowEvArgName="EstatusTRARowChangeEvent" msprop:Generator_RowClassName="EstatusTRARow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Sucursal" msprop:Generator_ColumnVarNameInTable="columnSucursal" msprop:Generator_ColumnPropNameInRow="Sucursal" msprop:Generator_ColumnPropNameInTable="SucursalColumn" msprop:Generator_UserColumnName="Sucursal" minOccurs="0">
@@ -2305,7 +2362,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CorreoPROMO" msprop:Generator_TableClassName="CorreoPROMODataTable" msprop:Generator_TableVarName="tableCorreoPROMO" msprop:Generator_TablePropName="CorreoPROMO" msprop:Generator_RowDeletingName="CorreoPROMORowDeleting" msprop:Generator_RowChangingName="CorreoPROMORowChanging" msprop:Generator_RowEvHandlerName="CorreoPROMORowChangeEventHandler" msprop:Generator_RowDeletedName="CorreoPROMORowDeleted" msprop:Generator_UserTableName="CorreoPROMO" msprop:Generator_RowChangedName="CorreoPROMORowChanged" msprop:Generator_RowEvArgName="CorreoPROMORowChangeEvent" msprop:Generator_RowClassName="CorreoPROMORow">
+        <xs:element name="CorreoPROMO" msprop:Generator_TableClassName="CorreoPROMODataTable" msprop:Generator_TableVarName="tableCorreoPROMO" msprop:Generator_RowChangedName="CorreoPROMORowChanged" msprop:Generator_TablePropName="CorreoPROMO" msprop:Generator_RowDeletingName="CorreoPROMORowDeleting" msprop:Generator_RowChangingName="CorreoPROMORowChanging" msprop:Generator_RowEvHandlerName="CorreoPROMORowChangeEventHandler" msprop:Generator_RowDeletedName="CorreoPROMORowDeleted" msprop:Generator_RowClassName="CorreoPROMORow" msprop:Generator_UserTableName="CorreoPROMO" msprop:Generator_RowEvArgName="CorreoPROMORowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente">
@@ -2360,7 +2417,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="GEN_BitacoraFinagil" msprop:Generator_TableClassName="GEN_BitacoraFinagilDataTable" msprop:Generator_TableVarName="tableGEN_BitacoraFinagil" msprop:Generator_RowChangedName="GEN_BitacoraFinagilRowChanged" msprop:Generator_TablePropName="GEN_BitacoraFinagil" msprop:Generator_RowDeletingName="GEN_BitacoraFinagilRowDeleting" msprop:Generator_RowChangingName="GEN_BitacoraFinagilRowChanging" msprop:Generator_RowEvHandlerName="GEN_BitacoraFinagilRowChangeEventHandler" msprop:Generator_RowDeletedName="GEN_BitacoraFinagilRowDeleted" msprop:Generator_RowClassName="GEN_BitacoraFinagilRow" msprop:Generator_UserTableName="GEN_BitacoraFinagil" msprop:Generator_RowEvArgName="GEN_BitacoraFinagilRowChangeEvent">
+        <xs:element name="GEN_BitacoraFinagil" msprop:Generator_TableClassName="GEN_BitacoraFinagilDataTable" msprop:Generator_TableVarName="tableGEN_BitacoraFinagil" msprop:Generator_TablePropName="GEN_BitacoraFinagil" msprop:Generator_RowDeletingName="GEN_BitacoraFinagilRowDeleting" msprop:Generator_RowChangingName="GEN_BitacoraFinagilRowChanging" msprop:Generator_RowEvHandlerName="GEN_BitacoraFinagilRowChangeEventHandler" msprop:Generator_RowDeletedName="GEN_BitacoraFinagilRowDeleted" msprop:Generator_UserTableName="GEN_BitacoraFinagil" msprop:Generator_RowChangedName="GEN_BitacoraFinagilRowChanged" msprop:Generator_RowEvArgName="GEN_BitacoraFinagilRowChangeEvent" msprop:Generator_RowClassName="GEN_BitacoraFinagilRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_BitacoraFinagil" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_BitacoraFinagil" msprop:Generator_ColumnPropNameInRow="id_BitacoraFinagil" msprop:Generator_ColumnPropNameInTable="id_BitacoraFinagilColumn" msprop:Generator_UserColumnName="id_BitacoraFinagil" type="xs:decimal" />
@@ -2403,7 +2460,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MC_cambio_condiciones" msprop:Generator_TableClassName="MC_cambio_condicionesDataTable" msprop:Generator_TableVarName="tableMC_cambio_condiciones" msprop:Generator_RowChangedName="MC_cambio_condicionesRowChanged" msprop:Generator_TablePropName="MC_cambio_condiciones" msprop:Generator_RowDeletingName="MC_cambio_condicionesRowDeleting" msprop:Generator_RowChangingName="MC_cambio_condicionesRowChanging" msprop:Generator_RowEvHandlerName="MC_cambio_condicionesRowChangeEventHandler" msprop:Generator_RowDeletedName="MC_cambio_condicionesRowDeleted" msprop:Generator_RowClassName="MC_cambio_condicionesRow" msprop:Generator_UserTableName="MC_cambio_condiciones" msprop:Generator_RowEvArgName="MC_cambio_condicionesRowChangeEvent">
+        <xs:element name="MC_cambio_condiciones" msprop:Generator_TableClassName="MC_cambio_condicionesDataTable" msprop:Generator_TableVarName="tableMC_cambio_condiciones" msprop:Generator_TablePropName="MC_cambio_condiciones" msprop:Generator_RowDeletingName="MC_cambio_condicionesRowDeleting" msprop:Generator_RowChangingName="MC_cambio_condicionesRowChanging" msprop:Generator_RowEvHandlerName="MC_cambio_condicionesRowChangeEventHandler" msprop:Generator_RowDeletedName="MC_cambio_condicionesRowDeleted" msprop:Generator_UserTableName="MC_cambio_condiciones" msprop:Generator_RowChangedName="MC_cambio_condicionesRowChanged" msprop:Generator_RowEvArgName="MC_cambio_condicionesRowChangeEvent" msprop:Generator_RowClassName="MC_cambio_condicionesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Anexo" msprop:Generator_ColumnVarNameInTable="columnAnexo" msprop:Generator_ColumnPropNameInRow="Anexo" msprop:Generator_ColumnPropNameInTable="AnexoColumn" msprop:Generator_UserColumnName="Anexo">
@@ -2523,7 +2580,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AutorizaIVA" msprop:Generator_TableClassName="AutorizaIVADataTable" msprop:Generator_TableVarName="tableAutorizaIVA" msprop:Generator_RowChangedName="AutorizaIVARowChanged" msprop:Generator_TablePropName="AutorizaIVA" msprop:Generator_RowDeletingName="AutorizaIVARowDeleting" msprop:Generator_RowChangingName="AutorizaIVARowChanging" msprop:Generator_RowEvHandlerName="AutorizaIVARowChangeEventHandler" msprop:Generator_RowDeletedName="AutorizaIVARowDeleted" msprop:Generator_RowClassName="AutorizaIVARow" msprop:Generator_UserTableName="AutorizaIVA" msprop:Generator_RowEvArgName="AutorizaIVARowChangeEvent">
+        <xs:element name="AutorizaIVA" msprop:Generator_TableClassName="AutorizaIVADataTable" msprop:Generator_TableVarName="tableAutorizaIVA" msprop:Generator_TablePropName="AutorizaIVA" msprop:Generator_RowDeletingName="AutorizaIVARowDeleting" msprop:Generator_RowChangingName="AutorizaIVARowChanging" msprop:Generator_RowEvHandlerName="AutorizaIVARowChangeEventHandler" msprop:Generator_RowDeletedName="AutorizaIVARowDeleted" msprop:Generator_UserTableName="AutorizaIVA" msprop:Generator_RowChangedName="AutorizaIVARowChanged" msprop:Generator_RowEvArgName="AutorizaIVARowChangeEvent" msprop:Generator_RowClassName="AutorizaIVARow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -2594,7 +2651,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SolLiqDet" msprop:Generator_TableClassName="SolLiqDetDataTable" msprop:Generator_TableVarName="tableSolLiqDet" msprop:Generator_TablePropName="SolLiqDet" msprop:Generator_RowDeletingName="SolLiqDetRowDeleting" msprop:Generator_RowChangingName="SolLiqDetRowChanging" msprop:Generator_RowEvHandlerName="SolLiqDetRowChangeEventHandler" msprop:Generator_RowDeletedName="SolLiqDetRowDeleted" msprop:Generator_UserTableName="SolLiqDet" msprop:Generator_RowChangedName="SolLiqDetRowChanged" msprop:Generator_RowEvArgName="SolLiqDetRowChangeEvent" msprop:Generator_RowClassName="SolLiqDetRow">
+        <xs:element name="SolLiqDet" msprop:Generator_TableClassName="SolLiqDetDataTable" msprop:Generator_TableVarName="tableSolLiqDet" msprop:Generator_RowChangedName="SolLiqDetRowChanged" msprop:Generator_TablePropName="SolLiqDet" msprop:Generator_RowDeletingName="SolLiqDetRowDeleting" msprop:Generator_RowChangingName="SolLiqDetRowChanging" msprop:Generator_RowEvHandlerName="SolLiqDetRowChangeEventHandler" msprop:Generator_RowDeletedName="SolLiqDetRowDeleted" msprop:Generator_RowClassName="SolLiqDetRow" msprop:Generator_UserTableName="SolLiqDet" msprop:Generator_RowEvArgName="SolLiqDetRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_Solicitud" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId_Solicitud" msprop:Generator_ColumnPropNameInRow="Id_Solicitud" msprop:Generator_ColumnPropNameInTable="Id_SolicitudColumn" msprop:Generator_UserColumnName="Id_Solicitud" type="xs:decimal" />
@@ -2682,7 +2739,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AutorizaIVA_Interes" msprop:Generator_TableClassName="AutorizaIVA_InteresDataTable" msprop:Generator_TableVarName="tableAutorizaIVA_Interes" msprop:Generator_RowChangedName="AutorizaIVA_InteresRowChanged" msprop:Generator_TablePropName="AutorizaIVA_Interes" msprop:Generator_RowDeletingName="AutorizaIVA_InteresRowDeleting" msprop:Generator_RowChangingName="AutorizaIVA_InteresRowChanging" msprop:Generator_RowEvHandlerName="AutorizaIVA_InteresRowChangeEventHandler" msprop:Generator_RowDeletedName="AutorizaIVA_InteresRowDeleted" msprop:Generator_RowClassName="AutorizaIVA_InteresRow" msprop:Generator_UserTableName="AutorizaIVA_Interes" msprop:Generator_RowEvArgName="AutorizaIVA_InteresRowChangeEvent">
+        <xs:element name="AutorizaIVA_Interes" msprop:Generator_TableClassName="AutorizaIVA_InteresDataTable" msprop:Generator_TableVarName="tableAutorizaIVA_Interes" msprop:Generator_TablePropName="AutorizaIVA_Interes" msprop:Generator_RowDeletingName="AutorizaIVA_InteresRowDeleting" msprop:Generator_RowChangingName="AutorizaIVA_InteresRowChanging" msprop:Generator_RowEvHandlerName="AutorizaIVA_InteresRowChangeEventHandler" msprop:Generator_RowDeletedName="AutorizaIVA_InteresRowDeleted" msprop:Generator_UserTableName="AutorizaIVA_Interes" msprop:Generator_RowChangedName="AutorizaIVA_InteresRowChanged" msprop:Generator_RowEvArgName="AutorizaIVA_InteresRowChangeEvent" msprop:Generator_RowClassName="AutorizaIVA_InteresRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -2753,7 +2810,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vw_CXP_Autorizaciones" msprop:Generator_TableClassName="Vw_CXP_AutorizacionesDataTable" msprop:Generator_TableVarName="tableVw_CXP_Autorizaciones" msprop:Generator_RowChangedName="Vw_CXP_AutorizacionesRowChanged" msprop:Generator_TablePropName="Vw_CXP_Autorizaciones" msprop:Generator_RowDeletingName="Vw_CXP_AutorizacionesRowDeleting" msprop:Generator_RowChangingName="Vw_CXP_AutorizacionesRowChanging" msprop:Generator_RowEvHandlerName="Vw_CXP_AutorizacionesRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_CXP_AutorizacionesRowDeleted" msprop:Generator_RowClassName="Vw_CXP_AutorizacionesRow" msprop:Generator_UserTableName="Vw_CXP_Autorizaciones" msprop:Generator_RowEvArgName="Vw_CXP_AutorizacionesRowChangeEvent">
+        <xs:element name="Vw_CXP_Autorizaciones" msprop:Generator_TableClassName="Vw_CXP_AutorizacionesDataTable" msprop:Generator_TableVarName="tableVw_CXP_Autorizaciones" msprop:Generator_TablePropName="Vw_CXP_Autorizaciones" msprop:Generator_RowDeletingName="Vw_CXP_AutorizacionesRowDeleting" msprop:Generator_RowChangingName="Vw_CXP_AutorizacionesRowChanging" msprop:Generator_RowEvHandlerName="Vw_CXP_AutorizacionesRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_CXP_AutorizacionesRowDeleted" msprop:Generator_UserTableName="Vw_CXP_Autorizaciones" msprop:Generator_RowChangedName="Vw_CXP_AutorizacionesRowChanged" msprop:Generator_RowEvArgName="Vw_CXP_AutorizacionesRowChangeEvent" msprop:Generator_RowClassName="Vw_CXP_AutorizacionesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Empresa" msprop:Generator_ColumnVarNameInTable="columnEmpresa" msprop:Generator_ColumnPropNameInRow="Empresa" msprop:Generator_ColumnPropNameInTable="EmpresaColumn" msprop:Generator_UserColumnName="Empresa" minOccurs="0">
@@ -2763,7 +2820,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Solicitud" msprop:Generator_ColumnVarNameInTable="columnSolicitud" msprop:Generator_ColumnPropNameInRow="Solicitud" msprop:Generator_ColumnPropNameInTable="SolicitudColumn" msprop:Generator_UserColumnName="Solicitud" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Solicitud" msprop:Generator_ColumnVarNameInTable="columnSolicitud" msprop:Generator_ColumnPropNameInRow="Solicitud" msprop:Generator_ColumnPropNameInTable="SolicitudColumn" msprop:Generator_UserColumnName="Solicitud" type="xs:decimal" />
               <xs:element name="Solicita" msprop:Generator_ColumnVarNameInTable="columnSolicita" msprop:Generator_ColumnPropNameInRow="Solicita" msprop:Generator_ColumnPropNameInTable="SolicitaColumn" msprop:Generator_UserColumnName="Solicita" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -2772,7 +2829,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Estatus" msprop:Generator_ColumnVarNameInTable="columnEstatus" msprop:Generator_ColumnPropNameInRow="Estatus" msprop:Generator_ColumnPropNameInTable="EstatusColumn" msprop:Generator_UserColumnName="Estatus" minOccurs="0">
+              <xs:element name="Estatus" msprop:Generator_ColumnVarNameInTable="columnEstatus" msprop:Generator_ColumnPropNameInRow="Estatus" msprop:Generator_ColumnPropNameInTable="EstatusColumn" msprop:Generator_UserColumnName="Estatus">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -2798,6 +2855,179 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FechaSol" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFechaSol" msprop:Generator_ColumnPropNameInRow="FechaSol" msprop:Generator_ColumnPropNameInTable="FechaSolColumn" msprop:Generator_UserColumnName="FechaSol" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AutorizacionesRPT" msprop:Generator_TableClassName="AutorizacionesRPTDataTable" msprop:Generator_TableVarName="tableAutorizacionesRPT" msprop:Generator_TablePropName="AutorizacionesRPT" msprop:Generator_RowDeletingName="AutorizacionesRPTRowDeleting" msprop:Generator_RowChangingName="AutorizacionesRPTRowChanging" msprop:Generator_RowEvHandlerName="AutorizacionesRPTRowChangeEventHandler" msprop:Generator_RowDeletedName="AutorizacionesRPTRowDeleted" msprop:Generator_UserTableName="AutorizacionesRPT" msprop:Generator_RowChangedName="AutorizacionesRPTRowChanged" msprop:Generator_RowEvArgName="AutorizacionesRPTRowChangeEvent" msprop:Generator_RowClassName="AutorizacionesRPTRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idEmpresas" msprop:Generator_ColumnVarNameInTable="columnidEmpresas" msprop:Generator_ColumnPropNameInRow="idEmpresas" msprop:Generator_ColumnPropNameInTable="idEmpresasColumn" msprop:Generator_UserColumnName="idEmpresas" type="xs:decimal" />
+              <xs:element name="rfcEmpresa" msprop:Generator_ColumnVarNameInTable="columnrfcEmpresa" msprop:Generator_ColumnPropNameInRow="rfcEmpresa" msprop:Generator_ColumnPropNameInTable="rfcEmpresaColumn" msprop:Generator_UserColumnName="rfcEmpresa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nombreEmpresa" msprop:Generator_ColumnVarNameInTable="columnnombreEmpresa" msprop:Generator_ColumnPropNameInRow="nombreEmpresa" msprop:Generator_ColumnPropNameInTable="nombreEmpresaColumn" msprop:Generator_UserColumnName="nombreEmpresa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rfc" msprop:Generator_ColumnVarNameInTable="columnrfc" msprop:Generator_ColumnPropNameInRow="rfc" msprop:Generator_ColumnPropNameInTable="rfcColumn" msprop:Generator_UserColumnName="rfc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="razonSocial" msprop:Generator_ColumnVarNameInTable="columnrazonSocial" msprop:Generator_ColumnPropNameInRow="razonSocial" msprop:Generator_ColumnPropNameInTable="razonSocialColumn" msprop:Generator_UserColumnName="razonSocial" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="usuario" msprop:Generator_ColumnVarNameInTable="columnusuario" msprop:Generator_ColumnPropNameInRow="usuario" msprop:Generator_ColumnPropNameInTable="usuarioColumn" msprop:Generator_UserColumnName="usuario" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="folioSolicitud" msprop:Generator_ColumnVarNameInTable="columnfolioSolicitud" msprop:Generator_ColumnPropNameInRow="folioSolicitud" msprop:Generator_ColumnPropNameInTable="folioSolicitudColumn" msprop:Generator_UserColumnName="folioSolicitud" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fechaSolicitud" msprop:Generator_ColumnVarNameInTable="columnfechaSolicitud" msprop:Generator_ColumnPropNameInRow="fechaSolicitud" msprop:Generator_ColumnPropNameInTable="fechaSolicitudColumn" msprop:Generator_UserColumnName="fechaSolicitud" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fechaFactura" msprop:Generator_ColumnVarNameInTable="columnfechaFactura" msprop:Generator_ColumnPropNameInRow="fechaFactura" msprop:Generator_ColumnPropNameInTable="fechaFacturaColumn" msprop:Generator_UserColumnName="fechaFactura" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="serie" msprop:Generator_ColumnVarNameInTable="columnserie" msprop:Generator_ColumnPropNameInRow="serie" msprop:Generator_ColumnPropNameInTable="serieColumn" msprop:Generator_UserColumnName="serie" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="folio" msprop:Generator_ColumnVarNameInTable="columnfolio" msprop:Generator_ColumnPropNameInRow="folio" msprop:Generator_ColumnPropNameInTable="folioColumn" msprop:Generator_UserColumnName="folio" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="uuid" msprop:Generator_ColumnVarNameInTable="columnuuid" msprop:Generator_ColumnPropNameInRow="uuid" msprop:Generator_ColumnPropNameInTable="uuidColumn" msprop:Generator_UserColumnName="uuid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="36" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="subtotalPagado" msprop:Generator_ColumnVarNameInTable="columnsubtotalPagado" msprop:Generator_ColumnPropNameInRow="subtotalPagado" msprop:Generator_ColumnPropNameInTable="subtotalPagadoColumn" msprop:Generator_UserColumnName="subtotalPagado" type="xs:decimal" minOccurs="0" />
+              <xs:element name="totalPagado" msprop:Generator_ColumnVarNameInTable="columntotalPagado" msprop:Generator_ColumnPropNameInRow="totalPagado" msprop:Generator_ColumnPropNameInTable="totalPagadoColumn" msprop:Generator_UserColumnName="totalPagado" type="xs:decimal" minOccurs="0" />
+              <xs:element name="trasladosPagados" msprop:Generator_ColumnVarNameInTable="columntrasladosPagados" msprop:Generator_ColumnPropNameInRow="trasladosPagados" msprop:Generator_ColumnPropNameInTable="trasladosPagadosColumn" msprop:Generator_UserColumnName="trasladosPagados" type="xs:decimal" minOccurs="0" />
+              <xs:element name="retencionesPagadas" msprop:Generator_ColumnVarNameInTable="columnretencionesPagadas" msprop:Generator_ColumnPropNameInRow="retencionesPagadas" msprop:Generator_ColumnPropNameInTable="retencionesPagadasColumn" msprop:Generator_UserColumnName="retencionesPagadas" type="xs:decimal" minOccurs="0" />
+              <xs:element name="decripcion" msprop:Generator_ColumnVarNameInTable="columndecripcion" msprop:Generator_ColumnPropNameInRow="decripcion" msprop:Generator_ColumnPropNameInTable="decripcionColumn" msprop:Generator_UserColumnName="decripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Concepto" msprop:Generator_ColumnVarNameInTable="columnConcepto" msprop:Generator_ColumnPropNameInRow="Concepto" msprop:Generator_ColumnPropNameInTable="ConceptoColumn" msprop:Generator_UserColumnName="Concepto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mailGenero" msprop:Generator_ColumnVarNameInTable="columnmailGenero" msprop:Generator_ColumnPropNameInRow="mailGenero" msprop:Generator_ColumnPropNameInTable="mailGeneroColumn" msprop:Generator_UserColumnName="mailGenero" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mailAutoriza1" msprop:Generator_ColumnVarNameInTable="columnmailAutoriza1" msprop:Generator_ColumnPropNameInRow="mailAutoriza1" msprop:Generator_ColumnPropNameInTable="mailAutoriza1Column" msprop:Generator_UserColumnName="mailAutoriza1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Autoriza1" msprop:Generator_ColumnVarNameInTable="columnAutoriza1" msprop:Generator_ColumnPropNameInRow="Autoriza1" msprop:Generator_ColumnPropNameInTable="Autoriza1Column" msprop:Generator_UserColumnName="Autoriza1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mailAutoriza2" msprop:Generator_ColumnVarNameInTable="columnmailAutoriza2" msprop:Generator_ColumnPropNameInRow="mailAutoriza2" msprop:Generator_ColumnPropNameInTable="mailAutoriza2Column" msprop:Generator_UserColumnName="mailAutoriza2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Autoriza2" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAutoriza2" msprop:Generator_ColumnPropNameInRow="Autoriza2" msprop:Generator_ColumnPropNameInTable="Autoriza2Column" msprop:Generator_UserColumnName="Autoriza2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="23" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ok1" msprop:Generator_ColumnVarNameInTable="columnok1" msprop:Generator_ColumnPropNameInRow="ok1" msprop:Generator_ColumnPropNameInTable="ok1Column" msprop:Generator_UserColumnName="ok1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ok2" msprop:Generator_ColumnVarNameInTable="columnok2" msprop:Generator_ColumnPropNameInRow="ok2" msprop:Generator_ColumnPropNameInTable="ok2Column" msprop:Generator_UserColumnName="ok2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="estatus" msprop:Generator_ColumnVarNameInTable="columnestatus" msprop:Generator_ColumnPropNameInRow="estatus" msprop:Generator_ColumnPropNameInTable="estatusColumn" msprop:Generator_UserColumnName="estatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sucursal" msprop:Generator_ColumnVarNameInTable="columnsucursal" msprop:Generator_ColumnPropNameInRow="sucursal" msprop:Generator_ColumnPropNameInTable="sucursalColumn" msprop:Generator_UserColumnName="sucursal" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="departamento" msprop:Generator_ColumnVarNameInTable="columndepartamento" msprop:Generator_ColumnPropNameInRow="departamento" msprop:Generator_ColumnPropNameInTable="departamentoColumn" msprop:Generator_UserColumnName="departamento" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idPagos" msprop:Generator_ColumnVarNameInTable="columnidPagos" msprop:Generator_ColumnPropNameInRow="idPagos" msprop:Generator_ColumnPropNameInTable="idPagosColumn" msprop:Generator_UserColumnName="idPagos" type="xs:decimal" />
+              <xs:element name="impLocRet" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnimpLocRet" msprop:Generator_ColumnPropNameInRow="impLocRet" msprop:Generator_ColumnPropNameInTable="impLocRetColumn" msprop:Generator_UserColumnName="impLocRet" type="xs:decimal" minOccurs="0" />
+              <xs:element name="impLocTra" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnimpLocTra" msprop:Generator_ColumnPropNameInRow="impLocTra" msprop:Generator_ColumnPropNameInTable="impLocTraColumn" msprop:Generator_UserColumnName="impLocTra" type="xs:decimal" minOccurs="0" />
+              <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="moneda" msprop:Generator_ColumnVarNameInTable="columnmoneda" msprop:Generator_ColumnPropNameInRow="moneda" msprop:Generator_ColumnPropNameInTable="monedaColumn" msprop:Generator_UserColumnName="moneda" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -2885,6 +3115,10 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
       <xs:field xpath="mstns:Solicitud" />
       <xs:field xpath="mstns:Estatus" />
       <xs:field xpath="mstns:idEmpresa" />
+    </xs:unique>
+    <xs:unique name="AutorizacionesRPT_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:AutorizacionesRPT" />
+      <xs:field xpath="mstns:idPagos" />
     </xs:unique>
   </xs:element>
 </xs:schema>

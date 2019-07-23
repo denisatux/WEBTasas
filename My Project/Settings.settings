@@ -26,5 +26,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=server-raid2;Initial Catalog=Production;Persist Security Info=True;User ID=User_PRO;Password=User_PRO2015</Value>
     </Setting>
+    <Setting Name="RUTA_TMP" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\\server-raid2\TmpFinagil\</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

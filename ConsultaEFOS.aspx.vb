@@ -123,7 +123,7 @@ Public Class ConsultaEFOS
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim rep As New CrystalDecisions.CrystalReports.Engine.ReportDocument
+        'Dim rep As New CrystalDecisions.CrystalReports.Engine.ReportDocument
         Dim taArt69F As New DataSet1TableAdapters.CRED_ListaFechaArf69TableAdapter
         Dim newrptRepSalCli As New ReportDocument()
         newrptRepSalCli.Load(Server.MapPath("~/rptConsultaSAT.rpt"))

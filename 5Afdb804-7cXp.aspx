@@ -31,17 +31,17 @@
                 <asp:BoundField DataField="Solicita" HeaderText="Solicitante" SortExpression="Solicita" />
                 <asp:BoundField DataField="Total" DataFormatString="{0:n2}" HeaderText="Total Solicitado" HtmlEncode="False" ReadOnly="True" SortExpression="Total" />
                 <asp:BoundField DataField="Estatus" HeaderText="Estatus" SortExpression="Estatus" />
+                <asp:TemplateField HeaderText="Comentarios">
+                    <ItemTemplate>
+                        <asp:TextBox ID="TextCorreo" runat="server" Height="40px" MaxLength="1000" TextMode="MultiLine" Width="330px"></asp:TextBox>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:ButtonField ButtonType="Button" CommandName="Rechazar" Text="Rechazar">
                 <ItemStyle Font-Bold="True" />
                 </asp:ButtonField>
                 <asp:ButtonField ButtonType="Button" CommandName="Autorizar" Text="Autorizar">
                 <ItemStyle Font-Bold="True" />
                 </asp:ButtonField>
-                <asp:TemplateField HeaderText="Texto del Correo">
-                    <ItemTemplate>
-                        <asp:TextBox ID="TextCorreo" runat="server" Height="40px" MaxLength="1000" TextMode="MultiLine" Width="330px"></asp:TextBox>
-                    </ItemTemplate>
-                </asp:TemplateField>
                 <asp:ButtonField ButtonType="Button" CommandName="Correo" Text="Correo" />
             </Columns>
             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
@@ -60,7 +60,6 @@
         <asp:Panel ID="Panel1" runat="server" Height="100%" Width="100%">
             &nbsp;
             </asp:Panel>
-        <br />
         <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
             Text="Sin autorizaciones Pendientes"></asp:Label>
         <br />
