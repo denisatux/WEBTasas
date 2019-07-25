@@ -108,6 +108,7 @@
     <Content Include="CreditoFinagil.html" />
     <Content Include="Default.aspx" />
     <Content Include="IMG\logo-sin-fondo_web.png" />
+    <Content Include="IMG\logoArfin.JPG" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
