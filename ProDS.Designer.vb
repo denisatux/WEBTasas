@@ -9800,6 +9800,8 @@ Partial Public Class ProDS
         
         Private columnUser As Global.System.Data.DataColumn
         
+        Private columnNombreCorto As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -9924,6 +9926,14 @@ Partial Public Class ProDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property NombreCortoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNombreCorto
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -9960,9 +9970,9 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddVw_CXP_AutorizacionesRow(ByVal Empresa As String, ByVal Solicitud As Decimal, ByVal Solicita As String, ByVal Total As Decimal, ByVal Estatus As String, ByVal Autorizante As String, ByVal idEmpresa As Decimal, ByVal MailSolicitante As String, ByVal mailAutoriza2 As String, ByVal FechaSol As Date, ByVal User As String) As Vw_CXP_AutorizacionesRow
+        Public Overloads Function AddVw_CXP_AutorizacionesRow(ByVal Empresa As String, ByVal Solicitud As Decimal, ByVal Solicita As String, ByVal Total As Decimal, ByVal Estatus As String, ByVal Autorizante As String, ByVal idEmpresa As Decimal, ByVal MailSolicitante As String, ByVal mailAutoriza2 As String, ByVal FechaSol As Date, ByVal User As String, ByVal NombreCorto As String) As Vw_CXP_AutorizacionesRow
             Dim rowVw_CXP_AutorizacionesRow As Vw_CXP_AutorizacionesRow = CType(Me.NewRow,Vw_CXP_AutorizacionesRow)
-            Dim columnValuesArray() As Object = New Object() {Empresa, Solicitud, Solicita, Total, Estatus, Autorizante, idEmpresa, MailSolicitante, mailAutoriza2, FechaSol, User}
+            Dim columnValuesArray() As Object = New Object() {Empresa, Solicitud, Solicita, Total, Estatus, Autorizante, idEmpresa, MailSolicitante, mailAutoriza2, FechaSol, User, NombreCorto}
             rowVw_CXP_AutorizacionesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVw_CXP_AutorizacionesRow)
             Return rowVw_CXP_AutorizacionesRow
@@ -10008,6 +10018,7 @@ Partial Public Class ProDS
             Me.columnmailAutoriza2 = MyBase.Columns("mailAutoriza2")
             Me.columnFechaSol = MyBase.Columns("FechaSol")
             Me.columnUser = MyBase.Columns("User")
+            Me.columnNombreCorto = MyBase.Columns("NombreCorto")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10035,6 +10046,8 @@ Partial Public Class ProDS
             MyBase.Columns.Add(Me.columnFechaSol)
             Me.columnUser = New Global.System.Data.DataColumn("User", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnUser)
+            Me.columnNombreCorto = New Global.System.Data.DataColumn("NombreCorto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNombreCorto)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnSolicitud, Me.columnEstatus, Me.columnidEmpresa}, true))
             Me.columnEmpresa.MaxLength = 150
             Me.columnSolicitud.AllowDBNull = false
@@ -10049,6 +10062,7 @@ Partial Public Class ProDS
             Me.columnFechaSol.ReadOnly = true
             Me.columnUser.ReadOnly = true
             Me.columnUser.MaxLength = 100
+            Me.columnNombreCorto.MaxLength = 30
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17747,6 +17761,22 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property NombreCorto() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVw_CXP_Autorizaciones.NombreCortoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'NombreCorto' de la tabla 'Vw_CXP_Autorizaciones' es DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVw_CXP_Autorizaciones.NombreCortoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsEmpresaNull() As Boolean
             Return Me.IsNull(Me.tableVw_CXP_Autorizaciones.EmpresaColumn)
         End Function
@@ -17839,6 +17869,18 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetUserNull()
             Me(Me.tableVw_CXP_Autorizaciones.UserColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsNombreCortoNull() As Boolean
+            Return Me.IsNull(Me.tableVw_CXP_Autorizaciones.NombreCortoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetNombreCortoNull()
+            Me(Me.tableVw_CXP_Autorizaciones.NombreCortoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -26028,6 +26070,7 @@ Namespace ProDSTableAdapters
             tableMapping.ColumnMappings.Add("mailAutoriza2", "mailAutoriza2")
             tableMapping.ColumnMappings.Add("FechaSol", "FechaSol")
             tableMapping.ColumnMappings.Add("User", "User")
+            tableMapping.ColumnMappings.Add("NombreCorto", "NombreCorto")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -26047,12 +26090,13 @@ Namespace ProDSTableAdapters
             Me._commandCollection(0).CommandText = "SELECT        nombreEmpresa AS Empresa, folioSolicitud AS Solicitud, nombre AS So"& _ 
                 "licita, SUM(totalPagado) AS Total, estatus AS Estatus, Autoriza1 AS Autorizante,"& _ 
                 " idEmpresas AS idEmpresa, mailGenero AS MailSolicitante, mailAutoriza2, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
-                "                   MAX(fechaSolicitud) AS FechaSol, @User AS [User]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM       "& _ 
-                "     Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (NOT (mailAutoriza1 LIKE '#%')) AND (ok"& _ 
-                "1 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ok1 = '') AND (mailAutoriza1 = @User) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 > '') AND (ok"& _ 
-                "1 <> 'RECHAZADO') AND (mailAutoriza2 = @User) AND (ok2 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
-                "            ok2 = '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folioSolicitud, Autoriza1, estatus, nombreEmpres"& _ 
-                "a, nombre, idEmpresas, mailGenero, mailAutoriza2"
+                "                   MAX(fechaSolicitud) AS FechaSol, @User AS [User], NombreCorto"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (NOT (mailAutoriza1 LIKE '"& _ 
+                "#%')) AND (ok1 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ok1 = '') AND (mailAutoriza1"& _ 
+                " = @User) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 "& _ 
+                "> '') AND (ok1 <> 'RECHAZADO') AND (mailAutoriza2 = @User) AND (ok2 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "                         ok2 = '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folioSolicitud, Autoriza1, estatus,"& _ 
+                " nombreEmpresa, nombre, idEmpresas, mailGenero, mailAutoriza2, NombreCorto"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@User", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "mailAutoriza1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
@@ -26060,11 +26104,12 @@ Namespace ProDSTableAdapters
             Me._commandCollection(1).CommandText = "SELECT        nombreEmpresa AS Empresa, folioSolicitud AS Solicitud, nombre AS So"& _ 
                 "licita, SUM(totalPagado) AS Total, estatus AS Estatus, mailAutoriza1 AS Correo, "& _ 
                 "Autoriza1 AS Autorizante, idEmpresas AS idEmpresa, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ma"& _ 
-                "ilGenero AS MailSolicitante, MAX(fechaSolicitud) AS FechaSol"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw"& _ 
-                "_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folioSolicitud, mailAutoriza1, Autoriza1, estatus,"& _ 
-                " nombreEmpresa, nombre, idEmpresas, mailGenero"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (folioSolicitud = "& _ 
-                "@Solicitud) AND (idEmpresas = @Empresa) AND (estatus = @Estatus)"
+                "ilGenero AS MailSolicitante, MAX(fechaSolicitud) AS FechaSol, NombreCorto, @user"& _ 
+                " AS [User]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (@user = @user)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folioSolicitud, mailAutoriza1, Autoriza1, estatus, nombreEmpresa, nomb"& _ 
+                "re, idEmpresas, mailGenero, NombreCorto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (folioSolicitud = @Solici"& _ 
+                "tud) AND (idEmpresas = @Empresa) AND (estatus = @Estatus)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@user", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Solicitud", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "Solicitud", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Empresa", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idEmpresa", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estatus", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -26126,18 +26171,23 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByID(ByVal dataTable As ProDS.Vw_CXP_AutorizacionesDataTable, ByVal Solicitud As Global.System.Nullable(Of Decimal), ByVal Empresa As Decimal, ByVal Estatus As String) As Integer
+        Public Overloads Overridable Function FillByID(ByVal dataTable As ProDS.Vw_CXP_AutorizacionesDataTable, ByVal user As String, ByVal Solicitud As Global.System.Nullable(Of Decimal), ByVal Empresa As Decimal, ByVal Estatus As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (Solicitud.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Solicitud.Value,Decimal)
+            If (user Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("user")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(user,String)
             End If
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(Empresa,Decimal)
-            If (Estatus Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            If (Solicitud.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Solicitud.Value,Decimal)
             Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(Estatus,String)
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(Empresa,Decimal)
+            If (Estatus Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(Estatus,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -26150,18 +26200,23 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByID(ByVal Solicitud As Global.System.Nullable(Of Decimal), ByVal Empresa As Decimal, ByVal Estatus As String) As ProDS.Vw_CXP_AutorizacionesDataTable
+        Public Overloads Overridable Function GetDataByID(ByVal user As String, ByVal Solicitud As Global.System.Nullable(Of Decimal), ByVal Empresa As Decimal, ByVal Estatus As String) As ProDS.Vw_CXP_AutorizacionesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (Solicitud.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Solicitud.Value,Decimal)
+            If (user Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("user")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(user,String)
             End If
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(Empresa,Decimal)
-            If (Estatus Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            If (Solicitud.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Solicitud.Value,Decimal)
             Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(Estatus,String)
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(Empresa,Decimal)
+            If (Estatus Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(Estatus,String)
             End If
             Dim dataTable As ProDS.Vw_CXP_AutorizacionesDataTable = New ProDS.Vw_CXP_AutorizacionesDataTable()
             Me.Adapter.Fill(dataTable)

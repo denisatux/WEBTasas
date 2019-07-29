@@ -57,10 +57,10 @@ Partial Public Class CPXForm
         Dim Mensaje As String = ""
         Dim Asunto As String = ""
         Dim Archivo As String
-        ta.FillByID(t, Request("ID2"), Request("ID1"), Request("ID3"))
+        ta.FillByID(t, Request("User"), Request("ID2"), Request("ID1"), Request("ID3"))
         r = t.Rows(0)
         Mensaje = "Solicitud: " & r.Solicitud & "<br>"
-        Mensaje += "Emrpesa: " & IIf(r.idEmpresa = 23, "Finagil", "Arfin") & "<br>"
+        Mensaje += "Emrpesa: " & r.NombreCorto & "<br>"
         Mensaje += "Estatus: " & r.Estatus & "<br>"
         Mensaje += "Importe: " & CDec(r.Total).ToString("n2") & "<br>"
         Archivo = "CXP\" & CInt(r.idEmpresa).ToString & "-" & CInt(r.Solicitud).ToString & ".pdf"
@@ -73,7 +73,7 @@ Partial Public Class CPXForm
         LbError.Visible = True
         Mensaje += "Autorizó: " & r.Autorizante & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
-        Asunto = "Solicitud de Gastos Autorizada (" & IIf(r.idEmpresa = 23, "Finagil", "Arfin") & "): " & Request("ID2")
+        Asunto = "Solicitud de Gastos Autorizada (" & r.NombreCorto & "): " & Request("ID2")
         GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus)
 
         MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
@@ -89,10 +89,10 @@ Partial Public Class CPXForm
         Dim Mensaje As String = ""
         Dim Asunto As String = ""
         Dim Archivo As String
-        ta.FillByID(t, Request("ID2"), Request("ID1"), Request("ID3"))
+        ta.FillByID(t, Request("User"), Request("ID2"), Request("ID1"), Request("ID3"))
         r = t.Rows(0)
         Mensaje = "Solicitud: " & r.Solicitud & "<br>"
-        Mensaje += "Emrpesa: " & IIf(r.idEmpresa = 23, "Finagil", "Arfin") & "<br>"
+        Mensaje += "Emrpesa: " & r.NombreCorto & "<br>"
         Mensaje += "Estatus: " & r.Estatus & "<br>"
         Mensaje += "Importe: " & CDec(r.Total).ToString("n2") & "<br>"
         Archivo = "CXP\" & CInt(r.idEmpresa).ToString & "-" & CInt(r.Solicitud).ToString & ".pdf"
@@ -106,7 +106,7 @@ Partial Public Class CPXForm
         LbError.Visible = True
         Mensaje += "Rechazó: " & r.Autorizante & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
-        Asunto = "Solicitud de Gastos Rechazada (" & IIf(r.idEmpresa = 23, "Finagil", "Arfin") & "): " & Request("ID2")
+        Asunto = "Solicitud de Gastos Rechazada (" & r.NombreCorto & "): " & Request("ID2")
         GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus)
 
         MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
@@ -122,10 +122,10 @@ Partial Public Class CPXForm
         Dim Mensaje As String = ""
         Dim Asunto As String = ""
         Dim Archivo As String
-        ta.FillByID(t, Request("ID2"), Request("ID1"), Request("ID3"))
+        ta.FillByID(t, Request("User"), Request("ID2"), Request("ID1"), Request("ID3"))
         r = t.Rows(0)
         Mensaje = "Solicitud: " & r.Solicitud & "<br>"
-        Mensaje += "Emrpesa: " & IIf(r.idEmpresa = 23, "Finagil", "Arfin") & "<br>"
+        Mensaje += "Emrpesa: " & r.NombreCorto & "<br>"
         Mensaje += "Estatus: " & r.Estatus & "<br>"
         Mensaje += "Importe: " & CDec(r.Total).ToString("n2") & "<br>"
         Archivo = "CXP\" & CInt(r.idEmpresa).ToString & "-" & CInt(r.Solicitud).ToString & ".pdf"
@@ -138,7 +138,7 @@ Partial Public Class CPXForm
         Panel1.Visible = False
         LbError.Visible = True
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
-        Asunto = "Comentarios de Gastos y Facturas (" & IIf(r.idEmpresa = 23, "Finagil", "Arfin") & "): " & Request("ID2")
+        Asunto = "Comentarios de Gastos y Facturas (" & r.NombreCorto & "): " & Request("ID2")
 
         MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Gastos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
