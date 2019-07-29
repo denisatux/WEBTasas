@@ -50,6 +50,60 @@ Partial Public Class CPXForm
     Protected WithEvents Panel1 As Global.System.Web.UI.WebControls.Panel
     
     '''<summary>
+    '''Control GridView2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents GridView2 As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control vwDatos_DS0.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents vwDatos_DS0 As Global.System.Web.UI.WebControls.ObjectDataSource
+    
+    '''<summary>
+    '''Control TextMail.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents TextMail As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Control BotonAutorizar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents BotonAutorizar As Global.RoderoLib.BotonEnviar
+    
+    '''<summary>
+    '''Control BotonRechazar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents BotonRechazar As Global.RoderoLib.BotonEnviar
+    
+    '''<summary>
+    '''Control BotonCorreo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents BotonCorreo As Global.RoderoLib.BotonEnviar
+    
+    '''<summary>
     '''Control LbError.
     '''</summary>
     '''<remarks>
