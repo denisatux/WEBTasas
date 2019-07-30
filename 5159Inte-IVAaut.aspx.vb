@@ -27,14 +27,14 @@ Partial Public Class FRM_IVAautInte
     End Sub
 
     Protected Sub BotonEnviar1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonEnviar1.Click
-        Dim ta As New ProDSTableAdapters.AutorizaIVATableAdapter
+        Dim ta As New ProDSTableAdapters.AutorizaIVA_InteresTableAdapter
         ta.AutorizaIVA(Request("User") & "X", True, Request("Anexo"), Request("Ciclo"))
-        Response.Redirect("~\5159Inte-IVAaut.aspx?User=" & Request("User"))
+        Response.Redirect("~\5159Inte-IVAaut.aspx?User=" & Request("User") & "&Anexo=X&Ciclo=X")
     End Sub
 
     Protected Sub BotonEnviar2_Click(sender As Object, e As EventArgs) Handles BotonEnviar2.Click
-        Dim ta As New ProDSTableAdapters.AutorizaIVATableAdapter
+        Dim ta As New ProDSTableAdapters.AutorizaIVA_InteresTableAdapter
         ta.AutorizaIVA(Request("User") & "X", False, Request("Anexo"), Request("Ciclo"))
-        Response.Redirect("~\5159Inte-IVAaut.aspx?User=" & Request("User"))
+        Response.Redirect("~\5159Inte-IVAaut.aspx?User=" & Request("User") & "&Anexo=X&Ciclo=X")
     End Sub
 End Class
