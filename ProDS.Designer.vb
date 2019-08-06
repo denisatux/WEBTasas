@@ -67,7 +67,7 @@ Partial Public Class ProDS
     
     Private tableVw_CXP_Autorizaciones As Vw_CXP_AutorizacionesDataTable
     
-    Private tableAutorizacionesRPT As AutorizacionesRPTDataTable
+    Private tableVw_CXP_AutorizacionesRPT As Vw_CXP_AutorizacionesRPTDataTable
     
     Private tableVw_CXP_Autorizaciones_Facturas As Vw_CXP_Autorizaciones_FacturasDataTable
     
@@ -163,8 +163,8 @@ Partial Public Class ProDS
             If (Not (ds.Tables("Vw_CXP_Autorizaciones")) Is Nothing) Then
                 MyBase.Tables.Add(New Vw_CXP_AutorizacionesDataTable(ds.Tables("Vw_CXP_Autorizaciones")))
             End If
-            If (Not (ds.Tables("AutorizacionesRPT")) Is Nothing) Then
-                MyBase.Tables.Add(New AutorizacionesRPTDataTable(ds.Tables("AutorizacionesRPT")))
+            If (Not (ds.Tables("Vw_CXP_AutorizacionesRPT")) Is Nothing) Then
+                MyBase.Tables.Add(New Vw_CXP_AutorizacionesRPTDataTable(ds.Tables("Vw_CXP_AutorizacionesRPT")))
             End If
             If (Not (ds.Tables("Vw_CXP_Autorizaciones_Facturas")) Is Nothing) Then
                 MyBase.Tables.Add(New Vw_CXP_Autorizaciones_FacturasDataTable(ds.Tables("Vw_CXP_Autorizaciones_Facturas")))
@@ -400,9 +400,9 @@ Partial Public Class ProDS
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property AutorizacionesRPT() As AutorizacionesRPTDataTable
+    Public ReadOnly Property Vw_CXP_AutorizacionesRPT() As Vw_CXP_AutorizacionesRPTDataTable
         Get
-            Return Me.tableAutorizacionesRPT
+            Return Me.tableVw_CXP_AutorizacionesRPT
         End Get
     End Property
     
@@ -546,8 +546,8 @@ Partial Public Class ProDS
             If (Not (ds.Tables("Vw_CXP_Autorizaciones")) Is Nothing) Then
                 MyBase.Tables.Add(New Vw_CXP_AutorizacionesDataTable(ds.Tables("Vw_CXP_Autorizaciones")))
             End If
-            If (Not (ds.Tables("AutorizacionesRPT")) Is Nothing) Then
-                MyBase.Tables.Add(New AutorizacionesRPTDataTable(ds.Tables("AutorizacionesRPT")))
+            If (Not (ds.Tables("Vw_CXP_AutorizacionesRPT")) Is Nothing) Then
+                MyBase.Tables.Add(New Vw_CXP_AutorizacionesRPTDataTable(ds.Tables("Vw_CXP_AutorizacionesRPT")))
             End If
             If (Not (ds.Tables("Vw_CXP_Autorizaciones_Facturas")) Is Nothing) Then
                 MyBase.Tables.Add(New Vw_CXP_Autorizaciones_FacturasDataTable(ds.Tables("Vw_CXP_Autorizaciones_Facturas")))
@@ -710,10 +710,10 @@ Partial Public Class ProDS
                 Me.tableVw_CXP_Autorizaciones.InitVars
             End If
         End If
-        Me.tableAutorizacionesRPT = CType(MyBase.Tables("AutorizacionesRPT"),AutorizacionesRPTDataTable)
+        Me.tableVw_CXP_AutorizacionesRPT = CType(MyBase.Tables("Vw_CXP_AutorizacionesRPT"),Vw_CXP_AutorizacionesRPTDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableAutorizacionesRPT) Is Nothing) Then
-                Me.tableAutorizacionesRPT.InitVars
+            If (Not (Me.tableVw_CXP_AutorizacionesRPT) Is Nothing) Then
+                Me.tableVw_CXP_AutorizacionesRPT.InitVars
             End If
         End If
         Me.tableVw_CXP_Autorizaciones_Facturas = CType(MyBase.Tables("Vw_CXP_Autorizaciones_Facturas"),Vw_CXP_Autorizaciones_FacturasDataTable)
@@ -774,8 +774,8 @@ Partial Public Class ProDS
         MyBase.Tables.Add(Me.tableAutorizaIVA_Interes)
         Me.tableVw_CXP_Autorizaciones = New Vw_CXP_AutorizacionesDataTable()
         MyBase.Tables.Add(Me.tableVw_CXP_Autorizaciones)
-        Me.tableAutorizacionesRPT = New AutorizacionesRPTDataTable()
-        MyBase.Tables.Add(Me.tableAutorizacionesRPT)
+        Me.tableVw_CXP_AutorizacionesRPT = New Vw_CXP_AutorizacionesRPTDataTable()
+        MyBase.Tables.Add(Me.tableVw_CXP_AutorizacionesRPT)
         Me.tableVw_CXP_Autorizaciones_Facturas = New Vw_CXP_Autorizaciones_FacturasDataTable()
         MyBase.Tables.Add(Me.tableVw_CXP_Autorizaciones_Facturas)
     End Sub
@@ -908,7 +908,7 @@ Partial Public Class ProDS
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Private Function ShouldSerializeAutorizacionesRPT() As Boolean
+    Private Function ShouldSerializeVw_CXP_AutorizacionesRPT() As Boolean
         Return false
     End Function
     
@@ -1040,7 +1040,7 @@ Partial Public Class ProDS
     Public Delegate Sub Vw_CXP_AutorizacionesRowChangeEventHandler(ByVal sender As Object, ByVal e As Vw_CXP_AutorizacionesRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Public Delegate Sub AutorizacionesRPTRowChangeEventHandler(ByVal sender As Object, ByVal e As AutorizacionesRPTRowChangeEvent)
+    Public Delegate Sub Vw_CXP_AutorizacionesRPTRowChangeEventHandler(ByVal sender As Object, ByVal e As Vw_CXP_AutorizacionesRPTRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Delegate Sub Vw_CXP_Autorizaciones_FacturasRowChangeEventHandler(ByVal sender As Object, ByVal e As Vw_CXP_Autorizaciones_FacturasRowChangeEvent)
@@ -9802,6 +9802,8 @@ Partial Public Class ProDS
         
         Private columnNombreCorto As Global.System.Data.DataColumn
         
+        Private columnserie As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -9934,6 +9936,14 @@ Partial Public Class ProDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property serieColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnserie
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -9970,9 +9980,9 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddVw_CXP_AutorizacionesRow(ByVal Empresa As String, ByVal Solicitud As Decimal, ByVal Solicita As String, ByVal Total As Decimal, ByVal Estatus As String, ByVal Autorizante As String, ByVal idEmpresa As Decimal, ByVal MailSolicitante As String, ByVal mailAutoriza2 As String, ByVal FechaSol As Date, ByVal User As String, ByVal NombreCorto As String) As Vw_CXP_AutorizacionesRow
+        Public Overloads Function AddVw_CXP_AutorizacionesRow(ByVal Empresa As String, ByVal Solicitud As Decimal, ByVal Solicita As String, ByVal Total As Decimal, ByVal Estatus As String, ByVal Autorizante As String, ByVal idEmpresa As Decimal, ByVal MailSolicitante As String, ByVal mailAutoriza2 As String, ByVal FechaSol As Date, ByVal User As String, ByVal NombreCorto As String, ByVal serie As String) As Vw_CXP_AutorizacionesRow
             Dim rowVw_CXP_AutorizacionesRow As Vw_CXP_AutorizacionesRow = CType(Me.NewRow,Vw_CXP_AutorizacionesRow)
-            Dim columnValuesArray() As Object = New Object() {Empresa, Solicitud, Solicita, Total, Estatus, Autorizante, idEmpresa, MailSolicitante, mailAutoriza2, FechaSol, User, NombreCorto}
+            Dim columnValuesArray() As Object = New Object() {Empresa, Solicitud, Solicita, Total, Estatus, Autorizante, idEmpresa, MailSolicitante, mailAutoriza2, FechaSol, User, NombreCorto, serie}
             rowVw_CXP_AutorizacionesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVw_CXP_AutorizacionesRow)
             Return rowVw_CXP_AutorizacionesRow
@@ -10019,6 +10029,7 @@ Partial Public Class ProDS
             Me.columnFechaSol = MyBase.Columns("FechaSol")
             Me.columnUser = MyBase.Columns("User")
             Me.columnNombreCorto = MyBase.Columns("NombreCorto")
+            Me.columnserie = MyBase.Columns("serie")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10048,6 +10059,8 @@ Partial Public Class ProDS
             MyBase.Columns.Add(Me.columnUser)
             Me.columnNombreCorto = New Global.System.Data.DataColumn("NombreCorto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNombreCorto)
+            Me.columnserie = New Global.System.Data.DataColumn("serie", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnserie)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnSolicitud, Me.columnEstatus, Me.columnidEmpresa}, true))
             Me.columnEmpresa.MaxLength = 150
             Me.columnSolicitud.AllowDBNull = false
@@ -10063,6 +10076,8 @@ Partial Public Class ProDS
             Me.columnUser.ReadOnly = true
             Me.columnUser.MaxLength = 100
             Me.columnNombreCorto.MaxLength = 30
+            Me.columnserie.ReadOnly = true
+            Me.columnserie.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10197,7 +10212,7 @@ Partial Public Class ProDS
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class AutorizacionesRPTDataTable
+    Partial Public Class Vw_CXP_AutorizacionesRPTDataTable
         Inherits Global.System.Data.DataTable
         Implements Global.System.Collections.IEnumerable
         
@@ -10269,11 +10284,15 @@ Partial Public Class ProDS
         
         Private columnmoneda As Global.System.Data.DataColumn
         
+        Private columnid_usuario As Global.System.Data.DataColumn
+        
+        Private columnNombreCorto As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "AutorizacionesRPT"
+            Me.TableName = "Vw_CXP_AutorizacionesRPT"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -10577,6 +10596,22 @@ Partial Public Class ProDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property id_usuarioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnid_usuario
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property NombreCortoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNombreCorto
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -10587,33 +10622,33 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As AutorizacionesRPTRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As Vw_CXP_AutorizacionesRPTRow
             Get
-                Return CType(Me.Rows(index),AutorizacionesRPTRow)
+                Return CType(Me.Rows(index),Vw_CXP_AutorizacionesRPTRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event AutorizacionesRPTRowChanging As AutorizacionesRPTRowChangeEventHandler
+        Public Event Vw_CXP_AutorizacionesRPTRowChanging As Vw_CXP_AutorizacionesRPTRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event AutorizacionesRPTRowChanged As AutorizacionesRPTRowChangeEventHandler
+        Public Event Vw_CXP_AutorizacionesRPTRowChanged As Vw_CXP_AutorizacionesRPTRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event AutorizacionesRPTRowDeleting As AutorizacionesRPTRowChangeEventHandler
+        Public Event Vw_CXP_AutorizacionesRPTRowDeleting As Vw_CXP_AutorizacionesRPTRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event AutorizacionesRPTRowDeleted As AutorizacionesRPTRowChangeEventHandler
+        Public Event Vw_CXP_AutorizacionesRPTRowDeleted As Vw_CXP_AutorizacionesRPTRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Sub AddAutorizacionesRPTRow(ByVal row As AutorizacionesRPTRow)
+        Public Overloads Sub AddVw_CXP_AutorizacionesRPTRow(ByVal row As Vw_CXP_AutorizacionesRPTRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddAutorizacionesRPTRow( _
+        Public Overloads Function AddVw_CXP_AutorizacionesRPTRow( _
                     ByVal idEmpresas As Decimal,  _
                     ByVal rfcEmpresa As String,  _
                     ByVal nombreEmpresa As String,  _
@@ -10647,18 +10682,20 @@ Partial Public Class ProDS
                     ByVal impLocRet As Decimal,  _
                     ByVal impLocTra As Decimal,  _
                     ByVal total As Decimal,  _
-                    ByVal moneda As String) As AutorizacionesRPTRow
-            Dim rowAutorizacionesRPTRow As AutorizacionesRPTRow = CType(Me.NewRow,AutorizacionesRPTRow)
-            Dim columnValuesArray() As Object = New Object() {idEmpresas, rfcEmpresa, nombreEmpresa, rfc, razonSocial, usuario, nombre, folioSolicitud, fechaSolicitud, fechaFactura, serie, folio, uuid, subtotalPagado, totalPagado, trasladosPagados, retencionesPagadas, decripcion, Concepto, mailGenero, mailAutoriza1, Autoriza1, mailAutoriza2, Autoriza2, ok1, ok2, estatus, sucursal, departamento, idPagos, impLocRet, impLocTra, total, moneda}
-            rowAutorizacionesRPTRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowAutorizacionesRPTRow)
-            Return rowAutorizacionesRPTRow
+                    ByVal moneda As String,  _
+                    ByVal id_usuario As String,  _
+                    ByVal NombreCorto As String) As Vw_CXP_AutorizacionesRPTRow
+            Dim rowVw_CXP_AutorizacionesRPTRow As Vw_CXP_AutorizacionesRPTRow = CType(Me.NewRow,Vw_CXP_AutorizacionesRPTRow)
+            Dim columnValuesArray() As Object = New Object() {idEmpresas, rfcEmpresa, nombreEmpresa, rfc, razonSocial, usuario, nombre, folioSolicitud, fechaSolicitud, fechaFactura, serie, folio, uuid, subtotalPagado, totalPagado, trasladosPagados, retencionesPagadas, decripcion, Concepto, mailGenero, mailAutoriza1, Autoriza1, mailAutoriza2, Autoriza2, ok1, ok2, estatus, sucursal, departamento, idPagos, impLocRet, impLocTra, total, moneda, id_usuario, NombreCorto}
+            rowVw_CXP_AutorizacionesRPTRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowVw_CXP_AutorizacionesRPTRow)
+            Return rowVw_CXP_AutorizacionesRPTRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function FindByidPagos(ByVal idPagos As Decimal) As AutorizacionesRPTRow
-            Return CType(Me.Rows.Find(New Object() {idPagos}),AutorizacionesRPTRow)
+        Public Function FindByidPagos(ByVal idPagos As Decimal) As Vw_CXP_AutorizacionesRPTRow
+            Return CType(Me.Rows.Find(New Object() {idPagos}),Vw_CXP_AutorizacionesRPTRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10670,7 +10707,7 @@ Partial Public Class ProDS
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As AutorizacionesRPTDataTable = CType(MyBase.Clone,AutorizacionesRPTDataTable)
+            Dim cln As Vw_CXP_AutorizacionesRPTDataTable = CType(MyBase.Clone,Vw_CXP_AutorizacionesRPTDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -10678,7 +10715,7 @@ Partial Public Class ProDS
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New AutorizacionesRPTDataTable()
+            Return New Vw_CXP_AutorizacionesRPTDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10718,6 +10755,8 @@ Partial Public Class ProDS
             Me.columnimpLocTra = MyBase.Columns("impLocTra")
             Me.columntotal = MyBase.Columns("total")
             Me.columnmoneda = MyBase.Columns("moneda")
+            Me.columnid_usuario = MyBase.Columns("id_usuario")
+            Me.columnNombreCorto = MyBase.Columns("NombreCorto")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10791,6 +10830,10 @@ Partial Public Class ProDS
             MyBase.Columns.Add(Me.columntotal)
             Me.columnmoneda = New Global.System.Data.DataColumn("moneda", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnmoneda)
+            Me.columnid_usuario = New Global.System.Data.DataColumn("id_usuario", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnid_usuario)
+            Me.columnNombreCorto = New Global.System.Data.DataColumn("NombreCorto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNombreCorto)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidPagos}, true))
             Me.columnidEmpresas.AllowDBNull = false
             Me.columnrfcEmpresa.MaxLength = 13
@@ -10820,32 +10863,34 @@ Partial Public Class ProDS
             Me.columnimpLocRet.ReadOnly = true
             Me.columnimpLocTra.ReadOnly = true
             Me.columnmoneda.MaxLength = 5
+            Me.columnid_usuario.MaxLength = 20
+            Me.columnNombreCorto.MaxLength = 30
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function NewAutorizacionesRPTRow() As AutorizacionesRPTRow
-            Return CType(Me.NewRow,AutorizacionesRPTRow)
+        Public Function NewVw_CXP_AutorizacionesRPTRow() As Vw_CXP_AutorizacionesRPTRow
+            Return CType(Me.NewRow,Vw_CXP_AutorizacionesRPTRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New AutorizacionesRPTRow(builder)
+            Return New Vw_CXP_AutorizacionesRPTRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(AutorizacionesRPTRow)
+            Return GetType(Vw_CXP_AutorizacionesRPTRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.AutorizacionesRPTRowChangedEvent) Is Nothing) Then
-                RaiseEvent AutorizacionesRPTRowChanged(Me, New AutorizacionesRPTRowChangeEvent(CType(e.Row,AutorizacionesRPTRow), e.Action))
+            If (Not (Me.Vw_CXP_AutorizacionesRPTRowChangedEvent) Is Nothing) Then
+                RaiseEvent Vw_CXP_AutorizacionesRPTRowChanged(Me, New Vw_CXP_AutorizacionesRPTRowChangeEvent(CType(e.Row,Vw_CXP_AutorizacionesRPTRow), e.Action))
             End If
         End Sub
         
@@ -10853,8 +10898,8 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.AutorizacionesRPTRowChangingEvent) Is Nothing) Then
-                RaiseEvent AutorizacionesRPTRowChanging(Me, New AutorizacionesRPTRowChangeEvent(CType(e.Row,AutorizacionesRPTRow), e.Action))
+            If (Not (Me.Vw_CXP_AutorizacionesRPTRowChangingEvent) Is Nothing) Then
+                RaiseEvent Vw_CXP_AutorizacionesRPTRowChanging(Me, New Vw_CXP_AutorizacionesRPTRowChangeEvent(CType(e.Row,Vw_CXP_AutorizacionesRPTRow), e.Action))
             End If
         End Sub
         
@@ -10862,8 +10907,8 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.AutorizacionesRPTRowDeletedEvent) Is Nothing) Then
-                RaiseEvent AutorizacionesRPTRowDeleted(Me, New AutorizacionesRPTRowChangeEvent(CType(e.Row,AutorizacionesRPTRow), e.Action))
+            If (Not (Me.Vw_CXP_AutorizacionesRPTRowDeletedEvent) Is Nothing) Then
+                RaiseEvent Vw_CXP_AutorizacionesRPTRowDeleted(Me, New Vw_CXP_AutorizacionesRPTRowChangeEvent(CType(e.Row,Vw_CXP_AutorizacionesRPTRow), e.Action))
             End If
         End Sub
         
@@ -10871,14 +10916,14 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.AutorizacionesRPTRowDeletingEvent) Is Nothing) Then
-                RaiseEvent AutorizacionesRPTRowDeleting(Me, New AutorizacionesRPTRowChangeEvent(CType(e.Row,AutorizacionesRPTRow), e.Action))
+            If (Not (Me.Vw_CXP_AutorizacionesRPTRowDeletingEvent) Is Nothing) Then
+                RaiseEvent Vw_CXP_AutorizacionesRPTRowDeleting(Me, New Vw_CXP_AutorizacionesRPTRowChangeEvent(CType(e.Row,Vw_CXP_AutorizacionesRPTRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub RemoveAutorizacionesRPTRow(ByVal row As AutorizacionesRPTRow)
+        Public Sub RemoveVw_CXP_AutorizacionesRPTRow(ByVal row As Vw_CXP_AutorizacionesRPTRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -10905,7 +10950,7 @@ Partial Public Class ProDS
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "AutorizacionesRPTDataTable"
+            attribute2.FixedValue = "Vw_CXP_AutorizacionesRPTDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -17777,6 +17822,21 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property serie() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVw_CXP_Autorizaciones.serieColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'serie' de la tabla 'Vw_CXP_Autorizaciones' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVw_CXP_Autorizaciones.serieColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsEmpresaNull() As Boolean
             Return Me.IsNull(Me.tableVw_CXP_Autorizaciones.EmpresaColumn)
         End Function
@@ -17882,31 +17942,43 @@ Partial Public Class ProDS
         Public Sub SetNombreCortoNull()
             Me(Me.tableVw_CXP_Autorizaciones.NombreCortoColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsserieNull() As Boolean
+            Return Me.IsNull(Me.tableVw_CXP_Autorizaciones.serieColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetserieNull()
+            Me(Me.tableVw_CXP_Autorizaciones.serieColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class AutorizacionesRPTRow
+    Partial Public Class Vw_CXP_AutorizacionesRPTRow
         Inherits Global.System.Data.DataRow
         
-        Private tableAutorizacionesRPT As AutorizacionesRPTDataTable
+        Private tableVw_CXP_AutorizacionesRPT As Vw_CXP_AutorizacionesRPTDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableAutorizacionesRPT = CType(Me.Table,AutorizacionesRPTDataTable)
+            Me.tableVw_CXP_AutorizacionesRPT = CType(Me.Table,Vw_CXP_AutorizacionesRPTDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property idEmpresas() As Decimal
             Get
-                Return CType(Me(Me.tableAutorizacionesRPT.idEmpresasColumn),Decimal)
+                Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.idEmpresasColumn),Decimal)
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.idEmpresasColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.idEmpresasColumn) = value
             End Set
         End Property
         
@@ -17915,13 +17987,14 @@ Partial Public Class ProDS
         Public Property rfcEmpresa() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.rfcEmpresaColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.rfcEmpresaColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'rfcEmpresa' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'rfcEmpresa' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBN"& _ 
+                            "ull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.rfcEmpresaColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.rfcEmpresaColumn) = value
             End Set
         End Property
         
@@ -17930,14 +18003,14 @@ Partial Public Class ProDS
         Public Property nombreEmpresa() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.nombreEmpresaColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.nombreEmpresaColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombreEmpresa' de la tabla 'AutorizacionesRPT' es DBNull."& _ 
-                            "", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombreEmpresa' de la tabla 'Vw_CXP_AutorizacionesRPT' es "& _ 
+                            "DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.nombreEmpresaColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.nombreEmpresaColumn) = value
             End Set
         End Property
         
@@ -17946,13 +18019,13 @@ Partial Public Class ProDS
         Public Property rfc() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.rfcColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.rfcColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'rfc' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'rfc' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.rfcColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.rfcColumn) = value
             End Set
         End Property
         
@@ -17961,13 +18034,14 @@ Partial Public Class ProDS
         Public Property razonSocial() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.razonSocialColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.razonSocialColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'razonSocial' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'razonSocial' de la tabla 'Vw_CXP_AutorizacionesRPT' es DB"& _ 
+                            "Null.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.razonSocialColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.razonSocialColumn) = value
             End Set
         End Property
         
@@ -17976,13 +18050,14 @@ Partial Public Class ProDS
         Public Property usuario() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.usuarioColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.usuarioColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'usuario' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'usuario' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNull"& _ 
+                            ".", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.usuarioColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.usuarioColumn) = value
             End Set
         End Property
         
@@ -17991,13 +18066,14 @@ Partial Public Class ProDS
         Public Property nombre() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.nombreColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.nombreColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNull."& _ 
+                            "", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.nombreColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.nombreColumn) = value
             End Set
         End Property
         
@@ -18006,14 +18082,14 @@ Partial Public Class ProDS
         Public Property folioSolicitud() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.folioSolicitudColumn),Decimal)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.folioSolicitudColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'folioSolicitud' de la tabla 'AutorizacionesRPT' es DBNull"& _ 
-                            ".", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'folioSolicitud' de la tabla 'Vw_CXP_AutorizacionesRPT' es"& _ 
+                            " DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.folioSolicitudColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.folioSolicitudColumn) = value
             End Set
         End Property
         
@@ -18022,14 +18098,14 @@ Partial Public Class ProDS
         Public Property fechaSolicitud() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.fechaSolicitudColumn),Date)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.fechaSolicitudColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'fechaSolicitud' de la tabla 'AutorizacionesRPT' es DBNull"& _ 
-                            ".", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'fechaSolicitud' de la tabla 'Vw_CXP_AutorizacionesRPT' es"& _ 
+                            " DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.fechaSolicitudColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.fechaSolicitudColumn) = value
             End Set
         End Property
         
@@ -18038,13 +18114,14 @@ Partial Public Class ProDS
         Public Property fechaFactura() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.fechaFacturaColumn),Date)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.fechaFacturaColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'fechaFactura' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'fechaFactura' de la tabla 'Vw_CXP_AutorizacionesRPT' es D"& _ 
+                            "BNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.fechaFacturaColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.fechaFacturaColumn) = value
             End Set
         End Property
         
@@ -18053,13 +18130,13 @@ Partial Public Class ProDS
         Public Property serie() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.serieColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.serieColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'serie' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'serie' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.serieColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.serieColumn) = value
             End Set
         End Property
         
@@ -18068,13 +18145,13 @@ Partial Public Class ProDS
         Public Property folio() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.folioColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.folioColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'folio' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'folio' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.folioColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.folioColumn) = value
             End Set
         End Property
         
@@ -18083,13 +18160,13 @@ Partial Public Class ProDS
         Public Property uuid() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.uuidColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.uuidColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'uuid' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'uuid' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.uuidColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.uuidColumn) = value
             End Set
         End Property
         
@@ -18098,14 +18175,14 @@ Partial Public Class ProDS
         Public Property subtotalPagado() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.subtotalPagadoColumn),Decimal)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.subtotalPagadoColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'subtotalPagado' de la tabla 'AutorizacionesRPT' es DBNull"& _ 
-                            ".", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'subtotalPagado' de la tabla 'Vw_CXP_AutorizacionesRPT' es"& _ 
+                            " DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.subtotalPagadoColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.subtotalPagadoColumn) = value
             End Set
         End Property
         
@@ -18114,13 +18191,14 @@ Partial Public Class ProDS
         Public Property totalPagado() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.totalPagadoColumn),Decimal)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.totalPagadoColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'totalPagado' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'totalPagado' de la tabla 'Vw_CXP_AutorizacionesRPT' es DB"& _ 
+                            "Null.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.totalPagadoColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.totalPagadoColumn) = value
             End Set
         End Property
         
@@ -18129,14 +18207,14 @@ Partial Public Class ProDS
         Public Property trasladosPagados() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.trasladosPagadosColumn),Decimal)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.trasladosPagadosColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'trasladosPagados' de la tabla 'AutorizacionesRPT' es DBNu"& _ 
-                            "ll.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'trasladosPagados' de la tabla 'Vw_CXP_AutorizacionesRPT' "& _ 
+                            "es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.trasladosPagadosColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.trasladosPagadosColumn) = value
             End Set
         End Property
         
@@ -18145,14 +18223,14 @@ Partial Public Class ProDS
         Public Property retencionesPagadas() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.retencionesPagadasColumn),Decimal)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.retencionesPagadasColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'retencionesPagadas' de la tabla 'AutorizacionesRPT' es DB"& _ 
-                            "Null.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'retencionesPagadas' de la tabla 'Vw_CXP_AutorizacionesRPT"& _ 
+                            "' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.retencionesPagadasColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.retencionesPagadasColumn) = value
             End Set
         End Property
         
@@ -18161,13 +18239,14 @@ Partial Public Class ProDS
         Public Property decripcion() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.decripcionColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.decripcionColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'decripcion' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'decripcion' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBN"& _ 
+                            "ull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.decripcionColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.decripcionColumn) = value
             End Set
         End Property
         
@@ -18176,13 +18255,14 @@ Partial Public Class ProDS
         Public Property Concepto() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.ConceptoColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.ConceptoColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Concepto' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Concepto' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNul"& _ 
+                            "l.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.ConceptoColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.ConceptoColumn) = value
             End Set
         End Property
         
@@ -18191,13 +18271,14 @@ Partial Public Class ProDS
         Public Property mailGenero() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.mailGeneroColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.mailGeneroColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'mailGenero' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'mailGenero' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBN"& _ 
+                            "ull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.mailGeneroColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.mailGeneroColumn) = value
             End Set
         End Property
         
@@ -18206,14 +18287,14 @@ Partial Public Class ProDS
         Public Property mailAutoriza1() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.mailAutoriza1Column),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.mailAutoriza1Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'mailAutoriza1' de la tabla 'AutorizacionesRPT' es DBNull."& _ 
-                            "", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'mailAutoriza1' de la tabla 'Vw_CXP_AutorizacionesRPT' es "& _ 
+                            "DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.mailAutoriza1Column) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.mailAutoriza1Column) = value
             End Set
         End Property
         
@@ -18222,13 +18303,14 @@ Partial Public Class ProDS
         Public Property Autoriza1() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.Autoriza1Column),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.Autoriza1Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Autoriza1' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Autoriza1' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNu"& _ 
+                            "ll.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.Autoriza1Column) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.Autoriza1Column) = value
             End Set
         End Property
         
@@ -18237,14 +18319,14 @@ Partial Public Class ProDS
         Public Property mailAutoriza2() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.mailAutoriza2Column),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.mailAutoriza2Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'mailAutoriza2' de la tabla 'AutorizacionesRPT' es DBNull."& _ 
-                            "", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'mailAutoriza2' de la tabla 'Vw_CXP_AutorizacionesRPT' es "& _ 
+                            "DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.mailAutoriza2Column) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.mailAutoriza2Column) = value
             End Set
         End Property
         
@@ -18253,13 +18335,14 @@ Partial Public Class ProDS
         Public Property Autoriza2() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.Autoriza2Column),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.Autoriza2Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Autoriza2' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Autoriza2' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNu"& _ 
+                            "ll.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.Autoriza2Column) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.Autoriza2Column) = value
             End Set
         End Property
         
@@ -18268,13 +18351,13 @@ Partial Public Class ProDS
         Public Property ok1() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.ok1Column),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.ok1Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ok1' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ok1' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.ok1Column) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.ok1Column) = value
             End Set
         End Property
         
@@ -18283,13 +18366,13 @@ Partial Public Class ProDS
         Public Property ok2() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.ok2Column),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.ok2Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ok2' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ok2' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.ok2Column) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.ok2Column) = value
             End Set
         End Property
         
@@ -18298,13 +18381,14 @@ Partial Public Class ProDS
         Public Property estatus() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.estatusColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.estatusColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'estatus' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'estatus' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNull"& _ 
+                            ".", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.estatusColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.estatusColumn) = value
             End Set
         End Property
         
@@ -18313,13 +18397,14 @@ Partial Public Class ProDS
         Public Property sucursal() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.sucursalColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.sucursalColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'sucursal' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'sucursal' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNul"& _ 
+                            "l.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.sucursalColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.sucursalColumn) = value
             End Set
         End Property
         
@@ -18328,13 +18413,14 @@ Partial Public Class ProDS
         Public Property departamento() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.departamentoColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.departamentoColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'departamento' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'departamento' de la tabla 'Vw_CXP_AutorizacionesRPT' es D"& _ 
+                            "BNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.departamentoColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.departamentoColumn) = value
             End Set
         End Property
         
@@ -18342,10 +18428,10 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property idPagos() As Decimal
             Get
-                Return CType(Me(Me.tableAutorizacionesRPT.idPagosColumn),Decimal)
+                Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.idPagosColumn),Decimal)
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.idPagosColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.idPagosColumn) = value
             End Set
         End Property
         
@@ -18354,13 +18440,14 @@ Partial Public Class ProDS
         Public Property impLocRet() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.impLocRetColumn),Decimal)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.impLocRetColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'impLocRet' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'impLocRet' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNu"& _ 
+                            "ll.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.impLocRetColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.impLocRetColumn) = value
             End Set
         End Property
         
@@ -18369,13 +18456,14 @@ Partial Public Class ProDS
         Public Property impLocTra() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.impLocTraColumn),Decimal)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.impLocTraColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'impLocTra' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'impLocTra' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNu"& _ 
+                            "ll.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.impLocTraColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.impLocTraColumn) = value
             End Set
         End Property
         
@@ -18384,13 +18472,13 @@ Partial Public Class ProDS
         Public Property total() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.totalColumn),Decimal)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.totalColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'total' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'total' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.totalColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.totalColumn) = value
             End Set
         End Property
         
@@ -18399,398 +18487,455 @@ Partial Public Class ProDS
         Public Property moneda() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAutorizacionesRPT.monedaColumn),String)
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.monedaColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'moneda' de la tabla 'AutorizacionesRPT' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'moneda' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNull."& _ 
+                            "", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAutorizacionesRPT.monedaColumn) = value
+                Me(Me.tableVw_CXP_AutorizacionesRPT.monedaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property id_usuario() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.id_usuarioColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'id_usuario' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBN"& _ 
+                            "ull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVw_CXP_AutorizacionesRPT.id_usuarioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property NombreCorto() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.NombreCortoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'NombreCorto' de la tabla 'Vw_CXP_AutorizacionesRPT' es DB"& _ 
+                            "Null.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVw_CXP_AutorizacionesRPT.NombreCortoColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsrfcEmpresaNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.rfcEmpresaColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.rfcEmpresaColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetrfcEmpresaNull()
-            Me(Me.tableAutorizacionesRPT.rfcEmpresaColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.rfcEmpresaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsnombreEmpresaNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.nombreEmpresaColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.nombreEmpresaColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetnombreEmpresaNull()
-            Me(Me.tableAutorizacionesRPT.nombreEmpresaColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.nombreEmpresaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsrfcNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.rfcColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.rfcColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetrfcNull()
-            Me(Me.tableAutorizacionesRPT.rfcColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.rfcColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsrazonSocialNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.razonSocialColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.razonSocialColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetrazonSocialNull()
-            Me(Me.tableAutorizacionesRPT.razonSocialColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.razonSocialColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsusuarioNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.usuarioColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.usuarioColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetusuarioNull()
-            Me(Me.tableAutorizacionesRPT.usuarioColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.usuarioColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsnombreNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.nombreColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.nombreColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetnombreNull()
-            Me(Me.tableAutorizacionesRPT.nombreColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.nombreColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsfolioSolicitudNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.folioSolicitudColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.folioSolicitudColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetfolioSolicitudNull()
-            Me(Me.tableAutorizacionesRPT.folioSolicitudColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.folioSolicitudColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsfechaSolicitudNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.fechaSolicitudColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.fechaSolicitudColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetfechaSolicitudNull()
-            Me(Me.tableAutorizacionesRPT.fechaSolicitudColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.fechaSolicitudColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsfechaFacturaNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.fechaFacturaColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.fechaFacturaColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetfechaFacturaNull()
-            Me(Me.tableAutorizacionesRPT.fechaFacturaColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.fechaFacturaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsserieNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.serieColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.serieColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetserieNull()
-            Me(Me.tableAutorizacionesRPT.serieColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.serieColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsfolioNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.folioColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.folioColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetfolioNull()
-            Me(Me.tableAutorizacionesRPT.folioColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.folioColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsuuidNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.uuidColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.uuidColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetuuidNull()
-            Me(Me.tableAutorizacionesRPT.uuidColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.uuidColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IssubtotalPagadoNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.subtotalPagadoColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.subtotalPagadoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetsubtotalPagadoNull()
-            Me(Me.tableAutorizacionesRPT.subtotalPagadoColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.subtotalPagadoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IstotalPagadoNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.totalPagadoColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.totalPagadoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SettotalPagadoNull()
-            Me(Me.tableAutorizacionesRPT.totalPagadoColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.totalPagadoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IstrasladosPagadosNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.trasladosPagadosColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.trasladosPagadosColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SettrasladosPagadosNull()
-            Me(Me.tableAutorizacionesRPT.trasladosPagadosColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.trasladosPagadosColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsretencionesPagadasNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.retencionesPagadasColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.retencionesPagadasColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetretencionesPagadasNull()
-            Me(Me.tableAutorizacionesRPT.retencionesPagadasColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.retencionesPagadasColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsdecripcionNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.decripcionColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.decripcionColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetdecripcionNull()
-            Me(Me.tableAutorizacionesRPT.decripcionColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.decripcionColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsConceptoNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.ConceptoColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.ConceptoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetConceptoNull()
-            Me(Me.tableAutorizacionesRPT.ConceptoColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.ConceptoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsmailGeneroNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.mailGeneroColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.mailGeneroColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetmailGeneroNull()
-            Me(Me.tableAutorizacionesRPT.mailGeneroColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.mailGeneroColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsmailAutoriza1Null() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.mailAutoriza1Column)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.mailAutoriza1Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetmailAutoriza1Null()
-            Me(Me.tableAutorizacionesRPT.mailAutoriza1Column) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.mailAutoriza1Column) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsAutoriza1Null() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.Autoriza1Column)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.Autoriza1Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetAutoriza1Null()
-            Me(Me.tableAutorizacionesRPT.Autoriza1Column) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.Autoriza1Column) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsmailAutoriza2Null() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.mailAutoriza2Column)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.mailAutoriza2Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetmailAutoriza2Null()
-            Me(Me.tableAutorizacionesRPT.mailAutoriza2Column) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.mailAutoriza2Column) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsAutoriza2Null() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.Autoriza2Column)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.Autoriza2Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetAutoriza2Null()
-            Me(Me.tableAutorizacionesRPT.Autoriza2Column) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.Autoriza2Column) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function Isok1Null() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.ok1Column)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.ok1Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub Setok1Null()
-            Me(Me.tableAutorizacionesRPT.ok1Column) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.ok1Column) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function Isok2Null() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.ok2Column)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.ok2Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub Setok2Null()
-            Me(Me.tableAutorizacionesRPT.ok2Column) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.ok2Column) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsestatusNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.estatusColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.estatusColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetestatusNull()
-            Me(Me.tableAutorizacionesRPT.estatusColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.estatusColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IssucursalNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.sucursalColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.sucursalColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetsucursalNull()
-            Me(Me.tableAutorizacionesRPT.sucursalColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.sucursalColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsdepartamentoNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.departamentoColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.departamentoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetdepartamentoNull()
-            Me(Me.tableAutorizacionesRPT.departamentoColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.departamentoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsimpLocRetNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.impLocRetColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.impLocRetColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetimpLocRetNull()
-            Me(Me.tableAutorizacionesRPT.impLocRetColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.impLocRetColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsimpLocTraNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.impLocTraColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.impLocTraColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetimpLocTraNull()
-            Me(Me.tableAutorizacionesRPT.impLocTraColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.impLocTraColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IstotalNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.totalColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.totalColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SettotalNull()
-            Me(Me.tableAutorizacionesRPT.totalColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.totalColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsmonedaNull() As Boolean
-            Return Me.IsNull(Me.tableAutorizacionesRPT.monedaColumn)
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.monedaColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetmonedaNull()
-            Me(Me.tableAutorizacionesRPT.monedaColumn) = Global.System.Convert.DBNull
+            Me(Me.tableVw_CXP_AutorizacionesRPT.monedaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function Isid_usuarioNull() As Boolean
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.id_usuarioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub Setid_usuarioNull()
+            Me(Me.tableVw_CXP_AutorizacionesRPT.id_usuarioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsNombreCortoNull() As Boolean
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.NombreCortoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetNombreCortoNull()
+            Me(Me.tableVw_CXP_AutorizacionesRPT.NombreCortoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -19906,16 +20051,16 @@ Partial Public Class ProDS
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Public Class AutorizacionesRPTRowChangeEvent
+    Public Class Vw_CXP_AutorizacionesRPTRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As AutorizacionesRPTRow
+        Private eventRow As Vw_CXP_AutorizacionesRPTRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub New(ByVal row As AutorizacionesRPTRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As Vw_CXP_AutorizacionesRPTRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -19923,7 +20068,7 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property Row() As AutorizacionesRPTRow
+        Public ReadOnly Property Row() As Vw_CXP_AutorizacionesRPTRow
             Get
                 Return Me.eventRow
             End Get
@@ -26071,6 +26216,7 @@ Namespace ProDSTableAdapters
             tableMapping.ColumnMappings.Add("FechaSol", "FechaSol")
             tableMapping.ColumnMappings.Add("User", "User")
             tableMapping.ColumnMappings.Add("NombreCorto", "NombreCorto")
+            tableMapping.ColumnMappings.Add("serie", "serie")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -26091,12 +26237,13 @@ Namespace ProDSTableAdapters
                 "licita, SUM(totalPagado) AS Total, estatus AS Estatus, Autoriza1 AS Autorizante,"& _ 
                 " idEmpresas AS idEmpresa, mailGenero AS MailSolicitante, mailAutoriza2, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
                 "                   MAX(fechaSolicitud) AS FechaSol, @User AS [User], NombreCorto"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (NOT (mailAutoriza1 LIKE '"& _ 
-                "#%')) AND (ok1 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ok1 = '') AND (mailAutoriza1"& _ 
-                " = @User) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 "& _ 
-                "> '') AND (ok1 <> 'RECHAZADO') AND (mailAutoriza2 = @User) AND (ok2 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "                         ok2 = '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folioSolicitud, Autoriza1, estatus,"& _ 
-                " nombreEmpresa, nombre, idEmpresas, mailGenero, mailAutoriza2, NombreCorto"
+                ", MAX(serie) AS serie"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (NOT "& _ 
+                "(mailAutoriza1 LIKE '#%')) AND (ok1 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ok1 = '"& _ 
+                "') AND (mailAutoriza1 = @User) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (NOT (mailAutoriza1 "& _ 
+                "LIKE '#%')) AND (ok1 > '') AND (ok1 <> 'RECHAZADO') AND (mailAutoriza2 = @User) "& _ 
+                "AND (ok2 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ok2 = '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folioSolicitud"& _ 
+                ", Autoriza1, estatus, nombreEmpresa, nombre, idEmpresas, mailGenero, mailAutoriz"& _ 
+                "a2, NombreCorto"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@User", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "mailAutoriza1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
@@ -26317,7 +26464,7 @@ Namespace ProDSTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class AutorizacionesRPTTableAdapter
+    Partial Public Class Vw_CXP_AutorizacionesRPTTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -26404,7 +26551,7 @@ Namespace ProDSTableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "AutorizacionesRPT"
+            tableMapping.DataSetTable = "Vw_CXP_AutorizacionesRPT"
             tableMapping.ColumnMappings.Add("idEmpresas", "idEmpresas")
             tableMapping.ColumnMappings.Add("rfcEmpresa", "rfcEmpresa")
             tableMapping.ColumnMappings.Add("nombreEmpresa", "nombreEmpresa")
@@ -26439,6 +26586,8 @@ Namespace ProDSTableAdapters
             tableMapping.ColumnMappings.Add("impLocTra", "impLocTra")
             tableMapping.ColumnMappings.Add("total", "total")
             tableMapping.ColumnMappings.Add("moneda", "moneda")
+            tableMapping.ColumnMappings.Add("id_usuario", "id_usuario")
+            tableMapping.ColumnMappings.Add("NombreCorto", "NombreCorto")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -26460,8 +26609,9 @@ Namespace ProDSTableAdapters
                 "lPagado, totalPagado, trasladosPagados, retencionesPagadas, decripcion, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
                 "                   Concepto, mailGenero, mailAutoriza1, Autoriza1, mailAutoriza2"& _ 
                 ", Autoriza2, ok1, ok2, estatus, sucursal, departamento, idPagos, impLocRet, impL"& _ 
-                "ocTra, total, moneda"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (idEmp"& _ 
-                "resas = @Empresa) AND (folioSolicitud = @Solicitud) AND (estatus = @Estatus)"
+                "ocTra, total, moneda, id_usuario, NombreCorto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_Autorizaci"& _ 
+                "ones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND"& _ 
+                " (estatus = @Estatus)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Empresa", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idEmpresas", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Solicitud", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "folioSolicitud", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -26472,7 +26622,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As ProDS.AutorizacionesRPTDataTable, ByVal Empresa As Decimal, ByVal Solicitud As Global.System.Nullable(Of Decimal), ByVal Estatus As String) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As ProDS.Vw_CXP_AutorizacionesRPTDataTable, ByVal Empresa As Decimal, ByVal Solicitud As Global.System.Nullable(Of Decimal), ByVal Estatus As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(Empresa,Decimal)
             If (Solicitud.HasValue = true) Then
@@ -26496,7 +26646,7 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal Empresa As Decimal, ByVal Solicitud As Global.System.Nullable(Of Decimal), ByVal Estatus As String) As ProDS.AutorizacionesRPTDataTable
+        Public Overloads Overridable Function GetData(ByVal Empresa As Decimal, ByVal Solicitud As Global.System.Nullable(Of Decimal), ByVal Estatus As String) As ProDS.Vw_CXP_AutorizacionesRPTDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(Empresa,Decimal)
             If (Solicitud.HasValue = true) Then
@@ -26509,7 +26659,7 @@ Namespace ProDSTableAdapters
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = CType(Estatus,String)
             End If
-            Dim dataTable As ProDS.AutorizacionesRPTDataTable = New ProDS.AutorizacionesRPTDataTable()
+            Dim dataTable As ProDS.Vw_CXP_AutorizacionesRPTDataTable = New ProDS.Vw_CXP_AutorizacionesRPTDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function

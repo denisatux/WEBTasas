@@ -1374,7 +1374,7 @@ WHERE        (CONT_AutorizarIVA_Interes.Anexo = @Anexo)</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        nombreEmpresa AS Empresa, folioSolicitud AS Solicitud, nombre AS Solicita, SUM(totalPagado) AS Total, estatus AS Estatus, Autoriza1 AS Autorizante, idEmpresas AS idEmpresa, mailGenero AS MailSolicitante, mailAutoriza2, 
-                         MAX(fechaSolicitud) AS FechaSol, @User AS [User], NombreCorto
+                         MAX(fechaSolicitud) AS FechaSol, @User AS [User], NombreCorto, MAX(serie) AS serie
 FROM            Vw_CXP_Autorizaciones
 WHERE        (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 IS NULL OR
                          ok1 = '') AND (mailAutoriza1 = @User) OR
@@ -1401,6 +1401,7 @@ GROUP BY folioSolicitud, Autoriza1, estatus, nombreEmpresa, nombre, idEmpresas, 
               <Mapping SourceColumn="FechaSol" DataSetColumn="FechaSol" />
               <Mapping SourceColumn="User" DataSetColumn="User" />
               <Mapping SourceColumn="NombreCorto" DataSetColumn="NombreCorto" />
+              <Mapping SourceColumn="serie" DataSetColumn="serie" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="Production.dbo.Vw_CXP_Autorizaciones" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByID" GeneratorSourceName="FillByID" GetMethodModifier="Public" GetMethodName="GetDataByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByID" UserSourceName="FillByID">
@@ -1453,13 +1454,13 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (auto
               </DbSource>
             </Sources>
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AutorizacionesRPTTableAdapter" GeneratorDataComponentClassName="AutorizacionesRPTTableAdapter" Name="AutorizacionesRPT" UserDataComponentName="AutorizacionesRPTTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Vw_CXP_AutorizacionesRPTTableAdapter" GeneratorDataComponentClassName="Vw_CXP_AutorizacionesRPTTableAdapter" Name="Vw_CXP_AutorizacionesRPT" UserDataComponentName="Vw_CXP_AutorizacionesRPTTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="Production.dbo.Vw_CXP_Autorizaciones" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        idEmpresas, rfcEmpresa, nombreEmpresa, rfc, razonSocial, usuario, nombre, folioSolicitud, fechaSolicitud, fechaFactura, serie, folio, uuid, subtotalPagado, totalPagado, trasladosPagados, retencionesPagadas, decripcion, 
-                         Concepto, mailGenero, mailAutoriza1, Autoriza1, mailAutoriza2, Autoriza2, ok1, ok2, estatus, sucursal, departamento, idPagos, impLocRet, impLocTra, total, moneda
+                         Concepto, mailGenero, mailAutoriza1, Autoriza1, mailAutoriza2, Autoriza2, ok1, ok2, estatus, sucursal, departamento, idPagos, impLocRet, impLocTra, total, moneda, id_usuario, NombreCorto
 FROM            Vw_CXP_Autorizaciones
 WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (estatus = @Estatus)</CommandText>
                     <Parameters>
@@ -1506,6 +1507,8 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (esta
               <Mapping SourceColumn="impLocTra" DataSetColumn="impLocTra" />
               <Mapping SourceColumn="total" DataSetColumn="total" />
               <Mapping SourceColumn="moneda" DataSetColumn="moneda" />
+              <Mapping SourceColumn="id_usuario" DataSetColumn="id_usuario" />
+              <Mapping SourceColumn="NombreCorto" DataSetColumn="NombreCorto" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -2910,10 +2913,17 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (esta
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="serie" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnserie" msprop:Generator_ColumnPropNameInRow="serie" msprop:Generator_ColumnPropNameInTable="serieColumn" msprop:Generator_UserColumnName="serie" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AutorizacionesRPT" msprop:Generator_TableClassName="AutorizacionesRPTDataTable" msprop:Generator_TableVarName="tableAutorizacionesRPT" msprop:Generator_RowChangedName="AutorizacionesRPTRowChanged" msprop:Generator_TablePropName="AutorizacionesRPT" msprop:Generator_RowDeletingName="AutorizacionesRPTRowDeleting" msprop:Generator_RowChangingName="AutorizacionesRPTRowChanging" msprop:Generator_RowEvHandlerName="AutorizacionesRPTRowChangeEventHandler" msprop:Generator_RowDeletedName="AutorizacionesRPTRowDeleted" msprop:Generator_RowClassName="AutorizacionesRPTRow" msprop:Generator_UserTableName="AutorizacionesRPT" msprop:Generator_RowEvArgName="AutorizacionesRPTRowChangeEvent">
+        <xs:element name="Vw_CXP_AutorizacionesRPT" msprop:Generator_TableClassName="Vw_CXP_AutorizacionesRPTDataTable" msprop:Generator_TableVarName="tableVw_CXP_AutorizacionesRPT" msprop:Generator_RowChangedName="Vw_CXP_AutorizacionesRPTRowChanged" msprop:Generator_TablePropName="Vw_CXP_AutorizacionesRPT" msprop:Generator_RowDeletingName="Vw_CXP_AutorizacionesRPTRowDeleting" msprop:Generator_RowChangingName="Vw_CXP_AutorizacionesRPTRowChanging" msprop:Generator_RowEvHandlerName="Vw_CXP_AutorizacionesRPTRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_CXP_AutorizacionesRPTRowDeleted" msprop:Generator_RowClassName="Vw_CXP_AutorizacionesRPTRow" msprop:Generator_UserTableName="Vw_CXP_AutorizacionesRPT" msprop:Generator_RowEvArgName="Vw_CXP_AutorizacionesRPTRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idEmpresas" msprop:Generator_ColumnVarNameInTable="columnidEmpresas" msprop:Generator_ColumnPropNameInRow="idEmpresas" msprop:Generator_ColumnPropNameInTable="idEmpresasColumn" msprop:Generator_UserColumnName="idEmpresas" type="xs:decimal" />
@@ -3082,6 +3092,20 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (esta
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="id_usuario" msprop:Generator_ColumnVarNameInTable="columnid_usuario" msprop:Generator_ColumnPropNameInRow="id_usuario" msprop:Generator_ColumnPropNameInTable="id_usuarioColumn" msprop:Generator_UserColumnName="id_usuario" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreCorto" msprop:Generator_ColumnVarNameInTable="columnNombreCorto" msprop:Generator_ColumnPropNameInRow="NombreCorto" msprop:Generator_ColumnPropNameInTable="NombreCortoColumn" msprop:Generator_UserColumnName="NombreCorto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -3227,8 +3251,8 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (esta
       <xs:field xpath="mstns:Estatus" />
       <xs:field xpath="mstns:idEmpresa" />
     </xs:unique>
-    <xs:unique name="AutorizacionesRPT_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:AutorizacionesRPT" />
+    <xs:unique name="Vw_CXP_AutorizacionesRPT_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Vw_CXP_AutorizacionesRPT" />
       <xs:field xpath="mstns:idPagos" />
     </xs:unique>
   </xs:element>

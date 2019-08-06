@@ -33,11 +33,18 @@ Partial Public Class CPXForm
         End Try
     End Sub
 
-    Sub GeneraArchivo(Archivo As String, Empresa As Decimal, FirmaSol As String, Solicitud As Decimal, Estatus As String)
-        Dim ta As New ProDSTableAdapters.AutorizacionesRPTTableAdapter
+    Sub GeneraArchivo(Archivo As String, Empresa As Decimal, FirmaSol As String, Solicitud As Decimal, Estatus As String, Serie As String)
+        Dim ta As New ProDSTableAdapters.Vw_CXP_AutorizacionesRPTTableAdapter
         Dim ds As New ProDS
-        Dim rptSolPago As New rptSolicitudDePago
-        ta.Fill(ds.AutorizacionesRPT, Empresa, Solicitud, Estatus)
+        Dim rptSolPago As Object
+        ta.Fill(ds.Vw_CXP_AutorizacionesRPT, Empresa, Solicitud, Estatus)
+
+        If Serie = "PSC" Then
+            rptSolPago = New rptSolicitudDePagoSCC
+        Else
+            rptSolPago = New rptSolicitudDePago
+        End If
+
         rptSolPago.SetDataSource(ds)
         rptSolPago.SetParameterValue("var_genero", FirmaSol)
         Select Case Empresa
@@ -74,7 +81,7 @@ Partial Public Class CPXForm
         Mensaje += "Autorizó: " & r.Autorizante & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
         Asunto = "Solicitud de Gastos Autorizada (" & r.NombreCorto & "): " & Request("ID2")
-        GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus)
+        GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie)
 
         MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Gastos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
@@ -107,7 +114,7 @@ Partial Public Class CPXForm
         Mensaje += "Rechazó: " & r.Autorizante & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
         Asunto = "Solicitud de Gastos Rechazada (" & r.NombreCorto & "): " & Request("ID2")
-        GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus)
+        GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie)
 
         MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Gastos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)

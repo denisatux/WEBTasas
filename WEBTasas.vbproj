@@ -300,6 +300,12 @@
       <DependentUpon>rptSolicitudDePago.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rptSolicitudDePagoSCC.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSolicitudDePagoSCC.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SeguridadDS.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -316,6 +322,10 @@
     <EmbeddedResource Include="rptSolicitudDePago.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSolicitudDePago.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptSolicitudDePagoSCC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSolicitudDePagoSCC.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
