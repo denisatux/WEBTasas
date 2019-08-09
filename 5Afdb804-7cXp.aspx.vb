@@ -3,7 +3,7 @@ Imports CrystalDecisions.Shared
 
 Partial Public Class CPXForm
     Inherits System.Web.UI.Page
-
+    Dim taOBS As New ProDSTableAdapters.CXP_ObservacionesSolicitudTableAdapter
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
             If Request("User").Length <= 0 Then
@@ -83,6 +83,11 @@ Partial Public Class CPXForm
         Asunto = "Solicitud de Gastos Autorizada (" & r.NombreCorto & "): " & Request("ID2")
         GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie)
 
+        If TextMail.Text.Length > 0 Then
+            taOBS.Borrar(r.idEmpresa, r.Solicitud, Request("User"))
+            taOBS.Insert(r.idEmpresa, r.Solicitud, Request("User"), TextMail.Text)
+        End If
+
         MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Gastos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
         Response.Redirect("~\5Afdb804-7cXp.aspx?User=" & Request("User") & "&ID1=0&ID2=0&ID3=0")
@@ -115,6 +120,13 @@ Partial Public Class CPXForm
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
         Asunto = "Solicitud de Gastos Rechazada (" & r.NombreCorto & "): " & Request("ID2")
         GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie)
+        If TextMail.Text.Length <= 0 Then
+            TextMail.Text = "RECHAZADO"
+        Else
+            TextMail.Text = "RECHAZADO" & TextMail.Text
+        End If
+        taOBS.Borrar(r.idEmpresa, r.Solicitud, Request("User"))
+        taOBS.Insert(r.idEmpresa, r.Solicitud, Request("User"), TextMail.Text)
 
         MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Gastos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
@@ -146,6 +158,7 @@ Partial Public Class CPXForm
         LbError.Visible = True
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
         Asunto = "Comentarios de Gastos y Facturas (" & r.NombreCorto & "): " & Request("ID2")
+        TextMail.Text = ""
 
         MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Gastos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
