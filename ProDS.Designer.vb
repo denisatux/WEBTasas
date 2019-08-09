@@ -17824,11 +17824,11 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property serie() As String
             Get
-                Try 
+                If Me.IsserieNull Then
+                    Return String.Empty
+                Else
                     Return CType(Me(Me.tableVw_CXP_Autorizaciones.serieColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'serie' de la tabla 'Vw_CXP_Autorizaciones' es DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableVw_CXP_Autorizaciones.serieColumn) = value
