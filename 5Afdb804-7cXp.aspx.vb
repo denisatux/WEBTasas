@@ -33,11 +33,12 @@ Partial Public Class CPXForm
         End Try
     End Sub
 
-    Sub GeneraArchivo(Archivo As String, Empresa As Decimal, FirmaSol As String, Solicitud As Decimal, Estatus As String, Serie As String)
+    Sub GeneraArchivo(Archivo As String, Empresa As Decimal, FirmaSol As String, Solicitud As Decimal, Estatus As String, Serie As String, Contrato As Boolean)
         Dim ta As New ProDSTableAdapters.Vw_CXP_AutorizacionesRPTTableAdapter
         Dim ds As New ProDS
         Dim rptSolPago As Object
         ta.Fill(ds.Vw_CXP_AutorizacionesRPT, Empresa, Solicitud, Estatus)
+        taOBS.Fill(ds.CXP_ObservacionesSolicitud, Empresa, Solicitud)
 
         If Serie = "PSC" Then
             rptSolPago = New rptSolicitudDePagoSCC
@@ -46,7 +47,10 @@ Partial Public Class CPXForm
         End If
 
         rptSolPago.SetDataSource(ds)
+        rptSolPago.Subreports(0).SetDataSource(ds)
         rptSolPago.SetParameterValue("var_genero", FirmaSol)
+        rptSolPago.SetParameterValue("var_observaciones", ds.CXP_ObservacionesSolicitud.Rows.Count.ToString)
+        rptSolPago.SetParameterValue("var_contrato", Contrato)
         Select Case Empresa
             Case 23
                 rptSolPago.SetParameterValue("var_pathImagen", Server.MapPath("~/IMG/LOGO FINAGIL.JPG"))
@@ -81,12 +85,12 @@ Partial Public Class CPXForm
         Mensaje += "Autorizó: " & r.Autorizante & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
         Asunto = "Solicitud de Gastos Autorizada (" & r.NombreCorto & "): " & Request("ID2")
-        GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie)
 
         If TextMail.Text.Length > 0 Then
             taOBS.Borrar(r.idEmpresa, r.Solicitud, Request("User"))
             taOBS.Insert(r.idEmpresa, r.Solicitud, Request("User"), TextMail.Text)
         End If
+        GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
 
         MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Gastos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
@@ -119,7 +123,6 @@ Partial Public Class CPXForm
         Mensaje += "Rechazó: " & r.Autorizante & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
         Asunto = "Solicitud de Gastos Rechazada (" & r.NombreCorto & "): " & Request("ID2")
-        GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie)
         If TextMail.Text.Length <= 0 Then
             TextMail.Text = "RECHAZADO"
         Else
@@ -127,6 +130,7 @@ Partial Public Class CPXForm
         End If
         taOBS.Borrar(r.idEmpresa, r.Solicitud, Request("User"))
         taOBS.Insert(r.idEmpresa, r.Solicitud, Request("User"), TextMail.Text)
+        GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
 
         MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Gastos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
