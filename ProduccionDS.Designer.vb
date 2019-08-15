@@ -351,8 +351,7 @@ Partial Public Class DataSet1
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class CRED_Lista_Art69DataTable
-        Inherits Global.System.Data.DataTable
-        Implements Global.System.Collections.IEnumerable
+        Inherits Global.System.Data.TypedTableBase(Of CRED_Lista_Art69Row)
         
         Private columnrfc As Global.System.Data.DataColumn
         
@@ -472,12 +471,6 @@ Partial Public Class DataSet1
             rowCRED_Lista_Art69Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowCRED_Lista_Art69Row)
             Return rowCRED_Lista_Art69Row
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overridable Function GetEnumerator() As Global.System.Collections.IEnumerator Implements Global.System.Collections.IEnumerable.GetEnumerator
-            Return Me.Rows.GetEnumerator
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -653,8 +646,7 @@ Partial Public Class DataSet1
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class CRED_Lista_Art69BDataTable
-        Inherits Global.System.Data.DataTable
-        Implements Global.System.Collections.IEnumerable
+        Inherits Global.System.Data.TypedTableBase(Of CRED_Lista_Art69BRow)
         
         Private columnrfc As Global.System.Data.DataColumn
         
@@ -764,12 +756,6 @@ Partial Public Class DataSet1
             rowCRED_Lista_Art69BRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCRED_Lista_Art69BRow)
             Return rowCRED_Lista_Art69BRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overridable Function GetEnumerator() As Global.System.Collections.IEnumerator Implements Global.System.Collections.IEnumerable.GetEnumerator
-            Return Me.Rows.GetEnumerator
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -941,8 +927,7 @@ Partial Public Class DataSet1
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class CRED_ListaFechaArf69DataTable
-        Inherits Global.System.Data.DataTable
-        Implements Global.System.Collections.IEnumerable
+        Inherits Global.System.Data.TypedTableBase(Of CRED_ListaFechaArf69Row)
         
         Private columnfecha_carga As Global.System.Data.DataColumn
         
@@ -1032,12 +1017,6 @@ Partial Public Class DataSet1
             rowCRED_ListaFechaArf69Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowCRED_ListaFechaArf69Row)
             Return rowCRED_ListaFechaArf69Row
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overridable Function GetEnumerator() As Global.System.Collections.IEnumerator Implements Global.System.Collections.IEnumerable.GetEnumerator
-            Return Me.Rows.GetEnumerator
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
