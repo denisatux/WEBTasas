@@ -10918,6 +10918,8 @@ Partial Public Class ProDS
         
         Private columnnoContrato As Global.System.Data.DataColumn
         
+        Private columnTipar As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -11274,6 +11276,14 @@ Partial Public Class ProDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property TiparColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTipar
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -11350,9 +11360,10 @@ Partial Public Class ProDS
                     ByVal contrato As Boolean,  _
                     ByVal Cliente As String,  _
                     ByVal Descr As String,  _
-                    ByVal noContrato As String) As Vw_CXP_AutorizacionesRPTRow
+                    ByVal noContrato As String,  _
+                    ByVal Tipar As String) As Vw_CXP_AutorizacionesRPTRow
             Dim rowVw_CXP_AutorizacionesRPTRow As Vw_CXP_AutorizacionesRPTRow = CType(Me.NewRow,Vw_CXP_AutorizacionesRPTRow)
-            Dim columnValuesArray() As Object = New Object() {idEmpresas, rfcEmpresa, nombreEmpresa, rfc, razonSocial, usuario, nombre, folioSolicitud, fechaSolicitud, fechaFactura, serie, folio, uuid, subtotalPagado, totalPagado, trasladosPagados, retencionesPagadas, decripcion, Concepto, mailGenero, mailAutoriza1, Autoriza1, mailAutoriza2, Autoriza2, ok1, ok2, estatus, sucursal, departamento, idPagos, impLocRet, impLocTra, total, moneda, id_usuario, NombreCorto, contrato, Cliente, Descr, noContrato}
+            Dim columnValuesArray() As Object = New Object() {idEmpresas, rfcEmpresa, nombreEmpresa, rfc, razonSocial, usuario, nombre, folioSolicitud, fechaSolicitud, fechaFactura, serie, folio, uuid, subtotalPagado, totalPagado, trasladosPagados, retencionesPagadas, decripcion, Concepto, mailGenero, mailAutoriza1, Autoriza1, mailAutoriza2, Autoriza2, ok1, ok2, estatus, sucursal, departamento, idPagos, impLocRet, impLocTra, total, moneda, id_usuario, NombreCorto, contrato, Cliente, Descr, noContrato, Tipar}
             rowVw_CXP_AutorizacionesRPTRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVw_CXP_AutorizacionesRPTRow)
             Return rowVw_CXP_AutorizacionesRPTRow
@@ -11421,6 +11432,7 @@ Partial Public Class ProDS
             Me.columnCliente = MyBase.Columns("Cliente")
             Me.columnDescr = MyBase.Columns("Descr")
             Me.columnnoContrato = MyBase.Columns("noContrato")
+            Me.columnTipar = MyBase.Columns("Tipar")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11506,6 +11518,8 @@ Partial Public Class ProDS
             MyBase.Columns.Add(Me.columnDescr)
             Me.columnnoContrato = New Global.System.Data.DataColumn("noContrato", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnoContrato)
+            Me.columnTipar = New Global.System.Data.DataColumn("Tipar", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTipar)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidEmpresas, Me.columnfolioSolicitud, Me.columnidPagos}, true))
             Me.columnidEmpresas.AllowDBNull = false
             Me.columnrfcEmpresa.MaxLength = 13
@@ -11521,7 +11535,6 @@ Partial Public Class ProDS
             Me.columnfolio.MaxLength = 50
             Me.columnuuid.MaxLength = 36
             Me.columntotalPagado.ReadOnly = true
-            Me.columntrasladosPagados.AllowDBNull = false
             Me.columndecripcion.MaxLength = 200
             Me.columnConcepto.MaxLength = 250
             Me.columnmailGenero.MaxLength = 250
@@ -11543,6 +11556,7 @@ Partial Public Class ProDS
             Me.columnCliente.MaxLength = 5
             Me.columnDescr.MaxLength = 120
             Me.columnnoContrato.MaxLength = 10
+            Me.columnTipar.MaxLength = 1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -18987,7 +19001,12 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property trasladosPagados() As Decimal
             Get
-                Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.trasladosPagadosColumn),Decimal)
+                Try 
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.trasladosPagadosColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'trasladosPagados' de la tabla 'Vw_CXP_AutorizacionesRPT' "& _ 
+                            "es DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableVw_CXP_AutorizacionesRPT.trasladosPagadosColumn) = value
@@ -19371,6 +19390,21 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Tipar() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.TiparColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tipar' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVw_CXP_AutorizacionesRPT.TiparColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsrfcEmpresaNull() As Boolean
             Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.rfcEmpresaColumn)
         End Function
@@ -19523,6 +19557,18 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SettotalPagadoNull()
             Me(Me.tableVw_CXP_AutorizacionesRPT.totalPagadoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IstrasladosPagadosNull() As Boolean
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.trasladosPagadosColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SettrasladosPagadosNull()
+            Me(Me.tableVw_CXP_AutorizacionesRPT.trasladosPagadosColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -19799,6 +19845,18 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetnoContratoNull()
             Me(Me.tableVw_CXP_AutorizacionesRPT.noContratoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsTiparNull() As Boolean
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.TiparColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetTiparNull()
+            Me(Me.tableVw_CXP_AutorizacionesRPT.TiparColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -27705,6 +27763,7 @@ Namespace ProDSTableAdapters
             tableMapping.ColumnMappings.Add("Cliente", "Cliente")
             tableMapping.ColumnMappings.Add("Descr", "Descr")
             tableMapping.ColumnMappings.Add("noContrato", "noContrato")
+            tableMapping.ColumnMappings.Add("Tipar", "Tipar")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -27727,9 +27786,9 @@ Namespace ProDSTableAdapters
                 "                   Concepto, mailGenero, mailAutoriza1, Autoriza1, mailAutoriza2"& _ 
                 ", Autoriza2, ok1, ok2, estatus, sucursal, departamento, idPagos, impLocRet, impL"& _ 
                 "ocTra, total, moneda, id_usuario, NombreCorto, contrato, Cliente, Descr, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
-                "                    noContrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    "& _ 
-                "    (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (estatus = @Es"& _ 
-                "tatus)"
+                "                    noContrato, Tipar"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WH"& _ 
+                "ERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (estatu"& _ 
+                "s = @Estatus)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Empresa", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idEmpresas", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Solicitud", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "folioSolicitud", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -27740,10 +27799,14 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As ProDS.Vw_CXP_AutorizacionesRPTDataTable, ByVal Empresa As Decimal, ByVal Solicitud As Decimal, ByVal Estatus As String) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As ProDS.Vw_CXP_AutorizacionesRPTDataTable, ByVal Empresa As Decimal, ByVal Solicitud As Global.System.Nullable(Of Decimal), ByVal Estatus As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(Empresa,Decimal)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(Solicitud,Decimal)
+            If (Solicitud.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Solicitud.Value,Decimal)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
             If (Estatus Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
@@ -27760,10 +27823,14 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal Empresa As Decimal, ByVal Solicitud As Decimal, ByVal Estatus As String) As ProDS.Vw_CXP_AutorizacionesRPTDataTable
+        Public Overloads Overridable Function GetData(ByVal Empresa As Decimal, ByVal Solicitud As Global.System.Nullable(Of Decimal), ByVal Estatus As String) As ProDS.Vw_CXP_AutorizacionesRPTDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(Empresa,Decimal)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(Solicitud,Decimal)
+            If (Solicitud.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Solicitud.Value,Decimal)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
             If (Estatus Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
