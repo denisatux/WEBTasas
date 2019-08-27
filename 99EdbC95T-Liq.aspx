@@ -22,11 +22,14 @@
         <tr>
     <td align=center>
         <br />
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="ObjectDataSource1" EnableModelValidation="True" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None" DataKeyNames="Contrato">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="ObjectDataSource1" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None" DataKeyNames="Contrato">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="Cliente" HeaderText="Cliente" SortExpression="Cliente" />
                 <asp:BoundField DataField="Contrato" HeaderText="Contrato" SortExpression="Contrato" ReadOnly="True" />
+                <asp:BoundField DataField="MontoFinanciado" DataFormatString="{0:n2}" HeaderText="Monto Financiado" HtmlEncode="False" ReadOnly="True" SortExpression="MontoFinanciado">
+                <ItemStyle HorizontalAlign="Right" />
+                </asp:BoundField>
                 <asp:BoundField DataField="AdeudoTotal" HeaderText="Adeudo Total" SortExpression="AdeudoTotal" DataFormatString="{0:n2}" HtmlEncode="False" ReadOnly="True" >
                 <ItemStyle HorizontalAlign="Right" />
                 </asp:BoundField>
