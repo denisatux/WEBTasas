@@ -60,9 +60,9 @@ Partial Public Class DGSucursalLQForm
         Mensaje += "Cliente: " & nombre & "<br>"
         Mensaje += "Monto Financiado: " & Monto.ToString("n2") & "<br>"
 
-        MandaCorreo(Request("User") & "@Fiangil.com.mx", "ecacerest@finagil.com.mx", Asunto, Mensaje, File)
-        MandaCorreo(Request("User") & "@Fiangil.com.mx", ta.ScalarCorreo(Analista), Asunto, Mensaje, File)
-        MandaCorreo(Request("User") & "@Fiangil.com.mx", TaQUERY.SacaCorreoPromo(Cliente), Asunto, Mensaje, File)
+        MandaCorreo(Request("User") & "@finagil.com.mx", "ecacerest@finagil.com.mx", Asunto, Mensaje, File)
+        MandaCorreo(Request("User") & "@finagil.com.mx", ta.ScalarCorreo(Analista), Asunto, Mensaje, File)
+        MandaCorreo(Request("User") & "@finagil.com.mx", TaQUERY.SacaCorreoPromo(Cliente), Asunto, Mensaje, File)
 
     End Sub
 
