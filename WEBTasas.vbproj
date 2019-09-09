@@ -95,6 +95,7 @@
     <Content Include="232db951-DGLQ.aspx" />
     <Content Include="5159Inte-IVAaut.aspx" />
     <Content Include="5159dx1-IVAaut.aspx" />
+    <Content Include="5Afdb804-8cXp.aspx" />
     <Content Include="5Afdb804-7cXp.aspx" />
     <Content Include="951db299-SLCDG.aspx" />
     <Content Include="99EdbC95T-Liq.aspx" />
@@ -143,6 +144,13 @@
     </Compile>
     <Compile Include="5159dx1-IVAaut.aspx.vb">
       <DependentUpon>5159dx1-IVAaut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="5Afdb804-8cXp.aspx.designer.vb">
+      <DependentUpon>5Afdb804-8cXp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="5Afdb804-8cXp.aspx.vb">
+      <DependentUpon>5Afdb804-8cXp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="5Afdb804-7cXp.aspx.designer.vb">
@@ -299,6 +307,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProduccionDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="rptComprobacionGts.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptComprobacionGts.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="rptSolicitudDePago.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -323,6 +337,10 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptComprobacionGts.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptComprobacionGts.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptSolicitudDePago.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
