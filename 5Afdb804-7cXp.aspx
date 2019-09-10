@@ -20,7 +20,7 @@
         <tr>
     <td align=center>
         <br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="idEmpresa,Solicitud,Estatus" DataSourceID="vwDatos_DS" EnableModelValidation="True" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="idEmpresa,Solicitud,Estatus" DataSourceID="vwDatos_DS" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:HyperLinkField DataNavigateUrlFields="User,idEmpresa,Solicitud,Estatus" DataNavigateUrlFormatString="~\5Afdb804-7cXp.aspx?User={0}&amp;ID1={1}&amp;ID2={2}&amp;ID3={3}" Text="Seleccionar">
@@ -41,6 +41,7 @@
                     <asp:BoundField DataField="Estatus" HeaderText="Estatus" SortExpression="Estatus" >
                     <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
+                    <asp:BoundField DataField="Concepto" HeaderText="Concepto" SortExpression="Concepto" />
                 </Columns>
                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
@@ -58,7 +59,7 @@
         <asp:Panel ID="Panel1" runat="server" Height="100%" Width="100%">
             &nbsp;
             <br />
-            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="vwDatos_DS0" EnableModelValidation="True" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="vwDatos_DS0" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="nombreProv" HeaderText="Proveedor" SortExpression="nombreProv" />
@@ -80,6 +81,7 @@
                     <asp:BoundField DataField="Parcialidad" DataFormatString="{0:n0}" HeaderText="Parcialidad" SortExpression="Parcialidad" HtmlEncode="False" >
                     <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
+                    <asp:BoundField DataField="Concepto" HeaderText="Concepto" ReadOnly="True" SortExpression="Concepto" />
                 </Columns>
                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
