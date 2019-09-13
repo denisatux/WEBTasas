@@ -13049,8 +13049,8 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function FindByidEmpresasfolioSolicitud(ByVal idEmpresas As Decimal, ByVal folioSolicitud As Decimal) As Vw_CXP_Autorizaciones_FacturasRow
-            Return CType(Me.Rows.Find(New Object() {idEmpresas, folioSolicitud}),Vw_CXP_Autorizaciones_FacturasRow)
+        Public Function FindByfolioSolicitudidEmpresasuuid(ByVal folioSolicitud As Decimal, ByVal idEmpresas As Decimal, ByVal uuid As String) As Vw_CXP_Autorizaciones_FacturasRow
+            Return CType(Me.Rows.Find(New Object() {folioSolicitud, idEmpresas, uuid}),Vw_CXP_Autorizaciones_FacturasRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13114,9 +13114,10 @@ Partial Public Class ProDS
             MyBase.Columns.Add(Me.columnRoot)
             Me.columnConcepto = New Global.System.Data.DataColumn("Concepto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnConcepto)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidEmpresas, Me.columnfolioSolicitud}, true))
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnfolioSolicitud, Me.columnidEmpresas, Me.columnuuid}, true))
             Me.columnfolioSolicitud.AllowDBNull = false
             Me.columnidEmpresas.AllowDBNull = false
+            Me.columnuuid.AllowDBNull = false
             Me.columnuuid.MaxLength = 36
             Me.columnestatus.MaxLength = 50
             Me.columnnombreProv.MaxLength = 300
@@ -22437,12 +22438,7 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property uuid() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableVw_CXP_Autorizaciones_Facturas.uuidColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'uuid' de la tabla 'Vw_CXP_Autorizaciones_Facturas' es DBN"& _ 
-                            "ull.", e)
-                End Try
+                Return CType(Me(Me.tableVw_CXP_Autorizaciones_Facturas.uuidColumn),String)
             End Get
             Set
                 Me(Me.tableVw_CXP_Autorizaciones_Facturas.uuidColumn) = value
@@ -22608,18 +22604,6 @@ Partial Public Class ProDS
                 Me(Me.tableVw_CXP_Autorizaciones_Facturas.ConceptoColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsuuidNull() As Boolean
-            Return Me.IsNull(Me.tableVw_CXP_Autorizaciones_Facturas.uuidColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetuuidNull()
-            Me(Me.tableVw_CXP_Autorizaciones_Facturas.uuidColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
