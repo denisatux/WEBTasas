@@ -52,7 +52,7 @@ Partial Public Class DGSucursalLQForm
         Dim Asunto As String = ""
         Dim Fecha As Date = DetailsView1.Rows(14).Cells(1).Text.Trim
         Dim Antiguedad As Integer = DateDiff(DateInterval.Year, Fecha, Date.Now.Date)
-        Dim File As String = "Autoriza" & CInt(Request("ID")) & ".Pdf"
+        Dim File As String = "\LQ\Autoriza" & CInt(Request("ID")) & ".Pdf"
         Asunto = "Solicitud de Liquidez Inmediata Autorizada(" & Request("ID") & "): " & nombre
         Dim Mensaje As String = ""
 
