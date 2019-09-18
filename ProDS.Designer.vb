@@ -29861,13 +29861,13 @@ Namespace ProDSTableAdapters
                 "licita, SUM(totalPagado) AS Total, estatus AS Estatus, Autoriza1 AS Autorizante,"& _ 
                 " idEmpresas AS idEmpresa, mailGenero AS MailSolicitante, mailAutoriza2, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
                 "                   MAX(fechaSolicitud) AS FechaSol, @User AS [User], NombreCorto"& _ 
-                ", MAX(serie) AS serie, contrato, MIN(Concepto) AS Concepto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_C"& _ 
-                "XP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 IS NULL"& _ 
-                " OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ok1 = '') AND (mailAutoriza1 = @User) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
-                "                 (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 > '') AND (ok1 <> 'REC"& _ 
-                "HAZADO') AND (mailAutoriza2 = @User) AND (ok2 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   ok2 = '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folioSolicitud, Autoriza1, estatus, nombreEmpresa, nombre"& _ 
-                ", idEmpresas, mailGenero, mailAutoriza2, NombreCorto, contrato"
+                ", MAX(serie) AS serie, contrato, MIN(decripcion) AS Concepto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw"& _ 
+                "_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 IS NU"& _ 
+                "LL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ok1 = '') AND (mailAutoriza1 = @User) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
+                "                   (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 > '') AND (ok1 <> 'R"& _ 
+                "ECHAZADO') AND (mailAutoriza2 = @User) AND (ok2 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
+                "     ok2 = '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folioSolicitud, Autoriza1, estatus, nombreEmpresa, nomb"& _ 
+                "re, idEmpresas, mailGenero, mailAutoriza2, NombreCorto, contrato"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@User", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "mailAutoriza1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
