@@ -79,12 +79,12 @@ Partial Public Class CPXForm
 
         ta.Ok1(Firma, Request("ID1"), Request("ID2"), Request("User"))
         ta.OK2(Firma, Request("ID1"), Request("ID2"), Request("User"))
-        LbError.Text = "Gastos Autorizados"
+        LbError.Text = "Pagos Autorizados"
         Panel1.Visible = False
         LbError.Visible = True
         Mensaje += "Autorizó: " & r.Autorizante & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
-        Asunto = "Solicitud de Gastos Autorizada (" & r.NombreCorto & "): " & Request("ID2")
+        Asunto = "Solicitud de Pagos Autorizada (" & r.NombreCorto & "): " & Request("ID2")
 
         If TextMail.Text.Length > 0 Then
             taOBS.Borrar(r.idEmpresa, r.Solicitud, Request("User"))
@@ -92,8 +92,8 @@ Partial Public Class CPXForm
         End If
         GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
 
-        MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
-        MandaCorreoFase("Gastos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
+        MandaCorreo("Pagos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
+        MandaCorreoFase("Pagos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
         Response.Redirect("~\5Afdb804-7cXp.aspx?User=" & Request("User") & "&ID1=0&ID2=0&ID3=0")
     End Sub
 
@@ -117,12 +117,12 @@ Partial Public Class CPXForm
         Firma = "RECHAZADO"
         ta.Ok1(Firma, Request("ID1"), Request("ID2"), Request("User"))
         ta.OK2(Firma, Request("ID1"), Request("ID2"), Request("User"))
-        LbError.Text = "Gastos Rechazados"
+        LbError.Text = "Pagos Rechazados"
         Panel1.Visible = False
         LbError.Visible = True
         Mensaje += "Rechazó: " & r.Autorizante & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
-        Asunto = "Solicitud de Gastos Rechazada (" & r.NombreCorto & "): " & Request("ID2")
+        Asunto = "Solicitud de Pagos Rechazada (" & r.NombreCorto & "): " & Request("ID2")
         If TextMail.Text.Length <= 0 Then
             TextMail.Text = "RECHAZADO"
         Else
@@ -132,8 +132,8 @@ Partial Public Class CPXForm
         taOBS.Insert(r.idEmpresa, r.Solicitud, Request("User"), TextMail.Text)
         GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
 
-        MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
-        MandaCorreoFase("Gastos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
+        MandaCorreo("Pagos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
+        MandaCorreoFase("Pagos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
         Response.Redirect("~\5Afdb804-7cXp.aspx?User=" & Request("User") & "&ID1=0&ID2=0&ID3=0")
     End Sub
 
@@ -161,11 +161,11 @@ Partial Public Class CPXForm
         Panel1.Visible = False
         LbError.Visible = True
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
-        Asunto = "Comentarios de Gastos y Facturas (" & r.NombreCorto & "): " & Request("ID2")
+        Asunto = "Comentarios de Pagos y Facturas (" & r.NombreCorto & "): " & Request("ID2")
         TextMail.Text = ""
 
-        MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
-        MandaCorreoFase("Gastos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
+        MandaCorreo("Pagos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
+        MandaCorreoFase("Pagos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
         Response.Redirect("~\5Afdb804-7cXp.aspx?User=" & Request("User") & "&ID1=" & Request("ID") & "&ID2=" & Request("ID") & "&ID3=" & Request("ID"))
     End Sub
 End Class

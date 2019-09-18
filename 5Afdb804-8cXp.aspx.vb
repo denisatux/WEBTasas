@@ -87,7 +87,7 @@ Partial Public Class CPXForm8
         LbError.Visible = True
         Mensaje += "Autorizó: " & Request("User") & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
-        Asunto = "Solicitud de Pago Autorizada (" & r.empresa & "): " & Request("ID2")
+        Asunto = "Solicitud de Gastos Autorizada (" & r.empresa & "): " & Request("ID2")
 
         If TextMail.Text.Length > 0 Then
             taOBS.Borrar(r.idEmpresa, r.folioComprobacion, Request("User"))
