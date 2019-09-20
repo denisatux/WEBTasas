@@ -6,6 +6,8 @@ Partial Public Class CPXForm
     Dim taOBS As New ProDSTableAdapters.CXP_ObservacionesSolicitudTableAdapter
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
+            LbAutorizante.Visible = False
+            ListAutorizante.Visible = False
             If Request("User").Length <= 0 Then
                 Panel1.Visible = False
                 LbError.Visible = True
@@ -15,6 +17,10 @@ Partial Public Class CPXForm
                 ta.Fill(t, Request("User"))
                 Dim R As ProDS.Vw_CXP_AutorizacionesRow
                 If t.Rows.Count > 0 Then
+                    If InStr(Request("User"), "lmercado") > 0 Then
+                        LbAutorizante.Visible = True
+                        ListAutorizante.Visible = True
+                    End If
                     R = t.Rows(0)
                     If Request("ID1") > "0" Then
                         Panel1.Visible = True
@@ -22,7 +28,7 @@ Partial Public Class CPXForm
                         Panel1.Visible = False
                     End If
                     LbError.Visible = False
-                    Else
+                Else
                     Panel1.Visible = False
                     LbError.Visible = True
                 End If
@@ -89,6 +95,11 @@ Partial Public Class CPXForm
         If TextMail.Text.Length > 0 Then
             taOBS.Borrar(r.idEmpresa, r.Solicitud, Request("User"))
             taOBS.Insert(r.idEmpresa, r.Solicitud, Request("User"), TextMail.Text)
+        End If
+        If InStr(Request("User"), "lmercado") > 0 Then
+            If ListAutorizante.SelectedValue = "" Then
+                ta.CambiaAutorizante2("#gbello@finagil.com.mx", "C.P. GABRIEL BELLO HERNANDEZ", Request("ID2"), Request("ID1"), Request("ID3"))
+            End If
         End If
         GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
 
@@ -168,4 +179,6 @@ Partial Public Class CPXForm
         MandaCorreoFase("Pagos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
         Response.Redirect("~\5Afdb804-7cXp.aspx?User=" & Request("User") & "&ID1=" & Request("ID") & "&ID2=" & Request("ID") & "&ID3=" & Request("ID"))
     End Sub
+
+
 End Class

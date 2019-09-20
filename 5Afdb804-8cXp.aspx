@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>Autorización de Pagos</title>
+    <title>Autorización de Gastos</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -15,7 +15,7 @@
     <tr>
     <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
         <br />
-        Autorización de Pagos</td>
+        Autorización de Gastos</td>
     </tr>
         <tr>
     <td align=center>

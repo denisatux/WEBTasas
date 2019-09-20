@@ -29854,7 +29854,7 @@ Namespace ProDSTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        nombreEmpresa AS Empresa, folioSolicitud AS Solicitud, nombre AS So"& _ 
@@ -29872,7 +29872,18 @@ Namespace ProDSTableAdapters
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@User", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "mailAutoriza1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        nombreEmpresa AS Empresa, folioSolicitud AS Solicitud, nombre AS So"& _ 
+            Me._commandCollection(1).CommandText = "UPDATE       CXP_Pagos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                autoriza2 = @Correo, naAutoriza2 = @No"& _ 
+                "mbre"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (folioSolicitud = @Solicitud) AND (idEmpresas = @Empresa) AND"& _ 
+                " (estatus = @Estatus)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Correo", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "autoriza2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "naAutoriza2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Solicitud", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "folioSolicitud", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Empresa", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idEmpresas", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estatus", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "estatus", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT        nombreEmpresa AS Empresa, folioSolicitud AS Solicitud, nombre AS So"& _ 
                 "licita, SUM(totalPagado) AS Total, estatus AS Estatus, mailAutoriza1 AS Correo, "& _ 
                 "Autoriza1 AS Autorizante, idEmpresas AS idEmpresa, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ma"& _ 
                 "ilGenero AS MailSolicitante, MAX(fechaSolicitud) AS FechaSol, NombreCorto, @user"& _ 
@@ -29881,29 +29892,29 @@ Namespace ProDSTableAdapters
                 "mbreEmpresa, nombre, idEmpresas, mailGenero, NombreCorto, serie, contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVIN"& _ 
                 "G        (folioSolicitud = @Solicitud) AND (idEmpresas = @Empresa) AND (estatus "& _ 
                 "= @Estatus)"
-            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@user", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Solicitud", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "Solicitud", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Empresa", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idEmpresa", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estatus", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "UPDATE       CXP_Pagos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                ok1 = @ok1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (idEmpresas ="& _ 
-                " @Empresa) AND (folioSolicitud = @Solicitud) AND (autoriza1 = @User)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ok1", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ok1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Empresa", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idEmpresas", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Solicitud", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "folioSolicitud", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@User", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "autoriza1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@user", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Solicitud", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "Solicitud", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Empresa", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idEmpresa", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estatus", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "UPDATE       CXP_Pagos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                ok2 = @ok2"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (idEmpresas ="& _ 
-                " @Empresa) AND (folioSolicitud = @Solicitud) AND (autoriza2 = @User)"
+            Me._commandCollection(3).CommandText = "UPDATE       CXP_Pagos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                ok1 = @ok1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (idEmpresas ="& _ 
+                " @Empresa) AND (folioSolicitud = @Solicitud) AND (autoriza1 = @User)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ok2", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ok2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ok1", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ok1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Empresa", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idEmpresas", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Solicitud", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "folioSolicitud", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@User", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "autoriza2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@User", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "autoriza1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "UPDATE       CXP_Pagos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                ok2 = @ok2"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (idEmpresas ="& _ 
+                " @Empresa) AND (folioSolicitud = @Solicitud) AND (autoriza2 = @User)"
+            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ok2", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ok2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Empresa", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idEmpresas", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Solicitud", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "folioSolicitud", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@User", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "autoriza2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -29945,7 +29956,7 @@ Namespace ProDSTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByID(ByVal dataTable As ProDS.Vw_CXP_AutorizacionesDataTable, ByVal user As String, ByVal Solicitud As Global.System.Nullable(Of Decimal), ByVal Empresa As Decimal, ByVal Estatus As String) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             If (user Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("user")
             Else
@@ -29974,7 +29985,7 @@ Namespace ProDSTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByID(ByVal user As String, ByVal Solicitud As Global.System.Nullable(Of Decimal), ByVal Empresa As Decimal, ByVal Estatus As String) As ProDS.Vw_CXP_AutorizacionesDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             If (user Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("user")
             Else
@@ -30000,8 +30011,55 @@ Namespace ProDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function CambiaAutorizante2(ByVal Correo As String, ByVal Nombre As String, ByVal Solicitud As Global.System.Nullable(Of Decimal), ByVal Empresa As Global.System.Nullable(Of Decimal), ByVal Estatus As String) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
+            If (Correo Is Nothing) Then
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(0).Value = CType(Correo,String)
+            End If
+            If (Nombre Is Nothing) Then
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(1).Value = CType(Nombre,String)
+            End If
+            If (Solicitud.HasValue = true) Then
+                command.Parameters(2).Value = CType(Solicitud.Value,Decimal)
+            Else
+                command.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Empresa.HasValue = true) Then
+                command.Parameters(3).Value = CType(Empresa.Value,Decimal)
+            Else
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (Estatus Is Nothing) Then
+                command.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(4).Value = CType(Estatus,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function Ok1(ByVal ok11 As String, ByVal Empresa As Global.System.Nullable(Of Decimal), ByVal Solicitud As Global.System.Nullable(Of Decimal), ByVal User As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
             If (ok11 Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -30043,7 +30101,7 @@ Namespace ProDSTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function OK2(ByVal ok21 As String, ByVal Empresa As Global.System.Nullable(Of Decimal), ByVal Solicitud As Global.System.Nullable(Of Decimal), ByVal User As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
             If (ok21 Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else

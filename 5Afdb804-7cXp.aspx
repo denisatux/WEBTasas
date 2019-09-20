@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>Autorización de Gastos y Facturas</title>
+    <title>Autorizacion de Pagos</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -15,7 +15,7 @@
     <tr>
     <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
         <br />
-        Autorizacion de Gastos Y Facturas</td>
+        Autorizacion de Pagos</td>
     </tr>
         <tr>
     <td align=center>
@@ -98,6 +98,14 @@
             </asp:ObjectDataSource>
             <br />
             <asp:TextBox ID="TextMail" runat="server" Height="52px" MaxLength="1000" TextMode="MultiLine" Width="320px"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Label ID="LbAutorizante" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600" Text="Segundo Autorizante"></asp:Label>
+            <br />
+            <asp:DropDownList ID="ListAutorizante" runat="server" Height="16px" Width="314px">
+                <asp:ListItem Value="DO">Dirección de Operaciones</asp:ListItem>
+                <asp:ListItem Value="DG">Dirección General</asp:ListItem>
+            </asp:DropDownList>
             <br />
             <br />
             <cc1:BotonEnviar ID="BotonAutorizar" runat="server" Font-Bold="True" Font-Size="Smaller" Text="Autorizar" TextoEnviando="Autorizando..." Width="122px" />

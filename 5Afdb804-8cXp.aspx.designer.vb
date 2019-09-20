@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class CPXForm8
-
+    
     '''<summary>
     '''Control form1.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class CPXForm8
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-
+    
     '''<summary>
     '''Control GridView1.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class CPXForm8
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
-
+    
     '''<summary>
     '''Control vwDatos_DS.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class CPXForm8
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents vwDatos_DS As Global.System.Web.UI.WebControls.ObjectDataSource
-
+    
     '''<summary>
     '''Control Panel1.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class CPXForm8
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents Panel1 As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''Control GridView2.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class CPXForm8
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents GridView2 As Global.System.Web.UI.WebControls.GridView
-
+    
     '''<summary>
     '''Control vwDatos_DS0.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class CPXForm8
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents vwDatos_DS0 As Global.System.Web.UI.WebControls.ObjectDataSource
-
+    
     '''<summary>
     '''Control TextMail.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class CPXForm8
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents TextMail As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''Control BotonAutorizar.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class CPXForm8
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents BotonAutorizar As Global.RoderoLib.BotonEnviar
-
+    
     '''<summary>
     '''Control BotonRechazar.
     '''</summary>
@@ -93,7 +93,7 @@ Partial Public Class CPXForm8
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents BotonRechazar As Global.RoderoLib.BotonEnviar
-
+    
     '''<summary>
     '''Control BotonCorreo.
     '''</summary>
@@ -102,7 +102,7 @@ Partial Public Class CPXForm8
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents BotonCorreo As Global.RoderoLib.BotonEnviar
-
+    
     '''<summary>
     '''Control LbError.
     '''</summary>
