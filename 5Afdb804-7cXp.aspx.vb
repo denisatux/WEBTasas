@@ -97,8 +97,10 @@ Partial Public Class CPXForm
             taOBS.Insert(r.idEmpresa, r.Solicitud, Request("User"), TextMail.Text)
         End If
         If InStr(Request("User"), "lmercado") > 0 Then
-            If ListAutorizante.SelectedValue = "" Then
+            If ListAutorizante.SelectedValue = "DG" Then
                 ta.CambiaAutorizante2("#gbello@finagil.com.mx", "C.P. GABRIEL BELLO HERNANDEZ", Request("ID2"), Request("ID1"), Request("ID3"))
+            ElseIf ListAutorizante.SelectedValue = "DO" Then
+                ta.CambiaAutorizante2("#epineda@finagil.com.mx", "C.P. ELISANDER PINEDA ROJAS", Request("ID2"), Request("ID1"), Request("ID3"))
             End If
         End If
         GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
