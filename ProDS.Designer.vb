@@ -29887,11 +29887,11 @@ Namespace ProDSTableAdapters
                 "licita, SUM(totalPagado) AS Total, estatus AS Estatus, mailAutoriza1 AS Correo, "& _ 
                 "Autoriza1 AS Autorizante, idEmpresas AS idEmpresa, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ma"& _ 
                 "ilGenero AS MailSolicitante, MAX(fechaSolicitud) AS FechaSol, NombreCorto, @user"& _ 
-                " AS [User], serie, contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE       "& _ 
-                " (@user = @user)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folioSolicitud, mailAutoriza1, Autoriza1, estatus, no"& _ 
-                "mbreEmpresa, nombre, idEmpresas, mailGenero, NombreCorto, serie, contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVIN"& _ 
-                "G        (folioSolicitud = @Solicitud) AND (idEmpresas = @Empresa) AND (estatus "& _ 
-                "= @Estatus)"
+                " AS [User], MAX(serie) AS serie, contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_Autorizaciones"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (@user = @user)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folioSolicitud, mailAutoriza1, Autoriza"& _ 
+                "1, estatus, nombreEmpresa, nombre, idEmpresas, mailGenero, NombreCorto, contrato"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (folioSolicitud = @Solicitud) AND (idEmpresas = @Empresa) AND (e"& _ 
+                "status = @Estatus)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@user", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Solicitud", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "Solicitud", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
