@@ -29863,11 +29863,12 @@ Namespace ProDSTableAdapters
                 "                   MAX(fechaSolicitud) AS FechaSol, @User AS [User], NombreCorto"& _ 
                 ", MAX(serie) AS serie, contrato, MIN(decripcion) AS Concepto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw"& _ 
                 "_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 IS NU"& _ 
-                "LL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ok1 = '') AND (mailAutoriza1 = @User) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
-                "                   (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 > '') AND (ok1 <> 'R"& _ 
-                "ECHAZADO') AND (mailAutoriza2 = @User) AND (ok2 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
-                "     ok2 = '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folioSolicitud, Autoriza1, estatus, nombreEmpresa, nomb"& _ 
-                "re, idEmpresas, mailGenero, mailAutoriza2, NombreCorto, contrato"
+                "LL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ok1 = '') AND (mailAutoriza1 = @User) AND (estat"& _ 
+                "us <> 'CompGtos') OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (NOT (mailAutoriza1 LIKE '#%')) A"& _ 
+                "ND (ok1 > '') AND (ok1 <> 'RECHAZADO') AND (mailAutoriza2 = @User) AND (ok2 IS N"& _ 
+                "ULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ok2 = '') AND (estatus <> 'CompGtos')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY"& _ 
+                " folioSolicitud, Autoriza1, estatus, nombreEmpresa, nombre, idEmpresas, mailGene"& _ 
+                "ro, mailAutoriza2, NombreCorto, contrato"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@User", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "mailAutoriza1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
