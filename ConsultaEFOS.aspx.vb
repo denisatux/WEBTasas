@@ -173,6 +173,7 @@ Public Class ConsultaEFOS
 
         Dim cad As String = "\WEBTASAS\tmp\" & Date.Now.ToString("yyyyMMddmmss") & ".pdf"
         newrptRepSalCli.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath(cad))
+        newrptRepSalCli.Dispose()
 
         Response.Write("<script>")
         cad = cad.Replace("\", "/")

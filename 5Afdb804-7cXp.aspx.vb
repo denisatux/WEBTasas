@@ -64,6 +64,8 @@ Partial Public Class CPXForm
                 rptSolPago.SetParameterValue("var_pathImagen", Server.MapPath("~/IMG/logoArfin.JPG"))
         End Select
         rptSolPago.ExportToDisk(ExportFormatType.PortableDocFormat, My.Settings.RUTA_TMP & Archivo)
+        rptSolPago.Dispose()
+
     End Sub
 
     Protected Sub BotonAutorizar_Click(sender As Object, e As EventArgs) Handles BotonAutorizar.Click

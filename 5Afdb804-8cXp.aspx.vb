@@ -62,7 +62,7 @@ Partial Public Class CPXForm8
         rptComprobacion.SetParameterValue("var_total", FormatCurrency(ta.Total(Empresa, Solicitud)))
 
         rptComprobacion.ExportToDisk(ExportFormatType.PortableDocFormat, My.Settings.RUTA_TMP & Archivo)
-
+        rptComprobacion.Dispose()
     End Sub
 
     Protected Sub BotonAutorizar_Click(sender As Object, e As EventArgs) Handles BotonAutorizar.Click
