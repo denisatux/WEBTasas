@@ -93,7 +93,6 @@
                 <SelectParameters>
                     <asp:QueryStringParameter Name="Empresa" QueryStringField="ID1" Type="Decimal" DefaultValue="0" />
                     <asp:QueryStringParameter DefaultValue="0" Name="Solicitud" QueryStringField="ID2" Type="Decimal" />
-                    <asp:QueryStringParameter DefaultValue="0" Name="estatus" QueryStringField="ID3" Type="String" />
                 </SelectParameters>
             </asp:ObjectDataSource>
             <br />

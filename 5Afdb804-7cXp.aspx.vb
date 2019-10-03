@@ -41,30 +41,54 @@ Partial Public Class CPXForm
 
     Sub GeneraArchivo(Archivo As String, Empresa As Decimal, FirmaSol As String, Solicitud As Decimal, Estatus As String, Serie As String, Contrato As Boolean)
         Dim ta As New ProDSTableAdapters.Vw_CXP_AutorizacionesRPTTableAdapter
-        Dim ds As New ProDS
+        Dim ds0 As New ProDS
+        Dim ds1 As New ProDS
+        Dim ds2 As New ProDS
         Dim rptSolPago As Object
-        ta.Fill(ds.Vw_CXP_AutorizacionesRPT, Empresa, Solicitud, Estatus)
-        taOBS.Fill(ds.CXP_ObservacionesSolicitud, Empresa, Solicitud)
+        ta.Fill(ds0.Vw_CXP_AutorizacionesRPT, Empresa, Solicitud, Estatus)
+        taOBS.Fill(ds0.CXP_ObservacionesSolicitud, Empresa, Solicitud)
 
         If Serie = "PSC" Then
+            ta.DetalleSD_FillBy(ds1.Vw_CXP_AutorizacionesRPT, Empresa, Solicitud)
+            ta.DetalleND_FillBy(ds2.Vw_CXP_AutorizacionesRPT, Empresa, Solicitud)
             rptSolPago = New rptSolicitudDePagoSCC
+
+            rptSolPago.SetDataSource(ds0)
+            rptSolPago.Subreports(0).SetDataSource(ds0)
+            rptSolPago.Subreports(1).SetDataSource(ds1)
+            rptSolPago.Subreports(2).SetDataSource(ds2)
+            rptSolPago.SetParameterValue("var_SD", ds1.Vw_CXP_AutorizacionesRPT.Rows.Count)
+            rptSolPago.SetParameterValue("var_ND", ds2.Vw_CXP_AutorizacionesRPT.Rows.Count)
+            rptSolPago.SetParameterValue("var_genero", FirmaSol)
+            rptSolPago.SetParameterValue("var_observaciones", ds0.CXP_ObservacionesSolicitud.Rows.Count.ToString)
+            rptSolPago.SetParameterValue("var_contrato", Contrato)
+
+            Select Case Empresa
+                Case 23
+                    rptSolPago.SetParameterValue("var_pathImagen", Server.MapPath("~/IMG/LOGO FINAGIL.JPG"))
+                Case 24
+                    rptSolPago.SetParameterValue("var_pathImagen", Server.MapPath("~/IMG/logoArfin.JPG"))
+            End Select
+            rptSolPago.ExportToDisk(ExportFormatType.PortableDocFormat, My.Settings.RUTA_TMP & Archivo)
+            rptSolPago.Dispose()
         Else
             rptSolPago = New rptSolicitudDePago
+            rptSolPago.SetDataSource(ds0)
+            rptSolPago.Subreports(0).SetDataSource(ds0)
+            rptSolPago.SetParameterValue("var_genero", FirmaSol)
+            rptSolPago.SetParameterValue("var_observaciones", ds0.CXP_ObservacionesSolicitud.Rows.Count.ToString)
+            rptSolPago.SetParameterValue("var_contrato", Contrato)
+            Select Case Empresa
+                Case 23
+                    rptSolPago.SetParameterValue("var_pathImagen", Server.MapPath("~/IMG/LOGO FINAGIL.JPG"))
+                Case 24
+                    rptSolPago.SetParameterValue("var_pathImagen", Server.MapPath("~/IMG/logoArfin.JPG"))
+            End Select
+            rptSolPago.ExportToDisk(ExportFormatType.PortableDocFormat, My.Settings.RUTA_TMP & Archivo)
+            rptSolPago.Dispose()
         End If
 
-        rptSolPago.SetDataSource(ds)
-        rptSolPago.Subreports(0).SetDataSource(ds)
-        rptSolPago.SetParameterValue("var_genero", FirmaSol)
-        rptSolPago.SetParameterValue("var_observaciones", ds.CXP_ObservacionesSolicitud.Rows.Count.ToString)
-        rptSolPago.SetParameterValue("var_contrato", Contrato)
-        Select Case Empresa
-            Case 23
-                rptSolPago.SetParameterValue("var_pathImagen", Server.MapPath("~/IMG/LOGO FINAGIL.JPG"))
-            Case 24
-                rptSolPago.SetParameterValue("var_pathImagen", Server.MapPath("~/IMG/logoArfin.JPG"))
-        End Select
-        rptSolPago.ExportToDisk(ExportFormatType.PortableDocFormat, My.Settings.RUTA_TMP & Archivo)
-        rptSolPago.Dispose()
+
 
     End Sub
 
