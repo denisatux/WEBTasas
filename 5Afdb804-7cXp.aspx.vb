@@ -114,7 +114,7 @@ Partial Public Class CPXForm
         LbError.Text = "Pagos Autorizados"
         Panel1.Visible = False
         LbError.Visible = True
-        Mensaje += "Autorizó: " & r.Autorizante & "<br>"
+        Mensaje += "Autorizó: " & Request("User") & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
         Asunto = "Solicitud de Pagos Autorizada (" & r.NombreCorto & "): " & Request("ID2")
 
@@ -130,6 +130,13 @@ Partial Public Class CPXForm
             End If
         End If
         GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
+
+        If r.contrato = True Then
+            If InStr(Request("User"), "lmercado") > 0 Then
+            Else
+                MandaCorreoFase("Pagos@finagil.com.mx", "MCONTROL_CXP", Asunto, Mensaje, Archivo)
+            End If
+        End If
 
         MandaCorreo("Pagos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Pagos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
@@ -159,7 +166,7 @@ Partial Public Class CPXForm
         LbError.Text = "Pagos Rechazados"
         Panel1.Visible = False
         LbError.Visible = True
-        Mensaje += "Rechazó: " & r.Autorizante & "<br>"
+        Mensaje += "Rechazó: " & Request("User") & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
         Asunto = "Solicitud de Pagos Rechazada (" & r.NombreCorto & "): " & Request("ID2")
         If TextMail.Text.Length <= 0 Then
@@ -170,7 +177,6 @@ Partial Public Class CPXForm
         taOBS.Borrar(r.idEmpresa, r.Solicitud, Request("User"))
         taOBS.Insert(r.idEmpresa, r.Solicitud, Request("User"), TextMail.Text)
         GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
-
         MandaCorreo("Pagos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Pagos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
         Response.Redirect("~\5Afdb804-7cXp.aspx?User=" & Request("User") & "&ID1=0&ID2=0&ID3=0")

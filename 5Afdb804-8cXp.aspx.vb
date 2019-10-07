@@ -73,6 +73,7 @@ Partial Public Class CPXForm8
         Dim Mensaje As String = ""
         Dim Asunto As String = ""
         Dim Archivo As String
+        Dim Antorizante As String = ta.SacaNombre(Request("User"))
         ta.Fill(t, Request("ID1"), Request("ID2"))
         r = t.Rows(0)
         Mensaje = "Solicitud: " & r.folioComprobacion & "<br>"
@@ -86,7 +87,7 @@ Partial Public Class CPXForm8
         LbError.Text = "Gastos Autorizados"
         Panel1.Visible = False
         LbError.Visible = True
-        Mensaje += "Autorizó: " & Request("User") & "<br>"
+        Mensaje += "Autorizó: " & Antorizante.ToUpper & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
         Asunto = "Solicitud de Gastos Autorizada (" & r.empresa & "): " & Request("ID2")
 
@@ -109,6 +110,7 @@ Partial Public Class CPXForm8
         Dim Mensaje As String = ""
         Dim Asunto As String = ""
         Dim Archivo As String
+        Dim Antorizante As String = ta.SacaNombre(Request("User"))
         ta.Fill(t, Request("ID1"), Request("ID2"))
         r = t.Rows(0)
         Mensaje = "Solicitud: " & r.folioComprobacion & "<br>"
@@ -123,7 +125,7 @@ Partial Public Class CPXForm8
         LbError.Text = "Gastos Rechazados"
         Panel1.Visible = False
         LbError.Visible = True
-        Mensaje += "Rechazó: " & Request("User") & "<br>"
+        Mensaje += "Rechazó: " & Antorizante.ToUpper & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
         Asunto = "Solicitud de Pago Rechazada (" & r.empresa & "): " & Request("ID2")
         If TextMail.Text.Length <= 0 Then
