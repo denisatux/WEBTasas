@@ -49,16 +49,16 @@ Partial Public Class CPXForm
         taOBS.Fill(ds0.CXP_ObservacionesSolicitud, Empresa, Solicitud)
 
         If Serie = "PSC" Then
-            ta.DetalleSD_FillBy(ds1.Vw_CXP_AutorizacionesRPT, Empresa, Solicitud)
-            ta.DetalleND_FillBy(ds2.Vw_CXP_AutorizacionesRPT, Empresa, Solicitud)
+            ta.DetalleND_FillBy(ds1.Vw_CXP_AutorizacionesRPT, Empresa, Solicitud)
+            ta.DetalleSD_FillBy(ds2.Vw_CXP_AutorizacionesRPT, Empresa, Solicitud)
             rptSolPago = New rptSolicitudDePagoSCC
 
             rptSolPago.SetDataSource(ds0)
             rptSolPago.Subreports(0).SetDataSource(ds0)
             rptSolPago.Subreports(1).SetDataSource(ds1)
             rptSolPago.Subreports(2).SetDataSource(ds2)
-            rptSolPago.SetParameterValue("var_SD", ds1.Vw_CXP_AutorizacionesRPT.Rows.Count)
-            rptSolPago.SetParameterValue("var_ND", ds2.Vw_CXP_AutorizacionesRPT.Rows.Count)
+            rptSolPago.SetParameterValue("var_SD", ds2.Vw_CXP_AutorizacionesRPT.Rows.Count)
+            rptSolPago.SetParameterValue("var_ND", ds1.Vw_CXP_AutorizacionesRPT.Rows.Count)
             rptSolPago.SetParameterValue("var_genero", FirmaSol)
             rptSolPago.SetParameterValue("var_observaciones", ds0.CXP_ObservacionesSolicitud.Rows.Count.ToString)
             rptSolPago.SetParameterValue("var_contrato", Contrato)
