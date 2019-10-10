@@ -6,19 +6,26 @@ Partial Public Class CPXForm8
     Dim taOBS As New ProDSTableAdapters.CXP_ObservacionesSolicitudPagosTableAdapter
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
-            If Request("User").Length <= 0 Then
+            If Not IsNothing(Request("User")) Then
+                Session.Item("User") = Request("User")
+                Response.Redirect("~\5Afdb804-8cXp.aspx", True)
+            End If
+            If IsNothing(Session("User")) Then
                 Panel1.Visible = False
                 LbError.Visible = True
             Else
                 Dim ta As New ProDSTableAdapters.Vw_CXP_ComprobacionGastosResumTableAdapter
                 Dim t As New ProDS.Vw_CXP_ComprobacionGastosResumDataTable
-                ta.Fill(t, Request("User"))
+                ta.Fill(t, Session("User"))
                 Dim R As ProDS.Vw_CXP_ComprobacionGastosResumRow
                 If t.Rows.Count > 0 Then
 
                     R = t.Rows(0)
-                    If Request("ID1") > "0" Then
+                    If Session("ID1") > "0" Then
                         Panel1.Visible = True
+                        If Not IsNothing(Session("ID4")) Then
+                            GridView1.SelectedIndex = Session("ID4")
+                        End If
                     Else
                         Panel1.Visible = False
                     End If
@@ -69,94 +76,100 @@ Partial Public Class CPXForm8
         Dim ta As New ProDSTableAdapters.Vw_CXP_ComprobacionGastosTableAdapter
         Dim t As New ProDS.Vw_CXP_ComprobacionGastosDataTable
         Dim r As ProDS.Vw_CXP_ComprobacionGastosRow
-        Dim Firma As String = Encriptar(Date.Now.ToString("yyyyMMddhhmm") & Request("User") & Request("ID1") & "-" & Request("ID2"))
+        Dim Firma As String = Encriptar(Date.Now.ToString("yyyyMMddhhmm") & Session("User") & Session("ID1") & "-" & Session("ID2"))
         Dim Mensaje As String = ""
         Dim Asunto As String = ""
         Dim Archivo As String
-        Dim Antorizante As String = ta.SacaNombre(Request("User"))
-        ta.Fill(t, Request("ID1"), Request("ID2"))
+        Dim Antorizante As String = ta.SacaNombre(Session("User"))
+        ta.Fill(t, Session("ID1"), Session("ID2"))
         r = t.Rows(0)
         Mensaje = "Solicitud: " & r.folioComprobacion & "<br>"
         Mensaje += "Emrpesa: " & r.empresa & "<br>"
         Mensaje += "Importe: " & CDec(r.totalPagado).ToString("n2") & "<br>"
         Archivo = "GTS\" & CInt(r.idEmpresa).ToString & "-" & CInt(r.folioComprobacion.ToString) & ".pdf"
-        Dim Firma2 As String = Encriptar(r.fechaSolicitud.ToString("yyyyMMddhhmm") & r.MailSolicitante & Request("ID1") & "-" & Request("ID2"))
+        Dim Firma2 As String = Encriptar(r.fechaSolicitud.ToString("yyyyMMddhhmm") & r.MailSolicitante & Session("ID1") & "-" & Session("ID2"))
 
-        ta.Ok1(Firma, Request("ID1"), Request("ID2"), Request("User"))
-        ta.OK2(Firma, Request("ID1"), Request("ID2"), Request("User"))
+        ta.Ok1(Firma, Session("ID1"), Session("ID2"), Session("User"))
+        ta.Ok2(Firma, Session("ID1"), Session("ID2"), Session("User"))
         LbError.Text = "Gastos Autorizados"
         Panel1.Visible = False
         LbError.Visible = True
         Mensaje += "Autorizó: " & Antorizante.ToUpper & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
-        Asunto = "Solicitud de Gastos Autorizada (" & r.empresa & "): " & Request("ID2")
+        Asunto = "Solicitud de Gastos Autorizada (" & r.empresa & "): " & Session("ID2")
 
         If TextMail.Text.Length > 0 Then
-            taOBS.Borrar(r.idEmpresa, r.folioComprobacion, Request("User"))
-            taOBS.Insert(r.idEmpresa, r.folioComprobacion, Request("User"), TextMail.Text)
+            taOBS.Borrar(r.idEmpresa, r.folioComprobacion, Session("User"))
+            taOBS.Insert(r.idEmpresa, r.folioComprobacion, Session("User"), TextMail.Text)
         End If
-        GeneraArchivo(Archivo, Request("ID1"), Firma2, r.folioComprobacion, r.serie)
+        GeneraArchivo(Archivo, Session("ID1"), Firma2, r.folioComprobacion, r.serie)
 
         MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Gastos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
-        Response.Redirect("~\5Afdb804-8cXp.aspx?User=" & Request("User") & "&ID1=0&ID2=0")
+        Session("ID1") = 0
+        Session("ID2") = 0
+        Session("ID4") = Nothing
+        Response.Redirect("~\5Afdb804-8cXp.aspx", True)
     End Sub
 
     Protected Sub BotonRechazar_Click(sender As Object, e As EventArgs) Handles BotonRechazar.Click
         Dim ta As New ProDSTableAdapters.Vw_CXP_ComprobacionGastosTableAdapter
         Dim t As New ProDS.Vw_CXP_ComprobacionGastosDataTable
         Dim r As ProDS.Vw_CXP_ComprobacionGastosRow
-        Dim Firma As String = Encriptar(Date.Now.ToString("yyyyMMddhhmm") & Request("User") & Request("ID1") & "-" & Request("ID2"))
+        Dim Firma As String = Encriptar(Date.Now.ToString("yyyyMMddhhmm") & Session("User") & Session("ID1") & "-" & Session("ID2"))
         Dim Mensaje As String = ""
         Dim Asunto As String = ""
         Dim Archivo As String
-        Dim Antorizante As String = ta.SacaNombre(Request("User"))
-        ta.Fill(t, Request("ID1"), Request("ID2"))
+        Dim Antorizante As String = ta.SacaNombre(Session("User"))
+        ta.Fill(t, Session("ID1"), Session("ID2"))
         r = t.Rows(0)
         Mensaje = "Solicitud: " & r.folioComprobacion & "<br>"
         Mensaje += "Emrpesa: " & r.empresa & "<br>"
         Mensaje += "Importe: " & CDec(r.totalPagado).ToString("n2") & "<br>"
         Archivo = "GTS\" & CInt(r.idEmpresa).ToString & "-" & CInt(r.folioComprobacion).ToString & ".pdf"
-        Dim Firma2 As String = Encriptar(r.fechaSolicitud.ToString("yyyyMMddhhmm") & r.MailSolicitante & Request("ID1") & "-" & Request("ID2"))
+        Dim Firma2 As String = Encriptar(r.fechaSolicitud.ToString("yyyyMMddhhmm") & r.MailSolicitante & Session("ID1") & "-" & Session("ID2"))
 
         Firma = "RECHAZADO"
-        ta.Ok1(Firma, Request("ID1"), Request("ID2"), Request("User"))
-        ta.OK2(Firma, Request("ID1"), Request("ID2"), Request("User"))
+        ta.Ok1(Firma, Session("ID1"), Session("ID2"), Session("User"))
+        ta.Ok2(Firma, Session("ID1"), Session("ID2"), Session("User"))
         LbError.Text = "Gastos Rechazados"
         Panel1.Visible = False
         LbError.Visible = True
         Mensaje += "Rechazó: " & Antorizante.ToUpper & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
-        Asunto = "Solicitud de Pago Rechazada (" & r.empresa & "): " & Request("ID2")
+        Asunto = "Solicitud de Pago Rechazada (" & r.empresa & "): " & Session("ID2")
         If TextMail.Text.Length <= 0 Then
             TextMail.Text = "RECHAZADO"
         Else
             TextMail.Text = "RECHAZADO" & TextMail.Text
         End If
-        taOBS.Borrar(r.idEmpresa, r.folioComprobacion, Request("User"))
-        taOBS.Insert(r.idEmpresa, r.folioComprobacion, Request("User"), TextMail.Text)
-        GeneraArchivo(Archivo, Request("ID1"), Firma2, r.folioComprobacion, r.serie)
+        taOBS.Borrar(r.idEmpresa, r.folioComprobacion, Session("User"))
+        taOBS.Insert(r.idEmpresa, r.folioComprobacion, Session("User"), TextMail.Text)
+        GeneraArchivo(Archivo, Session("ID1"), Firma2, r.folioComprobacion, r.serie)
 
         MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Gastos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
-        Response.Redirect("~\5Afdb804-8cXp.aspx?User=" & Request("User") & "&ID1=0&ID2=0")
+        Session("ID1") = 0
+        Session("ID2") = 0
+        Session("ID4") = Nothing
+        Response.Redirect("~\5Afdb804-8cXp.aspx", True)
     End Sub
 
     Protected Sub BotonCorreo_Click(sender As Object, e As EventArgs) Handles BotonCorreo.Click
         Dim ta As New ProDSTableAdapters.Vw_CXP_ComprobacionGastosTableAdapter
         Dim t As New ProDS.Vw_CXP_ComprobacionGastosDataTable
         Dim r As ProDS.Vw_CXP_ComprobacionGastosRow
-        Dim Firma As String = Encriptar(Date.Now.ToString("yyyyMMddhhmm") & Request("User") & Request("ID1") & "-" & Request("ID2"))
+        Dim Firma As String = Encriptar(Date.Now.ToString("yyyyMMddhhmm") & Session("User") & Session("ID1") & "-" & Session("ID2"))
         Dim Mensaje As String = ""
         Dim Asunto As String = ""
         Dim Archivo As String
-        ta.Fill(t, Request("ID1"), Request("ID2"))
+        ta.Fill(t, Session("ID1"), Session("ID2"))
         r = t.Rows(0)
         Mensaje = "Solicitud: " & r.folio & "<br>"
         Mensaje += "Emrpesa: " & r.empresa & "<br>"
         Mensaje += "Importe: " & CDec(r.totalPagado).ToString("n2") & "<br>"
         Archivo = "GTS\" & CInt(r.idEmpresa).ToString & "-" & CInt(r.folioComprobacion).ToString & ".pdf"
-        Dim Firma2 As String = Encriptar(r.fechaSolicitud.ToString("yyyyMMddhhmm") & r.MailSolicitante & Request("ID1") & "-" & Request("ID2"))
+        Dim Firma2 As String = Encriptar(r.fechaSolicitud.ToString("yyyyMMddhhmm") & r.MailSolicitante & Session("ID1") & "-" & Session("ID2"))
 
         If TextMail.Text.Length <= 0 Then
             Exit Sub
@@ -165,11 +178,21 @@ Partial Public Class CPXForm8
         Panel1.Visible = False
         LbError.Visible = True
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
-        Asunto = "Comentarios de Gastos y Facturas (" & r.empresa & "): " & Request("ID2")
+        Asunto = "Comentarios de Gastos y Facturas (" & r.empresa & "): " & Session("ID2")
         TextMail.Text = ""
 
         MandaCorreo("Gastos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Gastos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
-        Response.Redirect("~\5Afdb804-8cXp.aspx?User=" & Request("User") & "&ID1=" & Request("ID") & "&ID2=" & Request("ID") & "&ID3=" & Request("ID"))
+        Session("ID1") = 0
+        Session("ID2") = 0
+        Session("ID4") = Nothing
+        Response.Redirect("~\5Afdb804-8cXp.aspx", True)
+    End Sub
+
+    Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView1.SelectedIndexChanged
+        Session("ID1") = GridView1.SelectedDataKey("idEmpresa")
+        Session("ID2") = GridView1.SelectedDataKey("FolioComprobante")
+        Session("ID4") = GridView1.SelectedIndex
+        Response.Redirect("~\5Afdb804-8cXp.aspx", True)
     End Sub
 End Class

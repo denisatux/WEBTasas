@@ -1,4 +1,4 @@
-<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="5Afdb804-7cXp.aspx.vb" Inherits="WEBTasas.CPXForm" %>
+<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="5Afdb804-7cXp.aspx.vb" Inherits="WEBTasas.CPXForm" Culture="es-MX" %>
 
 <%@ Register Assembly="RoderoLib" Namespace="RoderoLib" TagPrefix="cc1" %>
 
@@ -23,9 +23,7 @@
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="idEmpresa,Solicitud,Estatus" DataSourceID="vwDatos_DS" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:HyperLinkField DataNavigateUrlFields="User,idEmpresa,Solicitud,Estatus" DataNavigateUrlFormatString="~\5Afdb804-7cXp.aspx?User={0}&amp;ID1={1}&amp;ID2={2}&amp;ID3={3}" Text="Seleccionar">
-                    <ItemStyle HorizontalAlign="Center" />
-                    </asp:HyperLinkField>
+                    <asp:CommandField ShowSelectButton="True" /> 
                     <asp:BoundField DataField="Empresa" HeaderText="Empresa" SortExpression="Empresa" >
                     <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
@@ -51,9 +49,10 @@
             </asp:GridView>
             <asp:ObjectDataSource ID="vwDatos_DS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="WEBTasas.ProDSTableAdapters.Vw_CXP_AutorizacionesTableAdapter">
                 <SelectParameters>
-                    <asp:QueryStringParameter Name="User" QueryStringField="User" Type="String" />
+                    <asp:SessionParameter Name="User" SessionField="User" Type="String" />
                 </SelectParameters>
             </asp:ObjectDataSource>
+        <asp:HiddenField ID="HiddenField1" runat="server" />
         <br />
     
         <asp:Panel ID="Panel1" runat="server" Height="100%" Width="100%">
@@ -91,8 +90,8 @@
             </asp:GridView>
             <asp:ObjectDataSource ID="vwDatos_DS0" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="WEBTasas.ProDSTableAdapters.Vw_CXP_Autorizaciones_FacturasTableAdapter">
                 <SelectParameters>
-                    <asp:QueryStringParameter Name="Empresa" QueryStringField="ID1" Type="Decimal" DefaultValue="0" />
-                    <asp:QueryStringParameter DefaultValue="0" Name="Solicitud" QueryStringField="ID2" Type="Decimal" />
+                    <asp:SessionParameter DefaultValue="0" Name="Empresa" SessionField="ID1" Type="Decimal" />
+                    <asp:SessionParameter DefaultValue="0" Name="Solicitud" SessionField="ID2" Type="Decimal" />
                 </SelectParameters>
             </asp:ObjectDataSource>
             <br />

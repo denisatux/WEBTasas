@@ -8,22 +8,29 @@ Partial Public Class CPXForm
         Try
             LbAutorizante.Visible = False
             ListAutorizante.Visible = False
-            If Request("User").Length <= 0 Then
+            If Not IsNothing(Request("User")) Then
+                Session.Item("User") = Request("User")
+                Response.Redirect("~\5Afdb804-7cXp.aspx")
+            End If
+            If IsNothing(Session("User")) Then
                 Panel1.Visible = False
                 LbError.Visible = True
             Else
                 Dim ta As New ProDSTableAdapters.Vw_CXP_AutorizacionesTableAdapter
                 Dim t As New ProDS.Vw_CXP_AutorizacionesDataTable
-                ta.Fill(t, Request("User"))
+                ta.Fill(t, Session("User"))
                 Dim R As ProDS.Vw_CXP_AutorizacionesRow
                 If t.Rows.Count > 0 Then
-                    If InStr(Request("User"), "lmercado") > 0 Then
+                    If InStr(Session("User"), "lmercado") > 0 Then
                         LbAutorizante.Visible = True
                         ListAutorizante.Visible = True
                     End If
                     R = t.Rows(0)
-                    If Request("ID1") > "0" Then
+                    If Session("ID1") > "0" Then
                         Panel1.Visible = True
+                        If Not IsNothing(Session("ID4")) Then
+                            GridView1.SelectedIndex = Session("ID4")
+                        End If
                     Else
                         Panel1.Visible = False
                     End If
@@ -96,43 +103,43 @@ Partial Public Class CPXForm
         Dim ta As New ProDSTableAdapters.Vw_CXP_AutorizacionesTableAdapter
         Dim t As New ProDS.Vw_CXP_AutorizacionesDataTable
         Dim r As ProDS.Vw_CXP_AutorizacionesRow
-        Dim Firma As String = Encriptar(Date.Now.ToString("yyyyMMddhhmm") & Request("User") & Request("ID1") & "-" & Request("ID2"))
+        Dim Firma As String = Encriptar(Date.Now.ToString("yyyyMMddhhmm") & Session("User") & Session("ID1") & "-" & Session("ID2"))
         Dim Mensaje As String = ""
         Dim Asunto As String = ""
         Dim Archivo As String
-        ta.FillByID(t, Request("User"), Request("ID2"), Request("ID1"), Request("ID3"))
+        ta.FillByID(t, Session("User"), Session("ID2"), Session("ID1"), Session("ID3"))
         r = t.Rows(0)
         Mensaje = "Solicitud: " & r.Solicitud & "<br>"
         Mensaje += "Emrpesa: " & r.NombreCorto & "<br>"
         Mensaje += "Estatus: " & r.Estatus & "<br>"
         Mensaje += "Importe: " & CDec(r.Total).ToString("n2") & "<br>"
         Archivo = "CXP\" & CInt(r.idEmpresa).ToString & "-" & CInt(r.Solicitud).ToString & ".pdf"
-        Dim Firma2 As String = Encriptar(r.FechaSol.ToString("yyyyMMddhhmm") & r.MailSolicitante & Request("ID1") & "-" & Request("ID2"))
+        Dim Firma2 As String = Encriptar(r.FechaSol.ToString("yyyyMMddhhmm") & r.MailSolicitante & Session("ID1") & "-" & Session("ID2"))
 
-        ta.Ok1(Firma, Request("ID1"), Request("ID2"), Request("User"))
-        ta.OK2(Firma, Request("ID1"), Request("ID2"), Request("User"))
+        ta.Ok1(Firma, Session("ID1"), Session("ID2"), Session("User"))
+        ta.OK2(Firma, Session("ID1"), Session("ID2"), Session("User"))
         LbError.Text = "Pagos Autorizados"
         Panel1.Visible = False
         LbError.Visible = True
-        Mensaje += "Autorizó: " & Request("User") & "<br>"
+        Mensaje += "Autorizó: " & Session("User") & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
-        Asunto = "Solicitud de Pagos Autorizada (" & r.NombreCorto & "): " & Request("ID2")
+        Asunto = "Solicitud de Pagos Autorizada (" & r.NombreCorto & "): " & Session("ID2")
 
         If TextMail.Text.Length > 0 Then
-            taOBS.Borrar(r.idEmpresa, r.Solicitud, Request("User"))
-            taOBS.Insert(r.idEmpresa, r.Solicitud, Request("User"), TextMail.Text)
+            taOBS.Borrar(r.idEmpresa, r.Solicitud, Session("User"))
+            taOBS.Insert(r.idEmpresa, r.Solicitud, Session("User"), TextMail.Text)
         End If
-        If InStr(Request("User"), "lmercado") > 0 Then
+        If InStr(Session("User"), "lmercado") > 0 Then
             If ListAutorizante.SelectedValue = "DG" Then
-                ta.CambiaAutorizante2("#gbello@finagil.com.mx", "C.P. GABRIEL BELLO HERNANDEZ", Request("ID2"), Request("ID1"), Request("ID3"))
+                ta.CambiaAutorizante2("#gbello@finagil.com.mx", "C.P. GABRIEL BELLO HERNANDEZ", Session("ID2"), Session("ID1"), Session("ID3"))
             ElseIf ListAutorizante.SelectedValue = "DO" Then
-                ta.CambiaAutorizante2("#epineda@finagil.com.mx", "C.P. ELISANDER PINEDA ROJAS", Request("ID2"), Request("ID1"), Request("ID3"))
+                ta.CambiaAutorizante2("#epineda@finagil.com.mx", "C.P. ELISANDER PINEDA ROJAS", Session("ID2"), Session("ID1"), Session("ID3"))
             End If
         End If
-        GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
+        GeneraArchivo(Archivo, Session("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
 
         If r.contrato = True Then
-            If InStr(Request("User"), "lmercado") > 0 Then
+            If InStr(Session("User"), "lmercado") > 0 Then
             Else
                 MandaCorreoFase("Pagos@finagil.com.mx", "MCONTROL_CXP", Asunto, Mensaje, Archivo)
             End If
@@ -140,64 +147,72 @@ Partial Public Class CPXForm
 
         MandaCorreo("Pagos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Pagos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
-        Response.Redirect("~\5Afdb804-7cXp.aspx?User=" & Request("User") & "&ID1=0&ID2=0&ID3=0")
+        Session("ID1") = 0
+        Session("ID2") = 0
+        Session("ID3") = Nothing
+        Session("ID4") = Nothing
+        Response.Redirect("~\5Afdb804-7cXp.aspx", True)
     End Sub
 
     Protected Sub BotonRechazar_Click(sender As Object, e As EventArgs) Handles BotonRechazar.Click
         Dim ta As New ProDSTableAdapters.Vw_CXP_AutorizacionesTableAdapter
         Dim t As New ProDS.Vw_CXP_AutorizacionesDataTable
         Dim r As ProDS.Vw_CXP_AutorizacionesRow
-        Dim Firma As String = Encriptar(Date.Now.ToString("yyyyMMddhhmm") & Request("User") & Request("ID1") & "-" & Request("ID2"))
+        Dim Firma As String = Encriptar(Date.Now.ToString("yyyyMMddhhmm") & Session("User") & Session("ID1") & "-" & Session("ID2"))
         Dim Mensaje As String = ""
         Dim Asunto As String = ""
         Dim Archivo As String
-        ta.FillByID(t, Request("User"), Request("ID2"), Request("ID1"), Request("ID3"))
+        ta.FillByID(t, Session("User"), Session("ID2"), Session("ID1"), Session("ID3"))
         r = t.Rows(0)
         Mensaje = "Solicitud: " & r.Solicitud & "<br>"
         Mensaje += "Emrpesa: " & r.NombreCorto & "<br>"
         Mensaje += "Estatus: " & r.Estatus & "<br>"
         Mensaje += "Importe: " & CDec(r.Total).ToString("n2") & "<br>"
         Archivo = "CXP\" & CInt(r.idEmpresa).ToString & "-" & CInt(r.Solicitud).ToString & ".pdf"
-        Dim Firma2 As String = Encriptar(r.FechaSol.ToString("yyyyMMddhhmm") & r.MailSolicitante & Request("ID1") & "-" & Request("ID2"))
+        Dim Firma2 As String = Encriptar(r.FechaSol.ToString("yyyyMMddhhmm") & r.MailSolicitante & Session("ID1") & "-" & Session("ID2"))
 
         Firma = "RECHAZADO"
-        ta.Ok1(Firma, Request("ID1"), Request("ID2"), Request("User"))
-        ta.OK2(Firma, Request("ID1"), Request("ID2"), Request("User"))
+        ta.Ok1(Firma, Session("ID1"), Session("ID2"), Session("User"))
+        ta.OK2(Firma, Session("ID1"), Session("ID2"), Session("User"))
         LbError.Text = "Pagos Rechazados"
         Panel1.Visible = False
         LbError.Visible = True
-        Mensaje += "Rechazó: " & Request("User") & "<br>"
+        Mensaje += "Rechazó: " & Session("User") & "<br>"
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
-        Asunto = "Solicitud de Pagos Rechazada (" & r.NombreCorto & "): " & Request("ID2")
+        Asunto = "Solicitud de Pagos Rechazada (" & r.NombreCorto & "): " & Session("ID2")
         If TextMail.Text.Length <= 0 Then
             TextMail.Text = "RECHAZADO"
         Else
             TextMail.Text = "RECHAZADO" & TextMail.Text
         End If
-        taOBS.Borrar(r.idEmpresa, r.Solicitud, Request("User"))
-        taOBS.Insert(r.idEmpresa, r.Solicitud, Request("User"), TextMail.Text)
-        GeneraArchivo(Archivo, Request("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
+        taOBS.Borrar(r.idEmpresa, r.Solicitud, Session("User"))
+        taOBS.Insert(r.idEmpresa, r.Solicitud, Session("User"), TextMail.Text)
+        GeneraArchivo(Archivo, Session("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
         MandaCorreo("Pagos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Pagos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
-        Response.Redirect("~\5Afdb804-7cXp.aspx?User=" & Request("User") & "&ID1=0&ID2=0&ID3=0")
+        Session("ID1") = 0
+        Session("ID2") = 0
+        Session("ID3") = Nothing
+        Session("ID4") = Nothing
+        Response.Redirect("~\5Afdb804-7cXp.aspx", True)
     End Sub
 
     Protected Sub BotonCorreo_Click(sender As Object, e As EventArgs) Handles BotonCorreo.Click
         Dim ta As New ProDSTableAdapters.Vw_CXP_AutorizacionesTableAdapter
         Dim t As New ProDS.Vw_CXP_AutorizacionesDataTable
         Dim r As ProDS.Vw_CXP_AutorizacionesRow
-        Dim Firma As String = Encriptar(Date.Now.ToString("yyyyMMddhhmm") & Request("User") & Request("ID1") & "-" & Request("ID2"))
+        Dim Firma As String = Encriptar(Date.Now.ToString("yyyyMMddhhmm") & Session("User") & Session("ID1") & "-" & Session("ID2"))
         Dim Mensaje As String = ""
         Dim Asunto As String = ""
         Dim Archivo As String
-        ta.FillByID(t, Request("User"), Request("ID2"), Request("ID1"), Request("ID3"))
+        ta.FillByID(t, Session("User"), Session("ID2"), Session("ID1"), Session("ID3"))
         r = t.Rows(0)
         Mensaje = "Solicitud: " & r.Solicitud & "<br>"
         Mensaje += "Emrpesa: " & r.NombreCorto & "<br>"
         Mensaje += "Estatus: " & r.Estatus & "<br>"
         Mensaje += "Importe: " & CDec(r.Total).ToString("n2") & "<br>"
         Archivo = "CXP\" & CInt(r.idEmpresa).ToString & "-" & CInt(r.Solicitud).ToString & ".pdf"
-        Dim Firma2 As String = Encriptar(r.FechaSol.ToString("yyyyMMddhhmm") & r.MailSolicitante & Request("ID1") & "-" & Request("ID2"))
+        Dim Firma2 As String = Encriptar(r.FechaSol.ToString("yyyyMMddhhmm") & r.MailSolicitante & Session("ID1") & "-" & Session("ID2"))
 
         If TextMail.Text.Length <= 0 Then
             Exit Sub
@@ -206,13 +221,24 @@ Partial Public Class CPXForm
         Panel1.Visible = False
         LbError.Visible = True
         Mensaje += "Comentario: " & TextMail.Text & "<br>"
-        Asunto = "Comentarios de Pagos y Facturas (" & r.NombreCorto & "): " & Request("ID2")
+        Asunto = "Comentarios de Pagos y Facturas (" & r.NombreCorto & "): " & Session("ID2")
         TextMail.Text = ""
 
         MandaCorreo("Pagos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Pagos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
-        Response.Redirect("~\5Afdb804-7cXp.aspx?User=" & Request("User") & "&ID1=" & Request("ID") & "&ID2=" & Request("ID") & "&ID3=" & Request("ID"))
+        Session("ID1") = 0
+        Session("ID2") = 0
+        Session("ID3") = Nothing
+        Session("ID4") = Nothing
+        Response.Redirect("~\5Afdb804-7cXp.aspx", True)
     End Sub
 
+    Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView1.SelectedIndexChanged
+        Session("ID1") = GridView1.SelectedDataKey("idEmpresa")
+        Session("ID2") = GridView1.SelectedDataKey("Solicitud")
+        Session("ID3") = GridView1.SelectedDataKey("Estatus")
+        Session("ID4") = GridView1.SelectedIndex
+        Response.Redirect("~\5Afdb804-7cXp.aspx", True)
+    End Sub
 
 End Class

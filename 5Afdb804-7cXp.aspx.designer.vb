@@ -41,6 +41,15 @@ Partial Public Class CPXForm
     Protected WithEvents vwDatos_DS As Global.System.Web.UI.WebControls.ObjectDataSource
     
     '''<summary>
+    '''Control HiddenField1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents HiddenField1 As Global.System.Web.UI.WebControls.HiddenField
+    
+    '''<summary>
     '''Control Panel1.
     '''</summary>
     '''<remarks>

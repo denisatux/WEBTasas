@@ -1,4 +1,4 @@
-<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="5Afdb804-8cXp.aspx.vb" Inherits="WEBTasas.CPXForm8" %>
+<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="5Afdb804-8cXp.aspx.vb" Inherits="WEBTasas.CPXForm8" Culture="es-MX" %>
 
 <%@ Register Assembly="RoderoLib" Namespace="RoderoLib" TagPrefix="cc1" %>
 
@@ -23,9 +23,7 @@
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="idEmpresa,FolioComprobante" DataSourceID="vwDatos_DS" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:HyperLinkField DataNavigateUrlFields="User,idEmpresa,FolioComprobante" DataNavigateUrlFormatString="~\5Afdb804-8cXp.aspx?User={0}&amp;ID1={1}&amp;ID2={2}" Text="Seleccionar">
-                    <ItemStyle HorizontalAlign="Center" />
-                    </asp:HyperLinkField>
+                    <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="Empresa" HeaderText="Empresa" SortExpression="Empresa" >
                     <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
@@ -80,8 +78,8 @@
             </asp:GridView>
             <asp:ObjectDataSource ID="vwDatos_DS0" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="WEBTasas.ProDSTableAdapters.Vw_CXP_ComprobacionGastosTableAdapter">
                 <SelectParameters>
-                    <asp:QueryStringParameter Name="Empresa" QueryStringField="ID1" Type="Decimal" DefaultValue="0" />
-                    <asp:QueryStringParameter DefaultValue="" Name="folioComprobacion" QueryStringField="ID2" Type="Decimal" />
+                    <asp:SessionParameter DefaultValue="0" Name="Empresa" SessionField="ID1" Type="Decimal" />
+                    <asp:SessionParameter DefaultValue="" Name="folioComprobacion" SessionField="ID2" Type="Decimal" />
                 </SelectParameters>
             </asp:ObjectDataSource>
             <br />
