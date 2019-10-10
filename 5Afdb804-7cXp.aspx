@@ -1,4 +1,4 @@
-<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="5Afdb804-7cXp.aspx.vb" Inherits="WEBTasas.CPXForm" Culture="es-MX" %>
+<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="5Afdb804-7cXp.aspx.vb" Inherits="WEBTasas.CPXForm" Culture="es-MX" uiCulture="es-MX" %>
 
 <%@ Register Assembly="RoderoLib" Namespace="RoderoLib" TagPrefix="cc1" %>
 
@@ -23,7 +23,7 @@
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="idEmpresa,Solicitud,Estatus" DataSourceID="vwDatos_DS" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:CommandField ShowSelectButton="True" /> 
+                    <asp:CommandField ShowSelectButton="True" ButtonType="Image" SelectImageUrl="~/IMG/check1.JPG" /> 
                     <asp:BoundField DataField="Empresa" HeaderText="Empresa" SortExpression="Empresa" >
                     <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
