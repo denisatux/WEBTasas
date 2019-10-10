@@ -1375,7 +1375,7 @@ WHERE        (CONT_AutorizarIVA_Interes.Anexo = @Anexo)</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        nombreEmpresa AS Empresa, folioSolicitud AS Solicitud, nombre AS Solicita, MAX(totalPagado) AS Total, MIN(estatus) AS Estatus, Autoriza1 AS Autorizante, idEmpresas AS idEmpresa, mailGenero AS MailSolicitante, 
-                         MAX(mailAutoriza2) AS mailAutoriza2, MAX(fechaSolicitud) AS FechaSol, @User AS [User], NombreCorto, MAX(serie) AS serie, contrato, MIN(decripcion) AS Concepto
+                         MAX(mailAutoriza2) AS mailAutoriza2, MAX(fechaSolicitud) AS FechaSol, @User AS [User], NombreCorto, MAX(serie) AS serie, contrato, MIN(decripcion) AS Concepto, MAX(noContrato) AS Anexo
 FROM            Vw_CXP_Autorizaciones
 WHERE        (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 IS NULL OR
                          ok1 = '') AND (mailAutoriza1 = @User) AND (estatus &lt;&gt; 'CompGtos') OR
@@ -1405,6 +1405,7 @@ GROUP BY folioSolicitud, Autoriza1, nombreEmpresa, nombre, idEmpresas, mailGener
               <Mapping SourceColumn="serie" DataSetColumn="serie" />
               <Mapping SourceColumn="contrato" DataSetColumn="contrato" />
               <Mapping SourceColumn="Concepto" DataSetColumn="Concepto" />
+              <Mapping SourceColumn="Anexo" DataSetColumn="Anexo" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CambiaAutorizante2" Modifier="Public" Name="CambiaAutorizante2" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="CambiaAutorizante2">
@@ -1427,7 +1428,7 @@ WHERE        (folioSolicitud = @Solicitud) AND (idEmpresas = @Empresa) AND (esta
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        nombreEmpresa AS Empresa, folioSolicitud AS Solicitud, nombre AS Solicita, SUM(totalPagado) AS Total, estatus AS Estatus, mailAutoriza1 AS Correo, Autoriza1 AS Autorizante, idEmpresas AS idEmpresa, 
-                         mailGenero AS MailSolicitante, MAX(fechaSolicitud) AS FechaSol, NombreCorto, @user AS [User], MAX(serie) AS serie, contrato
+                         mailGenero AS MailSolicitante, MAX(fechaSolicitud) AS FechaSol, NombreCorto, @user AS [User], MAX(serie) AS serie, contrato, MAX(noContrato) AS Anexo
 FROM            Vw_CXP_Autorizaciones
 WHERE        (@user = @user)
 GROUP BY folioSolicitud, mailAutoriza1, Autoriza1, estatus, nombreEmpresa, nombre, idEmpresas, mailGenero, NombreCorto, contrato
@@ -1788,7 +1789,7 @@ WHERE        (idEmpresa = @Empresa) AND (folioComprobacion = @Solicitud) AND (ma
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SacaNombre" Modifier="Public" Name="SacaNombre" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="SacaNombre">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SacaNombre" Modifier="Public" Name="SacaNombre" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="SacaNombre">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MAX(RTRIM(nombre)) AS nombre
@@ -1800,7 +1801,7 @@ WHERE        (mail = @mail)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Total" Modifier="Public" Name="Total" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="Total">
+              <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Total" Modifier="Public" Name="Total" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="Total">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        SUM(ISNULL(importe, 0)) AS importe
@@ -3266,7 +3267,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (esta
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Solicitud" msprop:Generator_ColumnVarNameInTable="columnSolicitud" msprop:Generator_ColumnPropNameInRow="Solicitud" msprop:Generator_ColumnPropNameInTable="SolicitudColumn" msprop:Generator_UserColumnName="Solicitud" type="xs:decimal" />
+              <xs:element name="Solicitud" msprop:Generator_ColumnVarNameInTable="columnSolicitud" msprop:Generator_ColumnPropNameInRow="Solicitud" msprop:Generator_ColumnPropNameInTable="SolicitudColumn" msprop:Generator_UserColumnName="Solicitud" type="xs:decimal" minOccurs="0" />
               <xs:element name="Solicita" msprop:Generator_ColumnVarNameInTable="columnSolicita" msprop:Generator_ColumnPropNameInRow="Solicita" msprop:Generator_ColumnPropNameInTable="SolicitaColumn" msprop:Generator_UserColumnName="Solicita" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -3275,7 +3276,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (esta
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Estatus" msprop:Generator_ColumnVarNameInTable="columnEstatus" msprop:Generator_ColumnPropNameInRow="Estatus" msprop:Generator_ColumnPropNameInTable="EstatusColumn" msprop:Generator_UserColumnName="Estatus">
+              <xs:element name="Estatus" msprop:Generator_ColumnVarNameInTable="columnEstatus" msprop:Generator_ColumnPropNameInRow="Estatus" msprop:Generator_ColumnPropNameInTable="EstatusColumn" msprop:Generator_UserColumnName="Estatus" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -3331,6 +3332,13 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (esta
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Anexo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAnexo" msprop:Generator_ColumnPropNameInRow="Anexo" msprop:Generator_ColumnPropNameInTable="AnexoColumn" msprop:Generator_UserColumnName="Anexo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

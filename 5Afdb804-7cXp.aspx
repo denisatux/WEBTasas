@@ -40,6 +40,7 @@
                     <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
                     <asp:BoundField DataField="Concepto" HeaderText="Concepto" SortExpression="Concepto" />
+                    <asp:BoundField DataField="Anexo" HeaderText="Anexo" ReadOnly="True" SortExpression="Anexo" />
                 </Columns>
                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
@@ -52,7 +53,6 @@
                     <asp:SessionParameter Name="User" SessionField="User" Type="String" />
                 </SelectParameters>
             </asp:ObjectDataSource>
-        <asp:HiddenField ID="HiddenField1" runat="server" />
         <br />
     
         <asp:Panel ID="Panel1" runat="server" Height="100%" Width="100%">
