@@ -30,6 +30,9 @@
                 <asp:BoundField DataField="MontoFinanciado" DataFormatString="{0:n2}" HeaderText="Monto Financiado" HtmlEncode="False" ReadOnly="True" SortExpression="MontoFinanciado">
                 <ItemStyle HorizontalAlign="Right" />
                 </asp:BoundField>
+                <asp:BoundField DataField="Saldo" DataFormatString="{0:n2}" HeaderText="Saldo Insoluto" HtmlEncode="False" ReadOnly="True" SortExpression="Saldo">
+                <ItemStyle HorizontalAlign="Right" />
+                </asp:BoundField>
                 <asp:BoundField DataField="AdeudoTotal" HeaderText="Adeudo Total" SortExpression="AdeudoTotal" DataFormatString="{0:n2}" HtmlEncode="False" ReadOnly="True" >
                 <ItemStyle HorizontalAlign="Right" />
                 </asp:BoundField>

@@ -4448,6 +4448,8 @@ Partial Public Class ProDS
         
         Private columnMontofinanciado As Global.System.Data.DataColumn
         
+        Private columnSaldo As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -4524,6 +4526,14 @@ Partial Public Class ProDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property SaldoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSaldo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4560,9 +4570,9 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddVw_RPT_LiquidezRow(ByVal Cliente As String, ByVal Contrato As String, ByVal AdeudoTotal As Decimal, ByVal CNEmpresa As String, ByVal Montofinanciado As Decimal) As Vw_RPT_LiquidezRow
+        Public Overloads Function AddVw_RPT_LiquidezRow(ByVal Cliente As String, ByVal Contrato As String, ByVal AdeudoTotal As Decimal, ByVal CNEmpresa As String, ByVal Montofinanciado As Decimal, ByVal Saldo As Decimal) As Vw_RPT_LiquidezRow
             Dim rowVw_RPT_LiquidezRow As Vw_RPT_LiquidezRow = CType(Me.NewRow,Vw_RPT_LiquidezRow)
-            Dim columnValuesArray() As Object = New Object() {Cliente, Contrato, AdeudoTotal, CNEmpresa, Montofinanciado}
+            Dim columnValuesArray() As Object = New Object() {Cliente, Contrato, AdeudoTotal, CNEmpresa, Montofinanciado, Saldo}
             rowVw_RPT_LiquidezRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVw_RPT_LiquidezRow)
             Return rowVw_RPT_LiquidezRow
@@ -4596,6 +4606,7 @@ Partial Public Class ProDS
             Me.columnAdeudoTotal = MyBase.Columns("AdeudoTotal")
             Me.columnCNEmpresa = MyBase.Columns("CNEmpresa")
             Me.columnMontofinanciado = MyBase.Columns("Montofinanciado")
+            Me.columnSaldo = MyBase.Columns("Saldo")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4611,6 +4622,8 @@ Partial Public Class ProDS
             MyBase.Columns.Add(Me.columnCNEmpresa)
             Me.columnMontofinanciado = New Global.System.Data.DataColumn("Montofinanciado", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMontofinanciado)
+            Me.columnSaldo = New Global.System.Data.DataColumn("Saldo", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSaldo)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnContrato}, true))
             Me.columnCliente.AllowDBNull = false
             Me.columnCliente.MaxLength = 120
@@ -15465,6 +15478,21 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Saldo() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableVw_RPT_Liquidez.SaldoColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Saldo' de la tabla 'Vw_RPT_Liquidez' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVw_RPT_Liquidez.SaldoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsAdeudoTotalNull() As Boolean
             Return Me.IsNull(Me.tableVw_RPT_Liquidez.AdeudoTotalColumn)
         End Function
@@ -15497,6 +15525,18 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetMontofinanciadoNull()
             Me(Me.tableVw_RPT_Liquidez.MontofinanciadoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsSaldoNull() As Boolean
+            Return Me.IsNull(Me.tableVw_RPT_Liquidez.SaldoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetSaldoNull()
+            Me(Me.tableVw_RPT_Liquidez.SaldoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -26451,6 +26491,7 @@ Namespace ProDSTableAdapters
             tableMapping.ColumnMappings.Add("AdeudoTotal", "AdeudoTotal")
             tableMapping.ColumnMappings.Add("CNEmpresa", "CNEmpresa")
             tableMapping.ColumnMappings.Add("Montofinanciado", "Montofinanciado")
+            tableMapping.ColumnMappings.Add("Saldo", "Saldo")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -26468,8 +26509,8 @@ Namespace ProDSTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        Descr AS Cliente, Anexo AS Contrato, Total AS AdeudoTotal, CNEmpres"& _ 
-                "a, Montofinanciado"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_RPT_Liquidez"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CNEmpresa = @"& _ 
-                "Empresa)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Cliente, Contrato"
+                "a, Montofinanciado, Saldo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_RPT_Liquidez"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CNEmpr"& _ 
+                "esa = @Empresa)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Cliente, Contrato"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Empresa", Global.System.Data.SqlDbType.NChar, 25, Global.System.Data.ParameterDirection.Input, 0, 0, "CNEmpresa", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
