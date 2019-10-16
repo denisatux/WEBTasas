@@ -45,7 +45,7 @@
             </asp:GridView>
             <asp:ObjectDataSource ID="vwDatos_DS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="WEBTasas.ProDSTableAdapters.Vw_CXP_ComprobacionGastosResumTableAdapter">
                 <SelectParameters>
-                    <asp:QueryStringParameter Name="User" QueryStringField="User" Type="String" />
+                    <asp:SessionParameter Name="User" SessionField="User" Type="String" />
                 </SelectParameters>
             </asp:ObjectDataSource>
         <br />

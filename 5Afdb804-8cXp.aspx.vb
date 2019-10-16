@@ -19,7 +19,6 @@ Partial Public Class CPXForm8
                 ta.Fill(t, Session("User"))
                 Dim R As ProDS.Vw_CXP_ComprobacionGastosResumRow
                 If t.Rows.Count > 0 Then
-
                     R = t.Rows(0)
                     If Session("ID1") > "0" Then
                         Panel1.Visible = True
