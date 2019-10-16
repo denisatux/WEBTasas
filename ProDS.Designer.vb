@@ -29958,7 +29958,7 @@ Namespace ProDSTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        nombreEmpresa AS Empresa, folioSolicitud AS Solicitud, nombre AS So"& _ 
-                "licita, MAX(totalPagado) AS Total, MIN(estatus) AS Estatus, Autoriza1 AS Autoriz"& _ 
+                "licita, SUM(totalPagado) AS Total, MIN(estatus) AS Estatus, Autoriza1 AS Autoriz"& _ 
                 "ante, idEmpresas AS idEmpresa, mailGenero AS MailSolicitante, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
                 "         MAX(mailAutoriza2) AS mailAutoriza2, MAX(fechaSolicitud) AS FechaSol, @"& _ 
                 "User AS [User], NombreCorto, MAX(serie) AS serie, contrato, MIN(decripcion) AS C"& _ 
