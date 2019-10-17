@@ -10697,6 +10697,10 @@ Partial Public Class ProDS
         
         Private columnfechaPago As Global.System.Data.DataColumn
         
+        Private columncCostos As Global.System.Data.DataColumn
+        
+        Private columnfPago As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -11069,6 +11073,22 @@ Partial Public Class ProDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property cCostosColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncCostos
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property fPagoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfPago
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -11147,9 +11167,11 @@ Partial Public Class ProDS
                     ByVal Descr As String,  _
                     ByVal noContrato As String,  _
                     ByVal Tipar As String,  _
-                    ByVal fechaPago As Date) As Vw_CXP_AutorizacionesRPTRow
+                    ByVal fechaPago As Date,  _
+                    ByVal cCostos As String,  _
+                    ByVal fPago As String) As Vw_CXP_AutorizacionesRPTRow
             Dim rowVw_CXP_AutorizacionesRPTRow As Vw_CXP_AutorizacionesRPTRow = CType(Me.NewRow,Vw_CXP_AutorizacionesRPTRow)
-            Dim columnValuesArray() As Object = New Object() {idEmpresas, rfcEmpresa, nombreEmpresa, rfc, razonSocial, usuario, nombre, folioSolicitud, fechaSolicitud, fechaFactura, serie, folio, uuid, subtotalPagado, totalPagado, trasladosPagados, retencionesPagadas, decripcion, Concepto, mailGenero, mailAutoriza1, Autoriza1, mailAutoriza2, Autoriza2, ok1, ok2, estatus, sucursal, departamento, idPagos, impLocRet, impLocTra, total, moneda, id_usuario, NombreCorto, contrato, Cliente, Descr, noContrato, Tipar, fechaPago}
+            Dim columnValuesArray() As Object = New Object() {idEmpresas, rfcEmpresa, nombreEmpresa, rfc, razonSocial, usuario, nombre, folioSolicitud, fechaSolicitud, fechaFactura, serie, folio, uuid, subtotalPagado, totalPagado, trasladosPagados, retencionesPagadas, decripcion, Concepto, mailGenero, mailAutoriza1, Autoriza1, mailAutoriza2, Autoriza2, ok1, ok2, estatus, sucursal, departamento, idPagos, impLocRet, impLocTra, total, moneda, id_usuario, NombreCorto, contrato, Cliente, Descr, noContrato, Tipar, fechaPago, cCostos, fPago}
             rowVw_CXP_AutorizacionesRPTRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVw_CXP_AutorizacionesRPTRow)
             Return rowVw_CXP_AutorizacionesRPTRow
@@ -11220,6 +11242,8 @@ Partial Public Class ProDS
             Me.columnnoContrato = MyBase.Columns("noContrato")
             Me.columnTipar = MyBase.Columns("Tipar")
             Me.columnfechaPago = MyBase.Columns("fechaPago")
+            Me.columncCostos = MyBase.Columns("cCostos")
+            Me.columnfPago = MyBase.Columns("fPago")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11309,6 +11333,10 @@ Partial Public Class ProDS
             MyBase.Columns.Add(Me.columnTipar)
             Me.columnfechaPago = New Global.System.Data.DataColumn("fechaPago", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnfechaPago)
+            Me.columncCostos = New Global.System.Data.DataColumn("cCostos", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncCostos)
+            Me.columnfPago = New Global.System.Data.DataColumn("fPago", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfPago)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidEmpresas, Me.columnfolioSolicitud, Me.columnidPagos}, true))
             Me.columnidEmpresas.AllowDBNull = false
             Me.columnrfcEmpresa.MaxLength = 13
@@ -11346,6 +11374,8 @@ Partial Public Class ProDS
             Me.columnDescr.MaxLength = 120
             Me.columnnoContrato.MaxLength = 10
             Me.columnTipar.MaxLength = 1
+            Me.columncCostos.MaxLength = 200
+            Me.columnfPago.MaxLength = 100
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -20807,6 +20837,37 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property cCostos() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.cCostosColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cCostos' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNull"& _ 
+                            ".", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVw_CXP_AutorizacionesRPT.cCostosColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property fPago() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVw_CXP_AutorizacionesRPT.fPagoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'fPago' de la tabla 'Vw_CXP_AutorizacionesRPT' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVw_CXP_AutorizacionesRPT.fPagoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsrfcEmpresaNull() As Boolean
             Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.rfcEmpresaColumn)
         End Function
@@ -21271,6 +21332,30 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetfechaPagoNull()
             Me(Me.tableVw_CXP_AutorizacionesRPT.fechaPagoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IscCostosNull() As Boolean
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.cCostosColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetcCostosNull()
+            Me(Me.tableVw_CXP_AutorizacionesRPT.cCostosColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsfPagoNull() As Boolean
+            Return Me.IsNull(Me.tableVw_CXP_AutorizacionesRPT.fPagoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetfPagoNull()
+            Me(Me.tableVw_CXP_AutorizacionesRPT.fPagoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -30793,6 +30878,8 @@ Namespace ProDSTableAdapters
             tableMapping.ColumnMappings.Add("noContrato", "noContrato")
             tableMapping.ColumnMappings.Add("Tipar", "Tipar")
             tableMapping.ColumnMappings.Add("fechaPago", "fechaPago")
+            tableMapping.ColumnMappings.Add("cCostos", "cCostos")
+            tableMapping.ColumnMappings.Add("fPago", "fPago")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -30815,36 +30902,36 @@ Namespace ProDSTableAdapters
                 "                   Concepto, mailGenero, mailAutoriza1, Autoriza1, mailAutoriza2"& _ 
                 ", Autoriza2, ok1, ok2, estatus, sucursal, departamento, idPagos, impLocRet, impL"& _ 
                 "ocTra, total, moneda, id_usuario, NombreCorto, contrato, Cliente, Descr, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
-                "                    noContrato, Tipar, fechaPago"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_Autoriz"& _ 
-                "aciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) "& _ 
-                "AND (estatus = @Estatus)"
+                "                    noContrato, Tipar, fechaPago, cCostos, fPago"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM          "& _ 
+                "  Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (idEmpresas = @Empresa) AND (folioSolicitu"& _ 
+                "d = @Solicitud) AND (estatus = @Estatus)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Empresa", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idEmpresas", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Solicitud", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "folioSolicitud", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estatus", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "estatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        idEmpresas, rfcEmpresa, nombreEmpresa, rfc, razonSocial, usuario, n"& _ 
-                "ombre, folioSolicitud, fechaSolicitud, fechaFactura, serie, folio, uuid, subtota"& _ 
-                "lPagado, totalPagado, trasladosPagados, retencionesPagadas, decripcion, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
-                "                   Concepto, mailGenero, mailAutoriza1, Autoriza1, mailAutoriza2"& _ 
-                ", Autoriza2, ok1, ok2, estatus, sucursal, departamento, idPagos, impLocTra, impL"& _ 
-                "ocRet, total, moneda, Cliente, Descr, noContrato, Tipar, fechaPago"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        "& _ 
-                "    Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (idEmpresas = @idEmpresa) AND (folioSoli"& _ 
-                "citud = @folioSolicitud) AND (estatus = 'Reemb') AND (folio = 'ND')"
+            Me._commandCollection(1).CommandText = "SELECT Autoriza1, Autoriza2, Cliente, Concepto, Descr, NombreCorto, Tipar, cCosto"& _ 
+                "s, contrato, decripcion, departamento, estatus, fPago, fechaFactura, fechaPago, "& _ 
+                "fechaSolicitud, folio, folioSolicitud, idEmpresas, idPagos, id_usuario, impLocRe"& _ 
+                "t, impLocTra, mailAutoriza1, mailAutoriza2, mailGenero, moneda, noContrato, nomb"& _ 
+                "re, nombreEmpresa, ok1, ok2, razonSocial, retencionesPagadas, rfc, rfcEmpresa, s"& _ 
+                "erie, subtotalPagado, sucursal, total, totalPagado, trasladosPagados, usuario, u"& _ 
+                "uid FROM Vw_CXP_Autorizaciones WHERE (idEmpresas = @idEmpresa) AND (folioSolicit"& _ 
+                "ud = @folioSolicitud) AND (estatus = 'Reemb') AND (folio = 'ND')"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@idEmpresa", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idEmpresas", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@folioSolicitud", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "folioSolicitud", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT        idEmpresas, rfcEmpresa, nombreEmpresa, rfc, razonSocial, usuario, n"& _ 
-                "ombre, folioSolicitud, fechaSolicitud, fechaFactura, serie, folio, uuid, subtota"& _ 
-                "lPagado, totalPagado, trasladosPagados, retencionesPagadas, decripcion, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
-                "                   Concepto, mailGenero, mailAutoriza1, Autoriza1, mailAutoriza2"& _ 
-                ", Autoriza2, ok1, ok2, estatus, sucursal, departamento, idPagos, impLocTra, impL"& _ 
-                "ocRet, total, moneda, Cliente, Descr, noContrato, Tipar, fechaPago"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        "& _ 
-                "    Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (idEmpresas = @idEmpresa) AND (folioSoli"& _ 
-                "citud = @folioSolicitud) AND (estatus = 'Reemb') AND (folio <> 'ND')"
+            Me._commandCollection(2).CommandText = "SELECT Autoriza1, Autoriza2, Cliente, Concepto, Descr, NombreCorto, Tipar, cCosto"& _ 
+                "s, contrato, decripcion, departamento, estatus, fPago, fechaFactura, fechaPago, "& _ 
+                "fechaSolicitud, folio, folioSolicitud, idEmpresas, idPagos, id_usuario, impLocRe"& _ 
+                "t, impLocTra, mailAutoriza1, mailAutoriza2, mailGenero, moneda, noContrato, nomb"& _ 
+                "re, nombreEmpresa, ok1, ok2, razonSocial, retencionesPagadas, rfc, rfcEmpresa, s"& _ 
+                "erie, subtotalPagado, sucursal, total, totalPagado, trasladosPagados, usuario, u"& _ 
+                "uid FROM Vw_CXP_Autorizaciones WHERE (idEmpresas = @idEmpresa) AND (folioSolicit"& _ 
+                "ud = @folioSolicitud) AND (estatus = 'Reemb') AND (folio <> 'ND')"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@idEmpresa", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idEmpresas", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@folioSolicitud", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "folioSolicitud", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
