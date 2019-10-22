@@ -30051,11 +30051,12 @@ Namespace ProDSTableAdapters
                 "ring(noContrato, 1, 5) + '/' + substring(noContrato, 6, 4) ELSE noContrato END) "& _ 
                 "AS Anexo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (NOT (mailAutoriza"& _ 
                 "1 LIKE '#%')) AND (ok1 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ok1 = '') AND (mailA"& _ 
-                "utoriza1 = @User) AND (estatus <> 'CompGtos') OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (NOT "& _ 
-                "(mailAutoriza1 LIKE '#%')) AND (ok1 > '') AND (estatus <> 'CompGtos') AND (ok1 <"& _ 
-                "> 'RECHAZADO') AND (mailAutoriza2 = @User) AND (ok2 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
-                "         ok2 = '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folioSolicitud, Autoriza1, nombreEmpresa, nombre, i"& _ 
-                "dEmpresas, mailGenero, NombreCorto, contrato"
+                "utoriza1 = @User) AND (estatus <> 'CompGtos' AND estatus <> 'Reemb') OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 > '') AND (estatus <>"& _ 
+                " 'CompGtos' AND estatus <> 'Reemb') AND (ok1 <> 'RECHAZADO') AND (mailAutoriza2 "& _ 
+                "= @User) AND (ok2 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ok2 = '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folio"& _ 
+                "Solicitud, Autoriza1, nombreEmpresa, nombre, idEmpresas, mailGenero, NombreCorto"& _ 
+                ", contrato"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@User", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "mailAutoriza1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
