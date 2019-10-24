@@ -68,33 +68,12 @@ Module Globales
         taCorreos.Dispose()
     End Sub
 
-    Public Sub AltaLineaCreditoLIQUIDEZ(Cliente As String, Monto As Decimal, Notas As String, User As String, id_sol As String)
+    Public Sub AltaLineaCreditoLIQUIDEZ1(Cliente As String, Monto As Decimal, Notas As String, User As String, id_sol As String)
         Try
             Dim BITACORA As New ProDSTableAdapters.GEN_BitacoraFinagilTableAdapter
-            Dim FOLIOS As New CreditoDSTableAdapters.LlavesTableAdapter
-            Dim SolStr As String = ""
-            Dim Dispo As String
-            Dim TaCredit As New CreditoDSTableAdapters.CreditTableAdapter
-            Dim taDetSol As New CreditoDSTableAdapters.DetSolTableAdapter
             Dim TaLinea As New CreditoDSTableAdapters.CRED_LineasCreditoTableAdapter
-            Dim TLinea As New CreditoDS.CRED_LineasCreditoDataTable
             TaLinea.Insert(Cliente, "", id_sol, Monto, "LIQUIDEZ", 2, Date.Now, Date.Now, Date.Now.AddDays(30), Notas, User)
-            If taDetSol.NoSolicitudes(Cliente) = 0 Then
-                Dispo = "001"
-                SolStr = FOLIOS.FolioSolCre
-                SolStr = Stuff(SolStr, "I", "0", 6)
-                TaCredit.Insert(SolStr, Date.Now.ToString("yyyyMMdd"), 5, Date.Now.ToString("yyyyMMdd"), "", "A", Monto, Date.Now.ToString("yyyyMMdd"), "",
-                                Date.Now.AddDays(30).ToString("yyyyMMdd"), Monto, "LIQUIDEZ", "")
-                FOLIOS.ConsumeSolCre()
-                taDetSol.InsertDispo(SolStr, Dispo, Cliente, Monto)
-            Else
-                SolStr = taDetSol.SacaSolCreStr(Cliente)
-                TaCredit.UpdateLinea(5, Date.Now.ToString("yyyyMMdd"), "A", Monto, Date.Now.ToString("yyyyMMdd"), Date.Now.AddDays(30).ToString("yyyyMMdd"), "LIQUIDEZ", SolStr, 0)
-                Dispo = taDetSol.NoDispo(Cliente) + 1
-                Dispo = Stuff(Dispo, "I", "0", 3)
-            End If
-
-            BITACORA.Insert(User, "WebTasas", Date.Now, "LineaCredito", System.Environment.MachineName, Monto.ToString)
+            BITACORA.Insert(User, "WebTasas", Date.Now, "LineaCredito1", System.Environment.MachineName, Monto.ToString)
         Catch ex As Exception
             EnviacORREO("ecacerest@finagil.com.mx", ex.Message, "Error Alta Linea", "ecacerest@finagil.com.mx")
         End Try
