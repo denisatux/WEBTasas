@@ -6,6 +6,7 @@ Partial Public Class CPXForm
     Dim taOBS As New ProDSTableAdapters.CXP_ObservacionesSolicitudTableAdapter
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
+            'GeneraArchivo("CXP\23-382.pdf", 23, "BTqvQ8Hg5JjzarEt2fGY2ugcRlHWwvbXDtEZsfci8a1J915Dnw", 382, "No Pagada", "", False)
             LbAutorizante.Visible = False
             ListAutorizante.Visible = False
             If Not IsNothing(Request("User")) Then
