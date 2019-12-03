@@ -22,7 +22,7 @@ Partial Public Class CPXForm
                 ta.Fill(t, Session("User"))
                 Dim R As ProDS.Vw_CXP_AutorizacionesRow
                 If t.Rows.Count > 0 Then
-                    If InStr(Session("User"), "lmercado") > 0 Then
+                    If InStr(Session("User"), "lmercado") > 0 Or InStr(Session("User"), "maria.montes") > 0 Then
                         LbAutorizante.Visible = True
                         ListAutorizante.Visible = True
                     End If
@@ -130,7 +130,7 @@ Partial Public Class CPXForm
             taOBS.Borrar(r.idEmpresa, r.Solicitud, Session("User"))
             taOBS.Insert(r.idEmpresa, r.Solicitud, Session("User"), TextMail.Text)
         End If
-        If InStr(Session("User"), "lmercado") > 0 Then
+        If InStr(Session("User"), "lmercado") > 0 Or InStr(Session("User"), "maria.montes") > 0 Then
             If ListAutorizante.SelectedValue = "DG" Then
                 ta.CambiaAutorizante2("#gbello@finagil.com.mx", "C.P. GABRIEL BELLO HERNANDEZ", Session("ID2"), Session("ID1"), Session("ID3"))
             ElseIf ListAutorizante.SelectedValue = "DO" Then
@@ -140,7 +140,7 @@ Partial Public Class CPXForm
         GeneraArchivo(Archivo, Session("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
 
         If r.contrato = True Then
-            If InStr(Session("User"), "lmercado") > 0 Then
+            If InStr(Session("User"), "lmercado") > 0 Or InStr(Session("User"), "maria.montes") > 0 Then
             Else
                 MandaCorreoFase("Pagos@finagil.com.mx", "MCONTROL_CXP", Asunto, Mensaje, Archivo)
             End If
