@@ -6,7 +6,8 @@ Partial Public Class CPXForm
     Dim taOBS As New ProDSTableAdapters.CXP_ObservacionesSolicitudTableAdapter
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
-            'GeneraArchivo("CXP\23-382.pdf", 23, "BTqvQ8Hg5JjzarEt2fGY2ugcRlHWwvbXDtEZsfci8a1J915Dnw", 382, "No Pagada", "", False)
+
+            Session.Item("MCONTROL_CXP") = SacaCorreoFase("MCONTROL_CXP")
             LbAutorizante.Visible = False
             ListAutorizante.Visible = False
             If Not IsNothing(Request("User")) Then
@@ -22,7 +23,7 @@ Partial Public Class CPXForm
                 ta.Fill(t, Session("User"))
                 Dim R As ProDS.Vw_CXP_AutorizacionesRow
                 If t.Rows.Count > 0 Then
-                    If InStr(Session("User"), "lmercado") > 0 Or InStr(Session("User"), "maria.montes") > 0 Then
+                    If InStr(Session("MCONTROL_CXP"), Session("User")) Then
                         LbAutorizante.Visible = True
                         ListAutorizante.Visible = True
                     End If
@@ -130,7 +131,7 @@ Partial Public Class CPXForm
             taOBS.Borrar(r.idEmpresa, r.Solicitud, Session("User"))
             taOBS.Insert(r.idEmpresa, r.Solicitud, Session("User"), TextMail.Text)
         End If
-        If InStr(Session("User"), "lmercado") > 0 Or InStr(Session("User"), "maria.montes") > 0 Then
+        If InStr(Session("MCONTROL_CXP"), Session("User")) Then
             If ListAutorizante.SelectedValue = "DG" Then
                 ta.CambiaAutorizante2("#gbello@finagil.com.mx", "C.P. GABRIEL BELLO HERNANDEZ", Session("ID2"), Session("ID1"), Session("ID3"))
             ElseIf ListAutorizante.SelectedValue = "DO" Then
@@ -140,7 +141,7 @@ Partial Public Class CPXForm
         GeneraArchivo(Archivo, Session("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
 
         If r.contrato = True Then
-            If InStr(Session("User"), "lmercado") > 0 Or InStr(Session("User"), "maria.montes") > 0 Then
+            If InStr(Session("MCONTROL_CXP"), Session("User")) Then
             Else
                 MandaCorreoFase("Pagos@finagil.com.mx", "MCONTROL_CXP", Asunto, Mensaje, Archivo)
             End If

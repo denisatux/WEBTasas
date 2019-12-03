@@ -145,4 +145,16 @@ Module Globales
         taCorreos.Dispose()
         promo.Dispose()
     End Sub
+    Public Function SacaCorreoFase(Fase As String) As String
+        SacaCorreoFase = ""
+        Dim taFase As New ProDSTableAdapters.CorreosFasesTableAdapter
+        Dim TFase As New ProDS.CorreosFasesDataTable
+        Dim f As ProDS.CorreosFasesRow
+
+        taFase.Fill(TFase, Fase)
+        For Each f In TFase.Rows
+            SacaCorreoFase = f.Correo
+        Next
+        Return SacaCorreoFase
+    End Function
 End Module
