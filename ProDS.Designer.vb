@@ -31219,7 +31219,7 @@ Namespace ProDSTableAdapters
                 "Solicitud, totalPagado, fechaSolicitud, decripcion, razonSocial, departamento, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         sucursal, empresa, rfc, nombre, ok1, ok2, naAutoriza1,"& _ 
                 " naAutoriza2, mail1, mail2, fechaComprobacion, folio, serie, MailSolicitante, Ro"& _ 
                 "ot"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_ComprobacionGastos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (idEmpresa = @idEmpr"& _ 
-                "esa) AND (uuid <> 'ND') AND (folioComprobacion = @folioComprobacion)"
+                "esa) AND (folioComprobacion = @folioComprobacion) AND (serie <> 'ND')"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@idEmpresa", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idEmpresa", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@folioComprobacion", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "folioComprobacion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -31230,7 +31230,7 @@ Namespace ProDSTableAdapters
                 "Solicitud, totalPagado, fechaSolicitud, decripcion, razonSocial, departamento, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         sucursal, empresa, rfc, nombre, ok1, ok2, naAutoriza1,"& _ 
                 " naAutoriza2, mail1, mail2, fechaComprobacion, folio, serie, MailSolicitante, Ro"& _ 
                 "ot"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_ComprobacionGastos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (idEmpresa = @idEmpr"& _ 
-                "esa) AND (uuid = 'ND') AND (folioComprobacion = @folioComprobacion)"
+                "esa) AND (folioComprobacion = @folioComprobacion) AND (serie = 'ND')"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@idEmpresa", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idEmpresa", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@folioComprobacion", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "folioComprobacion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
