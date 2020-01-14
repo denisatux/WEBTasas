@@ -58,7 +58,7 @@ Partial Public Class BitacoraForm
                     Case "gramirez"
                         Session.Item("Autoriza") = "epineda"
                         Session.Item("Vovo") = ""
-                    Case "lhernandez"
+                    Case "lhernandez", "gisvazquez"
                         Session.Item("Autoriza") = "atorres"
                         Session.Item("Vovo") = ""
                     Case Else
