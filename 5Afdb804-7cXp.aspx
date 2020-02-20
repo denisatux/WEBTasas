@@ -122,8 +122,9 @@
         <tr>
 <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
     <br />
+       <asp:Label ID="Label1" runat="server" Text="." Font-Size="Smaller"></asp:Label>
     <br />
-    </td>
+    </td>         
     </tr>
     </table>
     </div>

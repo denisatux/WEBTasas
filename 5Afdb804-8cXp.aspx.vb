@@ -6,6 +6,7 @@ Partial Public Class CPXForm8
     Dim taOBS As New ProDSTableAdapters.CXP_ObservacionesSolicitudPagosTableAdapter
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
+            Label1.Text = My.Settings.RUTA_TMP
             If Not IsNothing(Request("User")) Then
                 Session.Item("User") = Request("User")
                 Response.Redirect("~\5Afdb804-8cXp.aspx", True)
