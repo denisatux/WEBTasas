@@ -22,11 +22,12 @@
     <tr>
     <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
         <br />
-        Estatus de Solicitudes de Ministraciones</td>
+        Estatus de Solicitudes Finagil</td>
     </tr>
         <tr>
     <td align=center>
         <br />
+            <span class="auto-style1">Resumen Avío y Cuenta Corriente</span><br />
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="ObjectDataSource1" EnableModelValidation="True" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <Columns>

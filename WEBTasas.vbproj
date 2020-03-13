@@ -113,6 +113,7 @@
     <Content Include="contact-form.aspx" />
     <Content Include="CreditoFinagil.html" />
     <Content Include="Default.aspx" />
+    <Content Include="Deyel\DeyelCasos.aspx" />
     <Content Include="IMG\logo-sin-fondo_web.png" />
     <Content Include="IMG\logoArfin.JPG" />
     <Content Include="Web.config" />
@@ -270,6 +271,18 @@
       <SubType>ASPXCodebehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Deyel\DeyelCasos.aspx.designer.vb">
+      <DependentUpon>DeyelCasos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Deyel\DeyelCasos.aspx.vb">
+      <DependentUpon>DeyelCasos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Deyel\DeyelDS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeyelDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Factor100DS.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -362,6 +375,17 @@
     </None>
     <Content Include="CreditoDS.xss">
       <DependentUpon>CreditoDS.xsd</DependentUpon>
+    </Content>
+    <Content Include="Deyel\DeyelDS.xsc">
+      <DependentUpon>DeyelDS.xsd</DependentUpon>
+    </Content>
+    <None Include="Deyel\DeyelDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DeyelDS.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Deyel\DeyelDS.xss">
+      <DependentUpon>DeyelDS.xsd</DependentUpon>
     </Content>
     <None Include="Factor100DS.xsc">
       <DependentUpon>Factor100DS.xsd</DependentUpon>
