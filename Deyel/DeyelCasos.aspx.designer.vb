@@ -23,13 +23,112 @@ Partial Public Class DeyelCasosForm
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control HyperLink2.
+    '''Control HyperLink1.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents HyperLink2 As Global.System.Web.UI.WebControls.HyperLink
+    Protected WithEvents HyperLink1 As Global.System.Web.UI.WebControls.HyperLink
+    
+    '''<summary>
+    '''Control HyperLink4.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents HyperLink4 As Global.System.Web.UI.WebControls.HyperLink
+    
+    '''<summary>
+    '''Control GridView5.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents GridView5 As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control vwDatos_DS3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents vwDatos_DS3 As Global.System.Web.UI.WebControls.ObjectDataSource
+    
+    '''<summary>
+    '''Control LbError1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LbError1 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control TextBox1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Control Button1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''Control GridView3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents GridView3 As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control vwDatos_DS1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents vwDatos_DS1 As Global.System.Web.UI.WebControls.ObjectDataSource
+    
+    '''<summary>
+    '''Control GridView4.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents GridView4 As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control vwDatos_DS2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents vwDatos_DS2 As Global.System.Web.UI.WebControls.ObjectDataSource
+    
+    '''<summary>
+    '''Control LbError0.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LbError0 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Control GridView1.
@@ -50,15 +149,6 @@ Partial Public Class DeyelCasosForm
     Protected WithEvents vwDatos_DS As Global.System.Web.UI.WebControls.ObjectDataSource
     
     '''<summary>
-    '''Control Panel1.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents Panel1 As Global.System.Web.UI.WebControls.Panel
-    
-    '''<summary>
     '''Control GridView2.
     '''</summary>
     '''<remarks>
@@ -75,13 +165,4 @@ Partial Public Class DeyelCasosForm
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents vwDatos_DS0 As Global.System.Web.UI.WebControls.ObjectDataSource
-    
-    '''<summary>
-    '''Control LbError.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents LbError As Global.System.Web.UI.WebControls.Label
 End Class
