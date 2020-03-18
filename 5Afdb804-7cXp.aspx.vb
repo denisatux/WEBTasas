@@ -145,6 +145,7 @@ Partial Public Class CPXForm
             If InStr(Session("MCONTROL_CXP"), Session("User")) Then
             Else
                 MandaCorreoFase("Pagos@finagil.com.mx", "MCONTROL_CXP", Asunto, Mensaje, Archivo)
+                MandaCorreoFase("Pagos@finagil.com.mx", "TESORERIA_CXP", Asunto, Mensaje, Archivo)
             End If
         End If
 
