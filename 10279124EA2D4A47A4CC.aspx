@@ -13,7 +13,7 @@
     <div>
     <table width=100%>
     <tr>
-    <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
+    <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #f58220; text-align: center">
         <asp:Label ID="Label1" runat="server" Text="Estatus de Seguimientos"></asp:Label>
         <br />
         </td>
@@ -39,7 +39,7 @@
                 <asp:BoundField DataField="Tipo" HeaderText="Tipo" ReadOnly="True" SortExpression="Tipo" />
             </Columns>
             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
             <RowStyle BackColor="#FFE0C0" ForeColor="#333333" />
             <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
@@ -55,13 +55,13 @@
         <asp:Panel ID="Panel1" runat="server" Height="100%" Width="100%">
         </asp:Panel>
         <br />
-        <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+        <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
             Text="No hay nada Pendiente"></asp:Label>
         <br />
     </td>
     </tr>
         <tr>
-<td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
+<td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #f58220; text-align: center">
     <br />
     <br />
     </td>

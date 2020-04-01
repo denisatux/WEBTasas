@@ -13,7 +13,7 @@
     <div>
     <table width=100%>
     <tr>
-    <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
+    <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #f58220; text-align: center">
         <br />
         Notificación de Tasas (Promoción)
         <br />
@@ -27,7 +27,7 @@
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
             <RowStyle BackColor="#FFE0C0" />
-            <FieldHeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+            <FieldHeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
             <Fields>
                 <asp:BoundField DataField="AnexoCon" HeaderText="Anexo" SortExpression="AnexoCon" />
@@ -70,13 +70,13 @@
             <br />
         </asp:Panel>
         <br />
-        <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+        <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
             Text="El contrato ya fue procesado."></asp:Label>
         <br />
     </td>
     </tr>
         <tr>
-<td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
+<td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #f58220; text-align: center">
     <br />
     <br />
     </td>

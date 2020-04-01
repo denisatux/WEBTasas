@@ -13,7 +13,7 @@
     <div>
     <table width=100%>
     <tr>
-    <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
+    <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #f58220; text-align: center">
         <br />
         Autorizacion de Tasas (Riegos)
         <br />
@@ -27,7 +27,7 @@
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
             <RowStyle BackColor="#FFE0C0" />
-            <FieldHeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+            <FieldHeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
             <Fields>
                 <asp:BoundField DataField="AnexoCon" HeaderText="Anexo" SortExpression="AnexoCon" />
@@ -66,7 +66,7 @@
     
         <asp:Panel ID="Panel1" runat="server" Height="100%" Width="100%">
             <br />
-            <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+            <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
                 Text="Comentarios Riesgos" Font-Size="Smaller"></asp:Label>
             <br />
             <asp:TextBox ID="Txtcom" runat="server" Height="78px" MaxLength="400" TextMode="MultiLine"
@@ -75,7 +75,7 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Txtcom"
                 ErrorMessage="el comentario es requerido"></asp:RequiredFieldValidator><br />
             <br />
-            <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+            <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
                 Text="Indicadores" Font-Size="Smaller"></asp:Label><br />
             <asp:TextBox ID="TxtIndi" runat="server" MaxLength="200" Width="389px" Font-Size="Smaller" Height="49px" TextMode="MultiLine"></asp:TextBox>
             <br />
@@ -94,13 +94,13 @@
             <br />
         </asp:Panel>
         <br />
-        <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+        <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
             Text="El contrato ya fue procesado."></asp:Label>
         <br />
     </td>
     </tr>
         <tr>
-<td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
+<td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #f58220; text-align: center">
     <br />
     <br />
     </td>

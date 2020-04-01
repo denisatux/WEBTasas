@@ -11,7 +11,7 @@
         .auto-style1 {
             font-family: Verdana;
             font-weight: bold;
-            color: #FF6600;
+            color: #f58220;
         }
     </style>
 </head>
@@ -20,7 +20,7 @@
     <div>
     <table width=100%>
     <tr>
-    <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
+    <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #f58220; text-align: center">
         <br />
         Estatus de Solicitudes Finagil</td>
     </tr>
@@ -48,7 +48,7 @@
                 </asp:BoundField>
             </Columns>
             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
             <RowStyle BackColor="#FFE0C0" ForeColor="#333333" />
             <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
@@ -80,7 +80,7 @@
                     <asp:BoundField DataField="Notas" HeaderText="Notas MC" ReadOnly="True" SortExpression="Notas" />
                 </Columns>
                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
                 <RowStyle BackColor="#FFE0C0" ForeColor="#333333" />
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
@@ -88,7 +88,7 @@
             <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="WEBTasas.ProDSTableAdapters.StatusMinistracionesDETTableAdapter"></asp:ObjectDataSource>
         </asp:Panel>
         <br />
-        <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+        <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
             Text="No hay nada Pendiente"></asp:Label>
         <br />
     </td>
@@ -96,7 +96,7 @@
         <tr>
     <td align=center>
         <br />
-        <asp:Label ID="LbError0" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+        <asp:Label ID="LbError0" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
             Text="Creditos Tradicionales"></asp:Label>
             <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="ObjectDataSource3" EnableModelValidation="True" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
@@ -119,7 +119,7 @@
                     <asp:BoundField DataField="Promotor" HeaderText="Promotor" SortExpression="Promotor" />
                 </Columns>
                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
                 <RowStyle BackColor="#FFE0C0" ForeColor="#333333" />
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
@@ -129,7 +129,7 @@
     </td>
     </tr>
         <tr>
-<td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
+<td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #f58220; text-align: center">
     <br />
     <br />
     </td>

@@ -49,7 +49,7 @@
                     <td style="height: 95px; background-color: #FF8B3E; width: 100%;">
                         <asp:Label ID="LbDias" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="White" Text="Consulta de listado EFOS" Width="100%"></asp:Label>
                     </td>
-                    <td style="height: 100%; background-color: #ff6600; text-align: center; width: auto;">
+                    <td style="height: 100%; background-color: #f58220; text-align: center; width: auto;">
                         <img alt="" class="auto-style1" src="file:///E:/VS_Proj/WEB_Cotizador/IMG/LOGOpeque2.JPG" /></td>
                 </tr>
             </table>

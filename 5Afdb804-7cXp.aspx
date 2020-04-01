@@ -13,7 +13,7 @@
     <div>
     <table width=100%>
     <tr>
-    <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
+    <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #f58220; text-align: center">
         <br />
         Autorizacion de Pagos</td>
     </tr>
@@ -43,7 +43,7 @@
                     <asp:BoundField DataField="Anexo" HeaderText="Anexo" ReadOnly="True" SortExpression="Anexo" />
                 </Columns>
                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
                 <RowStyle BackColor="#FFE0C0" ForeColor="#333333" />
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
@@ -83,7 +83,7 @@
                     <asp:BoundField DataField="Concepto" HeaderText="Concepto" ReadOnly="True" SortExpression="Concepto" />
                 </Columns>
                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
                 <RowStyle BackColor="#FFE0C0" ForeColor="#333333" />
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
@@ -98,7 +98,7 @@
             <asp:TextBox ID="TextMail" runat="server" Height="52px" MaxLength="1000" TextMode="MultiLine" Width="320px"></asp:TextBox>
             <br />
             <br />
-            <asp:Label ID="LbAutorizante" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600" Text="Segundo Autorizante"></asp:Label>
+            <asp:Label ID="LbAutorizante" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220" Text="Segundo Autorizante"></asp:Label>
             <br />
             <asp:DropDownList ID="ListAutorizante" runat="server" Height="16px" Width="314px">
                 <asp:ListItem Value="DO">Dirección de Operaciones</asp:ListItem>
@@ -114,13 +114,13 @@
             <br />
             <br />
             </asp:Panel>
-        <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+        <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
             Text="Sin autorizaciones Pendientes"></asp:Label>
         <br />
     </td>
     </tr>
         <tr>
-<td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
+<td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #f58220; text-align: center">
     <br />
        <asp:Label ID="Label1" runat="server" Text="." Font-Size="Smaller"></asp:Label>
     <br />

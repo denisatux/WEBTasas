@@ -13,7 +13,7 @@
     <div>
     <table width=100% align="center">
     <tr>
-    <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center" colspan="2">
+    <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #f58220; text-align: center" colspan="2">
         <br />
         Casos Activos DEYEL
         <br />        
@@ -38,8 +38,8 @@
                     </asp:BoundField>
                 </Columns>
                 <EditRowStyle Font-Bold="True" Font-Size="Larger" />
-                <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                <FooterStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
                 <RowStyle BackColor="#FFE0C0" ForeColor="#333333" />
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
@@ -50,7 +50,7 @@
         </tr>
         <tr>
                 <td align=center >
-                <asp:Label ID="LbError1" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+                <asp:Label ID="LbError1" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
             Text="CASOS ACTIVOS"></asp:Label>
         
                     <br />
@@ -66,8 +66,8 @@
                     </asp:BoundField>
                 </Columns>
                 <EditRowStyle Font-Bold="True" Font-Size="Larger" />
-                <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                <FooterStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
                 <RowStyle BackColor="#FFE0C0" ForeColor="#333333" />
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
@@ -107,7 +107,7 @@
                     </asp:BoundField>
                 </Columns>
                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
                 <RowStyle BackColor="#FFE0C0" ForeColor="#333333" />
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
@@ -127,7 +127,7 @@
         <tr>
             <td align="center">
 
-                <asp:Label ID="LbError0" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600" Text="DETALLE POR AREA"></asp:Label>        
+                <asp:Label ID="LbError0" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220" Text="DETALLE POR AREA"></asp:Label>        
 
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="AREA RESPONSABLE" DataSourceID="vwDatos_DS" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
@@ -141,7 +141,7 @@
                     </asp:BoundField>
                 </Columns>
                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
                 <RowStyle BackColor="#FFE0C0" ForeColor="#333333" />
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
@@ -174,7 +174,7 @@
                     <asp:BoundField DataField="AREA RESPONSABLE" HeaderText="Area" SortExpression="AREA RESPONSABLE" />
                 </Columns>
                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
                 <RowStyle BackColor="#FFE0C0" ForeColor="#333333" />
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
@@ -194,7 +194,7 @@
         </tr>
 
         <tr>
-<td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center" colspan="2">
+<td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #f58220; text-align: center" colspan="2">
           
     <br />
     </td>         

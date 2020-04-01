@@ -13,7 +13,7 @@
     <div>
     <table width=100%>
     <tr>
-    <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
+    <td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #f58220; text-align: center">
         <br />
         Solicitud de Hoja de Cambios</td>
     </tr>
@@ -34,7 +34,7 @@
                 <asp:BoundField DataField="id_hojaCambios" HeaderText="id_hojaCambios" SortExpression="id_hojaCambios" InsertVisible="False" ReadOnly="True" Visible="False" />
             </Columns>
             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
             <RowStyle BackColor="#FFE0C0" ForeColor="#333333" />
             <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
@@ -50,7 +50,7 @@
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
             <RowStyle BackColor="#FFE0C0" />
-            <FieldHeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+            <FieldHeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
             <Fields>
                 <asp:CheckBoxField DataField="linea_credito" HeaderText="Linea de Crédito" SortExpression="linea_credito" />
@@ -144,13 +144,13 @@
             <br />
         </asp:Panel>
         <br />
-        <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+        <asp:Label ID="LbError" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
             Text="No hay nada para su autorización"></asp:Label>
         <br />
     </td>
     </tr>
         <tr>
-<td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #ff6600; text-align: center">
+<td style="font-weight: bold; vertical-align: middle; color: white; font-family: Verdana; background-color: #f58220; text-align: center">
     <br />
     <br />
     </td>
