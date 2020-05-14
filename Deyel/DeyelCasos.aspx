@@ -24,7 +24,8 @@
           <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="http://deyel.finagil.com.mx/" Font-Bold="True" Font-Names="verdana " Target="_blank">Deyel.finagil.com.mx</asp:HyperLink>
         </td>
         <td align="right">
-        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Deyel/DeyelCasos.aspx" Font-Bold="True" Font-Names="verdana">Refrescar Página</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Deyel/DeyelCasos.aspx" Font-Bold="True" Font-Names="verdana">Refrescar Página</asp:HyperLink><br />
+            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Deyel/Reestructuras.aspx" Font-Bold="True" Font-Names="verdana">Reestructuras</asp:HyperLink>
         </td>
     </tr>
         <tr>

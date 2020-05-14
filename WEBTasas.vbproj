@@ -114,6 +114,7 @@
     <Content Include="CreditoFinagil.html" />
     <Content Include="Default.aspx" />
     <Content Include="Deyel\DeyelCasos.aspx" />
+    <Content Include="Deyel\Reestructuras.aspx" />
     <Content Include="IMG\logo-sin-fondo_web.png" />
     <Content Include="IMG\logoArfin.JPG" />
     <Content Include="Web.config" />
@@ -282,6 +283,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DeyelDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Deyel\Reestructuras.aspx.designer.vb">
+      <DependentUpon>Reestructuras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Deyel\Reestructuras.aspx.vb">
+      <DependentUpon>Reestructuras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Factor100DS.Designer.vb">
       <AutoGen>True</AutoGen>
