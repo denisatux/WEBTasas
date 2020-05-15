@@ -59,24 +59,6 @@ Partial Public Class ReestructurasForm
     Protected WithEvents vwDatos_DS3 As Global.System.Web.UI.WebControls.ObjectDataSource
     
     '''<summary>
-    '''Control GridView6.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents GridView6 As Global.System.Web.UI.WebControls.GridView
-    
-    '''<summary>
-    '''Control vwDatos_DS4.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents vwDatos_DS4 As Global.System.Web.UI.WebControls.ObjectDataSource
-    
-    '''<summary>
     '''Control LbError0.
     '''</summary>
     '''<remarks>

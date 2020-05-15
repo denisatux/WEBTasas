@@ -44,7 +44,7 @@
         <tr>
             <td colspan="2" align="center">
             
-<asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="vwDatos_DS3" Font-Names="verdana,smaller" Font-Size="Large" ForeColor="#333333" GridLines="None" Font-Bold="True">
+<asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="vwDatos_DS3" Font-Names="verdana,smaller" Font-Size="Large" ForeColor="#333333" GridLines="None" Font-Bold="True" BorderStyle="Outset" CellSpacing="4">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="CLIENTES EN PROCESO" HeaderText="CASOS EN PROCESO" SortExpression="CLIENTES EN PROCESO" ReadOnly="True" >
@@ -52,6 +52,12 @@
                     </asp:BoundField>
                     <asp:BoundField HeaderText="FORMALIZADOS" SortExpression="CLIENTES EN PROCESO">
                     <ItemStyle Font-Bold="True" Font-Size="Larger" HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField HeaderText="CLIENTE RECHAZO">
+                    <ItemStyle HorizontalAlign="Center" />
+                    </asp:BoundField>
+                    <asp:BoundField HeaderText="CASOS TOTALES">
+                    <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
                     <asp:BoundField HeaderText="% AVANCE" SortExpression="CLIENTES EN PROCESO">
                     <ItemStyle Font-Bold="True" Font-Size="Larger" HorizontalAlign="Center" VerticalAlign="Middle" />
@@ -61,30 +67,10 @@
                 <FooterStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFE0C0" ForeColor="#333333" />
+                <RowStyle BackColor="#FFE0C0" ForeColor="#333333" BorderColor="Black" BorderStyle="Dashed" BorderWidth="1px" />
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
             </asp:GridView>
             <asp:ObjectDataSource ID="vwDatos_DS3" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetDataByReestructuras" TypeName="WEBTasas.DeyelDSTableAdapters.CasosTotalesNTableAdapter">
-            </asp:ObjectDataSource>
-                <br />
-            
-<asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="vwDatos_DS4" Font-Names="verdana,smaller" Font-Size="Small" ForeColor="#333333" GridLines="None" Font-Bold="True">
-                <AlternatingRowStyle BackColor="White" />
-                <Columns>
-                    <asp:BoundField DataField="Tipo" HeaderText="Tipo" SortExpression="Tipo" >
-                    </asp:BoundField>
-                    <asp:BoundField HeaderText="No Casos Finalizados" SortExpression="No Casos" DataField="No Casos">
-                    <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>
-                </Columns>
-                <EditRowStyle Font-Bold="True" Font-Size="Larger" />
-                <FooterStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFE0C0" ForeColor="#333333" />
-                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-            </asp:GridView>
-            <asp:ObjectDataSource ID="vwDatos_DS4" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="WEBTasas.DeyelDSTableAdapters.ReestructurasTERM_RESUMTableAdapter">
             </asp:ObjectDataSource>
             </td>
         </tr>
@@ -98,7 +84,7 @@
 
                 <asp:Label ID="LbError0" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#F58220" Text="DETALLE POR ETAPA"></asp:Label>        
 
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="AREA RESPONSABLE" DataSourceID="vwDatos_DS" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="AREA RESPONSABLE" DataSourceID="vwDatos_DS" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None" CellSpacing="2">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:CommandField ButtonType="Image" SelectImageUrl="~/IMG/check1.JPG" ShowSelectButton="True" />
@@ -120,7 +106,7 @@
             </td>
             <td valign="top">
 
-            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="vwDatos_DS0" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="vwDatos_DS0" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None" CellSpacing="2">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="CASO" HeaderText="CASO" SortExpression="CASO" >
@@ -162,7 +148,7 @@
                     <asp:TextBox ID="TextBox1" runat="server" Height="16px" Width="286px"></asp:TextBox>
                     <asp:Button ID="Button1" runat="server" Text="Filtrar" />
             
-<asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="vwDatos_DS1" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None" Font-Bold="True" ShowFooter="True" DataKeyNames="CLIENTES EN PROCESO" AllowPaging="True">
+<asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="vwDatos_DS1" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None" Font-Bold="True" ShowFooter="True" DataKeyNames="CLIENTES EN PROCESO" AllowPaging="True" CellSpacing="2">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:CommandField ButtonType="Image" SelectImageUrl="~/IMG/check1.JPG" ShowSelectButton="True" />
@@ -189,7 +175,7 @@
     </td>
             <td valign="top">
 
-            <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="vwDatos_DS2" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="vwDatos_DS2" Font-Names="verdana,smaller" Font-Size="Smaller" ForeColor="#333333" GridLines="None" CellSpacing="2">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="CASO" HeaderText="CASO" SortExpression="CASO" >

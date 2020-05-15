@@ -44,13 +44,22 @@ Partial Public Class ReestructurasForm
 
     Protected Sub GridView5_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles GridView5.RowDataBound
         If e.Row.RowType = DataControlRowType.DataRow Then
-            Dim cell0 As TableCell = e.Row.Cells(0)
-            Dim cell1 As TableCell = e.Row.Cells(1)
-            Dim cell2 As TableCell = e.Row.Cells(2)
-            Dim EnProceso As Integer = CInt(cell0.Text)
-            Dim Terminados As Integer = ta.TerminadosN() + 0.0001
-            cell1.Text = Terminados.ToString
-            cell2.Text = CDec(Terminados / (Terminados + EnProceso)).ToString("p2")
+
+            Dim EnProceso As Integer = e.Row.Cells(0).Text
+            Dim Formalizado As Integer = ta.FormalizadosN
+            Dim Rechazo As Integer = ta.RechazadosN
+            Dim Totales As Integer = EnProceso + Rechazo + Formalizado
+            Dim Avance As Decimal = (Formalizado + Rechazo) / Totales
+
+
+            e.Row.Cells(1).Text = Formalizado
+            e.Row.Cells(2).Text = Rechazo
+            e.Row.Cells(3).Text = Totales
+            e.Row.Cells(4).Text = Avance.ToString("P2")
+
+
+
+
         End If
     End Sub
 

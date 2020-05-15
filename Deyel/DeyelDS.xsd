@@ -147,11 +147,23 @@ ORDER BY [CLIENTES EN PROCESO]</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DeyelConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="TerminadosN" Modifier="Public" Name="TerminadosN" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="TerminadosN">
+              <DbSource ConnectionRef="DeyelConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="FormalizadosN" Modifier="Public" Name="FormalizadosN" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FormalizadosN">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(DISTINCT CASO) AS TERMINADOS
 FROM            ReestructurasTERM
+WHERE        (DSVALUE &lt;&gt; 'CLIENTE RECHAZO')
+ORDER BY TERMINADOS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DeyelConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="RechazadosN" Modifier="Public" Name="RechazadosN" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="RechazadosN">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        COUNT(DISTINCT CASO) AS TERMINADOS
+FROM            ReestructurasTERM
+WHERE        (DSVALUE = 'CLIENTE RECHAZO')
 ORDER BY TERMINADOS</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -220,7 +232,7 @@ FROM            ReestructurasTERM_RESUM</CommandText>
   <xs:element name="DeyelDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DeyelDS" msprop:Generator_UserDSName="DeyelDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="CasosActivosRESUM" msprop:Generator_TableClassName="CasosActivosRESUMDataTable" msprop:Generator_TableVarName="tableCasosActivosRESUM" msprop:Generator_TablePropName="CasosActivosRESUM" msprop:Generator_RowDeletingName="CasosActivosRESUMRowDeleting" msprop:Generator_RowChangingName="CasosActivosRESUMRowChanging" msprop:Generator_RowEvHandlerName="CasosActivosRESUMRowChangeEventHandler" msprop:Generator_RowDeletedName="CasosActivosRESUMRowDeleted" msprop:Generator_UserTableName="CasosActivosRESUM" msprop:Generator_RowChangedName="CasosActivosRESUMRowChanged" msprop:Generator_RowEvArgName="CasosActivosRESUMRowChangeEvent" msprop:Generator_RowClassName="CasosActivosRESUMRow">
+        <xs:element name="CasosActivosRESUM" msprop:Generator_TableClassName="CasosActivosRESUMDataTable" msprop:Generator_TableVarName="tableCasosActivosRESUM" msprop:Generator_RowChangedName="CasosActivosRESUMRowChanged" msprop:Generator_TablePropName="CasosActivosRESUM" msprop:Generator_RowDeletingName="CasosActivosRESUMRowDeleting" msprop:Generator_RowChangingName="CasosActivosRESUMRowChanging" msprop:Generator_RowEvHandlerName="CasosActivosRESUMRowChangeEventHandler" msprop:Generator_RowDeletedName="CasosActivosRESUMRowDeleted" msprop:Generator_RowClassName="CasosActivosRESUMRow" msprop:Generator_UserTableName="CasosActivosRESUM" msprop:Generator_RowEvArgName="CasosActivosRESUMRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AREA_x0020_RESPONSABLE" msprop:Generator_ColumnVarNameInTable="columnAREA_RESPONSABLE" msprop:Generator_ColumnPropNameInRow="AREA_RESPONSABLE" msprop:Generator_ColumnPropNameInTable="AREA_RESPONSABLEColumn" msprop:Generator_UserColumnName="AREA RESPONSABLE" minOccurs="0">
@@ -234,7 +246,7 @@ FROM            ReestructurasTERM_RESUM</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CasosActivosDET" msprop:Generator_TableClassName="CasosActivosDETDataTable" msprop:Generator_TableVarName="tableCasosActivosDET" msprop:Generator_TablePropName="CasosActivosDET" msprop:Generator_RowDeletingName="CasosActivosDETRowDeleting" msprop:Generator_RowChangingName="CasosActivosDETRowChanging" msprop:Generator_RowEvHandlerName="CasosActivosDETRowChangeEventHandler" msprop:Generator_RowDeletedName="CasosActivosDETRowDeleted" msprop:Generator_UserTableName="CasosActivosDET" msprop:Generator_RowChangedName="CasosActivosDETRowChanged" msprop:Generator_RowEvArgName="CasosActivosDETRowChangeEvent" msprop:Generator_RowClassName="CasosActivosDETRow">
+        <xs:element name="CasosActivosDET" msprop:Generator_TableClassName="CasosActivosDETDataTable" msprop:Generator_TableVarName="tableCasosActivosDET" msprop:Generator_RowChangedName="CasosActivosDETRowChanged" msprop:Generator_TablePropName="CasosActivosDET" msprop:Generator_RowDeletingName="CasosActivosDETRowDeleting" msprop:Generator_RowChangingName="CasosActivosDETRowChanging" msprop:Generator_RowEvHandlerName="CasosActivosDETRowChangeEventHandler" msprop:Generator_RowDeletedName="CasosActivosDETRowDeleted" msprop:Generator_RowClassName="CasosActivosDETRow" msprop:Generator_UserTableName="CasosActivosDET" msprop:Generator_RowEvArgName="CasosActivosDETRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NO_CASO" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNO_CASO" msprop:Generator_ColumnPropNameInRow="NO_CASO" msprop:Generator_ColumnPropNameInTable="NO_CASOColumn" msprop:Generator_UserColumnName="NO_CASO" minOccurs="0">
@@ -313,7 +325,7 @@ FROM            ReestructurasTERM_RESUM</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CasosTotales" msprop:Generator_TableClassName="CasosTotalesDataTable" msprop:Generator_TableVarName="tableCasosTotales" msprop:Generator_TablePropName="CasosTotales" msprop:Generator_RowDeletingName="CasosTotalesRowDeleting" msprop:Generator_RowChangingName="CasosTotalesRowChanging" msprop:Generator_RowEvHandlerName="CasosTotalesRowChangeEventHandler" msprop:Generator_RowDeletedName="CasosTotalesRowDeleted" msprop:Generator_UserTableName="CasosTotales" msprop:Generator_RowChangedName="CasosTotalesRowChanged" msprop:Generator_RowEvArgName="CasosTotalesRowChangeEvent" msprop:Generator_RowClassName="CasosTotalesRow">
+        <xs:element name="CasosTotales" msprop:Generator_TableClassName="CasosTotalesDataTable" msprop:Generator_TableVarName="tableCasosTotales" msprop:Generator_RowChangedName="CasosTotalesRowChanged" msprop:Generator_TablePropName="CasosTotales" msprop:Generator_RowDeletingName="CasosTotalesRowDeleting" msprop:Generator_RowChangingName="CasosTotalesRowChanging" msprop:Generator_RowEvHandlerName="CasosTotalesRowChangeEventHandler" msprop:Generator_RowDeletedName="CasosTotalesRowDeleted" msprop:Generator_RowClassName="CasosTotalesRow" msprop:Generator_UserTableName="CasosTotales" msprop:Generator_RowEvArgName="CasosTotalesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CLIENTES_x0020_EN_x0020_PROCESO" msprop:Generator_ColumnVarNameInTable="columnCLIENTES_EN_PROCESO" msprop:Generator_ColumnPropNameInRow="CLIENTES_EN_PROCESO" msprop:Generator_ColumnPropNameInTable="CLIENTES_EN_PROCESOColumn" msprop:Generator_UserColumnName="CLIENTES EN PROCESO" minOccurs="0">
@@ -326,14 +338,14 @@ FROM            ReestructurasTERM_RESUM</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CasosTotalesN" msprop:Generator_TableClassName="CasosTotalesNDataTable" msprop:Generator_TableVarName="tableCasosTotalesN" msprop:Generator_RowChangedName="CasosTotalesNRowChanged" msprop:Generator_TablePropName="CasosTotalesN" msprop:Generator_RowDeletingName="CasosTotalesNRowDeleting" msprop:Generator_RowChangingName="CasosTotalesNRowChanging" msprop:Generator_RowEvHandlerName="CasosTotalesNRowChangeEventHandler" msprop:Generator_RowDeletedName="CasosTotalesNRowDeleted" msprop:Generator_RowClassName="CasosTotalesNRow" msprop:Generator_UserTableName="CasosTotalesN" msprop:Generator_RowEvArgName="CasosTotalesNRowChangeEvent">
+        <xs:element name="CasosTotalesN" msprop:Generator_TableClassName="CasosTotalesNDataTable" msprop:Generator_TableVarName="tableCasosTotalesN" msprop:Generator_TablePropName="CasosTotalesN" msprop:Generator_RowDeletingName="CasosTotalesNRowDeleting" msprop:Generator_RowChangingName="CasosTotalesNRowChanging" msprop:Generator_RowEvHandlerName="CasosTotalesNRowChangeEventHandler" msprop:Generator_RowDeletedName="CasosTotalesNRowDeleted" msprop:Generator_UserTableName="CasosTotalesN" msprop:Generator_RowChangedName="CasosTotalesNRowChanged" msprop:Generator_RowEvArgName="CasosTotalesNRowChangeEvent" msprop:Generator_RowClassName="CasosTotalesNRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CLIENTES_x0020_EN_x0020_PROCESO" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCLIENTES_EN_PROCESO" msprop:Generator_ColumnPropNameInRow="CLIENTES_EN_PROCESO" msprop:Generator_ColumnPropNameInTable="CLIENTES_EN_PROCESOColumn" msprop:Generator_UserColumnName="CLIENTES EN PROCESO" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ReestructurasDET" msprop:Generator_TableClassName="ReestructurasDETDataTable" msprop:Generator_TableVarName="tableReestructurasDET" msprop:Generator_RowChangedName="ReestructurasDETRowChanged" msprop:Generator_TablePropName="ReestructurasDET" msprop:Generator_RowDeletingName="ReestructurasDETRowDeleting" msprop:Generator_RowChangingName="ReestructurasDETRowChanging" msprop:Generator_RowEvHandlerName="ReestructurasDETRowChangeEventHandler" msprop:Generator_RowDeletedName="ReestructurasDETRowDeleted" msprop:Generator_RowClassName="ReestructurasDETRow" msprop:Generator_UserTableName="ReestructurasDET" msprop:Generator_RowEvArgName="ReestructurasDETRowChangeEvent">
+        <xs:element name="ReestructurasDET" msprop:Generator_TableClassName="ReestructurasDETDataTable" msprop:Generator_TableVarName="tableReestructurasDET" msprop:Generator_TablePropName="ReestructurasDET" msprop:Generator_RowDeletingName="ReestructurasDETRowDeleting" msprop:Generator_RowChangingName="ReestructurasDETRowChanging" msprop:Generator_RowEvHandlerName="ReestructurasDETRowChangeEventHandler" msprop:Generator_RowDeletedName="ReestructurasDETRowDeleted" msprop:Generator_UserTableName="ReestructurasDET" msprop:Generator_RowChangedName="ReestructurasDETRowChanged" msprop:Generator_RowEvArgName="ReestructurasDETRowChangeEvent" msprop:Generator_RowClassName="ReestructurasDETRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CASO" msprop:Generator_ColumnVarNameInTable="columnCASO" msprop:Generator_ColumnPropNameInRow="CASO" msprop:Generator_ColumnPropNameInTable="CASOColumn" msprop:Generator_UserColumnName="CASO" minOccurs="0">
@@ -362,7 +374,7 @@ FROM            ReestructurasTERM_RESUM</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ReestructurasTERM_RESUM" msprop:Generator_TableClassName="ReestructurasTERM_RESUMDataTable" msprop:Generator_TableVarName="tableReestructurasTERM_RESUM" msprop:Generator_TablePropName="ReestructurasTERM_RESUM" msprop:Generator_RowDeletingName="ReestructurasTERM_RESUMRowDeleting" msprop:Generator_RowChangingName="ReestructurasTERM_RESUMRowChanging" msprop:Generator_RowEvHandlerName="ReestructurasTERM_RESUMRowChangeEventHandler" msprop:Generator_RowDeletedName="ReestructurasTERM_RESUMRowDeleted" msprop:Generator_UserTableName="ReestructurasTERM_RESUM" msprop:Generator_RowChangedName="ReestructurasTERM_RESUMRowChanged" msprop:Generator_RowEvArgName="ReestructurasTERM_RESUMRowChangeEvent" msprop:Generator_RowClassName="ReestructurasTERM_RESUMRow">
+        <xs:element name="ReestructurasTERM_RESUM" msprop:Generator_TableClassName="ReestructurasTERM_RESUMDataTable" msprop:Generator_TableVarName="tableReestructurasTERM_RESUM" msprop:Generator_RowChangedName="ReestructurasTERM_RESUMRowChanged" msprop:Generator_TablePropName="ReestructurasTERM_RESUM" msprop:Generator_RowDeletingName="ReestructurasTERM_RESUMRowDeleting" msprop:Generator_RowChangingName="ReestructurasTERM_RESUMRowChanging" msprop:Generator_RowEvHandlerName="ReestructurasTERM_RESUMRowChangeEventHandler" msprop:Generator_RowDeletedName="ReestructurasTERM_RESUMRowDeleted" msprop:Generator_RowClassName="ReestructurasTERM_RESUMRow" msprop:Generator_UserTableName="ReestructurasTERM_RESUM" msprop:Generator_RowEvArgName="ReestructurasTERM_RESUMRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Tipo" msprop:Generator_ColumnVarNameInTable="columnTipo" msprop:Generator_ColumnPropNameInRow="Tipo" msprop:Generator_ColumnPropNameInTable="TipoColumn" msprop:Generator_UserColumnName="Tipo" minOccurs="0">
