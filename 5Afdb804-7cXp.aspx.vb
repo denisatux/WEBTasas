@@ -49,7 +49,7 @@ Partial Public Class CPXForm
         End Try
     End Sub
 
-    Sub GeneraArchivo(Archivo As String, Empresa As Decimal, FirmaSol As String, Solicitud As Decimal, Estatus As String, Serie As String, Contrato As Boolean)
+    Sub GeneraArchivo(Archivo As String, Empresa As Decimal, FirmaSol As String, Solicitud As Decimal, Estatus As String, Serie As String, Contrato As Boolean, idCuentas As Integer)
         Dim ta As New ProDSTableAdapters.Vw_CXP_AutorizacionesRPTTableAdapter
         Dim ds0 As New ProDS
         Dim ds1 As New ProDS
@@ -58,20 +58,29 @@ Partial Public Class CPXForm
         ta.Fill(ds0.Vw_CXP_AutorizacionesRPT, Empresa, Solicitud, Estatus)
         taOBS.Fill(ds0.CXP_ObservacionesSolicitud, Empresa, Solicitud)
 
+        Dim taCtasBancarias As New ProDSTableAdapters.CXP_CuentasBancariasProvTableAdapter
+        Dim dtCtasBanco As New ProDS.CXP_CuentasBancariasProvDataTable
+        taCtasBancarias.ObtCtaPago_FillBy(ds0.CXP_CuentasBancariasProv, idCuentas)
+
+
         If Serie = "PSC" Then
             ta.DetalleND_FillBy(ds1.Vw_CXP_AutorizacionesRPT, Empresa, Solicitud)
             ta.DetalleSD_FillBy(ds2.Vw_CXP_AutorizacionesRPT, Empresa, Solicitud)
             rptSolPago = New rptSolicitudDePagoSCC
 
             rptSolPago.SetDataSource(ds0)
-            rptSolPago.Subreports(0).SetDataSource(ds0)
-            rptSolPago.Subreports(1).SetDataSource(ds1)
-            rptSolPago.Subreports(2).SetDataSource(ds2)
+            rptSolPago.Subreports("rptSubObservaciones").SetDataSource(ds0)
+            rptSolPago.Subreports("rptSubSolicitudSCND").SetDataSource(ds1)
+            rptSolPago.Subreports("rptSubSolicitudSCSD").SetDataSource(ds2)
+            rptSolPago.Subreports("rptSubCtasBancarias").SetDataSource(ds0)
+            rptSolPago.Refresh()
+
             rptSolPago.SetParameterValue("var_SD", ds2.Vw_CXP_AutorizacionesRPT.Rows.Count)
             rptSolPago.SetParameterValue("var_ND", ds1.Vw_CXP_AutorizacionesRPT.Rows.Count)
             rptSolPago.SetParameterValue("var_genero", FirmaSol)
             rptSolPago.SetParameterValue("var_observaciones", ds0.CXP_ObservacionesSolicitud.Rows.Count.ToString)
             rptSolPago.SetParameterValue("var_contrato", Contrato)
+            rptSolPago.SetParameterValue("var_idCuentas", idCuentas)
 
             Select Case Empresa
                 Case 23
@@ -85,6 +94,8 @@ Partial Public Class CPXForm
             rptSolPago = New rptSolicitudDePago
             rptSolPago.SetDataSource(ds0)
             rptSolPago.Subreports(0).SetDataSource(ds0)
+            rptSolPago.Subreports("rptSubCuentas").SetDataSource(dtCtasBanco)
+
             rptSolPago.SetParameterValue("var_genero", FirmaSol)
             rptSolPago.SetParameterValue("var_observaciones", ds0.CXP_ObservacionesSolicitud.Rows.Count.ToString)
             rptSolPago.SetParameterValue("var_contrato", Contrato)
@@ -139,7 +150,7 @@ Partial Public Class CPXForm
                 ta.CambiaAutorizante2("#epineda@finagil.com.mx", "C.P. ELISANDER PINEDA ROJAS", Session("ID2"), Session("ID1"), Session("ID3"))
             End If
         End If
-        GeneraArchivo(Archivo, Session("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
+        GeneraArchivo(Archivo, Session("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato, r.idCuentas)
 
         If r.contrato = True Then
             If InStr(Session("MCONTROL_CXP"), Session("User")) Then
@@ -191,7 +202,7 @@ Partial Public Class CPXForm
         End If
         taOBS.Borrar(r.idEmpresa, r.Solicitud, Session("User"))
         taOBS.Insert(r.idEmpresa, r.Solicitud, Session("User"), TextMail.Text)
-        GeneraArchivo(Archivo, Session("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato)
+        GeneraArchivo(Archivo, Session("ID1"), Firma2, r.Solicitud, r.Estatus, r.serie, r.contrato, r.idCuentas)
         MandaCorreo("Pagos@finagil.com.mx", r.MailSolicitante, Asunto, Mensaje, Archivo)
         MandaCorreoFase("Pagos@finagil.com.mx", "SISTEMAS", Asunto, Mensaje, Archivo)
         Session("ID1") = 0
