@@ -27,7 +27,7 @@
                     <asp:BoundField DataField="Empresa" HeaderText="Empresa" SortExpression="Empresa" >
                     <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
-                    <asp:HyperLinkField DataNavigateUrlFields="idEmpresa,Solicitud,Estatus" DataNavigateUrlFormatString="~\tmpFinagil\CXP\{0}-{1}.pdf" DataTextField="Solicitud" DataTextFormatString="{0:n0}" HeaderText="Solicitud" Target="_blank">
+                    <asp:HyperLinkField DataNavigateUrlFields="idEmpresa,Solicitud,Estatus" DataNavigateUrlFormatString="~\tmpFinagil\CXP\{0}-{1}.pdf" DataTextField="Solicitud" DataTextFormatString="{0:F0}" HeaderText="Solicitud" Target="_blank">
                     <ItemStyle Font-Bold="True" HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:HyperLinkField>
                     <asp:BoundField DataField="Solicita" HeaderText="Solicitante" SortExpression="Solicita" >

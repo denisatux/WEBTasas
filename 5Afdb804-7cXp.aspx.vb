@@ -94,11 +94,13 @@ Partial Public Class CPXForm
             rptSolPago = New rptSolicitudDePago
             rptSolPago.SetDataSource(ds0)
             rptSolPago.Subreports(0).SetDataSource(ds0)
-            rptSolPago.Subreports("rptSubCuentas").SetDataSource(dtCtasBanco)
+            rptSolPago.Subreports(1).SetDataSource(ds0)
 
             rptSolPago.SetParameterValue("var_genero", FirmaSol)
             rptSolPago.SetParameterValue("var_observaciones", ds0.CXP_ObservacionesSolicitud.Rows.Count.ToString)
             rptSolPago.SetParameterValue("var_contrato", Contrato)
+            rptSolPago.SetParameterValue("var_idCuentas", idCuentas)
+
             Select Case Empresa
                 Case 23
                     rptSolPago.SetParameterValue("var_pathImagen", Server.MapPath("~/IMG/LOGO FINAGIL.JPG"))
