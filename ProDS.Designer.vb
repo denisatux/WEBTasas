@@ -1670,6 +1670,8 @@ Partial Public Class ProDS
         
         Private columnPlazoEnMeses As Global.System.Data.DataColumn
         
+        Private columnIndicadores As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -1882,6 +1884,14 @@ Partial Public Class ProDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property IndicadoresColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIndicadores
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1939,9 +1949,10 @@ Partial Public Class ProDS
                     ByVal FirmaSubPromo As String,  _
                     ByVal Tasa_Solicitada As String,  _
                     ByVal Tasa_Politica As String,  _
-                    ByVal PlazoEnMeses As Integer) As VWBloqueoRow
+                    ByVal PlazoEnMeses As Integer,  _
+                    ByVal Indicadores As String) As VWBloqueoRow
             Dim rowVWBloqueoRow As VWBloqueoRow = CType(Me.NewRow,VWBloqueoRow)
-            Dim columnValuesArray() As Object = New Object() {AnexoCon, Cliente, ComentarioPromo, TipoCredito, MontoFinanciado, FondoReserva, Plazo, Tipo_Tasa, PorcentajeComision, RecidualOP, Penalizacion, RentasenDeposito, DespoitoenGarantia, Nothing, Diferencia, ComentarioRiesgos, AutorizadoRI, AutorizadoDG, FirmaSubPromo, Tasa_Solicitada, Tasa_Politica, PlazoEnMeses}
+            Dim columnValuesArray() As Object = New Object() {AnexoCon, Cliente, ComentarioPromo, TipoCredito, MontoFinanciado, FondoReserva, Plazo, Tipo_Tasa, PorcentajeComision, RecidualOP, Penalizacion, RentasenDeposito, DespoitoenGarantia, Nothing, Diferencia, ComentarioRiesgos, AutorizadoRI, AutorizadoDG, FirmaSubPromo, Tasa_Solicitada, Tasa_Politica, PlazoEnMeses, Indicadores}
             rowVWBloqueoRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVWBloqueoRow)
             Return rowVWBloqueoRow
@@ -1992,6 +2003,7 @@ Partial Public Class ProDS
             Me.columnTasa_Solicitada = MyBase.Columns("Tasa_Solicitada")
             Me.columnTasa_Politica = MyBase.Columns("Tasa_Politica")
             Me.columnPlazoEnMeses = MyBase.Columns("PlazoEnMeses")
+            Me.columnIndicadores = MyBase.Columns("Indicadores")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2041,6 +2053,8 @@ Partial Public Class ProDS
             MyBase.Columns.Add(Me.columnTasa_Politica)
             Me.columnPlazoEnMeses = New Global.System.Data.DataColumn("PlazoEnMeses", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPlazoEnMeses)
+            Me.columnIndicadores = New Global.System.Data.DataColumn("Indicadores", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIndicadores)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
             Me.columnAnexoCon.MaxLength = 11
             Me.columnCliente.AllowDBNull = false
@@ -2068,6 +2082,7 @@ Partial Public Class ProDS
             Me.columnTasa_Politica.ReadOnly = true
             Me.columnTasa_Politica.MaxLength = 37
             Me.columnPlazoEnMeses.ReadOnly = true
+            Me.columnIndicadores.MaxLength = 200
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -14581,6 +14596,21 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Indicadores() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVWBloqueo.IndicadoresColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Indicadores' de la tabla 'VWBloqueo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVWBloqueo.IndicadoresColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsAnexoConNull() As Boolean
             Return Me.IsNull(Me.tableVWBloqueo.AnexoConColumn)
         End Function
@@ -14745,6 +14775,18 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetPlazoEnMesesNull()
             Me(Me.tableVWBloqueo.PlazoEnMesesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsIndicadoresNull() As Boolean
+            Return Me.IsNull(Me.tableVWBloqueo.IndicadoresColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetIndicadoresNull()
+            Me(Me.tableVWBloqueo.IndicadoresColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -25953,6 +25995,7 @@ Namespace ProDSTableAdapters
             tableMapping.ColumnMappings.Add("Tasa_Solicitada", "Tasa_Solicitada")
             tableMapping.ColumnMappings.Add("Tasa_Politica", "Tasa_Politica")
             tableMapping.ColumnMappings.Add("PlazoEnMeses", "PlazoEnMeses")
+            tableMapping.ColumnMappings.Add("Indicadores", "Indicadores")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -25982,13 +26025,13 @@ Namespace ProDSTableAdapters
                 "s.id, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         GEN_Bloqueo_Tasas.TasaPol - GEN_Bloqueo_Tasas.T"& _ 
                 "asaSol AS Diferencia, GEN_Bloqueo_Tasas.ComentarioRiesgos, GEN_Bloqueo_Tasas.Aut"& _ 
                 "orizadoRI, GEN_Bloqueo_Tasas.AutorizadoDG, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         GEN_Bloque"& _ 
-                "o_Tasas.FirmaSubPromo, Vw_AnexoPlazoMeses.Plazo AS PlazoEnMeses"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM           "& _ 
-                " GEN_Bloqueo_Tasas INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos ON SUBSTRING(G"& _ 
-                "EN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Vw_Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
-                "                      Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBST"& _ 
-                "RING(Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_AnexoPlazoMeses"& _ 
-                " ON Anexos.Anexo = Vw_AnexoPlazoMeses.Anexo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (GEN_Bloqueo_Tasas.id "& _ 
-                "= @ID)"
+                "o_Tasas.FirmaSubPromo, Vw_AnexoPlazoMeses.Plazo AS PlazoEnMeses, GEN_Bloqueo_Tas"& _ 
+                "as.Indicadores"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            GEN_Bloqueo_Tasas INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
+                "       Vw_Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Vw_Anex"& _ 
+                "os.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Anexos ON SUBSTRING(GEN_Blo"& _ 
+                "queo_Tasas.Anexo, 2, 9) = SUBSTRING(Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "             Vw_AnexoPlazoMeses ON Anexos.Anexo = Vw_AnexoPlazoMeses.Anexo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHER"& _ 
+                "E        (GEN_Bloqueo_Tasas.id = @ID)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
@@ -26005,12 +26048,13 @@ Namespace ProDSTableAdapters
                 ".id, GEN_Bloqueo_Tasas.TasaPol - GEN_Bloqueo_Tasas.TasaSol AS Diferencia, GEN_Bl"& _ 
                 "oqueo_Tasas.ComentarioRiesgos, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         GEN_Bloqueo_Tasas.Auto"& _ 
                 "rizadoRI, GEN_Bloqueo_Tasas.AutorizadoDG, GEN_Bloqueo_Tasas.FirmaSubPromo, Vw_An"& _ 
-                "exoPlazoMeses.Plazo AS PlazoEnMeses"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            GEN_Bloqueo_Tasas INNER JOI"& _ 
-                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9"& _ 
-                ") = SUBSTRING(Vw_Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Anexos"& _ 
-                " ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Anexos.Anexo, 2, 9) INN"& _ 
-                "ER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_AnexoPlazoMeses ON Anexos.Anexo = Vw_AnexoP"& _ 
-                "lazoMeses.Anexo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (GEN_Bloqueo_Tasas.id = @ID)"
+                "exoPlazoMeses.Plazo AS PlazoEnMeses, GEN_Bloqueo_Tasas.Indicadores"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        "& _ 
+                "    GEN_Bloqueo_Tasas INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos ON SUBSTRIN"& _ 
+                "G(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Vw_Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "                         Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SU"& _ 
+                "BSTRING(Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_AnexoPlazoMe"& _ 
+                "ses ON Anexos.Anexo = Vw_AnexoPlazoMeses.Anexo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (GEN_Bloqueo_Tasas."& _ 
+                "id = @ID)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
@@ -26027,12 +26071,13 @@ Namespace ProDSTableAdapters
                 ".id, GEN_Bloqueo_Tasas.TasaPol - GEN_Bloqueo_Tasas.TasaSol AS Diferencia, GEN_Bl"& _ 
                 "oqueo_Tasas.ComentarioRiesgos, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         GEN_Bloqueo_Tasas.Auto"& _ 
                 "rizadoDG, GEN_Bloqueo_Tasas.AutorizadoRI, GEN_Bloqueo_Tasas.FirmaSubPromo, Vw_An"& _ 
-                "exoPlazoMeses.Plazo AS PlazoEnMeses"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            GEN_Bloqueo_Tasas INNER JOI"& _ 
-                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9"& _ 
-                ") = SUBSTRING(Vw_Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Anexos"& _ 
-                " ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Anexos.Anexo, 2, 9) INN"& _ 
-                "ER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_AnexoPlazoMeses ON Anexos.Anexo = Vw_AnexoP"& _ 
-                "lazoMeses.Anexo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (GEN_Bloqueo_Tasas.id = @ID)"
+                "exoPlazoMeses.Plazo AS PlazoEnMeses, GEN_Bloqueo_Tasas.Indicadores"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        "& _ 
+                "    GEN_Bloqueo_Tasas INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos ON SUBSTRIN"& _ 
+                "G(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SUBSTRING(Vw_Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "                         Anexos ON SUBSTRING(GEN_Bloqueo_Tasas.Anexo, 2, 9) = SU"& _ 
+                "BSTRING(Anexos.Anexo, 2, 9) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_AnexoPlazoMe"& _ 
+                "ses ON Anexos.Anexo = Vw_AnexoPlazoMeses.Anexo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (GEN_Bloqueo_Tasas."& _ 
+                "id = @ID)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub

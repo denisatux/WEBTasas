@@ -23,7 +23,7 @@
     <td align=center>
         <br />
         <br />
-        <asp:DetailsView AutoGenerateRows="False" CellPadding="4" DataKeyNames="id,Diferencia,AnexoCon" DataSourceID="vwDatos_DS" Font-Names="Verdana" Font-Size="Smaller" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" ID="DetailsView1" runat="server" Width="80%" EnableModelValidation="True" >
+        <asp:DetailsView AutoGenerateRows="False" CellPadding="4" DataKeyNames="id,Diferencia,AnexoCon" DataSourceID="vwDatos_DS" Font-Names="Verdana" Font-Size="Smaller" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" ID="DetailsView1" runat="server" Width="80%" >
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
             <RowStyle BackColor="#FFE0C0" />
@@ -35,6 +35,7 @@
                 <asp:BoundField DataField="ComentarioPromo" HeaderText="Comentarios Promoci&#243;n"
                     ReadOnly="True" SortExpression="ComentarioPromo" />
                 <asp:BoundField DataField="ComentarioRiesgos" HeaderText="Comentario Riesgos" SortExpression="ComentarioRiesgos" />
+                <asp:BoundField DataField="Indicadores" HeaderText="Indicadores" SortExpression="Indicadores" />
                 <asp:BoundField DataField="Tasa_Politica" HeaderText="Tasa Pol&#237;tica" SortExpression="Tasa_Politica" />
                 <asp:BoundField DataField="Tasa_Solicitada" HeaderText="Tasa Solicitada" SortExpression="Tasa_Solicitada" />
                 <asp:BoundField DataField="TipoCredito" HeaderText="Tipo de Cr&#233;dito" SortExpression="TipoCredito" />

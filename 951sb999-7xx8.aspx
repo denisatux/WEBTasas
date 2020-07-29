@@ -35,6 +35,7 @@
                 <asp:BoundField DataField="ComentarioPromo" HeaderText="Comentarios Promoci&#243;n"
                     ReadOnly="True" SortExpression="ComentarioPromo" />
                 <asp:BoundField DataField="ComentarioRiesgos" HeaderText="Comentarios Riesgos" SortExpression="ComentarioRiesgos" />
+                <asp:BoundField DataField="Indicadores" HeaderText="Indicadores" SortExpression="Indicadores" />
                 <asp:BoundField DataField="Tasa_Politica" HeaderText="Tasa Pol&#237;tica" SortExpression="Tasa_Politica" />
                 <asp:BoundField DataField="Tasa_Solicitada" HeaderText="Tasa Solicitada" SortExpression="Tasa_Solicitada" />
                 <asp:BoundField DataField="TipoCredito" HeaderText="Tipo de Cr&#233;dito" SortExpression="TipoCredito" />
