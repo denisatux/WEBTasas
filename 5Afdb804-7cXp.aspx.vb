@@ -129,6 +129,7 @@ Partial Public Class CPXForm
         Mensaje += "Emrpesa: " & r.NombreCorto & "<br>"
         Mensaje += "Estatus: " & r.Estatus & "<br>"
         Mensaje += "Importe: " & CDec(r.Total).ToString("n2") & "<br>"
+        Mensaje += "Proveedor: " & r.razonSocial & "<br>"
         Archivo = "CXP\" & CInt(r.idEmpresa).ToString & "-" & CInt(r.Solicitud).ToString & ".pdf"
         Dim Firma2 As String = Encriptar(r.FechaSol.ToString("yyyyMMddhhmm") & r.MailSolicitante & Session("ID1") & "-" & Session("ID2"))
 

@@ -9535,6 +9535,8 @@ Partial Public Class ProDS
         
         Private columnidCuentas As Global.System.Data.DataColumn
         
+        Private columnrazonSocial As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -9707,6 +9709,14 @@ Partial Public Class ProDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property razonSocialColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnrazonSocial
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -9760,9 +9770,10 @@ Partial Public Class ProDS
                     ByVal contrato As Boolean,  _
                     ByVal Concepto As String,  _
                     ByVal Anexo As String,  _
-                    ByVal idCuentas As Decimal) As Vw_CXP_AutorizacionesRow
+                    ByVal idCuentas As Decimal,  _
+                    ByVal razonSocial As String) As Vw_CXP_AutorizacionesRow
             Dim rowVw_CXP_AutorizacionesRow As Vw_CXP_AutorizacionesRow = CType(Me.NewRow,Vw_CXP_AutorizacionesRow)
-            Dim columnValuesArray() As Object = New Object() {Empresa, Solicitud, Solicita, Total, Estatus, Autorizante, idEmpresa, MailSolicitante, mailAutoriza2, FechaSol, User, NombreCorto, serie, contrato, Concepto, Anexo, idCuentas}
+            Dim columnValuesArray() As Object = New Object() {Empresa, Solicitud, Solicita, Total, Estatus, Autorizante, idEmpresa, MailSolicitante, mailAutoriza2, FechaSol, User, NombreCorto, serie, contrato, Concepto, Anexo, idCuentas, razonSocial}
             rowVw_CXP_AutorizacionesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVw_CXP_AutorizacionesRow)
             Return rowVw_CXP_AutorizacionesRow
@@ -9808,6 +9819,7 @@ Partial Public Class ProDS
             Me.columnConcepto = MyBase.Columns("Concepto")
             Me.columnAnexo = MyBase.Columns("Anexo")
             Me.columnidCuentas = MyBase.Columns("idCuentas")
+            Me.columnrazonSocial = MyBase.Columns("razonSocial")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9847,6 +9859,8 @@ Partial Public Class ProDS
             MyBase.Columns.Add(Me.columnAnexo)
             Me.columnidCuentas = New Global.System.Data.DataColumn("idCuentas", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnidCuentas)
+            Me.columnrazonSocial = New Global.System.Data.DataColumn("razonSocial", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnrazonSocial)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnSolicitud, Me.columnEstatus, Me.columnidEmpresa}, true))
             Me.columnEmpresa.MaxLength = 150
             Me.columnSolicitud.AllowDBNull = false
@@ -9868,6 +9882,7 @@ Partial Public Class ProDS
             Me.columnConcepto.MaxLength = 250
             Me.columnAnexo.ReadOnly = true
             Me.columnAnexo.MaxLength = 10
+            Me.columnrazonSocial.MaxLength = 200
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -20349,6 +20364,22 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property razonSocial() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVw_CXP_Autorizaciones.razonSocialColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'razonSocial' de la tabla 'Vw_CXP_Autorizaciones' es DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVw_CXP_Autorizaciones.razonSocialColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsEmpresaNull() As Boolean
             Return Me.IsNull(Me.tableVw_CXP_Autorizaciones.EmpresaColumn)
         End Function
@@ -20513,6 +20544,18 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetidCuentasNull()
             Me(Me.tableVw_CXP_Autorizaciones.idCuentasColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsrazonSocialNull() As Boolean
+            Return Me.IsNull(Me.tableVw_CXP_Autorizaciones.razonSocialColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetrazonSocialNull()
+            Me(Me.tableVw_CXP_Autorizaciones.razonSocialColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -31196,6 +31239,7 @@ Namespace ProDSTableAdapters
             tableMapping.ColumnMappings.Add("Concepto", "Concepto")
             tableMapping.ColumnMappings.Add("Anexo", "Anexo")
             tableMapping.ColumnMappings.Add("idCuentas", "idCuentas")
+            tableMapping.ColumnMappings.Add("razonSocial", "razonSocial")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -31219,13 +31263,14 @@ Namespace ProDSTableAdapters
                 "User AS [User], NombreCorto, MAX(serie) AS serie, contrato, MIN(decripcion) AS C"& _ 
                 "oncepto, MAX(CASE WHEN len(noContrato) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         > 0 THEN subst"& _ 
                 "ring(noContrato, 1, 5) + '/' + substring(noContrato, 6, 4) ELSE noContrato END) "& _ 
-                "AS Anexo, idCuentas"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (NOT (m"& _ 
-                "ailAutoriza1 LIKE '#%')) AND (ok1 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ok1 = '')"& _ 
-                " AND (mailAutoriza1 = @User) AND (estatus <> 'CompGtos') AND (estatus <> 'Reemb'"& _ 
-                ") OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 > '') AN"& _ 
-                "D (estatus <> 'CompGtos') AND (estatus <> 'Reemb') AND (ok1 <> 'RECHAZADO') AND "& _ 
-                "(mailAutoriza2 = @User) AND (ok2 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ok2 = '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folioSolicitud, Autoriza1, nombreEmpresa, nombre, idEmpresas, mailGene"& _ 
-                "ro, NombreCorto, contrato, idCuentas"
+                "AS Anexo, idCuentas, razonSocial"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE  "& _ 
+                "      (NOT (mailAutoriza1 LIKE '#%')) AND (ok1 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    ok1 = '') AND (mailAutoriza1 = @User) AND (estatus <> 'CompGtos') AND (estat"& _ 
+                "us <> 'Reemb') OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (NOT (mailAutoriza1 LIKE '#%')) AND "& _ 
+                "(ok1 > '') AND (estatus <> 'CompGtos') AND (estatus <> 'Reemb') AND (ok1 <> 'REC"& _ 
+                "HAZADO') AND (mailAutoriza2 = @User) AND (ok2 IS NULL OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
+                "   ok2 = '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folioSolicitud, Autoriza1, nombreEmpresa, nombre, idEmpre"& _ 
+                "sas, mailGenero, NombreCorto, contrato, idCuentas, razonSocial"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@User", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "mailAutoriza1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
@@ -31247,12 +31292,12 @@ Namespace ProDSTableAdapters
                 "ilGenero AS MailSolicitante, MAX(fechaSolicitud) AS FechaSol, NombreCorto, @user"& _ 
                 " AS [User], MAX(serie) AS serie, contrato, MAX(CASE WHEN len(noContrato) > 0 THE"& _ 
                 "N substring(noContrato, 1, 5) + '/' + substring(noContrato, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "       6, 4) ELSE noContrato END) AS Anexo, idCuentas, mailAutoriza2"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM      "& _ 
-                "      Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (@user = @user)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY folioSolicit"& _ 
-                "ud, mailAutoriza1, Autoriza1, estatus, nombreEmpresa, nombre, idEmpresas, mailGe"& _ 
-                "nero, NombreCorto, contrato, idCuentas, Autoriza2, mailAutoriza2"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        "& _ 
-                "(folioSolicitud = @Solicitud) AND (idEmpresas = @Empresa) AND (estatus = @Estatu"& _ 
-                "s)"
+                "       6, 4) ELSE noContrato END) AS Anexo, idCuentas, mailAutoriza2, razonSocia"& _ 
+                "l"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_CXP_Autorizaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (@user = @user)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY"& _ 
+                " folioSolicitud, mailAutoriza1, Autoriza1, estatus, nombreEmpresa, nombre, idEmp"& _ 
+                "resas, mailGenero, NombreCorto, contrato, idCuentas, Autoriza2, mailAutoriza2, r"& _ 
+                "azonSocial"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (folioSolicitud = @Solicitud) AND (idEmpresas = @Empre"& _ 
+                "sa) AND (estatus = @Estatus)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@user", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Solicitud", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "Solicitud", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
