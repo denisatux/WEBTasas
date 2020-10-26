@@ -13123,6 +13123,8 @@ Partial Public Class ProDS
         
         Private columnconvenio As Global.System.Data.DataColumn
         
+        Private columnconcepto As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -13335,6 +13337,14 @@ Partial Public Class ProDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property conceptoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnconcepto
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -13392,9 +13402,10 @@ Partial Public Class ProDS
                     ByVal referencia As String,  _
                     ByVal nombreCorto As String,  _
                     ByVal c_NombreMoneda As String,  _
-                    ByVal convenio As String) As CXP_CuentasBancariasProvRow
+                    ByVal convenio As String,  _
+                    ByVal concepto As String) As CXP_CuentasBancariasProvRow
             Dim rowCXP_CuentasBancariasProvRow As CXP_CuentasBancariasProvRow = CType(Me.NewRow,CXP_CuentasBancariasProvRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, idProveedor, idBanco, cuenta, clabe, descripcion, moneda, archivo1, vigente, usuarioSolicita1, usuarioSolicita2, usuarioAutoriza1, usuarioAutoriza2, fechaSolicita1, fechaSolicita2, fechaAutoriza1, fechaAutoriza2, estatus, referencia, nombreCorto, c_NombreMoneda, convenio}
+            Dim columnValuesArray() As Object = New Object() {Nothing, idProveedor, idBanco, cuenta, clabe, descripcion, moneda, archivo1, vigente, usuarioSolicita1, usuarioSolicita2, usuarioAutoriza1, usuarioAutoriza2, fechaSolicita1, fechaSolicita2, fechaAutoriza1, fechaAutoriza2, estatus, referencia, nombreCorto, c_NombreMoneda, convenio, concepto}
             rowCXP_CuentasBancariasProvRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCXP_CuentasBancariasProvRow)
             Return rowCXP_CuentasBancariasProvRow
@@ -13445,6 +13456,7 @@ Partial Public Class ProDS
             Me.columnnombreCorto = MyBase.Columns("nombreCorto")
             Me.columnc_NombreMoneda = MyBase.Columns("c_NombreMoneda")
             Me.columnconvenio = MyBase.Columns("convenio")
+            Me.columnconcepto = MyBase.Columns("concepto")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13494,6 +13506,8 @@ Partial Public Class ProDS
             MyBase.Columns.Add(Me.columnc_NombreMoneda)
             Me.columnconvenio = New Global.System.Data.DataColumn("convenio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnconvenio)
+            Me.columnconcepto = New Global.System.Data.DataColumn("concepto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnconcepto)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidCuentas}, true))
             Me.columnidCuentas.AutoIncrement = true
             Me.columnidCuentas.AutoIncrementSeed = -1
@@ -13515,6 +13529,7 @@ Partial Public Class ProDS
             Me.columnc_NombreMoneda.ReadOnly = true
             Me.columnc_NombreMoneda.MaxLength = 100
             Me.columnconvenio.MaxLength = 100
+            Me.columnconcepto.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -23840,6 +23855,22 @@ Partial Public Class ProDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property concepto() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCXP_CuentasBancariasProv.conceptoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'concepto' de la tabla 'CXP_CuentasBancariasProv' es DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCXP_CuentasBancariasProv.conceptoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsidProveedorNull() As Boolean
             Return Me.IsNull(Me.tableCXP_CuentasBancariasProv.idProveedorColumn)
         End Function
@@ -24088,6 +24119,18 @@ Partial Public Class ProDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetconvenioNull()
             Me(Me.tableCXP_CuentasBancariasProv.convenioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsconceptoNull() As Boolean
+            Return Me.IsNull(Me.tableCXP_CuentasBancariasProv.conceptoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetconceptoNull()
+            Me(Me.tableCXP_CuentasBancariasProv.conceptoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -33695,6 +33738,7 @@ Namespace ProDSTableAdapters
             tableMapping.ColumnMappings.Add("nombreCorto", "nombreCorto")
             tableMapping.ColumnMappings.Add("c_NombreMoneda", "c_NombreMoneda")
             tableMapping.ColumnMappings.Add("convenio", "convenio")
+            tableMapping.ColumnMappings.Add("concepto", "concepto")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -33722,10 +33766,11 @@ Namespace ProDSTableAdapters
                 "Prov.fechaSolicita2, CXP_CuentasBancariasProv.fechaAutoriza1, CXP_CuentasBancari"& _ 
                 "asProv.fechaAutoriza2, CXP_CuentasBancariasProv.estatus, CXP_CuentasBancariasPro"& _ 
                 "v.referencia, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_Bancos.nombreCorto, ISNULL(CXP_c_Mo"& _ 
-                "neda_1.c_NombreMoneda, '') AS c_NombreMoneda, CXP_CuentasBancariasProv.convenio"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CXP_c_Moneda AS CXP_c_Moneda_1 RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
-                "           CXP_CuentasBancariasProv INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_Ban"& _ 
-                "cos ON CXP_CuentasBancariasProv.idBanco = CXP_Bancos.idBancos ON CXP_c_Moneda_1."& _ 
-                "c_Moneda = CXP_CuentasBancariasProv.moneda"
+                "neda_1.c_NombreMoneda, '') AS c_NombreMoneda, CXP_CuentasBancariasProv.convenio,"& _ 
+                " CXP_CuentasBancariasProv.concepto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CXP_c_Moneda AS CXP_c_Moneda"& _ 
+                "_1 RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_CuentasBancariasProv INNER JOI"& _ 
+                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_Bancos ON CXP_CuentasBancariasProv.idBanco = CXP"& _ 
+                "_Bancos.idBancos ON CXP_c_Moneda_1.c_Moneda = CXP_CuentasBancariasProv.moneda"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
@@ -33751,11 +33796,11 @@ Namespace ProDSTableAdapters
                 ", CXP_CuentasBancariasProv.clabe, CXP_CuentasBancariasProv.descripcion, CXP_Cuen"& _ 
                 "tasBancariasProv.moneda, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_CuentasBancariasProv.idB"& _ 
                 "anco, ISNULL(CXP_c_Moneda.c_NombreMoneda, '') AS c_NombreMoneda, CXP_Bancos.nomb"& _ 
-                "reCorto, CXP_CuentasBancariasProv.referencia"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CXP_CuentasBancari"& _ 
-                "asProv LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_c_Moneda ON CXP_CuentasBanc"& _ 
-                "ariasProv.moneda = CXP_c_Moneda.c_Moneda LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   CXP_Bancos ON CXP_CuentasBancariasProv.idBanco = CXP_Bancos.idBancos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE  "& _ 
-                "      (CXP_CuentasBancariasProv.idCuentas = @idCuentas)"
+                "reCorto, CXP_CuentasBancariasProv.referencia, CXP_CuentasBancariasProv.concepto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CXP_CuentasBancariasProv LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    CXP_c_Moneda ON CXP_CuentasBancariasProv.moneda = CXP_c_Moneda.c_Moneda LEFT"& _ 
+                " OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_Bancos ON CXP_CuentasBancariasProv.idB"& _ 
+                "anco = CXP_Bancos.idBancos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CXP_CuentasBancariasProv.idCuentas = @"& _ 
+                "idCuentas)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@idCuentas", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idCuentas", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
@@ -33766,13 +33811,13 @@ Namespace ProDSTableAdapters
                 ", CXP_Bancos.nombreCorto, CXP_CuentasBancariasProv.descripcion, CXP_CuentasBanca"& _ 
                 "riasProv.moneda, CXP_CuentasBancariasProv.archivo1, CXP_CuentasBancariasProv.vig"& _ 
                 "ente, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_Estatus.idEstatus, CXP_Estatus.descripcion "& _ 
-                "AS status"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CXP_CuentasBancariasProv INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
-                "         CXP_Estatus ON CXP_CuentasBancariasProv.estatus = CXP_Estatus.idEstatus"& _ 
-                " LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_c_Moneda ON CXP_CuentasBancariasP"& _ 
-                "rov.moneda = CXP_c_Moneda.c_Moneda LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP"& _ 
-                "_Bancos ON CXP_CuentasBancariasProv.idBanco = CXP_Bancos.idBancos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        "& _ 
-                "(CXP_CuentasBancariasProv.idProveedor = @idProveedor) AND (CXP_CuentasBancariasP"& _ 
-                "rov.vigente = 1)"
+                "AS status, CXP_CuentasBancariasProv.concepto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CXP_CuentasBancari"& _ 
+                "asProv INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_Estatus ON CXP_CuentasBancariasP"& _ 
+                "rov.estatus = CXP_Estatus.idEstatus LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CX"& _ 
+                "P_c_Moneda ON CXP_CuentasBancariasProv.moneda = CXP_c_Moneda.c_Moneda LEFT OUTER"& _ 
+                " JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_Bancos ON CXP_CuentasBancariasProv.idBanco ="& _ 
+                " CXP_Bancos.idBancos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CXP_CuentasBancariasProv.idProveedor = @idPr"& _ 
+                "oveedor) AND (CXP_CuentasBancariasProv.vigente = 1)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@idProveedor", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idProveedor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
@@ -33787,11 +33832,12 @@ Namespace ProDSTableAdapters
                 "tasBancariasProv.fechaSolicita1, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_CuentasBancarias"& _ 
                 "Prov.fechaSolicita2, CXP_CuentasBancariasProv.fechaAutoriza1, CXP_CuentasBancari"& _ 
                 "asProv.fechaAutoriza2, CXP_CuentasBancariasProv.estatus, CXP_Bancos.nombreCorto,"& _ 
-                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_c_Moneda.c_NombreMoneda"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CXP_Cue"& _ 
-                "ntasBancariasProv INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_Bancos ON CXP_Cuentas"& _ 
-                "BancariasProv.idBanco = CXP_Bancos.idBancos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
-                " CXP_c_Moneda ON CXP_CuentasBancariasProv.moneda = CXP_c_Moneda.c_Moneda"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE "& _ 
-                "       (CXP_CuentasBancariasProv.idCuentas = @idCuentas)"
+                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_c_Moneda.c_NombreMoneda, CXP_CuentasBancariasPro"& _ 
+                "v.concepto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CXP_CuentasBancariasProv INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
+                "          CXP_Bancos ON CXP_CuentasBancariasProv.idBanco = CXP_Bancos.idBancos I"& _ 
+                "NNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CXP_c_Moneda ON CXP_CuentasBancariasProv.mon"& _ 
+                "eda = CXP_c_Moneda.c_Moneda"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CXP_CuentasBancariasProv.idCuentas = "& _ 
+                "@idCuentas)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@idCuentas", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "idCuentas", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub

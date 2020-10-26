@@ -1936,7 +1936,7 @@ WHERE        (idEmpresas = @Empresa) AND (folioSolicitud = @Solicitud) AND (esta
                          CXP_CuentasBancariasProv.descripcion, CXP_CuentasBancariasProv.moneda, CXP_CuentasBancariasProv.archivo1, CXP_CuentasBancariasProv.vigente, CXP_CuentasBancariasProv.usuarioSolicita1, 
                          CXP_CuentasBancariasProv.usuarioSolicita2, CXP_CuentasBancariasProv.usuarioAutoriza1, CXP_CuentasBancariasProv.usuarioAutoriza2, CXP_CuentasBancariasProv.fechaSolicita1, 
                          CXP_CuentasBancariasProv.fechaSolicita2, CXP_CuentasBancariasProv.fechaAutoriza1, CXP_CuentasBancariasProv.fechaAutoriza2, CXP_CuentasBancariasProv.estatus, CXP_CuentasBancariasProv.referencia, 
-                         CXP_Bancos.nombreCorto, ISNULL(CXP_c_Moneda_1.c_NombreMoneda, '') AS c_NombreMoneda, CXP_CuentasBancariasProv.convenio
+                         CXP_Bancos.nombreCorto, ISNULL(CXP_c_Moneda_1.c_NombreMoneda, '') AS c_NombreMoneda, CXP_CuentasBancariasProv.convenio, CXP_CuentasBancariasProv.concepto
 FROM            CXP_c_Moneda AS CXP_c_Moneda_1 RIGHT OUTER JOIN
                          CXP_CuentasBancariasProv INNER JOIN
                          CXP_Bancos ON CXP_CuentasBancariasProv.idBanco = CXP_Bancos.idBancos ON CXP_c_Moneda_1.c_Moneda = CXP_CuentasBancariasProv.moneda</CommandText>
@@ -1968,6 +1968,7 @@ FROM            CXP_c_Moneda AS CXP_c_Moneda_1 RIGHT OUTER JOIN
               <Mapping SourceColumn="nombreCorto" DataSetColumn="nombreCorto" />
               <Mapping SourceColumn="c_NombreMoneda" DataSetColumn="c_NombreMoneda" />
               <Mapping SourceColumn="convenio" DataSetColumn="convenio" />
+              <Mapping SourceColumn="concepto" DataSetColumn="concepto" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="Production.dbo.CXP_CuentasBancariasProv" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="CuentasBancarias_FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataCuentasBancarias_FillBy" GeneratorSourceName="CuentasBancarias_FillBy" GetMethodModifier="Public" GetMethodName="GetDataCuentasBancarias_FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataCuentasBancarias_FillBy" UserSourceName="CuentasBancarias_FillBy">
@@ -1988,7 +1989,7 @@ FROM            CXP_CuentasBancariasProv INNER JOIN
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        CXP_CuentasBancariasProv.idCuentas, CXP_CuentasBancariasProv.cuenta, CXP_CuentasBancariasProv.clabe, CXP_CuentasBancariasProv.descripcion, CXP_CuentasBancariasProv.moneda, 
-                         CXP_CuentasBancariasProv.idBanco, ISNULL(CXP_c_Moneda.c_NombreMoneda, '') AS c_NombreMoneda, CXP_Bancos.nombreCorto, CXP_CuentasBancariasProv.referencia
+                         CXP_CuentasBancariasProv.idBanco, ISNULL(CXP_c_Moneda.c_NombreMoneda, '') AS c_NombreMoneda, CXP_Bancos.nombreCorto, CXP_CuentasBancariasProv.referencia, CXP_CuentasBancariasProv.concepto
 FROM            CXP_CuentasBancariasProv LEFT OUTER JOIN
                          CXP_c_Moneda ON CXP_CuentasBancariasProv.moneda = CXP_c_Moneda.c_Moneda LEFT OUTER JOIN
                          CXP_Bancos ON CXP_CuentasBancariasProv.idBanco = CXP_Bancos.idBancos
@@ -2004,7 +2005,7 @@ WHERE        (CXP_CuentasBancariasProv.idCuentas = @idCuentas)</CommandText>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        CXP_CuentasBancariasProv.idCuentas, CXP_CuentasBancariasProv.idProveedor, CXP_CuentasBancariasProv.idBanco, CXP_CuentasBancariasProv.cuenta, CXP_CuentasBancariasProv.clabe, 
                          CXP_c_Moneda.c_NombreMoneda, CXP_Bancos.nombreCorto, CXP_CuentasBancariasProv.descripcion, CXP_CuentasBancariasProv.moneda, CXP_CuentasBancariasProv.archivo1, CXP_CuentasBancariasProv.vigente, 
-                         CXP_Estatus.idEstatus, CXP_Estatus.descripcion AS status
+                         CXP_Estatus.idEstatus, CXP_Estatus.descripcion AS status, CXP_CuentasBancariasProv.concepto
 FROM            CXP_CuentasBancariasProv INNER JOIN
                          CXP_Estatus ON CXP_CuentasBancariasProv.estatus = CXP_Estatus.idEstatus LEFT OUTER JOIN
                          CXP_c_Moneda ON CXP_CuentasBancariasProv.moneda = CXP_c_Moneda.c_Moneda LEFT OUTER JOIN
@@ -2023,7 +2024,7 @@ WHERE        (CXP_CuentasBancariasProv.idProveedor = @idProveedor) AND (CXP_Cuen
                          CXP_CuentasBancariasProv.descripcion, CXP_CuentasBancariasProv.moneda, CXP_CuentasBancariasProv.archivo1, CXP_CuentasBancariasProv.vigente, CXP_CuentasBancariasProv.usuarioSolicita1, 
                          CXP_CuentasBancariasProv.usuarioSolicita2, CXP_CuentasBancariasProv.usuarioAutoriza1, CXP_CuentasBancariasProv.usuarioAutoriza2, CXP_CuentasBancariasProv.fechaSolicita1, 
                          CXP_CuentasBancariasProv.fechaSolicita2, CXP_CuentasBancariasProv.fechaAutoriza1, CXP_CuentasBancariasProv.fechaAutoriza2, CXP_CuentasBancariasProv.estatus, CXP_Bancos.nombreCorto, 
-                         CXP_c_Moneda.c_NombreMoneda
+                         CXP_c_Moneda.c_NombreMoneda, CXP_CuentasBancariasProv.concepto
 FROM            CXP_CuentasBancariasProv INNER JOIN
                          CXP_Bancos ON CXP_CuentasBancariasProv.idBanco = CXP_Bancos.idBancos INNER JOIN
                          CXP_c_Moneda ON CXP_CuentasBancariasProv.moneda = CXP_c_Moneda.c_Moneda
@@ -2204,7 +2205,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AvioVobo" msprop:Generator_TableClassName="AvioVoboDataTable" msprop:Generator_TableVarName="tableAvioVobo" msprop:Generator_RowChangedName="AvioVoboRowChanged" msprop:Generator_TablePropName="AvioVobo" msprop:Generator_RowDeletingName="AvioVoboRowDeleting" msprop:Generator_RowChangingName="AvioVoboRowChanging" msprop:Generator_RowEvHandlerName="AvioVoboRowChangeEventHandler" msprop:Generator_RowDeletedName="AvioVoboRowDeleted" msprop:Generator_RowClassName="AvioVoboRow" msprop:Generator_UserTableName="AvioVobo" msprop:Generator_RowEvArgName="AvioVoboRowChangeEvent">
+        <xs:element name="AvioVobo" msprop:Generator_TableClassName="AvioVoboDataTable" msprop:Generator_TableVarName="tableAvioVobo" msprop:Generator_TablePropName="AvioVobo" msprop:Generator_RowDeletingName="AvioVoboRowDeleting" msprop:Generator_RowChangingName="AvioVoboRowChanging" msprop:Generator_RowEvHandlerName="AvioVoboRowChangeEventHandler" msprop:Generator_RowDeletedName="AvioVoboRowDeleted" msprop:Generator_UserTableName="AvioVobo" msprop:Generator_RowChangedName="AvioVoboRowChanged" msprop:Generator_RowEvArgName="AvioVoboRowChangeEvent" msprop:Generator_RowClassName="AvioVoboRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -2311,7 +2312,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StatusMinistraciones" msprop:Generator_TableClassName="StatusMinistracionesDataTable" msprop:Generator_TableVarName="tableStatusMinistraciones" msprop:Generator_TablePropName="StatusMinistraciones" msprop:Generator_RowDeletingName="StatusMinistracionesRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesRowDeleted" msprop:Generator_UserTableName="StatusMinistraciones" msprop:Generator_RowChangedName="StatusMinistracionesRowChanged" msprop:Generator_RowEvArgName="StatusMinistracionesRowChangeEvent" msprop:Generator_RowClassName="StatusMinistracionesRow">
+        <xs:element name="StatusMinistraciones" msprop:Generator_TableClassName="StatusMinistracionesDataTable" msprop:Generator_TableVarName="tableStatusMinistraciones" msprop:Generator_RowChangedName="StatusMinistracionesRowChanged" msprop:Generator_TablePropName="StatusMinistraciones" msprop:Generator_RowDeletingName="StatusMinistracionesRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesRowDeleted" msprop:Generator_RowClassName="StatusMinistracionesRow" msprop:Generator_UserTableName="StatusMinistraciones" msprop:Generator_RowEvArgName="StatusMinistracionesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombre_Sucursal" msprop:Generator_ColumnVarNameInTable="columnNombre_Sucursal" msprop:Generator_ColumnPropNameInRow="Nombre_Sucursal" msprop:Generator_ColumnPropNameInTable="Nombre_SucursalColumn" msprop:Generator_UserColumnName="Nombre_Sucursal">
@@ -2340,7 +2341,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CorreosFases" msprop:Generator_TableClassName="CorreosFasesDataTable" msprop:Generator_TableVarName="tableCorreosFases" msprop:Generator_TablePropName="CorreosFases" msprop:Generator_RowDeletingName="CorreosFasesRowDeleting" msprop:Generator_RowChangingName="CorreosFasesRowChanging" msprop:Generator_RowEvHandlerName="CorreosFasesRowChangeEventHandler" msprop:Generator_RowDeletedName="CorreosFasesRowDeleted" msprop:Generator_UserTableName="CorreosFases" msprop:Generator_RowChangedName="CorreosFasesRowChanged" msprop:Generator_RowEvArgName="CorreosFasesRowChangeEvent" msprop:Generator_RowClassName="CorreosFasesRow">
+        <xs:element name="CorreosFases" msprop:Generator_TableClassName="CorreosFasesDataTable" msprop:Generator_TableVarName="tableCorreosFases" msprop:Generator_RowChangedName="CorreosFasesRowChanged" msprop:Generator_TablePropName="CorreosFases" msprop:Generator_RowDeletingName="CorreosFasesRowDeleting" msprop:Generator_RowChangingName="CorreosFasesRowChanging" msprop:Generator_RowEvHandlerName="CorreosFasesRowChangeEventHandler" msprop:Generator_RowDeletedName="CorreosFasesRowDeleted" msprop:Generator_RowClassName="CorreosFasesRow" msprop:Generator_UserTableName="CorreosFases" msprop:Generator_RowEvArgName="CorreosFasesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_correo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_correo" msprop:Generator_ColumnPropNameInRow="id_correo" msprop:Generator_ColumnPropNameInTable="id_correoColumn" msprop:Generator_UserColumnName="id_correo" type="xs:decimal" />
@@ -2368,7 +2369,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StatusMinistracionesDET" msprop:Generator_TableClassName="StatusMinistracionesDETDataTable" msprop:Generator_TableVarName="tableStatusMinistracionesDET" msprop:Generator_TablePropName="StatusMinistracionesDET" msprop:Generator_RowDeletingName="StatusMinistracionesDETRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesDETRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesDETRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesDETRowDeleted" msprop:Generator_UserTableName="StatusMinistracionesDET" msprop:Generator_RowChangedName="StatusMinistracionesDETRowChanged" msprop:Generator_RowEvArgName="StatusMinistracionesDETRowChangeEvent" msprop:Generator_RowClassName="StatusMinistracionesDETRow">
+        <xs:element name="StatusMinistracionesDET" msprop:Generator_TableClassName="StatusMinistracionesDETDataTable" msprop:Generator_TableVarName="tableStatusMinistracionesDET" msprop:Generator_RowChangedName="StatusMinistracionesDETRowChanged" msprop:Generator_TablePropName="StatusMinistracionesDET" msprop:Generator_RowDeletingName="StatusMinistracionesDETRowDeleting" msprop:Generator_RowChangingName="StatusMinistracionesDETRowChanging" msprop:Generator_RowEvHandlerName="StatusMinistracionesDETRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusMinistracionesDETRowDeleted" msprop:Generator_RowClassName="StatusMinistracionesDETRow" msprop:Generator_UserTableName="StatusMinistracionesDET" msprop:Generator_RowEvArgName="StatusMinistracionesDETRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombre_Sucursal" msprop:Generator_ColumnVarNameInTable="columnNombre_Sucursal" msprop:Generator_ColumnPropNameInRow="Nombre_Sucursal" msprop:Generator_ColumnPropNameInTable="Nombre_SucursalColumn" msprop:Generator_UserColumnName="Nombre_Sucursal" minOccurs="0">
@@ -2440,7 +2441,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HojaCambios" msprop:Generator_TableClassName="HojaCambiosDataTable" msprop:Generator_TableVarName="tableHojaCambios" msprop:Generator_TablePropName="HojaCambios" msprop:Generator_RowDeletingName="HojaCambiosRowDeleting" msprop:Generator_RowChangingName="HojaCambiosRowChanging" msprop:Generator_RowEvHandlerName="HojaCambiosRowChangeEventHandler" msprop:Generator_RowDeletedName="HojaCambiosRowDeleted" msprop:Generator_UserTableName="HojaCambios" msprop:Generator_RowChangedName="HojaCambiosRowChanged" msprop:Generator_RowEvArgName="HojaCambiosRowChangeEvent" msprop:Generator_RowClassName="HojaCambiosRow">
+        <xs:element name="HojaCambios" msprop:Generator_TableClassName="HojaCambiosDataTable" msprop:Generator_TableVarName="tableHojaCambios" msprop:Generator_RowChangedName="HojaCambiosRowChanged" msprop:Generator_TablePropName="HojaCambios" msprop:Generator_RowDeletingName="HojaCambiosRowDeleting" msprop:Generator_RowChangingName="HojaCambiosRowChanging" msprop:Generator_RowEvHandlerName="HojaCambiosRowChangeEventHandler" msprop:Generator_RowDeletedName="HojaCambiosRowDeleted" msprop:Generator_RowClassName="HojaCambiosRow" msprop:Generator_UserTableName="HojaCambios" msprop:Generator_RowEvArgName="HojaCambiosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -2483,7 +2484,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CRED_Seguimientos" msprop:Generator_TableClassName="CRED_SeguimientosDataTable" msprop:Generator_TableVarName="tableCRED_Seguimientos" msprop:Generator_TablePropName="CRED_Seguimientos" msprop:Generator_RowDeletingName="CRED_SeguimientosRowDeleting" msprop:Generator_RowChangingName="CRED_SeguimientosRowChanging" msprop:Generator_RowEvHandlerName="CRED_SeguimientosRowChangeEventHandler" msprop:Generator_RowDeletedName="CRED_SeguimientosRowDeleted" msprop:Generator_UserTableName="CRED_Seguimientos" msprop:Generator_RowChangedName="CRED_SeguimientosRowChanged" msprop:Generator_RowEvArgName="CRED_SeguimientosRowChangeEvent" msprop:Generator_RowClassName="CRED_SeguimientosRow">
+        <xs:element name="CRED_Seguimientos" msprop:Generator_TableClassName="CRED_SeguimientosDataTable" msprop:Generator_TableVarName="tableCRED_Seguimientos" msprop:Generator_RowChangedName="CRED_SeguimientosRowChanged" msprop:Generator_TablePropName="CRED_Seguimientos" msprop:Generator_RowDeletingName="CRED_SeguimientosRowDeleting" msprop:Generator_RowChangingName="CRED_SeguimientosRowChanging" msprop:Generator_RowEvHandlerName="CRED_SeguimientosRowChangeEventHandler" msprop:Generator_RowDeletedName="CRED_SeguimientosRowDeleted" msprop:Generator_RowClassName="CRED_SeguimientosRow" msprop:Generator_UserTableName="CRED_Seguimientos" msprop:Generator_RowEvArgName="CRED_SeguimientosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Responsable" msprop:Generator_ColumnVarNameInTable="columnResponsable" msprop:Generator_ColumnPropNameInRow="Responsable" msprop:Generator_ColumnPropNameInTable="ResponsableColumn" msprop:Generator_UserColumnName="Responsable" minOccurs="0">
@@ -2541,7 +2542,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vw_RPT_Liquidez" msprop:Generator_TableClassName="Vw_RPT_LiquidezDataTable" msprop:Generator_TableVarName="tableVw_RPT_Liquidez" msprop:Generator_RowChangedName="Vw_RPT_LiquidezRowChanged" msprop:Generator_TablePropName="Vw_RPT_Liquidez" msprop:Generator_RowDeletingName="Vw_RPT_LiquidezRowDeleting" msprop:Generator_RowChangingName="Vw_RPT_LiquidezRowChanging" msprop:Generator_RowEvHandlerName="Vw_RPT_LiquidezRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_RPT_LiquidezRowDeleted" msprop:Generator_RowClassName="Vw_RPT_LiquidezRow" msprop:Generator_UserTableName="Vw_RPT_Liquidez" msprop:Generator_RowEvArgName="Vw_RPT_LiquidezRowChangeEvent">
+        <xs:element name="Vw_RPT_Liquidez" msprop:Generator_TableClassName="Vw_RPT_LiquidezDataTable" msprop:Generator_TableVarName="tableVw_RPT_Liquidez" msprop:Generator_TablePropName="Vw_RPT_Liquidez" msprop:Generator_RowDeletingName="Vw_RPT_LiquidezRowDeleting" msprop:Generator_RowChangingName="Vw_RPT_LiquidezRowChanging" msprop:Generator_RowEvHandlerName="Vw_RPT_LiquidezRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_RPT_LiquidezRowDeleted" msprop:Generator_UserTableName="Vw_RPT_Liquidez" msprop:Generator_RowChangedName="Vw_RPT_LiquidezRowChanged" msprop:Generator_RowEvArgName="Vw_RPT_LiquidezRowChangeEvent" msprop:Generator_RowClassName="Vw_RPT_LiquidezRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente">
@@ -2571,7 +2572,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="BitacoraMC" msprop:Generator_TableClassName="BitacoraMCDataTable" msprop:Generator_TableVarName="tableBitacoraMC" msprop:Generator_TablePropName="BitacoraMC" msprop:Generator_RowDeletingName="BitacoraMCRowDeleting" msprop:Generator_RowChangingName="BitacoraMCRowChanging" msprop:Generator_RowEvHandlerName="BitacoraMCRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraMCRowDeleted" msprop:Generator_UserTableName="BitacoraMC" msprop:Generator_RowChangedName="BitacoraMCRowChanged" msprop:Generator_RowEvArgName="BitacoraMCRowChangeEvent" msprop:Generator_RowClassName="BitacoraMCRow">
+        <xs:element name="BitacoraMC" msprop:Generator_TableClassName="BitacoraMCDataTable" msprop:Generator_TableVarName="tableBitacoraMC" msprop:Generator_RowChangedName="BitacoraMCRowChanged" msprop:Generator_TablePropName="BitacoraMC" msprop:Generator_RowDeletingName="BitacoraMCRowDeleting" msprop:Generator_RowChangingName="BitacoraMCRowChanging" msprop:Generator_RowEvHandlerName="BitacoraMCRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraMCRowDeleted" msprop:Generator_RowClassName="BitacoraMCRow" msprop:Generator_UserTableName="BitacoraMC" msprop:Generator_RowEvArgName="BitacoraMCRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_Bitacora" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId_Bitacora" msprop:Generator_ColumnPropNameInRow="Id_Bitacora" msprop:Generator_ColumnPropNameInTable="Id_BitacoraColumn" msprop:Generator_UserColumnName="Id_Bitacora" type="xs:decimal" />
@@ -2724,7 +2725,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SolLiq" msprop:Generator_TableClassName="SolLiqDataTable" msprop:Generator_TableVarName="tableSolLiq" msprop:Generator_RowChangedName="SolLiqRowChanged" msprop:Generator_TablePropName="SolLiq" msprop:Generator_RowDeletingName="SolLiqRowDeleting" msprop:Generator_RowChangingName="SolLiqRowChanging" msprop:Generator_RowEvHandlerName="SolLiqRowChangeEventHandler" msprop:Generator_RowDeletedName="SolLiqRowDeleted" msprop:Generator_RowClassName="SolLiqRow" msprop:Generator_UserTableName="SolLiq" msprop:Generator_RowEvArgName="SolLiqRowChangeEvent">
+        <xs:element name="SolLiq" msprop:Generator_TableClassName="SolLiqDataTable" msprop:Generator_TableVarName="tableSolLiq" msprop:Generator_TablePropName="SolLiq" msprop:Generator_RowDeletingName="SolLiqRowDeleting" msprop:Generator_RowChangingName="SolLiqRowChanging" msprop:Generator_RowEvHandlerName="SolLiqRowChangeEventHandler" msprop:Generator_RowDeletedName="SolLiqRowDeleted" msprop:Generator_UserTableName="SolLiq" msprop:Generator_RowChangedName="SolLiqRowChanged" msprop:Generator_RowEvArgName="SolLiqRowChangeEvent" msprop:Generator_RowClassName="SolLiqRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_Solicitud" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId_Solicitud" msprop:Generator_ColumnPropNameInRow="Id_Solicitud" msprop:Generator_ColumnPropNameInTable="Id_SolicitudColumn" msprop:Generator_UserColumnName="Id_Solicitud" type="xs:decimal" />
@@ -2748,7 +2749,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AutorizacionRPT" msprop:Generator_TableClassName="AutorizacionRPTDataTable" msprop:Generator_TableVarName="tableAutorizacionRPT" msprop:Generator_RowChangedName="AutorizacionRPTRowChanged" msprop:Generator_TablePropName="AutorizacionRPT" msprop:Generator_RowDeletingName="AutorizacionRPTRowDeleting" msprop:Generator_RowChangingName="AutorizacionRPTRowChanging" msprop:Generator_RowEvHandlerName="AutorizacionRPTRowChangeEventHandler" msprop:Generator_RowDeletedName="AutorizacionRPTRowDeleted" msprop:Generator_RowClassName="AutorizacionRPTRow" msprop:Generator_UserTableName="AutorizacionRPT" msprop:Generator_RowEvArgName="AutorizacionRPTRowChangeEvent">
+        <xs:element name="AutorizacionRPT" msprop:Generator_TableClassName="AutorizacionRPTDataTable" msprop:Generator_TableVarName="tableAutorizacionRPT" msprop:Generator_TablePropName="AutorizacionRPT" msprop:Generator_RowDeletingName="AutorizacionRPTRowDeleting" msprop:Generator_RowChangingName="AutorizacionRPTRowChanging" msprop:Generator_RowEvHandlerName="AutorizacionRPTRowChangeEventHandler" msprop:Generator_RowDeletedName="AutorizacionRPTRowDeleted" msprop:Generator_UserTableName="AutorizacionRPT" msprop:Generator_RowChangedName="AutorizacionRPTRowChanged" msprop:Generator_RowEvArgName="AutorizacionRPTRowChangeEvent" msprop:Generator_RowClassName="AutorizacionRPTRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_Autorizacion" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId_Autorizacion" msprop:Generator_ColumnPropNameInRow="Id_Autorizacion" msprop:Generator_ColumnPropNameInTable="Id_AutorizacionColumn" msprop:Generator_UserColumnName="Id_Autorizacion" type="xs:decimal" />
@@ -2826,7 +2827,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="GEN_Correos_SistemaFinagil" msprop:Generator_TableClassName="GEN_Correos_SistemaFinagilDataTable" msprop:Generator_TableVarName="tableGEN_Correos_SistemaFinagil" msprop:Generator_TablePropName="GEN_Correos_SistemaFinagil" msprop:Generator_RowDeletingName="GEN_Correos_SistemaFinagilRowDeleting" msprop:Generator_RowChangingName="GEN_Correos_SistemaFinagilRowChanging" msprop:Generator_RowEvHandlerName="GEN_Correos_SistemaFinagilRowChangeEventHandler" msprop:Generator_RowDeletedName="GEN_Correos_SistemaFinagilRowDeleted" msprop:Generator_UserTableName="GEN_Correos_SistemaFinagil" msprop:Generator_RowChangedName="GEN_Correos_SistemaFinagilRowChanged" msprop:Generator_RowEvArgName="GEN_Correos_SistemaFinagilRowChangeEvent" msprop:Generator_RowClassName="GEN_Correos_SistemaFinagilRow">
+        <xs:element name="GEN_Correos_SistemaFinagil" msprop:Generator_TableClassName="GEN_Correos_SistemaFinagilDataTable" msprop:Generator_TableVarName="tableGEN_Correos_SistemaFinagil" msprop:Generator_RowChangedName="GEN_Correos_SistemaFinagilRowChanged" msprop:Generator_TablePropName="GEN_Correos_SistemaFinagil" msprop:Generator_RowDeletingName="GEN_Correos_SistemaFinagilRowDeleting" msprop:Generator_RowChangingName="GEN_Correos_SistemaFinagilRowChanging" msprop:Generator_RowEvHandlerName="GEN_Correos_SistemaFinagilRowChangeEventHandler" msprop:Generator_RowDeletedName="GEN_Correos_SistemaFinagilRowDeleted" msprop:Generator_RowClassName="GEN_Correos_SistemaFinagilRow" msprop:Generator_UserTableName="GEN_Correos_SistemaFinagil" msprop:Generator_RowEvArgName="GEN_Correos_SistemaFinagilRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_Correo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_Correo" msprop:Generator_ColumnPropNameInRow="id_Correo" msprop:Generator_ColumnPropNameInTable="id_CorreoColumn" msprop:Generator_UserColumnName="id_Correo" type="xs:decimal" />
@@ -2870,7 +2871,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CorreoPROMO" msprop:Generator_TableClassName="CorreoPROMODataTable" msprop:Generator_TableVarName="tableCorreoPROMO" msprop:Generator_RowChangedName="CorreoPROMORowChanged" msprop:Generator_TablePropName="CorreoPROMO" msprop:Generator_RowDeletingName="CorreoPROMORowDeleting" msprop:Generator_RowChangingName="CorreoPROMORowChanging" msprop:Generator_RowEvHandlerName="CorreoPROMORowChangeEventHandler" msprop:Generator_RowDeletedName="CorreoPROMORowDeleted" msprop:Generator_RowClassName="CorreoPROMORow" msprop:Generator_UserTableName="CorreoPROMO" msprop:Generator_RowEvArgName="CorreoPROMORowChangeEvent">
+        <xs:element name="CorreoPROMO" msprop:Generator_TableClassName="CorreoPROMODataTable" msprop:Generator_TableVarName="tableCorreoPROMO" msprop:Generator_TablePropName="CorreoPROMO" msprop:Generator_RowDeletingName="CorreoPROMORowDeleting" msprop:Generator_RowChangingName="CorreoPROMORowChanging" msprop:Generator_RowEvHandlerName="CorreoPROMORowChangeEventHandler" msprop:Generator_RowDeletedName="CorreoPROMORowDeleted" msprop:Generator_UserTableName="CorreoPROMO" msprop:Generator_RowChangedName="CorreoPROMORowChanged" msprop:Generator_RowEvArgName="CorreoPROMORowChangeEvent" msprop:Generator_RowClassName="CorreoPROMORow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente">
@@ -2925,7 +2926,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="GEN_BitacoraFinagil" msprop:Generator_TableClassName="GEN_BitacoraFinagilDataTable" msprop:Generator_TableVarName="tableGEN_BitacoraFinagil" msprop:Generator_TablePropName="GEN_BitacoraFinagil" msprop:Generator_RowDeletingName="GEN_BitacoraFinagilRowDeleting" msprop:Generator_RowChangingName="GEN_BitacoraFinagilRowChanging" msprop:Generator_RowEvHandlerName="GEN_BitacoraFinagilRowChangeEventHandler" msprop:Generator_RowDeletedName="GEN_BitacoraFinagilRowDeleted" msprop:Generator_UserTableName="GEN_BitacoraFinagil" msprop:Generator_RowChangedName="GEN_BitacoraFinagilRowChanged" msprop:Generator_RowEvArgName="GEN_BitacoraFinagilRowChangeEvent" msprop:Generator_RowClassName="GEN_BitacoraFinagilRow">
+        <xs:element name="GEN_BitacoraFinagil" msprop:Generator_TableClassName="GEN_BitacoraFinagilDataTable" msprop:Generator_TableVarName="tableGEN_BitacoraFinagil" msprop:Generator_RowChangedName="GEN_BitacoraFinagilRowChanged" msprop:Generator_TablePropName="GEN_BitacoraFinagil" msprop:Generator_RowDeletingName="GEN_BitacoraFinagilRowDeleting" msprop:Generator_RowChangingName="GEN_BitacoraFinagilRowChanging" msprop:Generator_RowEvHandlerName="GEN_BitacoraFinagilRowChangeEventHandler" msprop:Generator_RowDeletedName="GEN_BitacoraFinagilRowDeleted" msprop:Generator_RowClassName="GEN_BitacoraFinagilRow" msprop:Generator_UserTableName="GEN_BitacoraFinagil" msprop:Generator_RowEvArgName="GEN_BitacoraFinagilRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_BitacoraFinagil" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_BitacoraFinagil" msprop:Generator_ColumnPropNameInRow="id_BitacoraFinagil" msprop:Generator_ColumnPropNameInTable="id_BitacoraFinagilColumn" msprop:Generator_UserColumnName="id_BitacoraFinagil" type="xs:decimal" />
@@ -2968,7 +2969,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MC_cambio_condiciones" msprop:Generator_TableClassName="MC_cambio_condicionesDataTable" msprop:Generator_TableVarName="tableMC_cambio_condiciones" msprop:Generator_TablePropName="MC_cambio_condiciones" msprop:Generator_RowDeletingName="MC_cambio_condicionesRowDeleting" msprop:Generator_RowChangingName="MC_cambio_condicionesRowChanging" msprop:Generator_RowEvHandlerName="MC_cambio_condicionesRowChangeEventHandler" msprop:Generator_RowDeletedName="MC_cambio_condicionesRowDeleted" msprop:Generator_UserTableName="MC_cambio_condiciones" msprop:Generator_RowChangedName="MC_cambio_condicionesRowChanged" msprop:Generator_RowEvArgName="MC_cambio_condicionesRowChangeEvent" msprop:Generator_RowClassName="MC_cambio_condicionesRow">
+        <xs:element name="MC_cambio_condiciones" msprop:Generator_TableClassName="MC_cambio_condicionesDataTable" msprop:Generator_TableVarName="tableMC_cambio_condiciones" msprop:Generator_RowChangedName="MC_cambio_condicionesRowChanged" msprop:Generator_TablePropName="MC_cambio_condiciones" msprop:Generator_RowDeletingName="MC_cambio_condicionesRowDeleting" msprop:Generator_RowChangingName="MC_cambio_condicionesRowChanging" msprop:Generator_RowEvHandlerName="MC_cambio_condicionesRowChangeEventHandler" msprop:Generator_RowDeletedName="MC_cambio_condicionesRowDeleted" msprop:Generator_RowClassName="MC_cambio_condicionesRow" msprop:Generator_UserTableName="MC_cambio_condiciones" msprop:Generator_RowEvArgName="MC_cambio_condicionesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Anexo" msprop:Generator_ColumnVarNameInTable="columnAnexo" msprop:Generator_ColumnPropNameInRow="Anexo" msprop:Generator_ColumnPropNameInTable="AnexoColumn" msprop:Generator_UserColumnName="Anexo">
@@ -3088,7 +3089,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AutorizaIVA" msprop:Generator_TableClassName="AutorizaIVADataTable" msprop:Generator_TableVarName="tableAutorizaIVA" msprop:Generator_TablePropName="AutorizaIVA" msprop:Generator_RowDeletingName="AutorizaIVARowDeleting" msprop:Generator_RowChangingName="AutorizaIVARowChanging" msprop:Generator_RowEvHandlerName="AutorizaIVARowChangeEventHandler" msprop:Generator_RowDeletedName="AutorizaIVARowDeleted" msprop:Generator_UserTableName="AutorizaIVA" msprop:Generator_RowChangedName="AutorizaIVARowChanged" msprop:Generator_RowEvArgName="AutorizaIVARowChangeEvent" msprop:Generator_RowClassName="AutorizaIVARow">
+        <xs:element name="AutorizaIVA" msprop:Generator_TableClassName="AutorizaIVADataTable" msprop:Generator_TableVarName="tableAutorizaIVA" msprop:Generator_RowChangedName="AutorizaIVARowChanged" msprop:Generator_TablePropName="AutorizaIVA" msprop:Generator_RowDeletingName="AutorizaIVARowDeleting" msprop:Generator_RowChangingName="AutorizaIVARowChanging" msprop:Generator_RowEvHandlerName="AutorizaIVARowChangeEventHandler" msprop:Generator_RowDeletedName="AutorizaIVARowDeleted" msprop:Generator_RowClassName="AutorizaIVARow" msprop:Generator_UserTableName="AutorizaIVA" msprop:Generator_RowEvArgName="AutorizaIVARowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -3159,7 +3160,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SolLiqDet" msprop:Generator_TableClassName="SolLiqDetDataTable" msprop:Generator_TableVarName="tableSolLiqDet" msprop:Generator_RowChangedName="SolLiqDetRowChanged" msprop:Generator_TablePropName="SolLiqDet" msprop:Generator_RowDeletingName="SolLiqDetRowDeleting" msprop:Generator_RowChangingName="SolLiqDetRowChanging" msprop:Generator_RowEvHandlerName="SolLiqDetRowChangeEventHandler" msprop:Generator_RowDeletedName="SolLiqDetRowDeleted" msprop:Generator_RowClassName="SolLiqDetRow" msprop:Generator_UserTableName="SolLiqDet" msprop:Generator_RowEvArgName="SolLiqDetRowChangeEvent">
+        <xs:element name="SolLiqDet" msprop:Generator_TableClassName="SolLiqDetDataTable" msprop:Generator_TableVarName="tableSolLiqDet" msprop:Generator_TablePropName="SolLiqDet" msprop:Generator_RowDeletingName="SolLiqDetRowDeleting" msprop:Generator_RowChangingName="SolLiqDetRowChanging" msprop:Generator_RowEvHandlerName="SolLiqDetRowChangeEventHandler" msprop:Generator_RowDeletedName="SolLiqDetRowDeleted" msprop:Generator_UserTableName="SolLiqDet" msprop:Generator_RowChangedName="SolLiqDetRowChanged" msprop:Generator_RowEvArgName="SolLiqDetRowChangeEvent" msprop:Generator_RowClassName="SolLiqDetRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_Solicitud" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId_Solicitud" msprop:Generator_ColumnPropNameInRow="Id_Solicitud" msprop:Generator_ColumnPropNameInTable="Id_SolicitudColumn" msprop:Generator_UserColumnName="Id_Solicitud" type="xs:decimal" />
@@ -3247,7 +3248,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AutorizaIVA_Interes" msprop:Generator_TableClassName="AutorizaIVA_InteresDataTable" msprop:Generator_TableVarName="tableAutorizaIVA_Interes" msprop:Generator_TablePropName="AutorizaIVA_Interes" msprop:Generator_RowDeletingName="AutorizaIVA_InteresRowDeleting" msprop:Generator_RowChangingName="AutorizaIVA_InteresRowChanging" msprop:Generator_RowEvHandlerName="AutorizaIVA_InteresRowChangeEventHandler" msprop:Generator_RowDeletedName="AutorizaIVA_InteresRowDeleted" msprop:Generator_UserTableName="AutorizaIVA_Interes" msprop:Generator_RowChangedName="AutorizaIVA_InteresRowChanged" msprop:Generator_RowEvArgName="AutorizaIVA_InteresRowChangeEvent" msprop:Generator_RowClassName="AutorizaIVA_InteresRow">
+        <xs:element name="AutorizaIVA_Interes" msprop:Generator_TableClassName="AutorizaIVA_InteresDataTable" msprop:Generator_TableVarName="tableAutorizaIVA_Interes" msprop:Generator_RowChangedName="AutorizaIVA_InteresRowChanged" msprop:Generator_TablePropName="AutorizaIVA_Interes" msprop:Generator_RowDeletingName="AutorizaIVA_InteresRowDeleting" msprop:Generator_RowChangingName="AutorizaIVA_InteresRowChanging" msprop:Generator_RowEvHandlerName="AutorizaIVA_InteresRowChangeEventHandler" msprop:Generator_RowDeletedName="AutorizaIVA_InteresRowDeleted" msprop:Generator_RowClassName="AutorizaIVA_InteresRow" msprop:Generator_UserTableName="AutorizaIVA_Interes" msprop:Generator_RowEvArgName="AutorizaIVA_InteresRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -3318,7 +3319,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vw_CXP_Autorizaciones" msprop:Generator_TableClassName="Vw_CXP_AutorizacionesDataTable" msprop:Generator_TableVarName="tableVw_CXP_Autorizaciones" msprop:Generator_TablePropName="Vw_CXP_Autorizaciones" msprop:Generator_RowDeletingName="Vw_CXP_AutorizacionesRowDeleting" msprop:Generator_RowChangingName="Vw_CXP_AutorizacionesRowChanging" msprop:Generator_RowEvHandlerName="Vw_CXP_AutorizacionesRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_CXP_AutorizacionesRowDeleted" msprop:Generator_UserTableName="Vw_CXP_Autorizaciones" msprop:Generator_RowChangedName="Vw_CXP_AutorizacionesRowChanged" msprop:Generator_RowEvArgName="Vw_CXP_AutorizacionesRowChangeEvent" msprop:Generator_RowClassName="Vw_CXP_AutorizacionesRow">
+        <xs:element name="Vw_CXP_Autorizaciones" msprop:Generator_TableClassName="Vw_CXP_AutorizacionesDataTable" msprop:Generator_TableVarName="tableVw_CXP_Autorizaciones" msprop:Generator_RowChangedName="Vw_CXP_AutorizacionesRowChanged" msprop:Generator_TablePropName="Vw_CXP_Autorizaciones" msprop:Generator_RowDeletingName="Vw_CXP_AutorizacionesRowDeleting" msprop:Generator_RowChangingName="Vw_CXP_AutorizacionesRowChanging" msprop:Generator_RowEvHandlerName="Vw_CXP_AutorizacionesRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_CXP_AutorizacionesRowDeleted" msprop:Generator_RowClassName="Vw_CXP_AutorizacionesRow" msprop:Generator_UserTableName="Vw_CXP_Autorizaciones" msprop:Generator_RowEvArgName="Vw_CXP_AutorizacionesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Empresa" msprop:Generator_ColumnVarNameInTable="columnEmpresa" msprop:Generator_ColumnPropNameInRow="Empresa" msprop:Generator_ColumnPropNameInTable="EmpresaColumn" msprop:Generator_UserColumnName="Empresa" minOccurs="0">
@@ -3328,7 +3329,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Solicitud" msprop:Generator_ColumnVarNameInTable="columnSolicitud" msprop:Generator_ColumnPropNameInRow="Solicitud" msprop:Generator_ColumnPropNameInTable="SolicitudColumn" msprop:Generator_UserColumnName="Solicitud" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Solicitud" msprop:Generator_ColumnVarNameInTable="columnSolicitud" msprop:Generator_ColumnPropNameInRow="Solicitud" msprop:Generator_ColumnPropNameInTable="SolicitudColumn" msprop:Generator_UserColumnName="Solicitud" type="xs:decimal" />
               <xs:element name="Solicita" msprop:Generator_ColumnVarNameInTable="columnSolicita" msprop:Generator_ColumnPropNameInRow="Solicita" msprop:Generator_ColumnPropNameInTable="SolicitaColumn" msprop:Generator_UserColumnName="Solicita" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -3337,7 +3338,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Estatus" msprop:Generator_ColumnVarNameInTable="columnEstatus" msprop:Generator_ColumnPropNameInRow="Estatus" msprop:Generator_ColumnPropNameInTable="EstatusColumn" msprop:Generator_UserColumnName="Estatus" minOccurs="0">
+              <xs:element name="Estatus" msprop:Generator_ColumnVarNameInTable="columnEstatus" msprop:Generator_ColumnPropNameInRow="Estatus" msprop:Generator_ColumnPropNameInTable="EstatusColumn" msprop:Generator_UserColumnName="Estatus">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -3414,7 +3415,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CXP_ObservacionesSolicitud" msprop:Generator_TableClassName="CXP_ObservacionesSolicitudDataTable" msprop:Generator_TableVarName="tableCXP_ObservacionesSolicitud" msprop:Generator_RowChangedName="CXP_ObservacionesSolicitudRowChanged" msprop:Generator_TablePropName="CXP_ObservacionesSolicitud" msprop:Generator_RowDeletingName="CXP_ObservacionesSolicitudRowDeleting" msprop:Generator_RowChangingName="CXP_ObservacionesSolicitudRowChanging" msprop:Generator_RowEvHandlerName="CXP_ObservacionesSolicitudRowChangeEventHandler" msprop:Generator_RowDeletedName="CXP_ObservacionesSolicitudRowDeleted" msprop:Generator_RowClassName="CXP_ObservacionesSolicitudRow" msprop:Generator_UserTableName="CXP_ObservacionesSolicitud" msprop:Generator_RowEvArgName="CXP_ObservacionesSolicitudRowChangeEvent">
+        <xs:element name="CXP_ObservacionesSolicitud" msprop:Generator_TableClassName="CXP_ObservacionesSolicitudDataTable" msprop:Generator_TableVarName="tableCXP_ObservacionesSolicitud" msprop:Generator_TablePropName="CXP_ObservacionesSolicitud" msprop:Generator_RowDeletingName="CXP_ObservacionesSolicitudRowDeleting" msprop:Generator_RowChangingName="CXP_ObservacionesSolicitudRowChanging" msprop:Generator_RowEvHandlerName="CXP_ObservacionesSolicitudRowChangeEventHandler" msprop:Generator_RowDeletedName="CXP_ObservacionesSolicitudRowDeleted" msprop:Generator_UserTableName="CXP_ObservacionesSolicitud" msprop:Generator_RowChangedName="CXP_ObservacionesSolicitudRowChanged" msprop:Generator_RowEvArgName="CXP_ObservacionesSolicitudRowChangeEvent" msprop:Generator_RowClassName="CXP_ObservacionesSolicitudRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_observacion" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_observacion" msprop:Generator_ColumnPropNameInRow="id_observacion" msprop:Generator_ColumnPropNameInTable="id_observacionColumn" msprop:Generator_UserColumnName="id_observacion" type="xs:decimal" />
@@ -3437,7 +3438,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vw_CXP_AutorizacionesRPT" msprop:Generator_TableClassName="Vw_CXP_AutorizacionesRPTDataTable" msprop:Generator_TableVarName="tableVw_CXP_AutorizacionesRPT" msprop:Generator_TablePropName="Vw_CXP_AutorizacionesRPT" msprop:Generator_RowDeletingName="Vw_CXP_AutorizacionesRPTRowDeleting" msprop:Generator_RowChangingName="Vw_CXP_AutorizacionesRPTRowChanging" msprop:Generator_RowEvHandlerName="Vw_CXP_AutorizacionesRPTRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_CXP_AutorizacionesRPTRowDeleted" msprop:Generator_UserTableName="Vw_CXP_AutorizacionesRPT" msprop:Generator_RowChangedName="Vw_CXP_AutorizacionesRPTRowChanged" msprop:Generator_RowEvArgName="Vw_CXP_AutorizacionesRPTRowChangeEvent" msprop:Generator_RowClassName="Vw_CXP_AutorizacionesRPTRow">
+        <xs:element name="Vw_CXP_AutorizacionesRPT" msprop:Generator_TableClassName="Vw_CXP_AutorizacionesRPTDataTable" msprop:Generator_TableVarName="tableVw_CXP_AutorizacionesRPT" msprop:Generator_RowChangedName="Vw_CXP_AutorizacionesRPTRowChanged" msprop:Generator_TablePropName="Vw_CXP_AutorizacionesRPT" msprop:Generator_RowDeletingName="Vw_CXP_AutorizacionesRPTRowDeleting" msprop:Generator_RowChangingName="Vw_CXP_AutorizacionesRPTRowChanging" msprop:Generator_RowEvHandlerName="Vw_CXP_AutorizacionesRPTRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_CXP_AutorizacionesRPTRowDeleted" msprop:Generator_RowClassName="Vw_CXP_AutorizacionesRPTRow" msprop:Generator_UserTableName="Vw_CXP_AutorizacionesRPT" msprop:Generator_RowEvArgName="Vw_CXP_AutorizacionesRPTRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idEmpresas" msprop:Generator_ColumnVarNameInTable="columnidEmpresas" msprop:Generator_ColumnPropNameInRow="idEmpresas" msprop:Generator_ColumnPropNameInTable="idEmpresasColumn" msprop:Generator_UserColumnName="idEmpresas" type="xs:decimal" />
@@ -3667,7 +3668,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vw_CXP_ComprobacionGastos" msprop:Generator_TableClassName="Vw_CXP_ComprobacionGastosDataTable" msprop:Generator_TableVarName="tableVw_CXP_ComprobacionGastos" msprop:Generator_RowChangedName="Vw_CXP_ComprobacionGastosRowChanged" msprop:Generator_TablePropName="Vw_CXP_ComprobacionGastos" msprop:Generator_RowDeletingName="Vw_CXP_ComprobacionGastosRowDeleting" msprop:Generator_RowChangingName="Vw_CXP_ComprobacionGastosRowChanging" msprop:Generator_RowEvHandlerName="Vw_CXP_ComprobacionGastosRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_CXP_ComprobacionGastosRowDeleted" msprop:Generator_RowClassName="Vw_CXP_ComprobacionGastosRow" msprop:Generator_UserTableName="Vw_CXP_ComprobacionGastos" msprop:Generator_RowEvArgName="Vw_CXP_ComprobacionGastosRowChangeEvent">
+        <xs:element name="Vw_CXP_ComprobacionGastos" msprop:Generator_TableClassName="Vw_CXP_ComprobacionGastosDataTable" msprop:Generator_TableVarName="tableVw_CXP_ComprobacionGastos" msprop:Generator_TablePropName="Vw_CXP_ComprobacionGastos" msprop:Generator_RowDeletingName="Vw_CXP_ComprobacionGastosRowDeleting" msprop:Generator_RowChangingName="Vw_CXP_ComprobacionGastosRowChanging" msprop:Generator_RowEvHandlerName="Vw_CXP_ComprobacionGastosRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_CXP_ComprobacionGastosRowDeleted" msprop:Generator_UserTableName="Vw_CXP_ComprobacionGastos" msprop:Generator_RowChangedName="Vw_CXP_ComprobacionGastosRowChanged" msprop:Generator_RowEvArgName="Vw_CXP_ComprobacionGastosRowChangeEvent" msprop:Generator_RowClassName="Vw_CXP_ComprobacionGastosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idCompGts" msprop:Generator_ColumnVarNameInTable="columnidCompGts" msprop:Generator_ColumnPropNameInRow="idCompGts" msprop:Generator_ColumnPropNameInTable="idCompGtsColumn" msprop:Generator_UserColumnName="idCompGts" type="xs:decimal" />
@@ -3838,7 +3839,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CXP_ObservacionesSolicitudPagos" msprop:Generator_TableClassName="CXP_ObservacionesSolicitudPagosDataTable" msprop:Generator_TableVarName="tableCXP_ObservacionesSolicitudPagos" msprop:Generator_TablePropName="CXP_ObservacionesSolicitudPagos" msprop:Generator_RowDeletingName="CXP_ObservacionesSolicitudPagosRowDeleting" msprop:Generator_RowChangingName="CXP_ObservacionesSolicitudPagosRowChanging" msprop:Generator_RowEvHandlerName="CXP_ObservacionesSolicitudPagosRowChangeEventHandler" msprop:Generator_RowDeletedName="CXP_ObservacionesSolicitudPagosRowDeleted" msprop:Generator_UserTableName="CXP_ObservacionesSolicitudPagos" msprop:Generator_RowChangedName="CXP_ObservacionesSolicitudPagosRowChanged" msprop:Generator_RowEvArgName="CXP_ObservacionesSolicitudPagosRowChangeEvent" msprop:Generator_RowClassName="CXP_ObservacionesSolicitudPagosRow">
+        <xs:element name="CXP_ObservacionesSolicitudPagos" msprop:Generator_TableClassName="CXP_ObservacionesSolicitudPagosDataTable" msprop:Generator_TableVarName="tableCXP_ObservacionesSolicitudPagos" msprop:Generator_RowChangedName="CXP_ObservacionesSolicitudPagosRowChanged" msprop:Generator_TablePropName="CXP_ObservacionesSolicitudPagos" msprop:Generator_RowDeletingName="CXP_ObservacionesSolicitudPagosRowDeleting" msprop:Generator_RowChangingName="CXP_ObservacionesSolicitudPagosRowChanging" msprop:Generator_RowEvHandlerName="CXP_ObservacionesSolicitudPagosRowChangeEventHandler" msprop:Generator_RowDeletedName="CXP_ObservacionesSolicitudPagosRowDeleted" msprop:Generator_RowClassName="CXP_ObservacionesSolicitudPagosRow" msprop:Generator_UserTableName="CXP_ObservacionesSolicitudPagos" msprop:Generator_RowEvArgName="CXP_ObservacionesSolicitudPagosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_observacion" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_observacion" msprop:Generator_ColumnPropNameInRow="id_observacion" msprop:Generator_ColumnPropNameInTable="id_observacionColumn" msprop:Generator_UserColumnName="id_observacion" type="xs:decimal" />
@@ -3861,7 +3862,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vw_CXP_ComprobacionGastosResum" msprop:Generator_TableClassName="Vw_CXP_ComprobacionGastosResumDataTable" msprop:Generator_TableVarName="tableVw_CXP_ComprobacionGastosResum" msprop:Generator_RowChangedName="Vw_CXP_ComprobacionGastosResumRowChanged" msprop:Generator_TablePropName="Vw_CXP_ComprobacionGastosResum" msprop:Generator_RowDeletingName="Vw_CXP_ComprobacionGastosResumRowDeleting" msprop:Generator_RowChangingName="Vw_CXP_ComprobacionGastosResumRowChanging" msprop:Generator_RowEvHandlerName="Vw_CXP_ComprobacionGastosResumRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_CXP_ComprobacionGastosResumRowDeleted" msprop:Generator_RowClassName="Vw_CXP_ComprobacionGastosResumRow" msprop:Generator_UserTableName="Vw_CXP_ComprobacionGastosResum" msprop:Generator_RowEvArgName="Vw_CXP_ComprobacionGastosResumRowChangeEvent">
+        <xs:element name="Vw_CXP_ComprobacionGastosResum" msprop:Generator_TableClassName="Vw_CXP_ComprobacionGastosResumDataTable" msprop:Generator_TableVarName="tableVw_CXP_ComprobacionGastosResum" msprop:Generator_TablePropName="Vw_CXP_ComprobacionGastosResum" msprop:Generator_RowDeletingName="Vw_CXP_ComprobacionGastosResumRowDeleting" msprop:Generator_RowChangingName="Vw_CXP_ComprobacionGastosResumRowChanging" msprop:Generator_RowEvHandlerName="Vw_CXP_ComprobacionGastosResumRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_CXP_ComprobacionGastosResumRowDeleted" msprop:Generator_UserTableName="Vw_CXP_ComprobacionGastosResum" msprop:Generator_RowChangedName="Vw_CXP_ComprobacionGastosResumRowChanged" msprop:Generator_RowEvArgName="Vw_CXP_ComprobacionGastosResumRowChangeEvent" msprop:Generator_RowClassName="Vw_CXP_ComprobacionGastosResumRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idFolioSolicitud" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnidFolioSolicitud" msprop:Generator_ColumnPropNameInRow="idFolioSolicitud" msprop:Generator_ColumnPropNameInTable="idFolioSolicitudColumn" msprop:Generator_UserColumnName="idFolioSolicitud" type="xs:decimal" minOccurs="0" />
@@ -3893,7 +3894,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vw_CXP_Autorizaciones_Facturas" msprop:Generator_TableClassName="Vw_CXP_Autorizaciones_FacturasDataTable" msprop:Generator_TableVarName="tableVw_CXP_Autorizaciones_Facturas" msprop:Generator_TablePropName="Vw_CXP_Autorizaciones_Facturas" msprop:Generator_RowDeletingName="Vw_CXP_Autorizaciones_FacturasRowDeleting" msprop:Generator_RowChangingName="Vw_CXP_Autorizaciones_FacturasRowChanging" msprop:Generator_RowEvHandlerName="Vw_CXP_Autorizaciones_FacturasRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_CXP_Autorizaciones_FacturasRowDeleted" msprop:Generator_UserTableName="Vw_CXP_Autorizaciones_Facturas" msprop:Generator_RowChangedName="Vw_CXP_Autorizaciones_FacturasRowChanged" msprop:Generator_RowEvArgName="Vw_CXP_Autorizaciones_FacturasRowChangeEvent" msprop:Generator_RowClassName="Vw_CXP_Autorizaciones_FacturasRow">
+        <xs:element name="Vw_CXP_Autorizaciones_Facturas" msprop:Generator_TableClassName="Vw_CXP_Autorizaciones_FacturasDataTable" msprop:Generator_TableVarName="tableVw_CXP_Autorizaciones_Facturas" msprop:Generator_RowChangedName="Vw_CXP_Autorizaciones_FacturasRowChanged" msprop:Generator_TablePropName="Vw_CXP_Autorizaciones_Facturas" msprop:Generator_RowDeletingName="Vw_CXP_Autorizaciones_FacturasRowDeleting" msprop:Generator_RowChangingName="Vw_CXP_Autorizaciones_FacturasRowChanging" msprop:Generator_RowEvHandlerName="Vw_CXP_Autorizaciones_FacturasRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_CXP_Autorizaciones_FacturasRowDeleted" msprop:Generator_RowClassName="Vw_CXP_Autorizaciones_FacturasRow" msprop:Generator_UserTableName="Vw_CXP_Autorizaciones_Facturas" msprop:Generator_RowEvArgName="Vw_CXP_Autorizaciones_FacturasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="folioSolicitud" msprop:Generator_ColumnVarNameInTable="columnfolioSolicitud" msprop:Generator_ColumnPropNameInRow="folioSolicitud" msprop:Generator_ColumnPropNameInTable="folioSolicitudColumn" msprop:Generator_UserColumnName="folioSolicitud" type="xs:decimal" />
@@ -3960,7 +3961,7 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CXP_CuentasBancariasProv" msprop:Generator_TableClassName="CXP_CuentasBancariasProvDataTable" msprop:Generator_TableVarName="tableCXP_CuentasBancariasProv" msprop:Generator_RowChangedName="CXP_CuentasBancariasProvRowChanged" msprop:Generator_TablePropName="CXP_CuentasBancariasProv" msprop:Generator_RowDeletingName="CXP_CuentasBancariasProvRowDeleting" msprop:Generator_RowChangingName="CXP_CuentasBancariasProvRowChanging" msprop:Generator_RowEvHandlerName="CXP_CuentasBancariasProvRowChangeEventHandler" msprop:Generator_RowDeletedName="CXP_CuentasBancariasProvRowDeleted" msprop:Generator_RowClassName="CXP_CuentasBancariasProvRow" msprop:Generator_UserTableName="CXP_CuentasBancariasProv" msprop:Generator_RowEvArgName="CXP_CuentasBancariasProvRowChangeEvent">
+        <xs:element name="CXP_CuentasBancariasProv" msprop:Generator_TableClassName="CXP_CuentasBancariasProvDataTable" msprop:Generator_TableVarName="tableCXP_CuentasBancariasProv" msprop:Generator_TablePropName="CXP_CuentasBancariasProv" msprop:Generator_RowDeletingName="CXP_CuentasBancariasProvRowDeleting" msprop:Generator_RowChangingName="CXP_CuentasBancariasProvRowChanging" msprop:Generator_RowEvHandlerName="CXP_CuentasBancariasProvRowChangeEventHandler" msprop:Generator_RowDeletedName="CXP_CuentasBancariasProvRowDeleted" msprop:Generator_UserTableName="CXP_CuentasBancariasProv" msprop:Generator_RowChangedName="CXP_CuentasBancariasProvRowChanged" msprop:Generator_RowEvArgName="CXP_CuentasBancariasProvRowChangeEvent" msprop:Generator_RowClassName="CXP_CuentasBancariasProvRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idCuentas" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidCuentas" msprop:Generator_ColumnPropNameInRow="idCuentas" msprop:Generator_ColumnPropNameInTable="idCuentasColumn" msprop:Generator_UserColumnName="idCuentas" type="xs:decimal" />
@@ -4063,10 +4064,17 @@ FROM            Vw_WEBTASAS_EstatusTRA</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="concepto" msprop:Generator_ColumnVarNameInTable="columnconcepto" msprop:Generator_ColumnPropNameInRow="concepto" msprop:Generator_ColumnPropNameInTable="conceptoColumn" msprop:Generator_UserColumnName="concepto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EstatusTRA" msprop:Generator_TableClassName="EstatusTRADataTable" msprop:Generator_TableVarName="tableEstatusTRA" msprop:Generator_RowChangedName="EstatusTRARowChanged" msprop:Generator_TablePropName="EstatusTRA" msprop:Generator_RowDeletingName="EstatusTRARowDeleting" msprop:Generator_RowChangingName="EstatusTRARowChanging" msprop:Generator_RowEvHandlerName="EstatusTRARowChangeEventHandler" msprop:Generator_RowDeletedName="EstatusTRARowDeleted" msprop:Generator_RowClassName="EstatusTRARow" msprop:Generator_UserTableName="EstatusTRA" msprop:Generator_RowEvArgName="EstatusTRARowChangeEvent">
+        <xs:element name="EstatusTRA" msprop:Generator_TableClassName="EstatusTRADataTable" msprop:Generator_TableVarName="tableEstatusTRA" msprop:Generator_TablePropName="EstatusTRA" msprop:Generator_RowDeletingName="EstatusTRARowDeleting" msprop:Generator_RowChangingName="EstatusTRARowChanging" msprop:Generator_RowEvHandlerName="EstatusTRARowChangeEventHandler" msprop:Generator_RowDeletedName="EstatusTRARowDeleted" msprop:Generator_UserTableName="EstatusTRA" msprop:Generator_RowChangedName="EstatusTRARowChanged" msprop:Generator_RowEvArgName="EstatusTRARowChangeEvent" msprop:Generator_RowClassName="EstatusTRARow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Sucursal" msprop:Generator_ColumnVarNameInTable="columnSucursal" msprop:Generator_ColumnPropNameInRow="Sucursal" msprop:Generator_ColumnPropNameInTable="SucursalColumn" msprop:Generator_UserColumnName="Sucursal" minOccurs="0">
