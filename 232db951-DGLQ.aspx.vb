@@ -41,7 +41,7 @@ Partial Public Class DGSucursalLQForm
         Dim Nombre As String = DetailsView1.Rows(2).Cells(1).Text.Trim
         Dim Analista As String = DetailsView1.Rows(13).Cells(1).Text.Trim
         Dim ta As New ProDSTableAdapters.SolLiqTableAdapter
-        ta.UpdateEstatus("APROBADO", Request("User"), True, Date.Now, Request("ID"))
+        ta.UpdateEstatus("APROBADO", Request("User"), True, Date.Now, Encriptar(Request("User") & Date.Now.ToString), Request("ID"))
         Globales.AltaLineaCreditoLIQUIDEZ1(Cliente, Monto, "Autorizado por " & Request("User"), Request("User"), Request("ID"))
         GeneraCorreoAUT(Monto, Cliente, Nombre, Analista)
         Response.Redirect("~\232db951-DGLQ.aspx?User=" & Request("User") & "&ID=0")
@@ -72,7 +72,7 @@ Partial Public Class DGSucursalLQForm
         Dim Nombre As String = DetailsView1.Rows(2).Cells(1).Text.Trim
         Dim Analista As String = DetailsView1.Rows(11).Cells(1).Text.Trim
         Dim ta As New ProDSTableAdapters.SolLiqTableAdapter
-        ta.UpdateEstatus("RECHAZADO", Request("User"), True, Date.Now, Request("ID"))
+        ta.UpdateEstatus("RECHAZADO", Request("User"), True, Date.Now, Encriptar(Request("User") & Date.Now.ToString), Request("ID"))
         GeneraCorreoRECHAZO(Monto, Cliente, Nombre, Analista)
         Response.Redirect("~\232db951-DGLQ.aspx?User=" & Request("User") & "&ID=0")
     End Sub
