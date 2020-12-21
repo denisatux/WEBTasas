@@ -6,7 +6,7 @@ Partial Public Class CPXForm
     Dim taOBS As New ProDSTableAdapters.CXP_ObservacionesSolicitudTableAdapter
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
-            'GeneraArchivo("CXP\TEST.PDF", 23, "o4fdAtt7Wzxr42AXcQcfnp1V/nb9uzHhkbYyBqFeOu8MihZVIukiSyyX", 821, "No Pagada", "PSC", True)
+            'GeneraArchivo("CXP\TEST.PDF", 23, "o4fdAtt7Wzxr42AXcQcfnp1V/nb9uzHhkbYyBqFeOu8MihZVIukiSyyX", 3660, "No Pagada", "PSC", True, 1232)
             Label1.Text = My.Settings.RUTA_TMP
             Session.Item("MCONTROL_CXP") = SacaCorreoFase("MCONTROL_CXP")
             LbAutorizante.Visible = False

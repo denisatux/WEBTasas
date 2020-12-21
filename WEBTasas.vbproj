@@ -95,6 +95,7 @@
     <Content Include="232db951-DGLQ.aspx" />
     <Content Include="5159Inte-IVAaut.aspx" />
     <Content Include="5159dx1-IVAaut.aspx" />
+    <Content Include="5Afdb804-9cXp.aspx" />
     <Content Include="5Afdb804-8cXp.aspx" />
     <Content Include="5Afdb804-7cXp.aspx" />
     <Content Include="951db299-SLCDG.aspx" />
@@ -146,6 +147,13 @@
     </Compile>
     <Compile Include="5159dx1-IVAaut.aspx.vb">
       <DependentUpon>5159dx1-IVAaut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="5Afdb804-9cXp.aspx.designer.vb">
+      <DependentUpon>5Afdb804-9cXp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="5Afdb804-9cXp.aspx.vb">
+      <DependentUpon>5Afdb804-9cXp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="5Afdb804-8cXp.aspx.designer.vb">
@@ -264,6 +272,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CreditoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CXP_DS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CXP_DS.xsd</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -386,6 +399,17 @@
     </Content>
     <Content Include="Deyel\DeyelDS.xsc">
       <DependentUpon>DeyelDS.xsd</DependentUpon>
+    </Content>
+    <Content Include="CXP_DS.xsc">
+      <DependentUpon>CXP_DS.xsd</DependentUpon>
+    </Content>
+    <None Include="CXP_DS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CXP_DS.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="CXP_DS.xss">
+      <DependentUpon>CXP_DS.xsd</DependentUpon>
     </Content>
     <None Include="Deyel\DeyelDS.xsd">
       <SubType>Designer</SubType>
